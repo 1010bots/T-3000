@@ -49,7 +49,7 @@
     </picture>
     <div class="absolute top-0 w-full">
         @livewire('navigation-menu')
-        <div class="px-4 pt-8 bg-hero text-center text-white">
+        <div class="px-safe-offset-6 pt-8 bg-hero text-center text-white">
             <x-alerts.new-site class="relative z-index-5 backdrop-blur" />
             <p class="mx-auto my-4 font-serif text-2xl font-semibold italic">Multitalent Software, Hardware, Life, and Reality Developer</p>
             {{-- <div class="flex my-4 justify-center">
@@ -100,7 +100,7 @@
                 </span>
             </h1>
         </div>
-        <div class="max-w-4xl mb-8 mt-4 mx-auto px-4 text-white">
+        <div class="max-w-4xl mb-8 mt-4 mx-auto px-safe-offset-6 text-white">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <a href="/about" class="flex gap-1 justify-center items-center z-index-5 backdrop-blur p-4 rounded-xl bg-gr-cyan-50/50 dark:bg-dm-cyan-900/50 hover:bg-gr-cyan-50/75 dark:hover:bg-gr-cyan-900/75 text-xl font-semibold text-center text-gr-cyan-900 dark:text-white border-2 border-gr-cyan-500 dark:border-dm-cyan-50 shadow-lg shadow-dm-cyan-500/50 dark:shadow-dm-cyan-200/50 hover:shadow-dm-cyan-200 dark:hover:shadow-dm-cyan-200 ease-out duration-200 will-change-auto hover:will-change-scroll {{ $class ?? '' }}" style="border-style: inset;">
                     <span class="min-w-fit">
@@ -140,7 +140,7 @@
                 </a>
             </div>
         </div>
-        <div class="max-w-4xl mb-8 mt-4 mx-auto px-4 text-white">
+        <div class="max-w-4xl mb-8 mt-4 mx-auto px-safe-offset-6 text-white">
             <h2 class="font-serif font-bold text-3xl md:text-4xl">Latest Posts</h2>
             <hr class="my-2 border-white" />
             @foreach ($posts as $post)
@@ -181,7 +181,7 @@
                 </a>
             @endforeach
         </div>
-        <div class="max-w-4xl mb-8 mt-4 mx-auto px-4 text-white">
+        <div class="max-w-4xl mb-8 mt-4 mx-auto px-safe-offset-6 text-white">
             <h2 class="font-serif font-bold text-3xl md:text-4xl">($_ ) Community Resources</h2>
             <hr class="my-2 border-white" />
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">

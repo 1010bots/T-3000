@@ -1,6 +1,7 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
 import highlightjs from 'tailwind-highlightjs';
+import safeArea from 'tailwindcss-safe-area';
 import typography from '@tailwindcss/typography';
 
 const emojiFontStack = ['Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', 'Noto Emoji', 'Symbola'];
@@ -345,5 +346,5 @@ export default {
         }
     },
 
-    plugins: [forms, highlightjs, typography],
+    plugins: [forms, highlightjs, safeArea, typography],
 };

@@ -94,7 +94,7 @@
             }
         }
     </style>
-    <article class="m-auto p-6 max-w-2xl">
+    <article class="m-auto px-safe-offset-6 py-6 max-w-2xl">
         <div class="my-4 text-black dark:text-white">
             <p class="m-0 text-xl">{{ $createdAt->format('j F Y') }}
             @if ($createdAt != $updatedAt)
