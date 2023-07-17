@@ -43,7 +43,7 @@ Route::get('/blog/{year}/{month}/{date}/{slug}', function (string $year, string 
 /* WordPress Content Compatibility */
 Route::get('/wp-content/{path}', function (string $path) {
     return response()->redirectTo("https://blogarchive.reinhart1010.id/wp-content/$path");
-});
+})->where('search', '.*');
 
 /* WordPress Post Compatibility */
 Route::get('/{year}/{month}/{date}/{slug}', function (string $year, string $month, string $date, string $slug) {
