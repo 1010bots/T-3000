@@ -52,7 +52,11 @@ class BlogPostController extends Controller
             if (ctype_digit($year) && ctype_digit($month) && ctype_digit($day)) {
                 $post = $post->where('post_date', 'LIKE', intval($year) . '-' . sprintf('%02d', intval($month)) . '-' . sprintf('%02d', intval($day)) . '%');
             }
-            return $post->first();
+            $post = $post->first();
+            $post->content = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->content);
+            $post->post_content = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->post_content);
+            $post->excerpt = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->excerpt);
+            $post->post_excerpt = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->post_excerpt);
         });
         if (!$post) abort(404);
         if (RequestFacade::query('debug') == "true") return response()->json($post);
