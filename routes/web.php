@@ -44,6 +44,9 @@ Route::get('/blog/{year}/{month}/{date}/{slug}', function (string $year, string 
 Route::get('/wp-content/{path}', function (string $path) {
     return response()->redirectTo("https://blogarchive.reinhart1010.id/wp-content/$path");
 })->where('wp-content', '.*');
+Route::get('/wp-content/uploads/{year}/{month}/{slug}', function (string $year, string $month, string $slug) {
+    return response()->redirectTo("https://blogarchive.reinhart1010.id/wp-content/uploads/$year/$month/$slug");
+})->where('wp-content', '.*');
 
 /* WordPress Post Compatibility */
 Route::get('/{year}/{month}/{date}/{slug}', function (string $year, string $month, string $date, string $slug) {
