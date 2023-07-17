@@ -57,6 +57,7 @@ class BlogPostController extends Controller
             $post->post_content = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->post_content);
             $post->excerpt = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->excerpt);
             $post->post_excerpt = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->post_excerpt);
+            return $post;
         });
         if (!$post) abort(404);
         if (RequestFacade::query('debug') == "true") return response()->json($post);
