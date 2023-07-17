@@ -1,6 +1,14 @@
 # T-3000
 ## Replacing https://reinhart1010.id, one nanite at a time
 
+<picture>
+    <source src="public/img/icons/shell-blue-female-neutral.avif" type="image/avif">
+    <source src="public/img/icons/shell-blue-female-neutral.heic" type="image/heic">
+    <source src="public/img/icons/shell-blue-female-neutral.webp" type="image/webp">
+    <source src="public/img/icons/shell-blue-female-neutral.png" type="image/png">
+    <img src="public/img/icons/shell-blue-female-neutral.png" height="150">
+</picture>
+
 The original https://reinhart1010.id site was built using WordPress, a `($_ )`-ish (or `(>_ )` if you do Elementor, Shopify etc.) content management system that we chose back then due to its simplicity.
 
 But now, we need to fine-tune our website not just to make it harder, better, faster, and stronger, but also to further achieve our ultimate goal: building one of the few websites that stands between:
