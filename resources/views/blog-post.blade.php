@@ -75,6 +75,10 @@
             font-weight: 600;
             line-height: 1.5rem;
         }
+        article main img {
+            border-radius: 0.75rem;
+            max-width: 100%;
+        }
         article main p {
             margin-bottom: 1rem;
             margin-top: 1rem;
@@ -104,13 +108,40 @@
             <h1 class="text-3xl text-bold font-serif font-semibold break-words">{{ $post->post_title }}</h1>
             <x-share-buttons title="{{ $post->post_title }}" description="{{ $post->post_excerpt }}" class="my-2" />
         </div>
-        <hr>
+        @if (isset($post->thumbnail))
+            <?php
+                $srcset = [];
+                foreach ($post->thumbnail['attachment']['meta'] as $meta) {
+                    if ($meta['meta_key'] != '_wp_attachment_metadata' || !isset($meta['value']) || !isset($meta['value']['sizes'])) continue;
+                    preg_match('/([\s\S]+?)\/wp-content\/uploads\/(\d+)\/(\d+)\//', $post->thumbnail['attachment']['url'], $url_parts);
+                    if (count($url_parts) == 0) continue;
+                    foreach ($meta['value']['sizes'] as $type => $size) {
+                        if ($type == 'thumbnail') continue;
+                        $srcset[$size['width']] = $url_parts[1] . '/wp-content/uploads/' . $url_parts[2] . '/' . $url_parts[3] . '/' . $size['file'];
+                    }
+                }
+                $srcset_string = '';
+                foreach ($srcset as $size => $src) {
+                    $srcset_string .= $src . ' ' . $size . 'w ';
+                }
+            ?>
+            <picture>
+                <img src="{{ $post->thumbnail['attachment']['url'] }}" srcset="{{ $srcset_string }}" alt="{{ $post->thumbnail['attachment']['alt'] || $post->thumbnail['attachment']['description'] || $post->thumbnail['attachment']['title'] }}" class="h-auto w-full rounded-xl" />
+            </picture>
+        @elseif (isset($post->image))
+            <img src="{{ $post->image }}" class="h-auto w-full rounded-xl" />
+        @else
+            <hr>
+        @endif
         <x-alerts.new-site />
         {{-- <x-alerts.consent-required /> --}}
         <main class="text-lg text-gray-900 dark:text-gray-100">
             {!! $post->post_content ?? $post->content !!}
         </main>
-        <x-alerts.new-site />
+        <div class="my-4 text-black dark:text-white">
+            <x-share-buttons title="{{ $post->post_title }}" description="{{ $post->post_excerpt }}" class="my-2" />
+            <x-alerts.new-site />
+        </div>
         <script src="/js/smartquotes.js"></script>
         <script>smartquotes();</script>
     </article>
