@@ -1,19 +1,26 @@
 <?php
     use Carbon\Carbon;
-    $createdAt = new Carbon($post->created_at);
-    $updatedAt = new Carbon($post->updated_at);
+    $created_at = new Carbon($post->created_at);
+    $updated_at = new Carbon($post->updated_at);
+    $canonical = null;
+    if ($post->post_type == 'post') {
+        $canonical = 'https://reinhart1010.id/blog/' . $created_at->format('Y/m/d') . '/' . $post->post_name;
+    }
+    $post_meta = [];
+    if (isset($post->meta)) {
+        foreach ($post->meta as $meta) {
+            $post_meta[$meta['meta_key']] = $meta['value'];
+        }
+    }
 ?>
-<x-app-layout title="{{ $post->post_title }}">
+<x-app-layout :canonical="$canonical" :title="$post->post_title">
     <style scoped>
-        article main a, article main b, article main strong {
-            color: #007391;
+        article main a {
+            color: #6932BB;
             font-weight: 700;
         }
-        article main a:active, article main a:hover {
-            color: #00446C;
-        }
         article main a::after {
-            background-color: #007391;
+            background-color: #6932BB;
             bottom: 0;
             content: "";
             display: inline-block;
@@ -27,8 +34,15 @@
             mask: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.13332 3.69238C4.46915 2.70798 5.4019 2 6.5 2H11.5C12.8807 2 14 3.11929 14 4.5V9.5C14 10.5981 13.2921 11.5308 12.3077 11.8667V12.2308C12.3077 12.5665 12.1906 12.9937 11.9162 13.3469C11.6272 13.7191 11.1682 14.0001 10.5385 14.0001H4.76923C3.22385 14.0001 2 12.7761 2 11.2308V5.46161C2 4.91317 2.19723 4.45581 2.54568 4.13948C2.88637 3.8302 3.33074 3.69238 3.76923 3.69238H4.13332ZM4 4.69238H3.76923C3.53343 4.69238 3.34318 4.7661 3.21783 4.8799C3.10025 4.98664 3 5.1639 3 5.46161V11.2308C3 12.2239 3.77615 13.0001 4.76923 13.0001H10.5385C10.8375 13.0001 11.0131 12.8795 11.1265 12.7335C11.2546 12.5686 11.3077 12.3612 11.3077 12.2308V12H6.5C5.11929 12 4 10.8807 4 9.5V4.69238ZM8 6H9.29289L6.64645 8.64645C6.45118 8.84171 6.45118 9.15829 6.64645 9.35355C6.84171 9.54882 7.15829 9.54882 7.35355 9.35355L10 6.70711V8C10 8.27614 10.2239 8.5 10.5 8.5C10.7761 8.5 11 8.27614 11 8V5.5C11 5.22386 10.7761 5 10.5 5H8C7.72386 5 7.5 5.22386 7.5 5.5C7.5 5.77614 7.72386 6 8 6Z' fill='currentColor'/%3E%3C/svg%3E") no-repeat center;
             -webkit-mask: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.13332 3.69238C4.46915 2.70798 5.4019 2 6.5 2H11.5C12.8807 2 14 3.11929 14 4.5V9.5C14 10.5981 13.2921 11.5308 12.3077 11.8667V12.2308C12.3077 12.5665 12.1906 12.9937 11.9162 13.3469C11.6272 13.7191 11.1682 14.0001 10.5385 14.0001H4.76923C3.22385 14.0001 2 12.7761 2 11.2308V5.46161C2 4.91317 2.19723 4.45581 2.54568 4.13948C2.88637 3.8302 3.33074 3.69238 3.76923 3.69238H4.13332ZM4 4.69238H3.76923C3.53343 4.69238 3.34318 4.7661 3.21783 4.8799C3.10025 4.98664 3 5.1639 3 5.46161V11.2308C3 12.2239 3.77615 13.0001 4.76923 13.0001H10.5385C10.8375 13.0001 11.0131 12.8795 11.1265 12.7335C11.2546 12.5686 11.3077 12.3612 11.3077 12.2308V12H6.5C5.11929 12 4 10.8807 4 9.5V4.69238ZM8 6H9.29289L6.64645 8.64645C6.45118 8.84171 6.45118 9.15829 6.64645 9.35355C6.84171 9.54882 7.15829 9.54882 7.35355 9.35355L10 6.70711V8C10 8.27614 10.2239 8.5 10.5 8.5C10.7761 8.5 11 8.27614 11 8V5.5C11 5.22386 10.7761 5 10.5 5H8C7.72386 5 7.5 5.22386 7.5 5.5C7.5 5.77614 7.72386 6 8 6Z' fill='currentColor'/%3E%3C/svg%3E") no-repeat center;
         }
+        article main a:active, article main a:hover {
+            color: #46009B;
+        }
         article main a:active::after, article main a:hover::after {
-            background-color: #00446C;
+            background-color: #46009B;
+        }
+        article main b, article main strong {
+            color: #A7005E;
+            font-weight: 700;
         }
         article main figure figcaption {
             font-family: ui-serif, Constantia, "Bitstream Charter", Charter, "STIX Two Text", "Libertinus Serif", "Linux Libertine O", "Linux Libertine G", "Linux Libertine", "DejaVu Serif", "Bitstream Vera Serif", "Roboto Serif", "Noto Serif", "Times New Roman", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Emoji", Symbola;
@@ -44,36 +58,52 @@
             font-size: 2.25rem;
             font-weight: 600;
             line-height: 2.5rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
         }
         article main h2, article main .h2 {
             font-family: ui-serif, Constantia, "Bitstream Charter", Charter, "STIX Two Text", "Libertinus Serif", "Linux Libertine O", "Linux Libertine G", "Linux Libertine", "DejaVu Serif", "Bitstream Vera Serif", "Roboto Serif", "Noto Serif", "Times New Roman", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Emoji", Symbola;
             font-size: 1.875rem;
             font-weight: 600;
             line-height: 2.25rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
         }
         article main h3, article main .h3 {
             font-family: ui-serif, Constantia, "Bitstream Charter", Charter, "STIX Two Text", "Libertinus Serif", "Linux Libertine O", "Linux Libertine G", "Linux Libertine", "DejaVu Serif", "Bitstream Vera Serif", "Roboto Serif", "Noto Serif", "Times New Roman", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Emoji", Symbola;
             font-size: 1.5rem;
             font-weight: 600;
             line-height: 2rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
         }
         article main h4, article main .h4 {
             font-family: ui-serif, Constantia, "Bitstream Charter", Charter, "STIX Two Text", "Libertinus Serif", "Linux Libertine O", "Linux Libertine G", "Linux Libertine", "DejaVu Serif", "Bitstream Vera Serif", "Roboto Serif", "Noto Serif", "Times New Roman", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Emoji", Symbola;
             font-size: 1.25rem;
             font-weight: 600;
             line-height: 1.75rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
         }
         article main h5, article main .h5 {
             font-family: ui-serif, Constantia, "Bitstream Charter", Charter, "STIX Two Text", "Libertinus Serif", "Linux Libertine O", "Linux Libertine G", "Linux Libertine", "DejaVu Serif", "Bitstream Vera Serif", "Roboto Serif", "Noto Serif", "Times New Roman", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Emoji", Symbola;
             font-size: 1.125rem;
             font-weight: 600;
             line-height: 1.75rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
         }
         article main h6, article main .h6 {
             font-family: ui-serif, Constantia, "Bitstream Charter", Charter, "STIX Two Text", "Libertinus Serif", "Linux Libertine O", "Linux Libertine G", "Linux Libertine", "DejaVu Serif", "Bitstream Vera Serif", "Roboto Serif", "Noto Serif", "Times New Roman", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Emoji", Symbola;
             font-size: 1rem;
             font-weight: 600;
             line-height: 1.5rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+        article main figure {
+            margin-bottom: 1rem;
+            margin-top: 1rem;
         }
         article main img {
             border-radius: 0.75rem;
@@ -84,29 +114,32 @@
             margin-top: 1rem;
         }
         @media screen and (prefers-color-scheme: dark) {
-            article main a, article main b, article main strong {
-                color: #98E3EC;
+            article main a {
+                color: #D8CBFF;
             }
             article main a::after {
-                background-color: #98E3EC;
+                background-color: #D8CBFF;
             }
             article main a:active, article main a:hover {
-                color: #00B7C8;
+                color: #A990E6;
             }
             article main a:active::after, article main a:hover::after {
-                background-color: #00B7C8;
+                background-color: #A990E6;
+            }
+            article main b, article main strong {
+                color: #FEC0D6;
             }
         }
     </style>
     <article class="m-auto px-safe-offset-6 py-6 max-w-2xl">
         <div class="my-4 text-black dark:text-white">
-            <p class="m-0 text-xl">{{ $createdAt->format('j F Y') }}
-            @if ($createdAt != $updatedAt)
-                &bull; (Updated {{ $updatedAt->format('j F Y') }})
+            <p class="m-0 text-xl">{{ $created_at->format('j F Y') }}
+            @if ($created_at != $updated_at)
+                &bull; (Updated {{ $updated_at->format('j F Y') }})
             @endif
             </p>
             <h1 class="text-3xl text-bold font-serif font-semibold break-words">{{ $post->post_title }}</h1>
-            <x-share-buttons title="{{ $post->post_title }}" description="{{ $post->post_excerpt }}" class="my-2" />
+            <x-share-buttons :title="$post->post_title" :description="$post->post_excerpt" class="my-2" />
         </div>
         @if (isset($post->thumbnail))
             <?php
@@ -121,6 +154,7 @@
                     }
                 }
                 $srcset_string = '';
+                ksort($srcset, SORT_NUMERIC);
                 foreach ($srcset as $size => $src) {
                     $srcset_string .= $src . ' ' . $size . 'w ';
                 }
@@ -135,11 +169,44 @@
         @endif
         <x-alerts.new-site />
         {{-- <x-alerts.consent-required /> --}}
+        @if (isset($post->terms['kind']) && count($post->terms['kind']) > 0)
+            @switch (array_keys($post->terms['kind'])[0])
+                @case ('reply')
+                    @if (isset($post_meta['mf2_in-reply-to']))
+                        <div class="my-4 p-4 rounded-xl bg-gr-violet-50/50 dark:bg-dm-violet-900/50 hover:bg-gr-violet-50 dark:hover:bg-gr-violet-900 text-gr-violet-900 dark:text-white border-2 border-gr-violet-500 dark:border-dm-violet-50 shadow-lg shadow-dm-violet-400/50 dark:shadow-dm-violet-200/50 hover:shadow-dm-violet-200/75 dark:hover:shadow-dm-violet-200/75 ease-out duration-200 will-change-auto hover:will-change-scroll" style="border-style: inset;">
+                            <p>
+                                <x-fluentui-comment-note-24-o class="h-8 w-8" />
+                                This post is a reply to
+                                <a href="{{ $post_meta['mf2_in-reply-to']['properties']['properties']['url'][0] }}" target="_blank" class="font-bold text-gr-violet-600 dark:text-gr-violet-100 active:text-gr-violet-800 dark:active:text-gr-violet-300 hover:text-gr-violet-800 dark:hover:text-gr-violet-300">
+                                    {{ $post_meta['mf2_in-reply-to']['properties']['properties']['name'][0] }}<x-fluentui-window-new-16 class="inline-block h-4 w-4" />
+                                </a>
+                                @if (isset($post_meta['mf2_in-reply-to']['properties']['properties']['author']))
+                                    <?php
+                                        $author = $post_meta['mf2_in-reply-to']['properties']['properties']['author']['properties'];
+                                    ?>
+                                    by
+                                    @if (isset($author['url']) && count($author['url']) > 0)
+                                        <a href="{{ $author['url'][0] }}" target="_blank" class="font-bold text-gr-violet-600 dark:text-gr-violet-100 active:text-gr-violet-800 dark:active:text-gr-violet-300 hover:text-gr-violet-800 dark:hover:text-gr-violet-300">
+                                            {{ $author['name'][0] }}<x-fluentui-window-new-16 class="inline-block h-4 w-4" />
+                                        </a>
+                                    @else
+                                        <strong class="font-bold text-gr-violet-600 dark:text-gr-violet-100">
+                                            {{ $author['name'][0] }}
+                                        </strong>
+                                    @endif
+                                @endif
+                            </i>
+                        </div>
+                    @endif
+                    @break
+                @default
+            @endswitch
+        @endif
         <main class="text-lg text-gray-900 dark:text-gray-100">
             {!! $post->post_content ?? $post->content !!}
         </main>
         <div class="my-4 text-black dark:text-white">
-            <x-share-buttons title="{{ $post->post_title }}" description="{{ $post->post_excerpt }}" class="my-2" />
+            <x-share-buttons :title="$post->post_title" :description="$post->post_excerpt" class="my-2" />
             <x-alerts.new-site />
         </div>
         <script src="/js/smartquotes.js"></script>

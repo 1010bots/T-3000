@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Request;
 Route::get('/', function () {
     if (Request::query('p') != null) return (new BlogPostController())->show(Request::query('p'));
     return view('welcome');
-});
+})->name('home');
 
 Route::middleware([
     'auth:sanctum',

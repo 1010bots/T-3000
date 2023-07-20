@@ -5,7 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        @isset ($attributes['title'])
+            <title>{{ $attributes['title'] }} - {{ config('app.name', 'Laravel') }}</title>
+        @else
+            <title>{{ config('app.name', 'Laravel') }}</title>
+        @endif
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://reinhart1010.github.io/nacelle">
@@ -19,6 +23,11 @@
 
         <!-- Styles -->
         @livewireStyles
+
+        <!-- Meta Tags -->
+        @isset ($attributes['canonical'])
+            <link rel="canonical" href="{{ $attributes['canonical'] }}" />
+        @endif
     </head>
     <body class="font-sans antialiased">
         <x-banner />

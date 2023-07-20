@@ -151,28 +151,28 @@
                     <div class="m">
                         @switch (array_keys($post->terms['kind'])[0])
                             @case ('article')
-                                <x-fluentui-news-24-o height="24" width="24"/>
+                                <x-fluentui-news-24-o class="h-6 w-6" />
                                 @break
                             @case ('like')
-                                <x-fluentui-thumb-like-24-o height="24" width="24"/>
+                                <x-fluentui-thumb-like-24-o class="h-6 w-6" />
                                 @break
                             @case ('note')
-                                <x-fluentui-note-add-24-o height="24" width="24"/>
+                                <x-fluentui-note-add-24-o class="h-6 w-6" />
                                 @break
                             @case ('reply')
-                                <x-fluentui-comment-note-24-o height="24" width="24"/>
+                                <x-fluentui-comment-note-24-o class="h-6 w-6" />
                                 @break
                             @case ('repost')
-                                <x-fluentui-arrow-repeat-all-24-o height="24" width="24"/>
+                                <x-fluentui-arrow-repeat-all-24-o class="h-6 w-6" />
                                 @break
                             @case ('rsvp')
-                                <x-fluentui-calendar-clock-24-o height="24" width="24"/>
+                                <x-fluentui-calendar-clock-24-o class="h-6 w-6" />
                                 @break
                             @case ('video')
-                                <x-fluentui-video-clip-24-o height="24" width="24"/>
+                                <x-fluentui-video-clip-24-o class="h-6 w-6" />
                                 @break
                             @default
-                                <x-fluentui-more-horizontal-24-o height="24" width="24"/>
+                                <x-fluentui-more-horizontal-24-o class="h-6 w-6" />
                                 @break
                         @endswitch
                     </div>

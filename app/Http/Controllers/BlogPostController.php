@@ -38,8 +38,17 @@ class BlogPostController extends Controller
      */
     public function show(string $id)
     {
-        $post = Post::status('publish')->find($id);
-        return response()->json($post);
+        $post = Cache::remember("post-id-$id", 5 * 60, function () use ($id) {
+            $post = Post::status('publish')->find($id);
+            $post->content = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->content);
+            $post->post_content = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->post_content);
+            $post->excerpt = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->excerpt);
+            $post->post_excerpt = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->post_excerpt);
+            return $post;
+        });
+        if (!$post) abort(404);
+        if (RequestFacade::query('debug') == "true") return response()->json($post);
+        return view('blog-post', ['post' => $post]);
     }
 
     /**
