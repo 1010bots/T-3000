@@ -37,7 +37,7 @@
         <x-fluentui-code-24-o height="24" width="24" />
         <span class="sr-only">Embed</span>
     </a> -->
-    <a class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4" href="mailto:?subject={{ $title }}&body={{ $description }}\n\n{{ $url }}" target="_blank">
+    <a class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4" href="mailto:?subject={{ $title }}&body={{ $description }}%0A%0A{{ $url }}" target="_blank">
         <x-fluentui-mail-add-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Email</span>
     </a>
@@ -110,7 +110,7 @@
         <x-icons.misskey height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Misskey</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #25d366; color: #ffffff;" href="https://api.whatsapp.com/send?text={{ $title_and_description }}\n{{ $url }}"  target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #25d366; color: #ffffff;" href="https://api.whatsapp.com/send?text={{ $title_and_description }}%0A%0A{{ $url }}"  target="_blank">
         <x-simpleicon-whatsapp height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to WhatsApp</span>
     </a>
@@ -167,7 +167,7 @@
                 url: url,
             });
             } else {
-            copyTextToClipboard(title + "\n\n" + description + "\n\n" + url);
+                copyTextToClipboard(title + "\n\n" + description + "\n\n" + url);
             }
         });
 
