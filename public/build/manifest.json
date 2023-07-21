@@ -4,9 +4,29 @@
     "isEntry": true,
     "src": "resources/css/app.css"
   },
+  "resources/css/dialog-polyfill.css": {
+    "file": "assets/dialog-polyfill-d4b9aad1.css",
+    "isEntry": true,
+    "src": "resources/css/dialog-polyfill.css"
+  },
   "resources/js/app.js": {
     "file": "assets/app-476eb4f6.js",
     "isEntry": true,
     "src": "resources/js/app.js"
+  },
+  "resources/js/dialog-polyfill.js": {
+    "file": "assets/dialog-polyfill-e3f64c70.js",
+    "isEntry": true,
+    "src": "resources/js/dialog-polyfill.js"
+  },
+  "resources/js/highlight.min.js": {
+    "file": "assets/highlight.min-e59f774b.js",
+    "isEntry": true,
+    "src": "resources/js/highlight.min.js"
+  },
+  "resources/js/modernizr.js": {
+    "file": "assets/modernizr-f29b0eef.js",
+    "isEntry": true,
+    "src": "resources/js/modernizr.js"
   }
 }
