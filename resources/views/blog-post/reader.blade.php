@@ -13,7 +13,7 @@
         }
     }
 ?>
-<x-app-layout :canonical="$canonical" :title="$post->post_title">
+<x-app-layout :canonical="$canonical" :oembed="true" :title="$post->post_title">
     <style scoped>
         article main a {
             color: #6932BB;

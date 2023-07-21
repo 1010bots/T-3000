@@ -32,6 +32,10 @@
         @isset ($attributes['canonical'])
             <link rel="canonical" href="{{ $attributes['canonical'] }}" />
         @endif
+        @if (isset($attributes['oembed']) && $attributes['oembed'] === true)
+            <link rel="alternate" type="application/json+oembed" href="{{ env('APP_URL', 'http://127.0.0.1') }}/oembed?url={{ urlencode($attributes['canonical'] ?? url()->full()) }}&format=json" title="{{ $attributes['title'] ?? 'oEmbed Element' }}" />
+            <link rel="alternate" type="text/xml+oembed" href="{{ env('APP_URL', 'http://127.0.0.1') }}/oembed?url={{ urlencode($attributes['canonical'] ?? url()->full()) }}&format=xml" title="Bacon Lollys oEmbed Profile" />
+        @endif
     </head>
     <body class="font-sans antialiased">
         <x-banner />
