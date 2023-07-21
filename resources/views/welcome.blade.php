@@ -1,5 +1,5 @@
 <?php
-    use Carbon\Carbon;
+    use Illuminate\Support\Carbon;
     use Corcel\Model\Post;
     use Illuminate\Support\Facades\Cache;
 

@@ -12,14 +12,18 @@
         @endif
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://reinhart1010.github.io/nacelle">
-        <link href="https://reinhart1010.github.io/nacelle/nacelle.lite.min.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.bunny.net">
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        @vite([
+            'resources/css/app.css',
+            'resources/css/dialog-polyfill.css',
+            'resources/js/app.js',
+            'resources/js/dialog-polyfill.js',
+            'resources/js/highlight.min.js',
+            'resources/js/modernizr.js',
+        ])
         <script>hljs.highlightAll();</script>
-        <script src="/js/modernizr.js"></script>
 
         <!-- Styles -->
         @livewireStyles

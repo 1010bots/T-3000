@@ -1,5 +1,5 @@
 <?php
-    use Carbon\Carbon;
+    use Illuminate\Support\Carbon;
     $created_at = new Carbon($post->created_at);
     $updated_at = new Carbon($post->updated_at);
     $canonical = null;

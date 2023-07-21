@@ -12,7 +12,14 @@
         <link href="https://reinhart1010.github.io/nacelle/nacelle.lite.min.css" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite([
+            'resources/css/app.css',
+            'resources/css/dialog-polyfill.css',
+            'resources/js/app.js',
+            'resources/js/dialog-polyfill.js',
+            'resources/js/highlight.min.js',
+            'resources/js/modernizr.js',
+        ])
     </head>
     <body>
         <div class="font-sans text-gray-900 dark:text-gray-100 antialiased">
