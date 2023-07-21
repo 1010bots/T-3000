@@ -37,6 +37,7 @@ Route::get('/you/consent', function () {
 
 /* oEmbed */
 Route::get('/oembed', 'App\Http\Controllers\BlogPostController@oEmbed');
+Route::get('/wp-json/oembed/1.0/embed', 'App\Http\Controllers\BlogPostController@oEmbed');
 
 /* WordPress Post Compatibility */
 Route::get('/blog/{year}/{month}/{date}/{slug}', function (string $year, string $month, string $date, string $slug) {

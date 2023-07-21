@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" prefix="og: http://ogp.me/ns#">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -28,14 +28,41 @@
         <!-- Styles -->
         @livewireStyles
 
-        <!-- Meta Tags -->
+        <!-- Link & Meta Tags -->
         @isset ($attributes['canonical'])
             <link rel="canonical" href="{{ $attributes['canonical'] }}" />
         @endif
+        
+        <meta name="description" href="{{ $attributes['description'] ?? 'Multitalent Software, Hardware, Life, and Reality Developer' }}" />
+        <meta name="keywords" href="{{ $attributes['keywords'] ?? 'reinhart1010,@reinhart1010,Reinhart Previano Koentjoro,Reinhart Previano K,Nate,Shift,Shiftine,Skyborne,Caps,controld,pr0xy,alterine,alt1e,(>_ ),(#_ ),($_ )' }}" />
+
+        <!-- oEmbed Meta Tags -->
         @if (isset($attributes['oembed']) && $attributes['oembed'] === true)
             <link rel="alternate" type="application/json+oembed" href="{{ env('APP_URL', 'http://127.0.0.1') }}/oembed?url={{ urlencode($attributes['canonical'] ?? url()->full()) }}&format=json" title="{{ $attributes['title'] ?? 'oEmbed Element' }}" />
             <link rel="alternate" type="text/xml+oembed" href="{{ env('APP_URL', 'http://127.0.0.1') }}/oembed?url={{ urlencode($attributes['canonical'] ?? url()->full()) }}&format=xml" title="Bacon Lollys oEmbed Profile" />
         @endif
+
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="{{ $attributes['title'] ?? config('app.name', 'Laravel') }}" />
+        <meta property="og:type" content="{{ $attributes['og-type'] ?? 'website' }}" />
+        <meta property="og:url" content="{{ $attributes['canonical'] ?? url()->full() }}" />
+        <meta property="og:image" content="{{ $attributes['og-image'] ?? '/img/hero/main-desktop-light.jpg' }}" />
+
+        @isset ($attributes['og-article-published-time'])
+            <meta property="og:article:published_time" content="{{ $attributes['og-article-published-time'] }}" />
+        @endisset
+
+        @isset ($attributes['og-article-modified-time'])
+            <meta property="og:article:modified_time" content="{{ $attributes['og-article-modified-time'] }}" />
+        @endisset
+
+        <!-- Facebook Meta Tags -->
+        <meta name="fb:page_id" content="100085894570968" />
+
+        <!-- Twitter Meta Tags -->
+        <!-- (>_ ): Only necessary non-OG tags, see https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started#opengraph -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@reinhart1010" />
     </head>
     <body class="font-sans antialiased">
         <x-banner />

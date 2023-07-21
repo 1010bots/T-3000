@@ -1,19 +1,38 @@
 <?php
     use Illuminate\Support\Carbon;
-    $created_at = new Carbon($post->created_at);
-    $updated_at = new Carbon($post->updated_at);
+    $created_at = new Carbon($post->post_date);
+    $created_at_gmt = new Carbon($post->post_date_gmt);
+    $updated_at = new Carbon($post->post_modified);
+    $updated_at_gmt = new Carbon($post->post_modified_gmt);
     $canonical = null;
     if ($post->post_type == 'post') {
         $canonical = 'https://reinhart1010.id/blog/' . $created_at->format('Y/m/d') . '/' . $post->post_name;
     }
+
+    // Post Metadata
     $post_meta = [];
     if (isset($post->meta)) {
         foreach ($post->meta as $meta) {
             $post_meta[$meta['meta_key']] = $meta['value'];
         }
     }
+
+    // Post Cover Image
+    $cover_image_srcset = []; $cover_image_og = null;
+    if (isset($post->thumbnail)) {
+        foreach ($post->thumbnail['attachment']['meta'] as $meta) {
+            if ($meta['meta_key'] != '_wp_attachment_metadata' || !isset($meta['value']) || !isset($meta['value']['sizes'])) continue;
+            preg_match('/([\s\S]+?)\/wp-content\/uploads\/(\d+)\/(\d+)\//', $post->thumbnail['attachment']['url'], $url_parts);
+            if (count($url_parts) == 0) continue;
+            foreach ($meta['value']['sizes'] as $type => $size) {
+                if ($type == 'thumbnail') continue;
+                if ($type == 'post-thumbnail') $cover_image_og = $url_parts[1] . '/wp-content/uploads/' . $url_parts[2] . '/' . $url_parts[3] . '/' . $size['file'];
+                $cover_image_srcset[$size['width']] = $url_parts[1] . '/wp-content/uploads/' . $url_parts[2] . '/' . $url_parts[3] . '/' . $size['file'];
+            }
+        }
+    }
 ?>
-<x-app-layout :canonical="$canonical" :oembed="true" :title="$post->post_title">
+<x-app-layout :canonical="$canonical" :description="$post->post_excerpt" :keywords="$post->keywords_str" :oembed="true" :og-article-published-time="$created_at->toIso8601String()" :og-article-modified-time="$updated_at->toIso8601String()" :og-image="$cover_image_og" og-type="article" :title="$post->post_title">
     <style scoped>
         article main a {
             color: #6932BB;
@@ -143,24 +162,14 @@
         </div>
         @if (isset($post->thumbnail))
             <?php
-                $srcset = [];
-                foreach ($post->thumbnail['attachment']['meta'] as $meta) {
-                    if ($meta['meta_key'] != '_wp_attachment_metadata' || !isset($meta['value']) || !isset($meta['value']['sizes'])) continue;
-                    preg_match('/([\s\S]+?)\/wp-content\/uploads\/(\d+)\/(\d+)\//', $post->thumbnail['attachment']['url'], $url_parts);
-                    if (count($url_parts) == 0) continue;
-                    foreach ($meta['value']['sizes'] as $type => $size) {
-                        if ($type == 'thumbnail') continue;
-                        $srcset[$size['width']] = $url_parts[1] . '/wp-content/uploads/' . $url_parts[2] . '/' . $url_parts[3] . '/' . $size['file'];
-                    }
-                }
-                $srcset_string = '';
-                ksort($srcset, SORT_NUMERIC);
-                foreach ($srcset as $size => $src) {
-                    $srcset_string .= $src . ' ' . $size . 'w ';
+                $cover_image_srcset_string = '';
+                ksort($cover_image_srcset, SORT_NUMERIC);
+                foreach ($cover_image_srcset as $size => $src) {
+                    $cover_image_srcset_string .= $src . ' ' . $size . 'w ';
                 }
             ?>
             <picture>
-                <img src="{{ $post->thumbnail['attachment']['url'] }}" srcset="{{ $srcset_string }}" alt="{{ $post->thumbnail['attachment']['alt'] || $post->thumbnail['attachment']['description'] || $post->thumbnail['attachment']['title'] }}" class="h-auto w-full rounded-xl" />
+                <img src="{{ $post->thumbnail['attachment']['url'] }}" srcset="{{ $cover_image_srcset_string }}" alt="{{ $post->thumbnail['attachment']['alt'] || $post->thumbnail['attachment']['description'] || $post->thumbnail['attachment']['title'] }}" class="h-auto w-full rounded-xl" />
             </picture>
         @elseif (isset($post->image))
             <img src="{{ $post->image }}" class="h-auto w-full rounded-xl" />
