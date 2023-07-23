@@ -1,7 +1,7 @@
 @props(['active', 'color'])
 
 @php
-$color_class = 'border-gr-fuchsia-400 dark:border-gr-fuchsia-600 text-gr-fuchsia-700 dark:text-gr-fuchsia-300 bg-gr-fuchsia-50 dark:bg-gr-fuchsia-900/50 focus:outline-none focus:text-gr-fuchsia-800 dark:focus:text-gr-fuchsia-200 focus:bg-gr-fuchsia-100 dark:focus:bg-gr-fuchsia-900 focus:border-gr-fuchsia-700 dark:focus:border-gr-fuchsia-300';
+$color_class = 'border-gr-fuchsia-400 dark:border-gr-fuchsia-400 text-gr-fuchsia-700 dark:text-gr-fuchsia-300 bg-gr-fuchsia-50 dark:bg-gr-fuchsia-900/50 focus:outline-none focus:text-gr-fuchsia-800 dark:focus:text-gr-fuchsia-200 focus:bg-gr-fuchsia-100 dark:focus:bg-gr-fuchsia-900 focus:border-gr-fuchsia-700 dark:focus:border-gr-fuchsia-300';
 if (isset($color)) switch (strtolower($color)) {
     case 'system':
         $color_class = 'border-gr-cyan-400 dark:border-gr-cyan-600 text-gr-cyan-700 dark:text-gr-cyan-300 bg-gr-cyan-50 dark:bg-gr-cyan-900/50 focus:outline-none focus:text-gr-cyan-800 dark:focus:text-gr-cyan-200 focus:bg-gr-cyan-100 dark:focus:bg-gr-cyan-900 focus:border-gr-cyan-700 dark:focus:border-gr-cyan-300';

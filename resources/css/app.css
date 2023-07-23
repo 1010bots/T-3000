@@ -1,4 +1,10 @@
-@import "https://fonts.cdnfonts.com/css/ocr-a-extended";
+@font-face {
+  font-family: "OCR A Extended";
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  src: local("OCR A Extended"), url(https://fonts.cdnfonts.com/s/14159/OCRAEXT_2.woff) format('woff');
+}
 
 @tailwind base;
 @tailwind components;
@@ -15,8 +21,8 @@ html, body{
 }
 
 .text-ocr {
-    font-family: "OCR A Extended", "OCR A", monospace;
-    font-size: 1.1rem;
+  font-family: "OCR A Extended", "OCR A", monospace;
+  font-size: 1.1rem;
 }
 
 

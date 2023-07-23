@@ -7,5 +7,5 @@
   <source srcset="/img/icons/shell-blue-male-light.heic" media="(prefers-color-scheme:light)" type="image/heic" />
   <source srcset="/img/icons/shell-blue-male-light.webp" media="(prefers-color-scheme:light)" type="image/webp" />
   <source srcset="/img/icons/shell-blue-male-light.png" media="(prefers-color-scheme:light)" type="image/png" />
-  <img alt="Reinhart Previano K." src="/img/icons/shell-blue-male-neutral.png" class="h-12 w-auto" />
+  <img alt="Reinhart Previano K." src="/img/icons/shell-blue-male-neutral.png" height="668" width="691" class="h-12 w-auto" />
 </picture>

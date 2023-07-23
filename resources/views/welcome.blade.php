@@ -3,11 +3,11 @@
     use Corcel\Model\Post;
     use Illuminate\Support\Facades\Cache;
 
-    $posts = Cache::remember('home-latest-posts', 5 * 60, function () {
+    $posts = Cache::remember('home-latest-posts', 15 * 60, function () {
         return Post::type('post')->status('publish')->where('post_title', '!=', '')->orderBy('post_date_gmt', 'desc')->take(7)->get();
     });
 ?>
-<x-app-layout>
+<x-app-layout :navbar="false">
     <style scoped>
         @import url('https://fonts.bunny.net/css2?family=Lora:ital,wght@1,600&display=swap');
         .text-sinetron {
@@ -45,7 +45,7 @@
         <source srcset="/img/hero/main-mobile-light.heic" media="(prefers-color-scheme:light)" type="image/heic" />
         <source srcset="/img/hero/main-mobile-light.webp" media="(prefers-color-scheme:light)" type="image/webp" />
         <source srcset="/img/hero/main-mobile-light.jpg" media="(prefers-color-scheme:light)" type="image/jpg" />
-        <img src="/img/hero/main-desktop-light.jpg" class="fixed top-0 h-screen w-full bg-no-repeat object-cover" />
+        <img alt="Reinhart" src="/img/hero/main-desktop-light.jpg" height="1435" width="537" class="fixed top-0 h-screen w-full bg-no-repeat object-cover" />
     </picture>
     <div class="absolute top-0 w-full">
         @livewire('navigation-menu')
