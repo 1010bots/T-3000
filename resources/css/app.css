@@ -3,7 +3,7 @@
   font-display: swap;
   font-style: normal;
   font-weight: 400;
-  src: local("OCR A Extended"), url(https://fonts.cdnfonts.com/s/14159/OCRAEXT_2.woff) format('woff');
+  src: local("OCR A Extended"), url("https://fonts.cdnfonts.com/s/14159/OCRAEXT_2.woff") format('woff');
 }
 
 @tailwind base;

@@ -12,7 +12,8 @@
         @endif
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link rel="preconnect" href="https://fonts.bunny.net" />
+        <link rel="preconnect" href="https://fonts.cdnfonts.com" />
 
         <!-- Scripts -->
         @vite([

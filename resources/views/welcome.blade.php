@@ -45,7 +45,7 @@
         <source srcset="/img/hero/main-mobile-light.heic" media="(prefers-color-scheme:light)" type="image/heic" />
         <source srcset="/img/hero/main-mobile-light.webp" media="(prefers-color-scheme:light)" type="image/webp" />
         <source srcset="/img/hero/main-mobile-light.jpg" media="(prefers-color-scheme:light)" type="image/jpg" />
-        <img alt="Reinhart" src="/img/hero/main-desktop-light.jpg" height="1435" width="537" class="fixed top-0 h-screen w-full bg-no-repeat object-cover" />
+        <img alt="" src="/img/hero/main-desktop-light.jpg" height="1080" width="1920" class="fixed top-0 h-screen w-full bg-no-repeat object-cover" />
     </picture>
     <div class="absolute top-0 w-full">
         @livewire('navigation-menu')
@@ -78,17 +78,17 @@
             </div> --}}
             <p class="my-4">/* Yeah, the binary, <strong class="inline-block font-bold">(&gt;_ )</strong> guy who was born on <span class="text-ocr">10<small class="text-xs">/</small>10<small class="text-xs">/20</small>01</span> */</p>
             <picture>
-                <source srcset="/img/full-body/augmented-dark.avif" media="(prefers-color-scheme:dark)" type="image/avif" />
-                <source srcset="/img/full-body/augmented-dark.heic" media="(prefers-color-scheme:dark)" type="image/heic" />
-                <source srcset="/img/full-body/augmented-dark.webp" media="(prefers-color-scheme:dark)" type="image/webp" />
-                <source srcset="/img/full-body/augmented-dark.png" media="(prefers-color-scheme:dark)" type="image/png" />
-                <source srcset="/img/full-body/augmented-light.avif" media="(prefers-color-scheme:light)" type="image/avif" />
-                <source srcset="/img/full-body/augmented-light.heic" media="(prefers-color-scheme:light)" type="image/heic" />
-                <source srcset="/img/full-body/augmented-light.webp" media="(prefers-color-scheme:light)" type="image/webp" />
-                <source srcset="/img/full-body/augmented-light.png" media="(prefers-color-scheme:light)" type="image/png" />
-                <img src="/img/full-body/augmented-light.png" class="inline w-64" />
+                <source srcset="/img/full-body/augmented-dark.avif 1x, /img/full-body/augmented-dark@2x.avif 2x" media="(prefers-color-scheme:dark)" type="image/avif" />
+                <source srcset="/img/full-body/augmented-dark.heic 1x, /img/full-body/augmented-dark@2x.heic 2x" media="(prefers-color-scheme:dark)" type="image/heic" />
+                <source srcset="/img/full-body/augmented-dark.webp 1x, /img/full-body/augmented-dark@2x.webp 2x" media="(prefers-color-scheme:dark)" type="image/webp" />
+                <source srcset="/img/full-body/augmented-dark.png 1x, /img/full-body/augmented-dark@2x.png 2x" media="(prefers-color-scheme:dark)" type="image/png" />
+                <source srcset="/img/full-body/augmented-light.avif 1x, /img/full-body/augmented-light@2x.avif 2x" media="(prefers-color-scheme:light)" type="image/avif" />
+                <source srcset="/img/full-body/augmented-light.heic 1x, /img/full-body/augmented-light@2x.heic 2x" media="(prefers-color-scheme:light)" type="image/heic" />
+                <source srcset="/img/full-body/augmented-light.webp 1x, /img/full-body/augmented-light@2x.webp 2x" media="(prefers-color-scheme:light)" type="image/webp" />
+                <source srcset="/img/full-body/augmented-light.png 1x, /img/full-body/augmented-light@2x.png 2x" media="(prefers-color-scheme:light)" type="image/png" />
+                <img alt="Reinhart the bot wannabe" src="/img/full-body/augmented-light.png" srcset="/img/full-body/augmented-light.png 1x, /img/full-body/augmented-light@2x.png 2x" height="718" width="269" class="inline w-64" />
             </picture>
-            <h1 class="relative top-0 text-4xl md:text-5xl lg:text-6xl text-sinetron" style="margin-top: -300px;">
+            <h1 class="relative top-0 text-2xl md:text-5xl lg:text-6xl text-sinetron" style="margin-top: -300px;">
                 <span class="inline-block">
                     <span class="caps">R</span><span class="not-caps">einhart</span>
                 </span>
@@ -100,7 +100,7 @@
                 </span>
             </h1>
         </div>
-        <div class="max-w-4xl mb-8 mt-4 mx-auto px-safe-offset-6 text-white">
+        <div class="max-w-2xl mb-8 mt-4 mx-auto px-safe-offset-6 text-white">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <a href="/about" class="flex gap-1 justify-center items-center z-index-5 backdrop-blur p-4 rounded-xl bg-gr-cyan-50/50 dark:bg-dm-cyan-900/50 hover:bg-gr-cyan-50/75 dark:hover:bg-gr-cyan-900/75 text-xl font-semibold text-center text-gr-cyan-900 dark:text-white border-2 border-gr-cyan-500 dark:border-dm-cyan-50 shadow-lg shadow-dm-cyan-500/50 dark:shadow-dm-cyan-200/50 hover:shadow-dm-cyan-200 dark:hover:shadow-dm-cyan-200 ease-out duration-200 will-change-auto hover:will-change-scroll {{ $class ?? '' }}" style="border-style: inset;">
                     <span class="min-w-fit">
@@ -140,8 +140,8 @@
                 </a>
             </div>
         </div>
-        <div class="max-w-4xl mb-8 mt-4 mx-auto px-safe-offset-6 text-white">
-            <h2 class="font-serif font-bold text-3xl md:text-4xl">Latest Posts</h2>
+        <div class="max-w-2xl mb-8 mt-4 mx-auto px-safe-offset-6 text-white">
+            <h2 class="font-serif font-bold text-3xl md:text-2xl">Latest Posts</h2>
             <hr class="my-2 border-white" />
             @foreach ($posts as $post)
                 <?php
@@ -181,8 +181,8 @@
                 </a>
             @endforeach
         </div>
-        <div class="max-w-4xl mb-8 mt-4 mx-auto px-safe-offset-6 text-white">
-            <h2 class="font-serif font-bold text-3xl md:text-4xl">($_ ) Community Resources</h2>
+        <div class="max-w-2xl mb-8 mt-4 mx-auto px-safe-offset-6 text-white">
+            <h2 class="font-serif font-bold text-3xl md:text-2xl">($_ ) Community Resources</h2>
             <hr class="my-2 border-white" />
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <a href="https://threads.net/reinhart1010" class="flex gap-1 justify-center items-center z-index-5 backdrop-blur p-4 rounded-xl bg-gr-fuchsia-50/50 dark:bg-dm-fuchsia-900/50 hover:bg-gr-fuchsia-50/75 dark:hover:bg-gr-fuchsia-900/75 text-xl font-semibold text-center text-gr-fuchsia-900 dark:text-white border-2 border-gr-fuchsia-500 dark:border-dm-fuchsia-50 shadow-lg shadow-dm-fuchsia-500/50 dark:shadow-dm-fuchsia-200/50 hover:shadow-dm-fuchsia-200 dark:hover:shadow-dm-fuchsia-200 ease-out duration-200 will-change-auto hover:will-change-scroll {{ $class ?? '' }}" style="border-style: inset;">
