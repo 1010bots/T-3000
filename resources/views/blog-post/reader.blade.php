@@ -132,6 +132,14 @@
             margin-bottom: 1rem;
             margin-top: 1rem;
         }
+        article main ul {
+            list-style-type: "+ ";
+            margin-inline-start: 2rem;
+        }
+        article main ol {
+            list-style-type: decimal;
+            margin-inline-start: 2rem;
+        }
         @media screen and (prefers-color-scheme: dark) {
             article main a {
                 color: #D8CBFF;

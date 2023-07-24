@@ -34,8 +34,8 @@
             <link rel="canonical" href="{{ $attributes['canonical'] }}" />
         @endif
         
-        <meta name="description" href="{{ $attributes['description'] ?? 'Multitalent Software, Hardware, Life, and Reality Developer' }}" />
-        <meta name="keywords" href="{{ $attributes['keywords'] ?? 'reinhart1010,@reinhart1010,Reinhart Previano Koentjoro,Reinhart Previano K,Nate,Shift,Shiftine,Skyborne,Caps,controld,pr0xy,alterine,alt1e,(>_ ),(#_ ),($_ )' }}" />
+        <meta name="description" content="{{ $attributes['description'] ?? 'Multitalent Software, Hardware, Life, and Reality Developer' }}" />
+        <meta name="keywords" content="{{ $attributes['keywords'] ?? 'reinhart1010,@reinhart1010,Reinhart Previano Koentjoro,Reinhart Previano K,Nate,Shift,Shiftine,Skyborne,Caps,controld,pr0xy,alterine,alt1e,(>_ ),(#_ ),($_ )' }}" />
 
         <!-- oEmbed Meta Tags -->
         @if (isset($attributes['oembed']) && $attributes['oembed'] === true)
