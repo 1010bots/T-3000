@@ -59,7 +59,7 @@ class BlogPostController extends Controller
     public function displayPost(mixed $post) {
         if (!$post) abort(404);
         if (RequestFacade::query('debug') == "true") return response()->json($post);
-        return request()->view('blog-post.reader', ['post' => $post]);
+        return view('blog-post.reader', ['post' => $post]);
     }
 
     /**
