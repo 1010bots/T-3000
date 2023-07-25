@@ -4,7 +4,7 @@ import highlightjs from 'tailwind-highlightjs';
 import safeArea from 'tailwindcss-safe-area';
 import typography from '@tailwindcss/typography';
 
-const emojiFontStack = ['Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', 'Noto Emoji', 'Symbola'];
+const emojiFontStack = ['Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji Flags', 'Noto Color Emoji', 'Noto Emoji', 'Symbola'];
 
 /** @type {import('tailwindcss').Config} */
 export default {

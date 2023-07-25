@@ -29,6 +29,16 @@ Route::middleware([
 Route::get('/you/consent', function () {
     return view('privacy-consent');
 });
+    
+/* (>_ ): Cache the redirect response for 30 days */
+Route::middleware(
+    'cache.headers:public;max_age=1800;etag'
+)->group(function () {
+    /* Web browser compatibility test */
+    Route::get('/browser-test', function () {
+        return view('browser-test');
+    });
+});
 
 /* Post Content */
 /* (>_ ): Cache for 15 mins */
