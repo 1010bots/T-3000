@@ -8,9 +8,11 @@
     <noscript>
         <style>.jsonly { display: none }</style>
     </noscript>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Emoji&display=swap" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" type="text/css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Emoji&display=swap" ype="text/css" />
     <style>
         /* "Tofu" font from Google Fonts */
         @font-face {
@@ -27,23 +29,28 @@
         }
         #emoji-table {
             display: block;
-            max-width: 100%;
             overflow-x: auto;
         }
-        #emoji-table td, #emoji-table th {
+        .emoji-table td, .emoji-table th {
             min-width: 7rem;
         }
         .emoji-colored {
-            font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji Flags", "Noto Color Emoji System", TwemojiMozilla, EmojiOneMozilla, Tofu;
+            font-family: "Apple Color Emoji", "Segoe UI Emoji", "SamsungColorEmoji", "Noto Color Emoji Flags", "Noto Color Emoji System", Tofu;
         }
         .emoji-colored-fallback {
-            font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji Flags", "Noto Color Emoji", TwemojiMozilla, EmojiOneMozilla, Tofu;
+            font-family: "Apple Color Emoji", "Segoe UI Emoji", "SamsungColorEmoji", "Noto Color Emoji Flags", "Noto Color Emoji", Tofu;
         }
         .emoji-outlined {
             font-family: "Segoe UI Symbol", "Noto Emoji System", Symbola, Tofu;
         }
         .emoji-outlined-fallback {
             font-family: "Segoe UI Symbol", "Noto Emoji", Symbola, Tofu;
+        }
+        .text-48px {
+            font-size: 48px;
+        }
+        .text-center {
+            text-align: center;
         }
     </style>
 </head>
@@ -74,7 +81,7 @@
         </div>
         <h3 id="flexbox-grid">A3. CSS Flexbox and CSS Grid</h3>
         <p>
-            Our site heavily uses <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank">CSS Flexbox</a> and <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids" target="_blank">CSS Grid</a> to render content. While Flexbox has been <a href="https://caniuse.com/flexbox" target="_blank">supported</a> in all major web browsers (including Internet Explorer 11!), CSS Grid are supported starting in latter versions of web browsers, such as:
+            Our site heavily uses <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank">CSS Flexbox</a> and <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids" target="_blank">CSS Grid</a> to render content. While Flexbox has been <a href="https://caniuse.com/flexbox" target="_blank">supported</a> in all major web browsers (including Internet Explorer 11!), CSS Grid are supported starting in latter versions of web browsers, starting from:
             <ul>
                 <li>Chrome 57</li>
                 <li>Firefox 52</li>
@@ -90,17 +97,23 @@
     <section id="essential" aria-describedby="essential-title">
         <h2 id="essential-title">B. Essential Features</h2>
         <p>This site also uses the following features, which are not strictly required, but recommended to enjoy the best of our features.</p>
+        <div id="webfonts" aria-describedby="webfonts-title">
+            <h3 id="webfonts-title">B1. Webfonts</h3>
+            <p>Your web browser should be able to render webfonts if you are able to see a green check mark below.</p>
+            <i class="fa fa-check text-48px" aria-hidden="true" style="color: lime;"></i>
+            <i>Sample webfont provided by <a href="https://forkaweso.me" target="_blank">Fork Awesome</a>.</i>
+        </div>
         <div id="modern-emoji" aria-describedby="modern-emoji-title">
-            <h3 id="modern-emoji-title">Modern Emoji</h3>
+            <h3 id="modern-emoji-title">B2. Modern Emoji</h3>
             <p>Some of our blog posts contain emojis, and we prefer to use your <a href="https://simple.wikipedia.org/wiki/Operating_system" target="_blank">operating system</a>-provided emoji fonts as possible. However,
                 <ol>
-                    <li><strong>Older operating systems (especially Android) may bundle outdated or inconsistent emojis as compared to others,</strong> like <a href="https://www.theguardian.com/technology/2017/sep/06/why-are-samsung-emojis-different-from-everyone-else?ref=reinhart1010.id" target="_blank">this case for Samsung</a> (which is also why we don’t include Samsung Color Emoji on our system font stack).</li>
+                    <li><strong>Older operating systems (especially Android) may bundle outdated or inconsistent emojis as compared to others,</strong> like <a href="https://www.theguardian.com/technology/2017/sep/06/why-are-samsung-emojis-different-from-everyone-else?ref=reinhart1010.id" target="_blank">this case for Samsung</a>.</li>
                     <li><strong>Microsoft intentionally does not support country flag emojis,</strong> even in the latest version of Windows 11. This is also why Mozilla decided to bundle <a href="https://github.com/mozilla/twemoji-colr" target="_blank">another emoji font</a> for Firefox for Windows.</li>
                 </ol>
-                You can check for yourself how well your web browser and operating system renders modern emoji well, from old to new.
-                <strong>There should be EXACTLY five emojis without any rectangular boxes visible, for each emoji versions and variants to completely pass this test.</strong>
+                You can check for yourself how well your web browser and operating system renders these modern emojis.
+                <strong>There should be EXACTLY five emojis,</strong> nothing more or less, without any rectangular boxes visible, for each emoji versions and variants to completely pass this test.
             </p>
-            <table border="1" id="emoji-table">
+            <table id="emoji-table" border="1" class="emoji-table">
                 <tr>
                     <th rowspan="2">Emoji Version</th>
                     <th colspan="2">Colored</th>
@@ -211,6 +224,57 @@
                     <td class="emoji-outlined-fallback">😀🔰💯⏩✅</td>
                 </tr>
             </table>
+            <i>Modern emoji examples are partially provided by <a href="https://developer.android.com/develop/ui/views/text-and-emoji/emoji2" target="_blank">Android Open Source Project</a>.</i>
+            <p>
+                Emoji designs are often updated over time. However, one significant change happened 2018, where emoji designers from Apple, Google, Microsoft, Samsung, and Twitter agreed to standardize how their emojis look and feel across different apps and operating systems.
+            </p>
+            <p>
+                Remember <strong>Problem #1</strong> before (“Older operating systems may bundle outdated or inconsistent emojis”)? To check whether your browser or operating system is still using outdated (colored) emoji designs, try looking at your 💟 and 🔫 against the following correct and incorrect/outdated examples.
+            </p>
+            <table border="1" class="emoji-table">
+                <tr>
+                    <th rowspan="2">Emoji Name</th>
+                    <th colspan="2">Examples</th>
+                    <th rowspan="2">Your Turn</th>
+                </tr>
+                <tr>
+                    <th>Correct</th>
+                    <th>Incorrect/Outdated</th>
+                </tr>
+                <tr>
+                    <td><a href="https://emojipedia.org/heart-decoration" target="_blank">Heart Decoration</a></td>
+                    <td>
+                        <img alt="Heart Decoration emoji as rendered on current Apple devices" src="https://em-content.zobj.net/thumbs/72/apple/354/heart-decoration_1f49f.png" height="48" width="48" />
+                        <img alt="Heart Decoration emoji as rendered on current Google and Linux devices" src="https://em-content.zobj.net/thumbs/72/google/350/heart-decoration_1f49f.png" height="48" width="48" />
+                        <img alt="Heart Decoration emoji as rendered on current Microsoft devices" src="https://em-content.zobj.net/thumbs/72/microsoft/319/heart-decoration_1f49f.png" height="48" width="48" />
+                        <img alt="Heart Decoration emoji as rendered on current Samsung devices" src="https://em-content.zobj.net/thumbs/72/samsung/349/heart-decoration_1f49f.png" height="48" width="48" />
+                    </td>
+                    <td>
+                        <img alt="Heart Decoration emoji as rendered on earlier Google and Linux devices" src="https://em-content.zobj.net/thumbs/72/google/56/heart-decoration_1f49f.png" height="48" width="48" />
+                        <img alt="Heart Decoration emoji as rendered on earlier HTC devices" src="https://em-content.zobj.net/thumbs/72/htc/37/heart-decoration_1f49f.png" height="48" width="48" />
+                        <img alt="Heart Decoration emoji as rendered on earlier Microsoft devices" src="https://em-content.zobj.net/thumbs/72/microsoft/74/heart-decoration_1f49f.png" height="48" width="48" />
+                        <img alt="Heart Decoration emoji as rendered on earlier Samsung devices" src="https://em-content.zobj.net/thumbs/72/samsung/128/heart-decoration_1f49f.png" height="48" width="48" />
+                    </td>
+                    <td class="emoji-colored text-48px text-center">💟</td>
+                </tr>
+                <tr>
+                    <td><a href="https://emojipedia.org/pistol" target="_blank">Pistol</a></td>
+                    <td>
+                        <img alt="Pistol emoji as rendered on current Apple devices" src="https://em-content.zobj.net/thumbs/72/apple/354/pistol_1f52b.png" height="48" width="48" />
+                        <img alt="Pistol emoji as rendered on current Google and Linux devices" src="https://em-content.zobj.net/thumbs/72/google/350/pistol_1f52b.png" height="48" width="48" />
+                        <img alt="Pistol emoji as rendered on current Microsoft devices" src="https://em-content.zobj.net/thumbs/72/microsoft/319/pistol_1f52b.png" height="48" width="48" />
+                        <img alt="Pistol emoji as rendered on current Samsung devices" src="https://em-content.zobj.net/thumbs/72/samsung/349/pistol_1f52b.png" height="48" width="48" />
+                    </td>
+                    <td>
+                        <img alt="Pistol emoji as rendered on earlier Samsung devices"src="https://em-content.zobj.net/thumbs/72/apple/51/pistol_1f52b.png" height="48" width="48" />
+                        <img alt="Pistol emoji as rendered on earlier Google and Linux devices" src="https://em-content.zobj.net/thumbs/72/google/6/pistol_1f52b.png" height="48" width="48" />
+                        <img alt="Pistol emoji as rendered on earlier Microsoft devices" src="https://em-content.zobj.net/thumbs/72/microsoft/54/pistol_1f52b.png" height="48" width="48" />
+                        <img alt="Pistol emoji as rendered on earlier Samsung devices" src="https://em-content.zobj.net/thumbs/72/samsung/78/pistol_1f52b.png" height="48" width="48" />
+                    </td>
+                    <td class="emoji-colored text-48px text-center">🔫</td>
+                </tr>
+            </table>
+            <i>Color emoji samples provided by vendors and collected by <a href="https://emojipedia.org" target="_blank">Emojipedia</a>.</i>
         </div>
     </section>
 </body>
