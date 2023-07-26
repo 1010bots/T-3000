@@ -64,7 +64,49 @@
 <body>
     <h1>Web Browser Compatibility Test</h1>
     <p>
-        <strong>This site is designed with modern web feature detection standards, that is, by not complaining you for not using Google Chrome.</strong>
+        <strong>This site is designed with modern web feature detection standards, that is, by not complaining you for not using Google Chrome.</strong> However, as a friendly reminder, we usually give warnings to users who use:
+        <ul>
+            <li>Android Browser or WebView (except Firefox and Google Chrome) on Android 4.4.4 and below</li>
+            <li><a href="https://en.wikipedia.org/wiki/Chromium_(web_browser)" target="_blank">Chromium</a>-based browsers using Chromium 56 or below. Chromium-based browsers include:</li>
+            <ul>
+                <li>Android Browser</li>
+                <li>Android System WebView</li>
+                <li>Arc</li>
+                <li>Baidu Spark Browser</li>
+                <li>Brave</li>
+                <li>Google Chrome</li>
+                <li>Mi Browser</li>
+                <li>Opera on Opera 15 and above</li>
+                <li>Opera Mini for Android (Normal/High/Turbo Mode)</li>
+                <li>Oppo Browser</li>
+                <li>Samsung Internet</li>
+                <li>Tizen Browser on Tizen 3.x and above</li>
+                <li>Vivaldi</li>
+                <li>vivo Browser</li>
+            </ul>
+            <li>Firefox 51 or below</li>
+            <li>Internet Explorer (any version)</li>
+            <li><a href="https://en.wikipedia.org/wiki/EdgeHTML" target="_blank">EdgeHTML</a>-based Microsoft Edge 15 or below</li>
+            <ul>
+                <li>Chromium-based versions of Microsoft Edge (79 and above) follow the Chromium rules above</li>
+            </ul>
+            <li><a href="https://en.wikipedia.org/wiki/Presto_(browser_engine)" target="_blank">Presto</a>-based Opera 12 or below</li>
+            <ul>
+                <li>Presto is still also used in all versions of Opera Mini (except when <a href="https://dev.opera.com/articles/browsers-modes-engines/" target="_blank">Extreme/Mini mode</a> is turned off on Android and iOS)</li>
+                <li>Chromium-based versions of Opera (15 and above), and Opera Mini for Android and iOS under the Normal/Turbo/High mode follow the Chromium rules above</li>
+            </ul>
+            <li><a href="https://en.wikipedia.org/wiki/WebKit" target="_blank">WebKit</a>-based browsers using WebKit 603.3.7 (Safari 10.2, iOS 10.2) and below (except the case of Chromium, which identify as WebKit 537.36). Chromium-based browsers include:</li>
+            <ul>
+                <li>Safari</li>
+                <li>Firefox for iOS and iPadOS</li>
+                <li>Google Chrome for iOS and iPadOS</li>
+                <li>Microsoft Edge for iOS and iPadOS</li>
+                <li>Nintendo 3DS, Wii U, and Nintendo Switch</li>
+                <li>Opera Mini for iOS and iPadOS (Normal/High/Turbo Mode)</li>
+                <li>Sony PlayStation 4 and 5</li>
+                <li>Tizen Browser on Tizen 2.x and below</li>
+            </ul>
+        </ul>
         If you are interested in designing and building websites like us, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent" target="_blank">learn more</a>
         about why detecting whether users are using Chrome or not are mostly a bad idea.
     </p>
@@ -90,9 +132,10 @@
         <p>
             Our site heavily uses <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank">CSS Flexbox</a> and <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids" target="_blank">CSS Grid</a> to render content. While Flexbox has been <a href="https://caniuse.com/flexbox" target="_blank">supported</a> in all major web browsers (including Internet Explorer 11!), CSS Grid are supported starting in latter versions of web browsers, starting from:
             <ul>
-                <li>Chrome 57</li>
+                <li>Chromium 57</li>
                 <li>Firefox 52</li>
-                <li>Microsoft Edge (Legacy) 16</li>
+                <li>Google Chrome 57</li>
+                <li>Microsoft Edge 16</li>
                 <li>Safari 10.1</li>
                 <li>Android 5.0, or Chrome 57 and Firefox 52 for Android 4.4.4 and below</li>
                 <li>iOS 10.3</li>
@@ -108,31 +151,39 @@
             <h3 id="modern-http-title">B1. HTTP/2 and HTTP/3</h3>
             <p><a href="https://web.dev/performance-http2/" target="_blank">HTTP/2 (2015)</a> and <a href="https://blog.cloudflare.com/http3-the-past-present-and-future/#how-did-we-get-here" target="_blank">HTTP/3 (2022)</a> are major upgrades to the lovely <a href="https://simple.wikipedia.org/wiki/Hypertext_Transfer_Protocol" target="_blank">HTTP(S) protocol,</a> the one that allows you to visit numerous websites including <kbd><u>https</u>://reinhart1010.id</kbd>.</p>
             <p>
-                You are currently visiting this webpage using <strong>{{ $_SERVER['SERVER_PROTOCOL'] }},</strong> which is
-                @switch ($_SERVER['SERVER_PROTOCOL'])
-                    @case ('HTTP/0.9')
-                        <strong>completely ancient</strong> and <strong>should NOT</strong> be used to visit this website. Even if you are able to view this easter egg, we believe that you have just examined our source code at <a href="https://github.com/1010bots/T-3000">https://github.com/1010bots/T-3000</a>. Anyway, it is not possible for HTTP/0.9 browsers to submit forms (like searching) on this website.
-                        @break
-                    @case ('HTTP/1.0')
-                        really slow. Very 1996. Unless if you are robots who are trying to crawl this website, though, just please respect our <kbd>robots.txt</kbd>.
-                        @break
-                    @case ('HTTP/1.1')
-                        the standard for most web browsers today, especially for accessing sites that couldn’t support HTTPS. Oh, also Arduino and those little (#_ )s. No problem, though, but we still recommend to update your browser to support HTTP/2 or later to benefit some technical improvements to make our sites load and perform faster.
-                        @break
-                    @case ('HTTP/2')
-                    @case ('HTTP/2.0')
-                        great! You can now benefit from technical improvements you might not need to know but, TL;DR: they make websites to load faster in most conditions.
-                        @break
-                    @case ('HTTP/3')
-                    @case ('HTTP/3.0')
-                        even better by HTTP/2! You can now benefit from technical improvements you might not need to know but, TL;DR: they make websites to load faster in most conditions.
-                        @break
-                    @default
-                        something we can’t completely express how great the protocol is. HTTP/4 and later is definitely a great improvement. But HTTP/1.2 is a joke and should not exist. What a (#_ )-ful life.
-                @endswitch
+                <noscript>
+                    <i>JavaScript is required to test this feature</i>
+                </noscript>
+                <script>
+                    try {
+                        const protocol = performance.getEntries()[0].nextHopProtocol;
+                        switch (protocol) {
+                            case 'http/0.9':
+                                document.write('You are currently visiting this webpage using <strong>HTTP/0.9</strong>, which is <strong>not recommended</strong> to visit our website. Additionally, HTTP/0.9 does not support POST requests, making it unusable to log in with your account.');
+                                break;
+                            case 'http/1.0':
+                                document.write('You are currently visiting this webpage using <strong>HTTP/1.0</strong>, which is the standard for most web browsers today, especially for accessing sites that couldn’t support HTTPS. No problem, though, but we still recommend to update your browser to support HTTP/2 or later to benefit some technical improvements to make our sites load and perform faster.');
+                                break;
+                            case 'http/1.1':
+                                document.write('You are currently visiting this webpage using <strong>HTTP/1.1</strong>, which is the standard for most web browsers today, especially for accessing sites that couldn’t support HTTPS. No problem, though, but we still recommend to update your browser to support HTTP/2 or later to benefit some technical improvements to make our sites load and perform faster.');
+                                break;
+                            case 'h2':
+                            case 'h2c':
+                                document.write('You are currently visiting this webpage using <strong>HTTP/2</strong>, which is great! You can now benefit from technical improvements you might not need to know but, TL;DR: they make websites to load faster in most conditions.');
+                                break;
+                            case 'h3':
+                                document.write('You are currently visiting this webpage using <strong>HTTP/3</strong>, which is even better by HTTP/2! You can now benefit from technical improvements you might not need to know but, TL;DR: they make websites to load faster in most conditions.');
+                                break;
+                            default:
+                                
+                        }
+                    } catch (e) {
+                        document.write('We are unable to check your web browser’s HTTP version.');
+                    }
+                </script>
             </p>
             <p>
-                <strong>Note for (&gt;_ )s:</strong> Does the above result differs from the actual HTTP version that you’re currently using? It could also because of our web server doesn’t support *that* protocol, but Cloudlare upgraded the HTTP(S) connection under-the-hood to support yours. Please <a href="/contact" target="_blank">contact us</a> if that really happens.
+                <strong>Note for (&gt;_ )s:</strong> Does the above result differs from the actual HTTP version that you’re currently using? It could also because our web server may not support that version, but Cloudlare upgraded the HTTP(S) connection under-the-hood to support yours. Please <a href="/contact" target="_blank">contact us</a> if that really happens.
             </p>
         </div>
         <div id="webfonts" aria-describedby="webfonts-title">
