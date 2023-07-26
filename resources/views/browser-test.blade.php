@@ -27,7 +27,14 @@
             font-family: "Noto Emoji System";
             src: local("Noto Emoji");
         }
-        #emoji-table {
+
+        body {
+            padding-bottom: env(safe-area-inset-bottom);
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+            padding-top: env(safe-area-inset-top);
+        }
+        .emoji-table {
             display: block;
             overflow-x: auto;
         }
@@ -113,7 +120,7 @@
                 You can check for yourself how well your web browser and operating system renders these modern emojis.
                 <strong>There should be EXACTLY five emojis,</strong> nothing more or less, without any rectangular boxes visible, for each emoji versions and variants to completely pass this test.
             </p>
-            <table id="emoji-table" border="1" class="emoji-table">
+            <table id="modern-emoji-list" border="1" class="emoji-table">
                 <tr>
                     <th rowspan="2">Emoji Version</th>
                     <th colspan="2">Colored</th>
@@ -229,9 +236,9 @@
                 Emoji designs are often updated over time. However, one significant change happened 2018, where emoji designers from Apple, Google, Microsoft, Samsung, and Twitter agreed to standardize how their emojis look and feel across different apps and operating systems.
             </p>
             <p>
-                Remember <strong>Problem #1</strong> before (“Older operating systems may bundle outdated or inconsistent emojis”)? To check whether your browser or operating system is still using outdated (colored) emoji designs, try looking at your 💟 and 🔫 against the following correct and incorrect/outdated examples.
+                Remember <strong>Problem #1</strong> before (“Older operating systems may bundle outdated or inconsistent emojis”)? To check whether your browser or operating system is still using outdated color emoji designs, try looking at your 💟 and 🔫 against the following correct and incorrect/outdated examples.
             </p>
-            <table border="1" class="emoji-table">
+            <table id="modern-emoji-design-update" border="1" class="emoji-table">
                 <tr>
                     <th rowspan="2">Emoji Name</th>
                     <th colspan="2">Examples</th>
