@@ -32,10 +32,31 @@
         }
 
         body {
-            padding-bottom: env(safe-area-inset-bottom);
-            padding-left: env(safe-area-inset-left);
-            padding-right: env(safe-area-inset-right);
-            padding-top: env(safe-area-inset-top);
+            font-family: "Segoe UI Variable Text", -apple-system, BlinkMacSystemFont,
+                Inter, "Segoe UI", Cantarell, "Open Sans", "Noto Sans", Piboto,
+                "HarmonyOS Sans", Ubuntu, "Roboto Flex", Roboto, "Helvetica Neue", FreeSans,
+                Arial, sans-serif;
+            max-width: 850px;
+            margin-bottom: 2rem;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 2rem;
+            padding: 1rem;
+            padding-bottom: calc(env(safe-area-inset-bottom) +  1rem);
+            padding-left: calc(env(safe-area-inset-left) +  1rem);
+            padding-right: calc(env(safe-area-inset-right) +  1rem);
+            padding-top: calc(env(safe-area-inset-top) +  1rem);
+        }
+        a {
+            color: #0094d7;
+            color: oklch(63% 0.15 236deg);
+        }
+        a:active, a:hover {
+            color: #44ade5;
+            color: oklch(71% 0.125 236deg);
+        }
+        code, kbd {
+            font-family: Menlo, "DejaVu Sans Mono", Hack, monospace;
         }
         .emoji-table {
             display: block;
@@ -62,9 +83,45 @@
         .text-center {
             text-align: center;
         }
+        @media screen and (prefers-color-scheme: dark) {
+            html {
+                background-color: #000000;
+                color: #ffffff;
+            }
+            a {
+                color: #90CC94;
+                color: oklch(79% 0.1 146deg);
+            }
+            a:active, a:hover {
+                color: #6BB671;
+                color: oklch(71% 0.125 156deg);
+            }
+        }
     </style>
 </head>
 <body>
+    <picture>
+        <source srcset="/img/icons/shell-blue-male-dark.avif" media="(prefers-color-scheme:dark)" type="image/avif">
+        <source srcset="/img/icons/shell-blue-male-dark.heic" media="(prefers-color-scheme:dark)" type="image/heic">
+        <source srcset="/img/icons/shell-blue-male-dark.webp" media="(prefers-color-scheme:dark)" type="image/webp">
+        <source srcset="/img/icons/shell-blue-male-dark.png" media="(prefers-color-scheme:dark)" type="image/png">
+        <source srcset="/img/icons/shell-blue-male-light.avif" media="(prefers-color-scheme:light)" type="image/avif">
+        <source srcset="/img/icons/shell-blue-male-light.heic" media="(prefers-color-scheme:light)" type="image/heic">
+        <source srcset="/img/icons/shell-blue-male-light.webp" media="(prefers-color-scheme:light)" type="image/webp">
+        <source srcset="/img/icons/shell-blue-male-light.png" media="(prefers-color-scheme:light)" type="image/png">
+        <img alt="Reinhart Previano K." src="/img/icons/shell-blue-male-neutral.png" height="668" width="691" style="height: 6rem; width: auto;">
+    </picture>
+    <picture>
+        <source srcset="/img/icons/shell-blue-female-dark.avif" media="(prefers-color-scheme:dark)" type="image/avif">
+        <source srcset="/img/icons/shell-blue-female-dark.heic" media="(prefers-color-scheme:dark)" type="image/heic">
+        <source srcset="/img/icons/shell-blue-female-dark.webp" media="(prefers-color-scheme:dark)" type="image/webp">
+        <source srcset="/img/icons/shell-blue-female-dark.png" media="(prefers-color-scheme:dark)" type="image/png">
+        <source srcset="/img/icons/shell-blue-female-light.avif" media="(prefers-color-scheme:light)" type="image/avif">
+        <source srcset="/img/icons/shell-blue-female-light.heic" media="(prefers-color-scheme:light)" type="image/heic">
+        <source srcset="/img/icons/shell-blue-female-light.webp" media="(prefers-color-scheme:light)" type="image/webp">
+        <source srcset="/img/icons/shell-blue-female-light.png" media="(prefers-color-scheme:light)" type="image/png">
+        <img alt="Reinhart Previano K." src="/img/icons/shell-blue-female-neutral.png" height="668" width="691" style="height: 6rem; width: auto;">
+    </picture>
     <h1>Web Browser Compatibility Test</h1>
     <p>
         <strong>This site is designed with modern web feature detection standards, that is, by not complaining you for not using Google Chrome.</strong> However, as a friendly reminder, we usually give warnings to users who use:
@@ -98,15 +155,15 @@
                 <li>Presto is still also used in all versions of Opera Mini (except when <a href="https://dev.opera.com/articles/browsers-modes-engines/" target="_blank">Extreme/Mini mode</a> is turned off on Android and iOS)</li>
                 <li>Chromium-based versions of Opera (15 and above), and Opera Mini for Android and iOS under the Normal/Turbo/High mode follow the Chromium rules above</li>
             </ul>
-            <li><a href="https://en.wikipedia.org/wiki/WebKit" target="_blank">WebKit</a>-based browsers using WebKit 603.3.7 (Safari 10.2, iOS 10.2) and below (except the case of Chromium, who identify instead as WebKit 537.36). Chromium-based browsers include:</li>
+            <li><a href="https://en.wikipedia.org/wiki/WebKit" target="_blank">WebKit</a>-based browsers using WebKit 603.3.7 (Safari 10.2, iOS 10.2) and below (except the case of Chromium, who identify instead as WebKit 537.36). WebKit-based browsers include:</li>
             <ul>
-                <li>Safari</li>
                 <li>Firefox for iOS and iPadOS</li>
                 <li>GNOME Web (Epiphany)</li>
                 <li>Google Chrome for iOS and iPadOS</li>
                 <li>Microsoft Edge for iOS and iPadOS</li>
                 <li>Nintendo 3DS, Wii U, and Nintendo Switch</li>
                 <li>Opera Mini for iOS and iPadOS (Normal/High/Turbo Mode)</li>
+                <li>Safari</li>
                 <li>Sony PlayStation 4 and 5</li>
                 <li>Tizen Browser on Tizen 2.x and below</li>
             </ul>
@@ -180,6 +237,9 @@
                                 break;
                             case 'h3':
                                 document.write('You are currently visiting this webpage using <strong>HTTP/3</strong>, which is even better by HTTP/2! You can now benefit from technical improvements you might not need to know but, TL;DR: they make websites to load faster in most conditions.');
+                                break;
+                            case '':
+                                document.write('We are unable to check your web browser’s HTTP version.');
                                 break;
                             default:
                                 document.write('Your web browser reported that you are using HTTP version “' + protocol + "”. HTTP/4 and above could be definitely great, but HTTP/1.2 is a joke and does not exist.");
