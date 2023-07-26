@@ -136,7 +136,8 @@
                 <li>Brave</li>
                 <li>Google Chrome</li>
                 <li>Mi Browser</li>
-                <li>Opera on Opera 15 and above</li>
+                <li>Microsoft Edge version 79 and above</li>
+                <li>Opera version 15 and above</li>
                 <li>Opera Mini for Android (Normal/High/Turbo Mode)</li>
                 <li>Oppo Browser</li>
                 <li>Samsung Internet</li>
@@ -414,6 +415,22 @@
                     <td class="emoji-colored text-48px text-center">💟</td>
                 </tr>
                 <tr>
+                    <td><a href="https://emojipedia.org/cross-mark-button" target="_blank">Negative Squared Cross Mark</a></td>
+                    <td>
+                        <img alt="Negative Squared Cross Mark emoji as rendered on current Apple devices" src="https://em-content.zobj.net/thumbs/72/apple/354/cross-mark-button_274e.png" height="48" width="48" />
+                        <img alt="Negative Squared Cross Mark emoji as rendered on current Google and Linux devices" src="https://em-content.zobj.net/thumbs/72/google/350/cross-mark-button_274e.png" height="48" width="48" />
+                        <img alt="Negative Squared Cross Mark emoji as rendered on current Microsoft devices" src="https://em-content.zobj.net/thumbs/72/microsoft/319/cross-mark-button_274e.png" height="48" width="48" />
+                        <img alt="Negative Squared Cross Mark emoji as rendered on current Samsung devices" src="https://em-content.zobj.net/thumbs/72/samsung/349/cross-mark-button_274e.png" height="48" width="48" />
+                    </td>
+                    <td>
+                        <img alt="Negative Squared Cross Mark emoji as rendered on earlier Google and Linux devices" src="https://em-content.zobj.net/thumbs/72/google/56/negative-squared-cross-mark_274e.png" height="48" width="48" />
+                        <img alt="Negative Squared Cross Mark emoji as rendered on earlier Google and Linux devices" src="https://em-content.zobj.net/thumbs/72/google/110/negative-squared-cross-mark_274e.png" height="48" width="48" />
+                        <img alt="Negative Squared Cross Mark emoji as rendered on earlier Microsoft devices" src="https://em-content.zobj.net/thumbs/72/microsoft/54/negative-squared-cross-mark_274e.png" height="48" width="48" />
+                        <img alt="Negative Squared Cross Mark emoji as rendered on earlier Samsung devices" src="https://em-content.zobj.net/thumbs/72/samsung/128/negative-squared-cross-mark_274e.png" height="48" width="48" />
+                    </td>
+                    <td class="emoji-colored text-48px text-center">❎</td>
+                </tr>
+                <tr>
                     <td><a href="https://emojipedia.org/pistol" target="_blank">Pistol</a></td>
                     <td>
                         <img alt="Pistol emoji as rendered on current Apple devices" src="https://em-content.zobj.net/thumbs/72/apple/354/pistol_1f52b.png" height="48" width="48" />
@@ -428,6 +445,22 @@
                         <img alt="Pistol emoji as rendered on earlier Samsung devices" src="https://em-content.zobj.net/thumbs/72/samsung/78/pistol_1f52b.png" height="48" width="48" />
                     </td>
                     <td class="emoji-colored text-48px text-center">🔫</td>
+                </tr>
+                <tr>
+                    <td><a href="https://emojipedia.org/syringe" target="_blank">Syringe</a></td>
+                    <td>
+                        <img alt="Negative Squared Cross Mark emoji as rendered on current Apple devices" src="https://em-content.zobj.net/thumbs/72/apple/354/syringe_1f489.png" height="48" width="48" />
+                        <img alt="Negative Squared Cross Mark emoji as rendered on current Google and Linux devices" src="https://em-content.zobj.net/thumbs/72/google/350/syringe_1f489.png" height="48" width="48" />
+                        <img alt="Negative Squared Cross Mark emoji as rendered on current Microsoft devices" src="https://em-content.zobj.net/thumbs/72/microsoft/319/syringe_1f489.png" height="48" width="48" />
+                        <img alt="Negative Squared Cross Mark emoji as rendered on current Samsung devices" src="https://em-content.zobj.net/thumbs/72/samsung/349/syringe_1f489.png" height="48" width="48" />
+                    </td>
+                    <td>
+                        <img alt="Negative Squared Cross Mark emoji as rendered on earlier Apple devices" src="https://em-content.zobj.net/thumbs/72/apple/81/syringe_1f489.png" height="48" width="48" />
+                        <img alt="Negative Squared Cross Mark emoji as rendered on earlier HTC devices" src="https://em-content.zobj.net/thumbs/72/htc/37/syringe_1f489.png" height="48" width="48" />
+                        <img alt="Negative Squared Cross Mark emoji as rendered on earlier LG devices" src="https://em-content.zobj.net/thumbs/72/lg/307/syringe_1f489.png" height="48" width="48" />
+                        <img alt="Negative Squared Cross Mark emoji as rendered on earlier Samsung devices" src="https://em-content.zobj.net/thumbs/72/samsung/128/syringe_1f489.png" height="48" width="48" />
+                    </td>
+                    <td class="emoji-colored text-48px text-center">💉</td>
                 </tr>
             </table>
             <i>Color emoji samples provided by vendors and collected by <a href="https://emojipedia.org" target="_blank">Emojipedia</a>.</i>
