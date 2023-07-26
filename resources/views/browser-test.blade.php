@@ -182,7 +182,7 @@
                                 document.write('You are currently visiting this webpage using <strong>HTTP/3</strong>, which is even better by HTTP/2! You can now benefit from technical improvements you might not need to know but, TL;DR: they make websites to load faster in most conditions.');
                                 break;
                             default:
-                                
+                                document.write('Your web browser reported that you are using HTTP version “' + protocol + "”. HTTP/4 and above could be definitely great, but HTTP/1.2 is a joke and does not exist.");
                         }
                     } catch (e) {
                         document.write('We are unable to check your web browser’s HTTP version.');
