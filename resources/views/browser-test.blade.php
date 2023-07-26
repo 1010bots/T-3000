@@ -104,14 +104,45 @@
     <section id="essential" aria-describedby="essential-title">
         <h2 id="essential-title">B. Essential Features</h2>
         <p>This site also uses the following features, which are not strictly required, but recommended to enjoy the best of our features.</p>
+        <div id="modern-http" aria-describedby="modern-http-title">
+            <h3 id="modern-http-title">B1. HTTP/2 and HTTP/3</h3>
+            <p><a href="https://web.dev/performance-http2/" target="_blank">HTTP/2 (2015)</a> and <a href="https://blog.cloudflare.com/http3-the-past-present-and-future/#how-did-we-get-here" target="_blank">HTTP/3 (2022)</a> are major upgrades to the lovely <a href="https://simple.wikipedia.org/wiki/Hypertext_Transfer_Protocol" target="_blank">HTTP(S) protocol,</a> the one that allows you to visit numerous websites including <kbd><u>https</u>://reinhart1010.id</kbd>.</p>
+            <p>
+                You are currently visiting this webpage using <strong>{{ $_SERVER['SERVER_PROTOCOL'] }},</strong> which is
+                @switch ($_SERVER['SERVER_PROTOCOL'])
+                    @case ('HTTP/0.9')
+                        <strong>completely ancient</strong> and <strong>should NOT</strong> be used to visit this website. Even if you are able to view this easter egg, we believe that you have just examined our source code at <a href="https://github.com/1010bots/T-3000">https://github.com/1010bots/T-3000</a>. Anyway, it is not possible for HTTP/0.9 browsers to submit forms (like searching) on this website.
+                        @break
+                    @case ('HTTP/1.0')
+                        really slow. Very 1996. Unless if you are robots who are trying to crawl this website, though, just please respect our <kbd>robots.txt</kbd>.
+                        @break
+                    @case ('HTTP/1.1')
+                        the standard for most web browsers today, especially for accessing sites that couldn’t support HTTPS. Oh, also Arduino and those little (#_ )s. No problem, though, but we still recommend to update your browser to support HTTP/2 or later to benefit some technical improvements to make our sites load and perform faster.
+                        @break
+                    @case ('HTTP/2')
+                    @case ('HTTP/2.0')
+                        great! You can now benefit from technical improvements you might not need to know but, TL;DR: they make websites to load faster in most conditions.
+                        @break
+                    @case ('HTTP/3')
+                    @case ('HTTP/3.0')
+                        even better by HTTP/2! You can now benefit from technical improvements you might not need to know but, TL;DR: they make websites to load faster in most conditions.
+                        @break
+                    @default
+                        something we can’t completely express how great the protocol is. HTTP/4 and later is definitely a great improvement. But HTTP/1.2 is a joke and should not exist. What a (#_ )-ful life.
+                @endswitch
+            </p>
+            <p>
+                <strong>Note for (&gt;_ )s:</strong> Does the above result differs from the actual HTTP version that you’re currently using? It could also because of our web server doesn’t support *that* protocol, but Cloudlare upgraded the HTTP(S) connection under-the-hood to support yours. Please <a href="/contact" target="_blank">contact us</a> if that really happens.
+            </p>
+        </div>
         <div id="webfonts" aria-describedby="webfonts-title">
-            <h3 id="webfonts-title">B1. Webfonts</h3>
+            <h3 id="webfonts-title">B2. Webfonts</h3>
             <p>Your web browser should be able to render webfonts if you are able to see a green check mark below.</p>
             <i class="fa fa-check text-48px" aria-hidden="true" style="color: lime;"></i>
             <i>Sample webfont provided by <a href="https://forkaweso.me" target="_blank">Fork Awesome</a>.</i>
         </div>
         <div id="modern-emoji" aria-describedby="modern-emoji-title">
-            <h3 id="modern-emoji-title">B2. Modern Emoji</h3>
+            <h3 id="modern-emoji-title">B3. Modern Emoji</h3>
             <p>Some of our blog posts contain emojis, and we prefer to use your <a href="https://simple.wikipedia.org/wiki/Operating_system" target="_blank">operating system</a>-provided emoji fonts as possible. However,
                 <ol>
                     <li><strong>Older operating systems (especially Android) may bundle outdated or inconsistent emojis as compared to others,</strong> like <a href="https://www.theguardian.com/technology/2017/sep/06/why-are-samsung-emojis-different-from-everyone-else?ref=reinhart1010.id" target="_blank">this case for Samsung</a>.</li>
