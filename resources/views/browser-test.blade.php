@@ -69,7 +69,7 @@
     <p>
         <strong>This site is designed with modern web feature detection standards, that is, by not complaining you for not using Google Chrome.</strong> However, as a friendly reminder, we usually give warnings to users who use:
         <ul>
-            <li>Android Browser or WebView (except Firefox and Google Chrome) on Android 4.4.4 and below</li>
+            <li>Android Browser or WebView (except Firefox and Google Chrome) on Android 4.4.4 (equivalent to Chromium 39) and below</li>
             <li><a href="https://en.wikipedia.org/wiki/Chromium_(web_browser)" target="_blank">Chromium</a>-based browsers using Chromium 56 or below. Chromium-based browsers include:</li>
             <ul>
                 <li>Android Browser</li>
