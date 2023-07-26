@@ -64,8 +64,8 @@
 <body>
     <h1>Web Browser Compatibility Test</h1>
     <p>
-        This site is designed with modern web feature detection standards, that is, by not complaining you for not using Google Chrome.
-        <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent" target="_blank">Learn more</a>
+        <strong>This site is designed with modern web feature detection standards, that is, by not complaining you for not using Google Chrome.</strong>
+        If you are interested in designing and building websites like us, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent" target="_blank">learn more</a>
         about why detecting whether users are using Chrome or not are mostly a bad idea.
     </p>
     <hr />
@@ -233,7 +233,7 @@
             </table>
             <i>Modern emoji examples are partially provided by <a href="https://developer.android.com/develop/ui/views/text-and-emoji/emoji2" target="_blank">Android Open Source Project</a>.</i>
             <p>
-                Emoji designs are often updated over time. However, one significant change happened 2018, where emoji designers from Apple, Google, Microsoft, Samsung, and Twitter agreed to standardize how their emojis look and feel across different apps and operating systems.
+                Emoji designs are often updated over time. However, one significant change happened in 2018, where emoji designers from Apple, Google, Microsoft, Samsung, and Twitter agreed to standardize how their emojis look and feel across different apps and operating systems.
             </p>
             <p>
                 Remember <strong>Problem #1</strong> before (“Older operating systems may bundle outdated or inconsistent emojis”)? To check whether your browser or operating system is still using outdated color emoji designs, try looking at your 💟 and 🔫 against the following correct and incorrect/outdated examples.
