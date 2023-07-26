@@ -1,3 +1,6 @@
+<?php
+    use Illuminate\Support\Facades\Request;
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,10 +98,11 @@
                 <li>Presto is still also used in all versions of Opera Mini (except when <a href="https://dev.opera.com/articles/browsers-modes-engines/" target="_blank">Extreme/Mini mode</a> is turned off on Android and iOS)</li>
                 <li>Chromium-based versions of Opera (15 and above), and Opera Mini for Android and iOS under the Normal/Turbo/High mode follow the Chromium rules above</li>
             </ul>
-            <li><a href="https://en.wikipedia.org/wiki/WebKit" target="_blank">WebKit</a>-based browsers using WebKit 603.3.7 (Safari 10.2, iOS 10.2) and below (except the case of Chromium, which identify as WebKit 537.36). Chromium-based browsers include:</li>
+            <li><a href="https://en.wikipedia.org/wiki/WebKit" target="_blank">WebKit</a>-based browsers using WebKit 603.3.7 (Safari 10.2, iOS 10.2) and below (except the case of Chromium, who identify instead as WebKit 537.36). Chromium-based browsers include:</li>
             <ul>
                 <li>Safari</li>
                 <li>Firefox for iOS and iPadOS</li>
+                <li>GNOME Web (Epiphany)</li>
                 <li>Google Chrome for iOS and iPadOS</li>
                 <li>Microsoft Edge for iOS and iPadOS</li>
                 <li>Nintendo 3DS, Wii U, and Nintendo Switch</li>
@@ -107,6 +111,9 @@
                 <li>Tizen Browser on Tizen 2.x and below</li>
             </ul>
         </ul>
+        We detected that you are using <strong>{{ Request::header('User-Agent') }}</strong>, by the way.
+    </p>
+    <p>
         If you are interested in designing and building websites like us, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent" target="_blank">learn more</a>
         about why detecting whether users are using Chrome or not are mostly a bad idea.
     </p>
