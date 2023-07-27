@@ -88,7 +88,7 @@
                 <source srcset="/img/full-body/augmented-light.png 1x, /img/full-body/augmented-light@2x.png 2x" media="(prefers-color-scheme:light)" type="image/png" />
                 <img alt="Reinhart the bot wannabe" src="/img/full-body/augmented-light.png" srcset="/img/full-body/augmented-light.png 1x, /img/full-body/augmented-light@2x.png 2x" height="718" width="269" class="inline w-64" />
             </picture>
-            <h1 class="relative top-0 text-2xl md:text-5xl lg:text-6xl text-sinetron" style="margin-top: -300px;">
+            <h1 class="relative top-0 text-4xl md:text-5xl lg:text-6xl text-sinetron" style="margin-top: -300px;">
                 <span class="inline-block">
                     <span class="caps">R</span><span class="not-caps">einhart</span>
                 </span>
@@ -96,7 +96,16 @@
                     <span class="caps">P</span><span class="not-caps">reviano</span>
                 </span>
                 <span class="inline-block">
-                    <span class="caps">K</span><span class="not-caps">.</span>
+                    <span class="caps">K</span><span class="not-caps">oentjoro.,</span>
+                </span>
+                <span class="inline-block">
+                    ½
+                </span>
+                <span class="inline-block">
+                    <span class="caps">S</span><span class="not-caps">.</span>
+                </span>
+                <span class="inline-block">
+                    <span class="caps">K</span><span class="not-caps">om.</span>
                 </span>
             </h1>
         </div>
