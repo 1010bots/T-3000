@@ -30,6 +30,7 @@
         @livewireStyles
 
         <!-- Link & Meta Tags -->
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         @isset ($attributes['canonical'])
             <link rel="canonical" href="{{ $attributes['canonical'] }}" />
         @endif
