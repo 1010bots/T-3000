@@ -6,7 +6,7 @@
     $updated_at_gmt = new Carbon($post->post_modified_gmt);
     $canonical = null;
     if ($post->post_type == 'post') {
-        $canonical = 'https://reinhart1010.id/blog/' . $created_at->format('Y/m/d') . '/' . $post->post_name;
+        $canonical = env('APP_URL', 'http://127.0.0.1') . '/blog/' . $created_at->format('Y/m/d') . '/' . $post->post_name;
     }
 
     // Post Metadata

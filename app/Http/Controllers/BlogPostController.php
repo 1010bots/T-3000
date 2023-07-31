@@ -19,10 +19,10 @@ class BlogPostController extends Controller
         return Cache::remember("post-id-$id", 15 * 60, function () use ($id) {
             $post = Post::status('publish')->find($id);
             if ($post) {
-                $post->content = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->content);
-                $post->post_content = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->post_content);
-                $post->excerpt = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->excerpt);
-                $post->post_excerpt = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->post_excerpt);
+                $post->content = str_replace('blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->content);
+                $post->post_content = str_replace('blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->post_content);
+                $post->excerpt = str_replace('blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->excerpt);
+                $post->post_excerpt = str_replace('blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->post_excerpt);
             }
             return $post;
         });
@@ -44,10 +44,10 @@ class BlogPostController extends Controller
             }
             $post = $post->first();
             if ($post) {
-                $post->content = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->content);
-                $post->post_content = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->post_content);
-                $post->excerpt = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->excerpt);
-                $post->post_excerpt = str_replace('blogarchive.reinhart1010.id/blog/', 'reinhart1010.id/blog/', $post->post_excerpt);
+                $post->content = str_replace('blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->content);
+                $post->post_content = str_replace('blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->post_content);
+                $post->excerpt = str_replace('blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->excerpt);
+                $post->post_excerpt = str_replace('blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->post_excerpt);
             }
             return $post;
         });
@@ -58,6 +58,7 @@ class BlogPostController extends Controller
      */
     public function displayPost(mixed $post) {
         if (!$post) abort(404);
+        if (RequestFacade::has('embed')) return view('blog-post.embed', ['post' => $post]);
         if (RequestFacade::query('debug') == "true") return response()->json($post);
         return view('blog-post.reader', ['post' => $post]);
     }
@@ -114,9 +115,13 @@ class BlogPostController extends Controller
         $format = $request->get('format', 'json');
         if ($format != 'json' || $format != 'xml') response()->json(['status' => 'KO', 'error' => 'OEMBED_INVALID_OUTPUT_FORMAT'], 400);
 
+        $height = intval($request->get('maxheight', '512'));
+        $width = intval($request->get('maxwidth', '512'));
+
         $paths = explode('/', parse_url($url, PHP_URL_PATH));
         array_shift($paths);
         $oembed_data = [];
+
         if ($paths[0] == 'blog' && isset($paths[1]) && isset($paths[2]) && isset($paths[3]) && isset($paths[4])) {
             $post = $this->getPostBySlug($paths[4], $paths[1], $paths[2], $paths[3]);
             if (!$post) abort(404);
@@ -125,7 +130,9 @@ class BlogPostController extends Controller
             $created_at = new Carbon($post->created_at);
             $canonical = null;
             if ($post->post_type == 'post') {
-                $canonical = 'https://reinhart1010.id/blog/' . $created_at->format('Y/m/d') . '/' . $post->post_name;
+                $canonical = env('APP_URL', 'http://127.0.0.1') . '/blog/' . $created_at->format('Y/m/d') . '/' . $post->post_name;
+            } else {
+                $canonical = $canonical = env('APP_URL', 'http://127.0.0.1') . '/' . $post->post_name;
             }
 
             // Get post thumbnail
@@ -146,11 +153,18 @@ class BlogPostController extends Controller
             }
 
             $oembed_data['version'] = '1.0';
-            $oembed_data['type'] = 'link';
+            if ($height >= 512 && $width >= 512) {
+                $oembed_data['type'] = 'rich';
+                $oembed_data['html'] = '<iframe src="' . $canonical . '?embed" height="' . $height . '" width="' . $width . '"></iframe>';
+                $oembed_data['height'] = $height;
+                $oembed_data['width'] = $width;
+            } else {
+                $oembed_data['type'] = 'link';
+            }
             $oembed_data['provider_name'] = env('APP_NAME', 'Laravel');
             $oembed_data['provider_url'] = env('APP_URL', 'http://127.0.0.1');
             $oembed_data['title'] = $post->post_title;
-            $oembed_data['url'] = $canonical ?? $url;
+            $oembed_data['url'] = $canonical;
 
             if ($thumbnail_url && $thumbnail_height && $thumbnail_width) {
                 $oembed_data['thumbnail_url'] = $thumbnail_url;
