@@ -115,8 +115,8 @@ class BlogPostController extends Controller
         $format = $request->get('format', 'json');
         if ($format != 'json' || $format != 'xml') response()->json(['status' => 'KO', 'error' => 'OEMBED_INVALID_OUTPUT_FORMAT'], 400);
 
-        $height = intval($request->get('maxheight', '512'));
-        $width = intval($request->get('maxwidth', '512'));
+        $height = intval($request->get('maxheight', 512));
+        $width = intval($request->get('maxwidth', 512));
 
         $paths = explode('/', parse_url($url, PHP_URL_PATH));
         array_shift($paths);
