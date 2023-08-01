@@ -47,6 +47,7 @@
         <link rel="stylesheet" href="https://reinhart1010.github.io/nacelle/nacelle.lite.min.css" type="text/css" />
         <style>
             body {
+                background-color: #ffffff; /* ($_ ): Fignting against transparent iframes */
                 display: flex;
                 flex-direction: column;
                 font-family: Nacelle, Aileron, "Helvetica Neue", sans-serif;
@@ -58,7 +59,7 @@
             }
             img.cover {
                 flex: 1 1 auto;
-                height: 100px; /* Will be readjusted with flex */
+                height: 100px; /* (#_ ): Will be readjusted with flex */
                 object-fit: cover;
                 min-width: 100%;
             }

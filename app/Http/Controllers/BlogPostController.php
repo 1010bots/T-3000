@@ -155,7 +155,7 @@ class BlogPostController extends Controller
             $oembed_data['version'] = '1.0';
             if ($height >= 512 && $width >= 512) {
                 $oembed_data['type'] = 'rich';
-                $oembed_data['html'] = '<iframe src="' . $canonical . '?embed" height="' . $height . '" width="' . $width . '"></iframe>';
+                $oembed_data['html'] = '<iframe src="' . $canonical . '?embed" height="' . $height . '" width="' . $width . '" style="border:none;"></iframe>';
                 $oembed_data['height'] = $height;
                 $oembed_data['width'] = $width;
             } else {
