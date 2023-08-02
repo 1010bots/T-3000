@@ -101,11 +101,11 @@
         <x-icons.friendica height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Friendica</span>
     </a>
-    {{-- <span id="${uniqueId}-share-menu-kakao-story" />
-    <a id="${uniqueId}-share-menu-kakao-talk" class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FAE100; color: #3C1D1E;" target="_blank">
-        <Icon pack="ri" name="kakao-talk-fill" height="24" width="24" class="inline-block" />
+    {{-- <span id="${uniqueId}-share-menu-kakao-story" /> --}}
+    <a id="{{ $unique_id }}-share-menu-kakao-talk" class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FAE100; color: #3C1D1E;" target="_blank">
+        <x-ri-kakao-talk-fill height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to KakaoTalk</span>
-    </a> --}}
+    </a>
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #9EC23F; color: #ffffff;" href="https://mastodonshare.com/?text={{ $title_and_description }}&url={{ $url }}"  target="_blank">
         <x-icons.misskey height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Misskey</span>
@@ -147,6 +147,7 @@
 
             document.body.removeChild(textArea);
         }
+
         function copyTextToClipboard(text) {
             if (!navigator.clipboard) {
                 fallbackCopyTextToClipboard(text);
@@ -173,6 +174,37 @@
 
         document.getElementById("{{ $unique_id }}-share-menu-copy-link")?.addEventListener('click', () => {
             copyTextToClipboard(url);
+        });
+
+        document.getElementById("{{ $unique_id }}-share-menu-kakao-talk")?.addEventListener('click', () => {
+            const content = {
+                objectType: 'feed',
+                content: {
+                    title: '{{ $title }}',
+                    description: '{{ $description }}',
+                    imageUrl: '{{ $attributes['cover-image-url'] ?? '/img/hero/main-desktop-light.jpg' }}',
+                    link: {
+                        mobileWebUrl: '{{ $url }}'.replace("localhost:8000", "reinhart1010.id"),
+                        webUrl: '{{ $url }}'.replace("localhost:8000", "reinhart1010.id"),
+                    },
+                },
+                // social: {
+                //     likeCount: 286,
+                //     commentCount: 45,
+                //     sharedCount: 845,
+                // },
+                buttons: [
+                    {
+                        title: 'Read Article',
+                        link: {
+                            mobileWebUrl: '{{ $url }}'.replace("localhost:8000", "reinhart1010.id"),
+                            webUrl: '{{ $url }}'.replace("localhost:8000", "reinhart1010.id"),
+                        },
+                    },
+                ],
+            }
+            console.log(content);
+            Kakao.Share.sendDefault(content);
         });
     </script>
 </div>

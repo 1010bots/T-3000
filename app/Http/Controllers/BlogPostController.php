@@ -112,7 +112,7 @@ class BlogPostController extends Controller
         $url = $request->get('url');
         if (!filter_var($url, FILTER_VALIDATE_URL)) response()->json(['status' => 'KO', 'error' => 'OEMBED_INVALID_URL'], 400);
 
-        $format = $request->get('format', 'json');
+        $format = $request->get('format', $request->accepts('application/json') ? 'json' : 'xml');
         if ($format != 'json' || $format != 'xml') response()->json(['status' => 'KO', 'error' => 'OEMBED_INVALID_OUTPUT_FORMAT'], 400);
 
         $height = intval($request->get('maxheight', 512));
@@ -161,6 +161,7 @@ class BlogPostController extends Controller
             } else {
                 $oembed_data['type'] = 'link';
             }
+            
             $oembed_data['provider_name'] = env('APP_NAME', 'Laravel');
             $oembed_data['provider_url'] = env('APP_URL', 'http://127.0.0.1');
             $oembed_data['title'] = $post->post_title;

@@ -21,10 +21,12 @@
             'resources/css/dialog-polyfill.css',
             'resources/js/app.js',
             'resources/js/dialog-polyfill.js',
-            'resources/js/highlight.min.js',
             'resources/js/modernizr.js',
         ])
+        <script src="/js/highlight.min.js"></script>
+        <script src="/js/kakao.min.js"></script>
         <script>hljs.highlightAll();</script>
+        <script>Kakao.init('{{ env('KAKAO_JS_KEY', '') }}')</script>
 
         <!-- Styles -->
         @livewireStyles

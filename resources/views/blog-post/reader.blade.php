@@ -166,7 +166,7 @@
             @endif
             </p>
             <h1 class="text-3xl text-bold font-serif font-semibold break-words">{{ $post->post_title }}</h1>
-            <x-share-buttons :title="$post->post_title" :description="$post->post_excerpt" class="my-2" />
+            <x-share-buttons :title="$post->post_title" :description="$post->post_excerpt" :cover-image-url="$cover_image_og" class="my-2" />
         </div>
         @if (isset($post->thumbnail))
             <?php
@@ -223,7 +223,7 @@
             {!! $post->post_content ?? $post->content !!}
         </main>
         <div class="my-4 text-black dark:text-white">
-            <x-share-buttons :title="$post->post_title" :description="$post->post_excerpt" class="my-2" />
+            <x-share-buttons :title="$post->post_title" :description="$post->post_excerpt" :cover-image-url="$cover_image_og" class="my-2" />
             <x-alerts.new-site />
         </div>
         <script src="/js/smartquotes.js"></script>
