@@ -207,11 +207,11 @@
                     },
                 ],
             }
-            if (window.confirm("(#_ )! By sharing to KakaoTalk, Kakao may collect and use your current web browser and operating system information to redirect to KakaoTalk app.")) Kakao.Share.sendDefault(content);
+            if (window.confirm("(#_ )! By sharing to KakaoTalk, your browser and operating system information will be sent to Kakao to redirect to the KakaoTalk app.")) Kakao.Share.sendDefault(content);
         });
 
         document.getElementById("{{ $unique_id }}-share-menu-kakao-story")?.addEventListener('click', () => {
-            if (window.confirm("(#_ )! By sharing to KakaoStory, Kakao may collect and use your current web browser and operating system information to redirect to KakaoStory app.")) Kakao.Story.open({
+            if (window.confirm("(#_ )! By sharing to KakaoStory, your browser and operating system information will be sent to Kakao to redirect to the KakaoStory app.")) Kakao.Story.open({
                 url: '{{ $url }}',
                 text: '{{ $title_and_description }}',
                 urlinfo: {
