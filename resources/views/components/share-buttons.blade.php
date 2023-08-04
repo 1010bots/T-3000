@@ -1,4 +1,5 @@
 <?php
+    use Illuminate\Support\Facades\Http;
     use Illuminate\Support\Facades\Request;
     use Jenssegers\Agent\Agent;
 
@@ -69,6 +70,10 @@
         <x-simpleicon-mastodon height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Mastodon</span>
     </a>
+    <a id="{{ $unique_id }}-share-menu-kakao-story" class="text-center border-0 p-2 rounded-full leading-4 cursor-pointer active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #6A5CFF; color: #FFFFFF;" target="_blank">
+        <x-icons.kakaostory height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to KakaoStory</span>
+    </a>
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background: radial-gradient(circle at 0 100%, rgba(0,132,255,1) 10%, rgba(64,93,230,1) 30%, rgba(88,81,219,1) 50%, rgba(131,58,180,1) 70%, rgba(245,96,64,1) 90%, rgba(252,175,69,1) 100%); color: #ffffff;" href="http://www.facebook.com/dialog/send?app_id=1469324230012506&link={{ $url }}&redirect_uri={{ $url }}"  target="_blank">
         <x-simpleicon-messenger height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Messenger</span>
@@ -101,8 +106,7 @@
         <x-icons.friendica height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Friendica</span>
     </a>
-    {{-- <span id="${uniqueId}-share-menu-kakao-story" /> --}}
-    <a id="{{ $unique_id }}-share-menu-kakao-talk" class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FAE100; color: #3C1D1E;" target="_blank">
+    <a id="{{ $unique_id }}-share-menu-kakao-talk" class="text-center border-0 p-2 rounded-full leading-4 cursor-pointer active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FAE100; color: #3C1D1E;" target="_blank">
         <x-ri-kakao-talk-fill height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to KakaoTalk</span>
     </a>
@@ -182,7 +186,7 @@
                 content: {
                     title: '{{ $title }}',
                     description: '{{ $description }}',
-                    imageUrl: '{{ $attributes['cover-image-url'] ?? '/img/hero/main-desktop-light.jpg' }}',
+                    imageUrl: '{{ $attributes['cover-image-url'] ?? (env('APP_URL', 'http://127.0.0.1:8000') . '/img/hero/main-desktop-light.jpg') }}',
                     link: {
                         mobileWebUrl: '{{ $url }}'.replace("localhost:8000", "reinhart1010.id"),
                         webUrl: '{{ $url }}'.replace("localhost:8000", "reinhart1010.id"),
@@ -203,8 +207,22 @@
                     },
                 ],
             }
-            console.log(content);
-            Kakao.Share.sendDefault(content);
+            if (window.confirm("(#_ )! By sharing to KakaoTalk, Kakao may use your current web browser and operating system details to redirect to KakaoTalk app.")) Kakao.Share.sendDefault(content);
+        });
+
+        document.getElementById("{{ $unique_id }}-share-menu-kakao-story")?.addEventListener('click', () => {
+            if (window.confirm("(#_ )! By sharing to KakaoStory, Kakao may use your current web browser and operating system details to redirect to KakaoStory app.")) Kakao.Story.open({
+                url: '{{ $url }}',
+                text: '{{ $title_and_description }}',
+                urlinfo: {
+                    title: '{{ $title }}',
+                    desc: '{{ $description }}',
+                    name: '{{ env('APP_NAME', 'Laravel') }}',
+                    images: [
+                        '{{ $attributes['cover-image-url'] ?? (env('APP_URL', 'http://127.0.0.1:8000') . '/img/hero/main-desktop-light.jpg') }}'
+                    ]
+                }
+            })
         });
     </script>
 </div>
