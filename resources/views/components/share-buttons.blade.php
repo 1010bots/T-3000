@@ -26,18 +26,16 @@
         @else
             <x-fluentui-share-android-24-o height="24" width="24" class="inline-block" />
         @endif
-        <span class="align-middle" aria-hidden="true">/</span>
+        <span class="align-middle">Share</span>
+    </a>
+    <a id="{{ $unique_id }}-share-menu-copy-link" class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4 cursor-pointer">
         <x-fluentui-copy-24-o height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share</span>
+        <span class="sr-only">Copy Link</span>
     </a>
-    <a id="{{ $unique_id }}-share-menu-copy-link" class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4 cursor-pointer" style="width: 88px;">
-        <x-fluentui-link-24-o height="24" width="24" class="inline-block" />
-        <span class="align-middle">Link</span>
-    </a>
-    <!-- <a  id={`${uniqueId}-share-menu-embed"   class="text-center btn-disabled text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4">
-        <x-fluentui-code-24-o height="24" width="24" />
+    {{-- <a id="{{ $unique_id }}-share-menu-embed" class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4 cursor-pointer">
+        <x-fluentui-code-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Embed</span>
-    </a> -->
+    </a> --}}
     <a class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4" href="mailto:?subject={{ $title }}&body={{ $description }}%0A%0A{{ $url }}" target="_blank">
         <x-fluentui-mail-add-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Email</span>
@@ -65,6 +63,10 @@
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #011935; color: #ffffff;" href="http://tumblr.com/widgets/share/tool?canonicalUrl={{ $url }}&title={{ $title }}"  target="_blank">
         <x-simpleicon-tumblr height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Tumblr</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #000000; color: #DDDDDD;" href="https://twitter.com/share?text={{ $title }}&url={{ $url }}" target="_blank">
+        <x-icons.x height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to X</span>
     </a>
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #563ACB; color: #ffffff;" href="https://mastodonshare.com/?text={{ $title_and_description }}&url={{ $url }}"  target="_blank">
         <x-simpleicon-mastodon height="24" width="24" class="inline-block" />
@@ -127,8 +129,8 @@
         <span class="sr-only">Share to Evernote</span>
     </a>
     <script>
-        const title = "{{ $title }}", description = "{{ $description }}", url = "{{ $url }}";
         function fallbackCopyTextToClipboard(text) {
+            const title = "{{ $title }}", description = "{{ $description }}", url = "{{ $url }}";
             var textArea = document.createElement("textarea");
             textArea.value = text;
             
@@ -153,6 +155,7 @@
         }
 
         function copyTextToClipboard(text) {
+            const title = "{{ $title }}", description = "{{ $description }}", url = "{{ $url }}";
             if (!navigator.clipboard) {
                 fallbackCopyTextToClipboard(text);
                 return;
@@ -166,12 +169,12 @@
 
         document.getElementById("{{ $unique_id }}-share-menu-open-share-sheet")?.addEventListener('click', () => {
             if (navigator.share) {
-            navigator.share({
-                title: title,
-                text: description,
-                url: url,
-            });
-            } else {
+                navigator.share({
+                    title: title,
+                    text: description,
+                    url: url,
+                });
+            } else if (confirm("($_ ): Unable to share using your operating system's share sheet. Do you want to copy to clipboard instead?")) {
                 copyTextToClipboard(title + "\n\n" + description + "\n\n" + url);
             }
         });
@@ -181,6 +184,7 @@
         });
 
         document.getElementById("{{ $unique_id }}-share-menu-kakao-talk")?.addEventListener('click', () => {
+            const title = "{{ $title }}", description = "{{ $description }}", url = "{{ $url }}";
             const content = {
                 objectType: 'feed',
                 content: {
