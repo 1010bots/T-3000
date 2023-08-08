@@ -205,3 +205,8 @@ html, body{
     animation-timing-function: ease-out;
   }
   
+  /* Prevent page scrolling when modal is open */
+  html:has(dialog[open]:modal) {
+    overflow: hidden;
+  }
+  

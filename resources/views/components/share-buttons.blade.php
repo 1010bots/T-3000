@@ -5,6 +5,7 @@
 
     $agent = new Agent();
     $agent->setUserAgent(Request::header('User-Agent'));
+    if (!isset($canonical)) $canonical = Request::url();
     $chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     $allow_kakao = Request::cookie('optional_features_kakao') == true;
     $user_agent = Request::header('User-Agent');
@@ -16,6 +17,8 @@
 
     // Provide defaults for undefined characters
     if (!isset($url) || !$url) $url = Request::url();
+
+    $embed_html = '<iframe src="' . $canonical . '?embed" height="512" width="512" style="border:none;"><a href="{{ $canonical }}">' . $canonical . '</a></iframe>';
 ?>
 <div class="flex flex-wrap gap-2 {{ $class ?? '' }}">
     <a id="{{ $unique_id }}-share-menu-open-share-sheet" class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 py-2 rounded-full leading-4 cursor-pointer" style="width: 88px;">
@@ -32,10 +35,10 @@
         <x-fluentui-copy-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Copy Link</span>
     </a>
-    {{-- <a id="{{ $unique_id }}-share-menu-embed" class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4 cursor-pointer">
+    <a id="{{ $unique_id }}-share-menu-embed" class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4 cursor-pointer">
         <x-fluentui-code-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Embed</span>
-    </a> --}}
+    </a>
     <a class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4" href="mailto:?subject={{ $title }}&body={{ $description }}%0A%0A{{ $url }}" target="_blank">
         <x-fluentui-mail-add-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Email</span>
@@ -128,6 +131,24 @@
         <x-simpleicon-evernote height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Evernote</span>
     </a>
+    <dialog id="{{ $unique_id }}-share-menu-embed-dialog" class="bg-gray-100 dark:bg-gray-900 backdrop:bg-black/75 text-black dark:text-white border-0">
+        <h1 class="my-4 font-serif font-semibold text-3xl">Embed</h1>
+        <p class="my-4"><strong>This website supports oEmbed.</strong> To quickly use oEmbed, just copy this site's link to your oEmbed-supported apps and websites like WordPress.</p>
+        <p class="my-4">Alternatively, copy and paste the HTML code below to embed this post in your website.</p>
+        <div class="my-4 p-4 rounded-xl bg-gr-fuchsia-50/50 dark:bg-dm-fuchsia-900/50 hover:bg-gr-fuchsia-50 dark:hover:bg-gr-fuchsia-900 text-gr-fuchsia-900 dark:text-white border-2 border-gr-fuchsia-500 dark:border-dm-fuchsia-50 shadow-lg shadow-dm-fuchsia-400/50 dark:shadow-dm-fuchsia-200/50 hover:shadow-dm-fuchsia-200/75 dark:hover:shadow-dm-fuchsia-200/75 ease-out duration-200 will-change-auto hover:will-change-scroll" style="border-style: inset;">
+            <span class="inline-block font-bold">($_ )!</span>
+            We have made this thing responsive, but recommend at least <strong class="font-bold text-gr-fuchsia-600 dark:text-gr-fuchsia-300">512x512 pixels</strong> for best results.
+        </div>
+        <pre><code>{{ $embed_html }}</code></pre>
+        <details>
+            <summary>Preview</summary>
+            {!! $embed_html !!}
+        </details>
+        <form method="dialog" class="my-4">
+            <x-button type="button" id="{{ $unique_id }}-share-menu-embed-dialog-copy">Copy</x-button>
+            <x-button>OK</x-button>
+        </form>
+    </dialog>
     <script>
         function fallbackCopyTextToClipboard(text) {
             const title = "{{ $title }}", description = "{{ $description }}", url = "{{ $url }}";
@@ -167,6 +188,12 @@
             });
         }
 
+        function htmlDecode(input){
+            var e = document.createElement('div');
+            e.innerHTML = input;
+            return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+        }
+
         document.getElementById("{{ $unique_id }}-share-menu-open-share-sheet")?.addEventListener('click', () => {
             if (navigator.share) {
                 navigator.share({
@@ -174,13 +201,22 @@
                     text: description,
                     url: url,
                 });
-            } else if (confirm("($_ ): Unable to share using your operating system's share sheet. Do you want to copy to clipboard instead?")) {
+            } else if (confirm("(>_ ): Unable to share using your operating system's share sheet. Do you want to copy to clipboard instead?")) {
                 copyTextToClipboard(title + "\n\n" + description + "\n\n" + url);
             }
         });
 
         document.getElementById("{{ $unique_id }}-share-menu-copy-link")?.addEventListener('click', () => {
             copyTextToClipboard(url);
+        });
+
+        document.getElementById("{{ $unique_id }}-share-menu-embed")?.addEventListener('click', () => {
+            document.getElementById("{{ $unique_id }}-share-menu-embed-dialog")?.showModal()
+        });
+
+        document.getElementById("{{ $unique_id }}-share-menu-embed-dialog-copy")?.addEventListener('click', (e) => {
+           e.preventDefault();
+           copyTextToClipboard(htmlDecode("{{ $embed_html }}"));
         });
 
         document.getElementById("{{ $unique_id }}-share-menu-kakao-talk")?.addEventListener('click', () => {
