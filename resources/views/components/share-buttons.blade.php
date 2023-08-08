@@ -219,6 +219,21 @@
            copyTextToClipboard(htmlDecode("{{ $embed_html }}"));
         });
 
+        document.getElementById("{{ $unique_id }}-share-menu-kakao-story")?.addEventListener('click', () => {
+            if (window.confirm("(#_ )! By sharing to KakaoStory, your browser and operating system information will be sent to Kakao to redirect to the KakaoStory app.")) Kakao.Story.open({
+                url: '{{ $url }}',
+                text: '{{ $title_and_description }}',
+                urlInfo: {
+                    title: '{{ $title }}',
+                    desc: '{{ $description }}',
+                    name: '{{ env('APP_NAME', 'Laravel') }}',
+                    images: [
+                        '{{ $attributes['cover-image-url'] ?? (env('APP_URL', 'http://127.0.0.1:8000') . '/img/hero/main-desktop-light.jpg') }}'
+                    ]
+                }
+            })
+        });
+
         document.getElementById("{{ $unique_id }}-share-menu-kakao-talk")?.addEventListener('click', () => {
             const title = "{{ $title }}", description = "{{ $description }}", url = "{{ $url }}";
             const content = {
@@ -248,21 +263,6 @@
                 ],
             }
             if (window.confirm("(#_ )! By sharing to KakaoTalk, your browser and operating system information will be sent to Kakao to redirect to the KakaoTalk app.")) Kakao.Share.sendDefault(content);
-        });
-
-        document.getElementById("{{ $unique_id }}-share-menu-kakao-story")?.addEventListener('click', () => {
-            if (window.confirm("(#_ )! By sharing to KakaoStory, your browser and operating system information will be sent to Kakao to redirect to the KakaoStory app.")) Kakao.Story.open({
-                url: '{{ $url }}',
-                text: '{{ $title_and_description }}',
-                urlinfo: {
-                    title: '{{ $title }}',
-                    desc: '{{ $description }}',
-                    name: '{{ env('APP_NAME', 'Laravel') }}',
-                    images: [
-                        '{{ $attributes['cover-image-url'] ?? (env('APP_URL', 'http://127.0.0.1:8000') . '/img/hero/main-desktop-light.jpg') }}'
-                    ]
-                }
-            })
         });
     </script>
 </div>
