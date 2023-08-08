@@ -9,8 +9,6 @@ export default defineConfig({
                 'resources/css/dialog-polyfill.css',
                 'resources/js/app.js',
                 'resources/js/dialog-polyfill.js',
-                'resources/js/highlight.min.js',
-                'resources/js/kakao.js',
                 'resources/js/modernizr.js',
             ],
             refresh: [

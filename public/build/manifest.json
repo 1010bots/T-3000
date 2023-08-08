@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-9719afed.css",
+    "file": "assets/app-26bf841c.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -18,11 +18,6 @@
     "file": "assets/dialog-polyfill-e3f64c70.js",
     "isEntry": true,
     "src": "resources/js/dialog-polyfill.js"
-  },
-  "resources/js/highlight.min.js": {
-    "file": "assets/highlight.min-e59f774b.js",
-    "isEntry": true,
-    "src": "resources/js/highlight.min.js"
   },
   "resources/js/modernizr.js": {
     "file": "assets/modernizr-f29b0eef.js",
