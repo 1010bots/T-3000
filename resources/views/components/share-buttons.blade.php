@@ -67,7 +67,7 @@
         <x-simpleicon-tumblr height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Tumblr</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #000000; color: #DDDDDD;" href="https://twitter.com/share?text={{ $title }}&url={{ $url }}" target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #000000; color: #ffffff;" href="https://twitter.com/share?text={{ $title }}&url={{ $url }}" target="_blank">
         <x-icons.x height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to X</span>
     </a>
@@ -154,7 +154,7 @@
             const title = "{{ $title }}", description = "{{ $description }}", url = "{{ $url }}";
             var textArea = document.createElement("textarea");
             textArea.value = text;
-            
+
             // Avoid scrolling to bottom
             textArea.style.top = "0";
             textArea.style.left = "0";
