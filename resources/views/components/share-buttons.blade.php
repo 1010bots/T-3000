@@ -5,6 +5,7 @@
 
     $agent = new Agent();
     $agent->setUserAgent(Request::header('User-Agent'));
+    $is_apple = $agent->isiOS() || $agent->isiPadOS() || $agent->is('OS X');
     if (!isset($canonical)) $canonical = Request::url();
     $chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     $allow_kakao = Request::cookie('optional_features_kakao') == true;
@@ -22,7 +23,7 @@
 ?>
 <div class="flex flex-wrap gap-2 {{ $class ?? '' }}">
     <a id="{{ $unique_id }}-share-menu-open-share-sheet" class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 py-2 rounded-full leading-4 cursor-pointer" style="width: 88px;">
-        @if ($agent->isiOS() || $agent->isiPadOS() || $agent->is('OS X'))
+        @if ($is_apple)
             <x-fluentui-share-ios-24-o height="24" width="24" class="inline-block" />
         @elseif ($agent->is('Windows'))
             <x-fluentui-share-24-o height="24" width="24" class="inline-block" />
@@ -131,23 +132,36 @@
         <x-simpleicon-evernote height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Evernote</span>
     </a>
-    <dialog id="{{ $unique_id }}-share-menu-embed-dialog" class="bg-gray-100 dark:bg-gray-900 backdrop:bg-black/75 text-black dark:text-white border-0">
-        <h1 class="my-4 font-serif font-semibold text-3xl">Embed</h1>
-        <p class="my-4"><strong>This website supports oEmbed.</strong> To quickly use oEmbed, just copy this site's link to your oEmbed-supported apps and websites like WordPress.</p>
-        <p class="my-4">Alternatively, copy and paste the HTML code below to embed this post in your website.</p>
-        <div class="my-4 p-4 rounded-xl bg-gr-fuchsia-50/50 dark:bg-dm-fuchsia-900/50 hover:bg-gr-fuchsia-50 dark:hover:bg-gr-fuchsia-900 text-gr-fuchsia-900 dark:text-white border-2 border-gr-fuchsia-500 dark:border-dm-fuchsia-50 shadow-lg shadow-dm-fuchsia-400/50 dark:shadow-dm-fuchsia-200/50 hover:shadow-dm-fuchsia-200/75 dark:hover:shadow-dm-fuchsia-200/75 ease-out duration-200 will-change-auto hover:will-change-scroll" style="border-style: inset;">
-            <span class="inline-block font-bold">($_ )!</span>
-            We have made this thing responsive, but recommend at least <strong class="font-bold text-gr-fuchsia-600 dark:text-gr-fuchsia-300">512x512 pixels</strong> for best results.
-        </div>
-        <pre><code>{{ $embed_html }}</code></pre>
-        <details>
-            <summary>Preview</summary>
-            {!! $embed_html !!}
-        </details>
-        <form method="dialog" class="my-4">
-            <x-button type="button" id="{{ $unique_id }}-share-menu-embed-dialog-copy">Copy</x-button>
-            <x-button>OK</x-button>
+    <dialog id="{{ $unique_id }}-share-menu-embed-dialog" class="p-0 rounded-2xl bg-gray-100 dark:bg-gray-900 backdrop:bg-black/75 text-black dark:text-white border-0">
+        <form method="dialog" class="flex space-x-3 w-full p-4">
+            @if ($is_apple)
+                <button>
+                    <x-fluentui-dismiss-circle-24 aria-hidden="true" class="inline w-6 h-6 text-gr-red-400 active:text-red-600 focus:text-red-600 hover:text-red-600" />
+                    <span class="sr-only">Close</span>
+                </button>
+            @endif
+            <h1 class="grow font-serif text-2xl font-semibold">Embed</h1>
+            @if (!$is_apple)
+                <button><x-fluentui-dismiss-24 aria-hidden="true" class="inline w-6 h-6 text-dark dark:text-white active:text-gray-600 dark:active:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400" /><span class="sr-only">Close</span></button>
+            @endif
         </form>
+        <div class="p-4">
+            <p class="mb-4"><strong>This website supports oEmbed.</strong> To quickly use oEmbed, just copy this site's link to your oEmbed-supported apps and websites like WordPress.</p>
+            <p class="my-4">Alternatively, copy and paste the HTML code below to embed this post in your website.</p>
+            <div class="my-4 p-4 rounded-xl bg-gr-fuchsia-50/50 dark:bg-dm-fuchsia-900/50 hover:bg-gr-fuchsia-50 dark:hover:bg-gr-fuchsia-900 text-gr-fuchsia-900 dark:text-white border-2 border-gr-fuchsia-500 dark:border-dm-fuchsia-50 shadow-lg shadow-dm-fuchsia-400/50 dark:shadow-dm-fuchsia-200/50 hover:shadow-dm-fuchsia-200/75 dark:hover:shadow-dm-fuchsia-200/75 ease-out duration-200 will-change-auto hover:will-change-scroll" style="border-style: inset;">
+                <span class="inline-block font-bold">($_ )!</span>
+                We have made this thing responsive, but recommend at least <strong class="font-bold text-gr-fuchsia-600 dark:text-gr-fuchsia-300">512x512 pixels</strong> for best results.
+            </div>
+            <pre><code>{{ $embed_html }}</code></pre>
+            <details>
+                <summary>Preview</summary>
+                {!! $embed_html !!}
+            </details>
+            <form method="dialog" class="my-4">
+                <x-button type="button" id="{{ $unique_id }}-share-menu-embed-dialog-copy">Copy</x-button>
+                <x-button>OK</x-button>
+            </form>
+        </div>
     </dialog>
     <script>
         function fallbackCopyTextToClipboard(text) {
@@ -195,6 +209,7 @@
         }
 
         document.getElementById("{{ $unique_id }}-share-menu-open-share-sheet")?.addEventListener('click', () => {
+            const title = "{{ $title }}", description = "{{ $description }}", url = "{{ $url }}";
             if (navigator.share) {
                 navigator.share({
                     title: title,
@@ -207,11 +222,12 @@
         });
 
         document.getElementById("{{ $unique_id }}-share-menu-copy-link")?.addEventListener('click', () => {
+            const url = "{{ $url }}";
             copyTextToClipboard(url);
         });
 
         document.getElementById("{{ $unique_id }}-share-menu-embed")?.addEventListener('click', () => {
-            document.getElementById("{{ $unique_id }}-share-menu-embed-dialog")?.showModal()
+            document.getElementById("{{ $unique_id }}-share-menu-embed-dialog")?.showModal();
         });
 
         document.getElementById("{{ $unique_id }}-share-menu-embed-dialog-copy")?.addEventListener('click', (e) => {
@@ -229,7 +245,7 @@
                         desc: '{{ $description }}',
                         name: '{{ env('APP_NAME', 'Laravel') }}',
                         images: [
-                            '{{ $attributes['cover-image-url'] ?? (env('APP_URL', 'http://127.0.0.1:8000') . '/img/hero/main-desktop-light.jpg') }}'
+                            "{{ $attributes['cover-image-url'] ?? (env('APP_URL', 'http://127.0.0.1:8000') . '/img/hero/main-desktop-light.jpg') }}"
                         ]
                     }
                 });
