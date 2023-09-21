@@ -116,6 +116,12 @@
         <x-ri-kakao-talk-fill height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to KakaoTalk</span>
     </a>
+    {{-- @if (strlen(env('SNAPCHAT_APP_ID')) > 0)
+        <a id="{{ $unique_id }}-share-menu-snapchat" class="text-center border-0 p-2 rounded-full leading-4 cursor-pointer active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FBFE00; color: #FFFFFF;" href="https://www.snapchat.com/scan?attachmentUrl=https://reinhart1010.id{{ Request::getRequestUri() }}" target="_blank">
+            <x-icons.snapchat height="24" width="24" class="inline-block" />
+            <span class="sr-only">Share to Snapchat</span>
+        </a>
+    @endif --}}
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #9EC23F; color: #ffffff;" href="https://mastodonshare.com/?text={{ $title_and_description }}&url={{ $url }}"  target="_blank">
         <x-icons.misskey height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Misskey</span>

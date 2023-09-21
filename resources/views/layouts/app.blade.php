@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" prefix="og: http://ogp.me/ns#">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content, viewport-fit=cover">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         @isset ($attributes['title'])
@@ -24,6 +24,7 @@
             'resources/js/modernizr.js',
         ])
         <script src="/js/highlight.min.js"></script>
+        <script src="/js/hotkeys.min.js"></script>
         <script src="/js/kakao.min.js"></script>
         <script>hljs.highlightAll();</script>
         <script>Kakao.init('{{ env('KAKAO_JS_KEY', '') }}')</script>
@@ -36,7 +37,7 @@
         @isset ($attributes['canonical'])
             <link rel="canonical" href="{{ $attributes['canonical'] }}" />
         @endif
-        
+
         <meta name="description" content="{{ $attributes['description'] ?? 'Multitalent Software, Hardware, Life, and Reality Developer' }}" />
         <meta name="keywords" content="{{ $attributes['keywords'] ?? 'reinhart1010,@reinhart1010,Reinhart Previano Koentjoro,Reinhart Previano K,Nate,Shift,Shiftine,Skyborne,Caps,controld,pr0xy,alterine,alt1e,(>_ ),(#_ ),($_ )' }}" />
 
@@ -62,6 +63,10 @@
 
         <!-- Facebook Meta Tags -->
         <meta name="fb:page_id" content="100085894570968" />
+
+        <!-- Snapchat Meta Tags -->
+        <meta property="snapchat:app_id" content="{{ env('SNAP_APP_ID') }}" />
+        <meta property="snapchat:sticker" content="/img/icons/bot-blue-female-neutral.png" />
 
         <!-- Twitter Meta Tags -->
         <!-- (>_ ): Only necessary non-OG tags, see https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started#opengraph -->
