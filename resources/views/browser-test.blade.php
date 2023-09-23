@@ -58,6 +58,9 @@
         code, kbd {
             font-family: Menlo, "DejaVu Sans Mono", Hack, monospace;
         }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: ui-serif, "Aptos Serif", Constantia, Charter, "STIX Two Text", "Libertinus Serif", "Linux Libertine O", "Linux Libertine G", "Linux Libertine", "DejaVu Serif Condensed", "Bitstream Vera Serif Condensed", "Roboto Serif", "Noto Serif", "Times New Roman", serif;
+        }
         .emoji-table {
             display: block;
             overflow-x: auto;
@@ -104,10 +107,12 @@
         <source srcset="/img/icons/shell-blue-male-dark.avif" media="(prefers-color-scheme:dark)" type="image/avif">
         <source srcset="/img/icons/shell-blue-male-dark.heic" media="(prefers-color-scheme:dark)" type="image/heic">
         <source srcset="/img/icons/shell-blue-male-dark.webp" media="(prefers-color-scheme:dark)" type="image/webp">
+        <source srcset="/img/icons/shell-blue-male-dark.jp2" media="(prefers-color-scheme:dark)" type="image/jp2">
         <source srcset="/img/icons/shell-blue-male-dark.png" media="(prefers-color-scheme:dark)" type="image/png">
         <source srcset="/img/icons/shell-blue-male-light.avif" media="(prefers-color-scheme:light)" type="image/avif">
         <source srcset="/img/icons/shell-blue-male-light.heic" media="(prefers-color-scheme:light)" type="image/heic">
         <source srcset="/img/icons/shell-blue-male-light.webp" media="(prefers-color-scheme:light)" type="image/webp">
+        <source srcset="/img/icons/shell-blue-male-light.jp2" media="(prefers-color-scheme:light)" type="image/jp2">
         <source srcset="/img/icons/shell-blue-male-light.png" media="(prefers-color-scheme:light)" type="image/png">
         <img alt="Reinhart Previano K." src="/img/icons/shell-blue-male-neutral.png" height="668" width="691" style="height: 6rem; width: auto;">
     </picture>
@@ -115,10 +120,12 @@
         <source srcset="/img/icons/shell-blue-female-dark.avif" media="(prefers-color-scheme:dark)" type="image/avif">
         <source srcset="/img/icons/shell-blue-female-dark.heic" media="(prefers-color-scheme:dark)" type="image/heic">
         <source srcset="/img/icons/shell-blue-female-dark.webp" media="(prefers-color-scheme:dark)" type="image/webp">
+        <source srcset="/img/icons/shell-blue-female-dark.jp2" media="(prefers-color-scheme:dark)" type="image/jp2">
         <source srcset="/img/icons/shell-blue-female-dark.png" media="(prefers-color-scheme:dark)" type="image/png">
         <source srcset="/img/icons/shell-blue-female-light.avif" media="(prefers-color-scheme:light)" type="image/avif">
         <source srcset="/img/icons/shell-blue-female-light.heic" media="(prefers-color-scheme:light)" type="image/heic">
         <source srcset="/img/icons/shell-blue-female-light.webp" media="(prefers-color-scheme:light)" type="image/webp">
+        <source srcset="/img/icons/shell-blue-female-light.jp2" media="(prefers-color-scheme:light)" type="image/jp2">
         <source srcset="/img/icons/shell-blue-female-light.png" media="(prefers-color-scheme:light)" type="image/png">
         <img alt="Reinhart Previano K." src="/img/icons/shell-blue-female-neutral.png" height="668" width="691" style="height: 6rem; width: auto;">
     </picture>
@@ -191,7 +198,7 @@
             <h3 id="acid-test-title">A2. Acid2 and Acid3 Compliance</h3>
             <p><a href="https://www.webstandards.org/action/acid2/" target="_blank">Acid2</a> and <a href="https://www.webstandards.org/action/acid3/" target="_blank">Acid3</a> are international standard test suites to test web browser’s ability to properly render HTML and CSS content, as well as JavaScript features. Both tests have been introduced in 2005 and 2008 respectively, so if your web browser doesn’t mostly pass the test, your web browser could be about 15 years old (#_ ).</p>
             <p><strong>We expect you to visit our website(s) using a web browser that mostly, if not completely, comply with Acid2 and Acid3,</strong> which you can test for yourself <a href="https://www.webstandards.org/files/acid2/test.html" target="_blank">here</a> and <a href="http://acid3.acidtests.org" target="_blank">here</a> respectively.</p>
-            <p>Note that, even with the latest versions, some web browsers might still fail slightly in Acid2 and Acid3, but this is mostly not an significant issue to us.</p>
+            <p>Note that, even with the latest versions, some web browsers might still fail slightly in Acid2 and Acid3, but this is mostly not an significant issue to us. <strong>Your browser should pass at least 96 otu of 100 in the Acid3 test.</strong></p>
         </div>
         <h3 id="flexbox-grid">A3. CSS Flexbox and CSS Grid</h3>
         <p>
@@ -288,6 +295,13 @@
                     <td class="emoji-colored-fallback">🇮🇩🇰🇷🇳🇵🏴‍☠️🇺🇳</td>
                     <td class="emoji-outlined">🇮🇩🇰🇷🇳🇵🏴‍☠️🇺🇳</td>
                     <td class="emoji-outlined-fallback">🇮🇩🇰🇷🇳🇵🏴‍☠️🇺🇳</td>
+                </tr>
+                <tr>
+                    <td><a href="https://emojipedia.org/emoji-15.1/" target="_blank">15.1 (September 2023)</a></td>
+                    <td class="emoji-colored">🐦‍🔥🍋‍🟩🍄‍🟫⛓️‍💥🙂‍↔️</td>
+                    <td class="emoji-colored-fallback">🐦‍🔥🍋‍🟩🍄‍🟫⛓️‍💥🙂‍↔️</td>
+                    <td class="emoji-outlined">🐦‍🔥🍋‍🟩🍄‍🟫⛓️‍💥🙂‍↔️</td>
+                    <td class="emoji-outlined-fallback">🐦‍🔥🍋‍🟩🍄‍🟫⛓️‍💥🙂‍↔️</td>
                 </tr>
                 <tr>
                     <td><a href="https://emojipedia.org/emoji-15.0/" target="_blank">15.0 (September 2022)</a></td>
@@ -464,6 +478,37 @@
                 </tr>
             </table>
             <i>Color emoji samples provided by vendors and collected by <a href="https://emojipedia.org" target="_blank">Emojipedia</a>.</i>
+        </div>
+        <div id="modern-image-formats" aria-describedby="modern-image-formats-title">
+            <h3 id="modern-emoji-title">B4. Modern Image Formats</h3>
+            <p>Our website still supports good-old JPEG and PNG, but if your web browser supports newer, more efficient image formats like JPEG 2000 (JP2), WEBP, HEIC, and AVIF, your browser could load this website even faster!</p>
+            <table border="1" class="emoji-table">
+                <tr>
+                    <th>Format</th>
+                    <th>PNG</th>
+                    <th>JPEG 2000</th>
+                    <th>WEBP</th>
+                    <th>HEIC</th>
+                    <th>AVIF</th>
+                </tr>
+                <tr>
+                    <th>Image</th>
+                    <td><img src="/img/icons/bot-blue-female-neutral.png" type="image/png" alt="Your web browser does not support PNG image" height="128" width="128"></td>
+                    <td><img src="/img/icons/bot-blue-female-neutral.jp2" type="image/jp2" alt="Your web browser does not support JPEG 2000 image" height="128" width="128"></td>
+                    <td><img src="/img/icons/bot-blue-female-neutral.webp" type="image/webp" alt="Your web browser does not support WEBP image" height="128" width="128"></td>
+                    <td><img src="/img/icons/bot-blue-female-neutral.heic" type="image/heic" alt="Your web browser does not support HEIC image" height="128" width="128"></td>
+                    <td><img src="/img/icons/bot-blue-female-neutral.avif" type="image/avif" alt="Your web browser does not support AVIF image" height="128" width="128"></td>
+                </tr>
+                <tr>
+                    <th>Speed (Size)</th>
+                    <td><span class="text-48px">1x</span><br>(1,518 KB)</td>
+                    <td><span class="text-48px">1.6x</span><br>(957 KB)</td>
+                    <td><span class="text-48px">6.2x</span><br/>(246 KB)</td>
+                    <td><span class="text-48px">6.7x</span><br/>(225 KB)</td>
+                    <td><span class="text-48px">11.5x</span><br/>(132 KB)</td>
+                </tr>
+            </table>
+            <p>Note that these speeds will only apply when downloading images, and not others (like audio, videos, etc.).</p>
         </div>
     </section>
 </body>
