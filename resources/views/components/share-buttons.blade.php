@@ -44,6 +44,10 @@
         <x-fluentui-mail-add-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Email</span>
     </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #0088cc; color: #ffffff;" href="https://telegram.me/share/url?url={{ $url }}&text={{ $title_and_description }}"  target="_blank">
+        <x-simpleicon-telegram height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Telegram</span>
+    </a>
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #00aadc; color: #ffffff;" href="https://wordpress.com/press-this.php?u={{ $url }}&t={{ $title }}&s={{ $description }}" target="_blank">
         <x-simpleicon-wordpress height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to WordPress</span>
@@ -55,10 +59,6 @@
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #1da1f2; color: #ffffff;" href="https://twitter.com/share?text={{ $title }}&url={{ $url }}" target="_blank">
         <x-simpleicon-twitter height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Twitter</span>
-    </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #0088cc; color: #ffffff;" href="https://telegram.me/share/url?url={{ $url }}&text={{ $title_and_description }}"  target="_blank">
-        <x-simpleicon-telegram height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to Telegram</span>
     </a>
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #1877f2; color: #ffffff;" href="https://www.facebook.com/sharer/sharer.php?u={{ $url }}&title={{ $title }}"  target="_blank">
         <x-simpleicon-facebook height="24" width="24" class="inline-block" />
