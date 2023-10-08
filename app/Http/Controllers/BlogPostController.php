@@ -37,7 +37,7 @@ class BlogPostController extends Controller
      * @return  mixed               The blog post content, if available
      */
     public static function getPostBySlug(string $slug, string|null $year = null, string|null $month = null, string|null $day = null) {
-        return Cache::remember($year && $month && $day ? 'post-$year-$month-$day-$slug' : 'post-nd-$slug', 15 * 60, function () use ($slug, $year, $month, $day) {
+        return Cache::remember($year && $month && $day ? "post-$year-$month-$day-$slug" : "post-nd-$slug", 15 * 60, function () use ($slug, $year, $month, $day) {
             $post = Post::status('publish')->slug($slug);
             if (ctype_digit($year) && ctype_digit($month) && ctype_digit($day)) {
                 $post = $post->where('post_date', 'LIKE', intval($year) . '-' . sprintf('%02d', intval($month)) . '-' . sprintf('%02d', intval($day)) . '%');
