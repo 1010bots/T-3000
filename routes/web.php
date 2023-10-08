@@ -29,7 +29,7 @@ Route::middleware([
 Route::get('/you/consent', function () {
     return view('privacy-consent');
 });
-    
+
 /* (>_ ): Cache the redirect response for 30 days */
 Route::middleware(
     'cache.headers:public;max_age=1800;etag'
@@ -51,26 +51,31 @@ Route::middleware(
         return view('welcome');
     })->name('home');
 
+    /* Apps */
+    Route::get('/apps', function () {
+        return view('apps');
+    })->name('apps');
+
     /* oEmbed */
     Route::get('/oembed', 'App\Http\Controllers\BlogPostController@oEmbed');
     Route::get('/wp-json/oembed/1.0/embed', 'App\Http\Controllers\BlogPostController@oEmbed');
-    
+
     /* WordPress Post Compatibility */
     Route::get('/blog/{year}/{month}/{date}/{slug}', function (string $year, string $month, string $date, string $slug) {
         return (new BlogPostController())->showBySlug($slug, $year, $month, $date);
     });
-    
+
     /* WordPress Post Compatibility */
     Route::get('/{year}/{month}/{date}/{slug}', function (string $year, string $month, string $date, string $slug) {
         return (new BlogPostController())->showBySlug($slug, $year, $month, $date);
     });
-    
+
     /* WordPress Page Compatibility */
     Route::get('/{slug}', function (string $slug) {
         return (new BlogPostController())->showBySlug($slug);
     });
 });
-    
+
 /* (>_ ): Cache the redirect response for 30 days */
 Route::middleware(
     'cache.headers:public;max_age=1800;etag'

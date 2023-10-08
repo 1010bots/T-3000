@@ -99,7 +99,7 @@
                     <span class="caps">K</span><span class="not-caps">oentjoro.,</span>
                 </span>
                 <span class="inline-block">
-                    ½
+                    ¾
                 </span>
                 <span class="inline-block">
                     <span class="caps">S</span><span class="not-caps">.</span>

@@ -16,7 +16,7 @@ class BlogPostController extends Controller
      * @return  mixed               The blog post content, if available
      */
     public static function getPostById(string $id) {
-        return Cache::remember("post-id-$id", 15 * 60, function () use ($id) {
+        return Cache::remember('post-id-$id', 15 * 60, function () use ($id) {
             $post = Post::status('publish')->find($id);
             if ($post) {
                 $post->content = str_replace('blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->content);
@@ -37,7 +37,7 @@ class BlogPostController extends Controller
      * @return  mixed               The blog post content, if available
      */
     public static function getPostBySlug(string $slug, string|null $year = null, string|null $month = null, string|null $day = null) {
-        return Cache::remember($year && $month && $day ? "post-$year-$month-$day-$slug" : "post-nd-$slug", 15 * 60, function () use ($slug, $year, $month, $day) {
+        return Cache::remember($year && $month && $day ? 'post-$year-$month-$day-$slug' : 'post-nd-$slug', 15 * 60, function () use ($slug, $year, $month, $day) {
             $post = Post::status('publish')->slug($slug);
             if (ctype_digit($year) && ctype_digit($month) && ctype_digit($day)) {
                 $post = $post->where('post_date', 'LIKE', intval($year) . '-' . sprintf('%02d', intval($month)) . '-' . sprintf('%02d', intval($day)) . '%');
@@ -161,7 +161,7 @@ class BlogPostController extends Controller
             } else {
                 $oembed_data['type'] = 'link';
             }
-            
+
             $oembed_data['provider_name'] = env('APP_NAME', 'Laravel');
             $oembed_data['provider_url'] = env('APP_URL', 'http://127.0.0.1');
             $oembed_data['title'] = $post->post_title;
@@ -176,7 +176,7 @@ class BlogPostController extends Controller
 
         if (count($oembed_data) > 0) {
             switch ($format) {
-                case 'json': 
+                case 'json':
                     return response()->json($oembed_data);
                 case 'xml':
                     return response()->xml($oembed_data, 200, [], 'oembed');

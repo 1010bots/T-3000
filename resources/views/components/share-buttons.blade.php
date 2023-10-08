@@ -48,11 +48,15 @@
         <x-simpleicon-wordpress height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to WordPress</span>
     </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #00aff0; color: #ffffff;" href="https://web.skype.com/share?text={{ $title }}&url={{ $url }}" target="_blank">
+        <x-simpleicon-skype height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Skype</span>
+    </a>
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #1da1f2; color: #ffffff;" href="https://twitter.com/share?text={{ $title }}&url={{ $url }}" target="_blank">
         <x-simpleicon-twitter height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Twitter</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #1da1f2; color: #ffffff;" href="https://telegram.me/share/url?url={{ $url }}&text={{ $title_and_description }}"  target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #0088cc; color: #ffffff;" href="https://telegram.me/share/url?url={{ $url }}&text={{ $title_and_description }}"  target="_blank">
         <x-simpleicon-telegram height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Telegram</span>
     </a>
@@ -64,9 +68,17 @@
         <x-simpleicon-linkedin height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to LinkedIn</span>
     </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #0F2066; color: #ffffff;" href="https://buffer.com/add?text={{ $title }}&url={{ $url }}" target="_blank">
+        <x-simpleicon-buffer height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Buffer</span>
+    </a>
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #011935; color: #ffffff;" href="http://tumblr.com/widgets/share/tool?canonicalUrl={{ $url }}&title={{ $title }}"  target="_blank">
         <x-simpleicon-tumblr height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Tumblr</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #000; color: #ffffff;" href="https://share.diasporafoundation.org/?title={{ $title }}&url={{ $url }}" target="_blank">
+        <x-simpleicon-diaspora height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Diaspora</span>
     </a>
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #000000; color: #ffffff;" href="https://twitter.com/share?text={{ $title }}&url={{ $url }}" target="_blank">
         <x-icons.x height="24" width="24" class="inline-block" />
@@ -99,6 +111,10 @@
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FF4500; color: #ffffff;" href="https://www.reddit.com/submit?url={{ $url }}&title={{ $title }}"  target="_blank">
         <x-simpleicon-reddit height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Reddit</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FF6600; color: #ffffff;" href="https://news.ycombinator.com/submitlink?u={{ $url }}&t={{ $title_and_description }}"  target="_blank">
+        <x-simpleicon-ycombinator height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Hacker News</span>
     </a>
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #F47C01; color: #ffffff;" href="https://www.blogger.com/blog-this.g?u={{ $url }}&n={{ $title }}&t={{ $description }}"  target="_blank">
         <x-simpleicon-blogger height="24" width="24" class="inline-block" />
