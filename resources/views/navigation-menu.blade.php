@@ -382,5 +382,9 @@
         }
         document.getElementById("search-dialog-query")?.addEventListener("keyup", waitUntilSearch);
         document.getElementById("search-dialog-query")?.addEventListener("paste", waitUntilSearch);
+        document.getElementById("search-dialog-query")?.addEventListener("submit", (e) => {
+            e.preventDefault;
+            waitUntilSearch();
+        });
     </script>
 </div>
