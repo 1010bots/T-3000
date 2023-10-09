@@ -6,6 +6,21 @@
     $is_apple = $agent->isiOS() || $agent->isiPadOS() || $agent->is('OS X');
 ?>
 <div>
+    <!-- Allow Tailwind to populate background colors when minifying CSS -->
+    <div class="hidden">
+        <div class="bg-gr-red-500 dark:bg-dm-red-500"></div>
+        <div class="bg-gr-orange-500 dark:bg-dm-orange-500"></div>
+        <div class="bg-gr-yellow-500 dark:bg-dm-yellow-500"></div>
+        <div class="bg-gr-lime-500 dark:bg-dm-lime-500"></div>
+        <div class="bg-gr-green-500 dark:bg-dm-green-500"></div>
+        <div class="bg-gr-seafoam-500 dark:bg-dm-seafoam-500"></div>
+        <div class="bg-gr-cyan-500 dark:bg-dm-cyan-500"></div>
+        <div class="bg-gr-blue-500 dark:bg-dm-blue-500"></div>
+        <div class="bg-gr-indigo-500 dark:bg-dm-indigo-500"></div>
+        <div class="bg-gr-violet-500 dark:bg-dm-violet-500"></div>
+        <div class="bg-gr-purple-500 dark:bg-dm-purple-500"></div>
+        <div class="bg-gr-fuchsia-500 dark:bg-dm-fuchsia-500"></div>
+    </div>
     <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl pt-safe mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,9 +41,9 @@
                         <x-nav-link href="{{ route('apps') }}" :active="request()->routeIs('apps')">
                             {{ __('Apps') }}
                         </x-nav-link>
-                        {{-- <x-nav-link data-r-search-button="true">
+                        <x-nav-link data-r-search-button="true">
                             {{ __('Search') }}
-                        </x-nav-link> --}}
+                        </x-nav-link>
                         @auth
                             <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                                 {{ __('Dashboard') }}
@@ -167,9 +182,9 @@
                 <x-responsive-nav-link href="{{ route('apps') }}" :active="request()->routeIs('apps')">
                     {{ __('Apps') }}
                 </x-responsive-nav-link>
-                {{-- <x-responsive-nav-link data-r-search-button="true">
+                <x-responsive-nav-link data-r-search-button="true">
                     {{ __('Search') }}
-                </x-responsive-nav-link> --}}
+                </x-responsive-nav-link>
                 @auth
                     <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
@@ -290,10 +305,30 @@
             <form class="mb-4">
                 <input type="text" id="search-dialog-query" placeholder="Search..." class="w-full p-4 text-2xl rounded-xl bg-gr-fuchsia-50/50 dark:bg-dm-fuchsia-900/50 focus:bg-gr-fuchsia-50 dark:focus:bg-gr-fuchsia-900 hover:bg-gr-fuchsia-50 dark:hover:bg-gr-fuchsia-900 text-gr-fuchsia-900 dark:text-white placeholder:text-gr-fuchsia-600 dark:placeholder:text-gr-fuchsia-100 border-2 border-gr-fuchsia-500 dark:border-dm-fuchsia-50 focus:border-gr-fuchsia-500 focus:dark:border-dm-fuchsia-50 shadow-lg shadow-dm-fuchsia-500/50 dark:shadow-dm-fuchsia-200/50 focus:shadow-dm-fuchsia-200/75 dark:focus:shadow-dm-fuchsia-200/75 hover:shadow-dm-fuchsia-200/75 dark:hover:shadow-dm-fuchsia-200/75 ease-out duration-200 will-change-auto hover:will-change-scroll" style="border-style: inset;" />
             </form>
-            <div id="search-dialog-results" class="hidden my-4"></div>
+            <div id="search-dialog-results" class="my-4">
+                <i>No results so far...</i>
+            </div>
         </div>
     </dialog>
     <script>
+        var searchSources = {
+            "legal": {
+                name: "Legal Information",
+                color: "violet",
+            },
+            "nix": {
+                name: "tldr-pages by Nix",
+                color: "fuchsia"
+            },
+            "shift": {
+                name: "Shift’s Digital Garden",
+                color: "blue"
+            },
+            "wordpress": {
+                name: "Blog Posts",
+                color: "lime"
+            },
+        }
         function showSearchModal(query) {
             if (query) {
                 // document.getElementById("search-dialog-query")?.value = query.toString();
@@ -317,8 +352,35 @@
                 showSearchModal();
             }
         });
-        // document.getElementById("search-dialog-query")?.onChange = (e) => {
+        var timeout;
+        function waitUntilSearch(_) {
+            if (timeout != null) {
+                window.clearTimeout(timeout);
+            }
+            timeout = window.setTimeout(() => {
+                if (document.getElementById("search-dialog-query").value.length < 3) return;
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var results = JSON.parse(xhttp.responseText);
+                        var resultHTML = "";
+                        var resultSources = Object.keys(results);
+                        var i, j;
 
-        // }
+                        for (i = 0; i < resultSources.length; i++) {
+                            for (j = 0; j < results[resultSources[i]].length; j++) {
+                                var entry = results[resultSources[i]][j];
+                                resultHTML += "<a href=\"" + entry.url + "\" class=\"block mb-2 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg text-lg\"><h3 class=\"mb-2 font-serif text-xl\">" + entry.title + "</h3><div class=\"flex text-sm\"><span class=\"px-2 bg-gr-" + searchSources[resultSources[i]].color + "-500 dm:bg-dm-" + searchSources[resultSources[i]].color + "-500 text-white rounded\">" + searchSources[resultSources[i]].name + "</span></div></a>";
+                            }
+                        }
+                        document.getElementById("search-dialog-results").innerHTML = resultHTML;
+                    }
+                };
+                xhttp.open("GET", "/api/search?q=" + document.getElementById("search-dialog-query").value, true);
+                xhttp.send();
+            }, 1000);
+        }
+        document.getElementById("search-dialog-query")?.addEventListener("keyup", waitUntilSearch);
+        document.getElementById("search-dialog-query")?.addEventListener("paste", waitUntilSearch);
     </script>
 </div>
