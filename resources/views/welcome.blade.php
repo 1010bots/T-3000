@@ -220,7 +220,7 @@
                 </a>
             </div>
         </div>
-        <div class="p-2 text-center text-white">
+        <div class="p-2 pb-save-offset-2 text-center text-white">
             Copyright &copy; Reinhart Previano K. | <a href="https://legal.reinhart1010.id/privacy/general/en" class="font-bold">Privacy Policy</a>
         </div>
     </div>
