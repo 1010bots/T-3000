@@ -61,6 +61,11 @@ Route::middleware(
     Route::get('/wp-json/oembed/1.0/embed', 'App\Http\Controllers\BlogPostController@oEmbed');
 
     /* WordPress Post Compatibility */
+    Route::get('/blog', function () {
+        return (new BlogPostController())->index();
+    });
+
+    /* WordPress Post Compatibility */
     Route::get('/blog/{year}/{month}/{date}/{slug}', function (string $year, string $month, string $date, string $slug) {
         return (new BlogPostController())->showBySlug($slug, $year, $month, $date);
     });

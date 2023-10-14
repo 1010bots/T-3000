@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7948e1dd20ca05ceffc474b4a1ed20e5",
+    "content-hash": "64b1712a488ed57e39580bba83f7b04a",
     "packages": [
         {
             "name": "andreiio/blade-remix-icon",
@@ -990,6 +990,53 @@
                 }
             ],
             "time": "2023-10-12T05:21:21+00:00"
+        },
+        {
+            "name": "getkirby/composer-installer",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/getkirby/composer-installer.git",
+                "reference": "c98ece30bfba45be7ce457e1102d1b169d922f3d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/getkirby/composer-installer/zipball/c98ece30bfba45be7ce457e1102d1b169d922f3d",
+                "reference": "c98ece30bfba45be7ce457e1102d1b169d922f3d",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0"
+            },
+            "require-dev": {
+                "composer/composer": "^1.8 || ^2.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Kirby\\ComposerInstaller\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kirby\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Kirby's custom Composer installer for the Kirby CMS and for Kirby plugins",
+            "homepage": "https://getkirby.com",
+            "support": {
+                "issues": "https://github.com/getkirby/composer-installer/issues",
+                "source": "https://github.com/getkirby/composer-installer/tree/1.2.1"
+            },
+            "funding": [
+                {
+                    "url": "https://getkirby.com/buy",
+                    "type": "custom"
+                }
+            ],
+            "time": "2020-12-28T12:54:39+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -4407,6 +4454,44 @@
                 }
             ],
             "time": "2023-07-19T18:30:26+00:00"
+        },
+        {
+            "name": "sylvainjule/colorextractor",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sylvainjule/kirby-colorextractor.git",
+                "reference": "e224b5be66396ec887687e591fae32034df63169"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sylvainjule/kirby-colorextractor/zipball/e224b5be66396ec887687e591fae32034df63169",
+                "reference": "e224b5be66396ec887687e591fae32034df63169",
+                "shasum": ""
+            },
+            "require": {
+                "getkirby/composer-installer": "^1.1"
+            },
+            "type": "kirby-plugin",
+            "extra": {
+                "installer-name": "colorextractor"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sylvain Julé",
+                    "email": "contact@sylvain-jule.fr"
+                }
+            ],
+            "description": "Extract dominant / average color from any image.",
+            "support": {
+                "issues": "https://github.com/sylvainjule/kirby-colorextractor/issues",
+                "source": "https://github.com/sylvainjule/kirby-colorextractor/tree/1.0.7"
+            },
+            "time": "2022-02-24T11:03:40+00:00"
         },
         {
             "name": "symfony/console",

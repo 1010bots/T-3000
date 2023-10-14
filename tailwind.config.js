@@ -1,4 +1,4 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
+import aspectRatio from '@tailwindcss/aspect-ratio';
 import forms from '@tailwindcss/forms';
 import highlightjs from 'tailwind-highlightjs';
 import safeArea from 'tailwindcss-safe-area';
@@ -348,5 +348,5 @@ export default {
         }
     },
 
-    plugins: [forms, highlightjs, safeArea, typography],
+    plugins: [aspectRatio, forms, highlightjs, safeArea, typography],
 };

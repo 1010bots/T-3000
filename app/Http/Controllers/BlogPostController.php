@@ -66,9 +66,15 @@ class BlogPostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($index = 1, $category = null, $tag = null, $start_date = null, $end_date = null)
     {
-        //
+        if ($index < 1) $index = 1;
+        $posts = Cache::remember('posts-' . (strlen($category) > 0 ? $category : '_') . '-' . (strlen($tag) > 0 ? $tag : '_') . '-' . (strlen($start_date) > 0 ? $start_date : '_') . '_' . (strlen($end_date) > 0 ? $end_date : '_') . '-' . $index, 60, function () use ($index) {
+            $take = 12;
+            $skip = $take * ($index - 1);
+            return Post::status('publish')->where('post_type', 'post')->skip($skip)->take($take)->orderBy('post_date_gmt', 'desc')->get();
+        });
+        return view('blog-index', ['posts' => $posts, 'index_title' => 'Blog Posts']);
     }
 
     /**

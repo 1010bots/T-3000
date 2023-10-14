@@ -117,7 +117,7 @@
                     </span>
                     About Me (&gt;_ )
                 </a>
-                <a href="/bots" class="flex gap-1 justify-center items-center z-index-5 backdrop-blur p-4 rounded-xl bg-gr-cyan-50/50 dark:bg-dm-cyan-900/50 hover:bg-gr-cyan-50/75 dark:hover:bg-gr-cyan-900/75 text-xl font-semibold text-center text-gr-cyan-900 dark:text-white border-2 border-gr-cyan-500 dark:border-dm-cyan-50 shadow-lg shadow-dm-cyan-500/50 dark:shadow-dm-cyan-200/50 hover:shadow-dm-cyan-200 dark:hover:shadow-dm-cyan-200 ease-out duration-200 will-change-auto hover:will-change-scroll {{ $class ?? '' }}" style="border-style: inset;">
+                <a href="https://shift.reinhart1010.id/about-system" class="flex gap-1 justify-center items-center z-index-5 backdrop-blur p-4 rounded-xl bg-gr-cyan-50/50 dark:bg-dm-cyan-900/50 hover:bg-gr-cyan-50/75 dark:hover:bg-gr-cyan-900/75 text-xl font-semibold text-center text-gr-cyan-900 dark:text-white border-2 border-gr-cyan-500 dark:border-dm-cyan-50 shadow-lg shadow-dm-cyan-500/50 dark:shadow-dm-cyan-200/50 hover:shadow-dm-cyan-200 dark:hover:shadow-dm-cyan-200 ease-out duration-200 will-change-auto hover:will-change-scroll {{ $class ?? '' }}" style="border-style: inset;">
                     <span class="min-w-fit">
                         <x-fluentui-bot-24-o class="inline-block h-6 w-6" />
                     </span>
