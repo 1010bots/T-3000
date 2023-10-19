@@ -64,6 +64,7 @@ class BlogPostController extends Controller
             $mpdf = new Mpdf([
                 'default_font' => 'DejaVuSans'
             ]);
+            $mpdf->showImageErrors = true;
             $mpdf->WriteHTML(view('blog-post.print', ['post' => $post, 'pdf' => true])->render(), \Mpdf\HTMLParserMode::HTML_BODY);
             return response($mpdf->Output())->header('Content-Type', 'application/pdf');
         }
