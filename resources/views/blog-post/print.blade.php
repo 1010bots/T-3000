@@ -86,7 +86,7 @@
             }
 
             @media print {
-                .print-button {
+                .hide-on-print, .print-button {
                     display: none;
                 }
             }
@@ -110,7 +110,7 @@
                                     &bull; (Updated {{ $updated_at->format('j F Y') }})
                                 @endif
                             </b>
-                            <p>From <a href="{{$canonical}}">{{$canonical}}</a>. Scan the QR Code<sup>&reg;</sup> to view the article on your device or web browser.</p>
+                            <p>From <a href="{{$canonical}}">{{$canonical}}</a>. Scan the QR Code to view the article on your device or web browser.</p>
                         </div>
                     </td>
                     <td>
@@ -119,7 +119,24 @@
                 </tr>
             </td>
         </table>
-        <small>Content may subject to copyright. Visit the original website to view copyright and licensing terms and conditions of this post. QR Code is a registered trademark of DENSO WAVE, Inc. in Japan and other countries. Generated on {{new Carbon()}}.</small>
+        @if (isset($post->thumbnail))
+            <?php
+                $cover_image_srcset_string = '';
+                ksort($cover_image_srcset, SORT_NUMERIC);
+                foreach ($cover_image_srcset as $size => $src) {
+                    $src = str_replace("https://reinhart1010.id/wp-content/uploads/", "https://blogarchive.reinhart1010.id/wp-content/uploads/", $src);
+                    $cover_image_srcset_string .= $src . ' ' . $size . 'w ';
+                }
+            ?>
+            <picture>
+                <img src="{{ $post->thumbnail['attachment']['url'] }}" srcset="{{ $cover_image_srcset_string }}" alt="{{ $post->thumbnail['attachment']['alt'] || $post->thumbnail['attachment']['description'] || $post->thumbnail['attachment']['title'] }}" class="cover-image" />
+            </picture>
+        @elseif (isset($post->image))
+            <img src="{{ str_replace("https://reinhart1010.id/wp-content/uploads/", "https://blogarchive.reinhart1010.id/wp-content/uploads/", $post->image) }}" class="cover-image" />
+        @else
+            <hr>
+        @endif
+        <small>Content may subject to copyright. Visit the original website to view copyright and licensing information about this content. QR Code is a registered trademark of DENSO WAVE, Inc. in Japan and other countries. Generated on {{new Carbon()}}.</small>
         <hr />
         <main>
             {!! $post->content !!}
