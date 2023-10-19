@@ -20,6 +20,7 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^2.11",
+        "mpdf/mpdf": "^8.2",
         "mtownsend/response-xml": "^2.2",
         "sylvainjule/colorextractor": "^1.0",
         "ublabs/blade-simple-icons": "^0.76.0"

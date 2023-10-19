@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Request as RequestFacade;
+use Mpdf\Mpdf;
 
 class BlogPostController extends Controller
 {
@@ -59,6 +60,13 @@ class BlogPostController extends Controller
     public function displayPost(mixed $post) {
         if (!$post) abort(404);
         else if (RequestFacade::has('embed')) return view('blog-post.embed', ['post' => $post]);
+        else if (RequestFacade::has('pdf')) {
+            $mpdf = new Mpdf([
+                'default_font' => 'DejaVuSans'
+            ]);
+            $mpdf->WriteHTML(view('blog-post.print', ['post' => $post, 'pdf' => true])->render(), \Mpdf\HTMLParserMode::HTML_BODY);
+            return response($mpdf->Output())->header('Content-Type', 'application/pdf');
+        }
         else if (RequestFacade::has('print')) return view('blog-post.print', ['post' => $post]);
         else if (RequestFacade::query('debug') == "true") return response()->json($post);
         return view('blog-post.reader', ['post' => $post]);

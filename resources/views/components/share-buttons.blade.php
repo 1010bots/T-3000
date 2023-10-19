@@ -40,6 +40,10 @@
         <x-fluentui-print-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Print</span>
     </a>
+    <a id="{{ $unique_id }}-share-menu-pdf" class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4 cursor-pointer" href="{{ $url }}?pdf">
+        <x-fluentui-document-pdf-24-o height="24" width="24" class="inline-block" />
+        <span class="sr-only">PDF</span>
+    </a>
     <a id="{{ $unique_id }}-share-menu-embed" class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4 cursor-pointer">
         <x-fluentui-code-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Embed</span>

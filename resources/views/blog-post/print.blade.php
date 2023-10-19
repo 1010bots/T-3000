@@ -6,10 +6,13 @@
     $updated_at = new Carbon($post->post_modified);
     $updated_at_gmt = new Carbon($post->post_modified_gmt);
     $canonical = null;
+    if (!isset($pdf)) $pdf = false;
+
     if ($post->post_type == 'post') {
         $canonical = env('APP_URL', 'http://127.0.0.1') . '/blog/' . $created_at->format('Y/m/d') . '/' . $post->post_name;
+    } else {
+        $canonical = env('APP_URL', 'http://127.0.0.1') . '/' . $post->post_name;
     }
-
     // Post Metadata
     $post_meta = [];
     if (isset($post->meta)) {
@@ -35,68 +38,88 @@
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>{{ $post->post_title }}</title>
-    <meta name="robots" content="noindex">
-    <style>
-        body {
-            font-family: "Liberation Sans", Arimo, Helvetica, Arial, sans-serif;
-        }
-        .header {
-            display: flex;
-            align-items: center;
-        }
-        article main figure {
-            margin-bottom: 1rem;
-            margin-top: 1rem;
-        }
-        article main figure figcaption {
-            font-size: 1rem;
-            font-style: italic;
-            line-height: 1.5;
-            margin-bottom: 0.5rem;
-            margin-top: 0.5rem;
-            text-align: center;
-        }
-        article main img {
-            border-radius: 0.75rem;
-            max-width: 100%;
-        }
-        article main p {
-            margin-bottom: 1rem;
-            margin-top: 1rem;
-        }
-        article main ul {
-            list-style-type: "+ ";
-        }
-        article main ol {
-            list-style-type: decimal;
-            margin-inline-start: 2rem;
-        }
-
-        @media print {
-            .print-button {
-                display: none;
+@if (!$pdf)
+    <head>
+        <title>{{ $post->post_title }}</title>
+        <meta name="robots" content="noindex">
+        <style>
+            body {
+                font-family: "Liberation Sans", Arimo, Helvetica, Arial, sans-serif;
             }
-        }
-    </style>
-</head>
+            .header {
+                display: flex;
+                align-items: center;
+            }
+            a, a:focus, a:hover, a:visited {
+                color: #00259A;
+            }
+            pre {
+                white-space: pre-wrap;
+                word-wrap: break-word;
+            }
+            article main figure {
+                margin-bottom: 1rem;
+                margin-top: 1rem;
+            }
+            article main figure figcaption {
+                font-size: 1rem;
+                font-style: italic;
+                line-height: 1.5;
+                margin-bottom: 0.5rem;
+                margin-top: 0.5rem;
+                text-align: center;
+            }
+            article main img {
+                border-radius: 0.75rem;
+                max-width: 100%;
+            }
+            article main p {
+                margin-bottom: 1rem;
+                margin-top: 1rem;
+            }
+            article main ul {
+                list-style-type: "+ ";
+            }
+            article main ol {
+                list-style-type: decimal;
+                margin-inline-start: 2rem;
+            }
+
+            @media print {
+                .print-button {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+@endif
 <body onload="window.print()"></body>
     <article>
-        <div class="header">
-            <div>
-                <h1 class="post-title">{{ $post->post_title }}
-                    <button class="print-button" onclick="window.print()">🖨️ Print this page</button></h1>
-                <b class="post-date">reinhart1010.id &ndash; {{ $created_at->format('j F Y') }}
-                    @if ($created_at != $updated_at)
-                        &bull; (Updated {{ $updated_at->format('j F Y') }})
-                    @endif
-                </b>
-                <p>From <a href="{{$canonical}}">{{$canonical}}</a>. Scan the QR Code<sup>&reg;</sup> to view the article in your device or web browser.</p>
-            </div>
-            <img src="{{(new QRCode)->render($canonical)}}" alt="QR Code" height="160" width="160" />
-        </div>
-        <small>Content may subject to copyright. Visit the original website to view copyright and licensing terms of this post. QR Code is a registered trademark of DENSO WAVE, Inc. in Japan and other countries.</small>
+        <table style="border-spacing: 0;">
+            <td>
+                <tr>
+                    <td>
+                        <div>
+                            <h1 class="post-title">{{ $post->post_title }}
+                                @if (!$pdf)
+                                    <button class="print-button" onclick="window.print()">🖨️ Print this page</button>
+                                @endif
+                            </h1>
+                            <b class="post-date">reinhart1010.id &ndash; {{ $created_at->format('j F Y') }}
+                                @if ($created_at != $updated_at)
+                                    &bull; (Updated {{ $updated_at->format('j F Y') }})
+                                @endif
+                            </b>
+                            <p>From <a href="{{$canonical}}">{{$canonical}}</a>. Scan the QR Code<sup>&reg;</sup> to view the article on your device or web browser.</p>
+                        </div>
+                    </td>
+                    <td>
+                        <img src="{{(new QRCode)->render($canonical)}}" alt="QR Code" height="160" width="160" />
+                    </td>
+                </tr>
+            </td>
+        </table>
+        <small>Content may subject to copyright. Visit the original website to view copyright and licensing terms and conditions of this post. QR Code is a registered trademark of DENSO WAVE, Inc. in Japan and other countries. Generated on {{new Carbon()}}.</small>
         <hr />
         <main>
             {!! $post->content !!}
