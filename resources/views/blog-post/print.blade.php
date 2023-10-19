@@ -50,6 +50,9 @@
                 display: flex;
                 align-items: center;
             }
+            .cover-image {
+                max-width: 100%;
+            }
             a, a:focus, a:hover, a:visited {
                 color: #00259A;
             }
@@ -70,7 +73,6 @@
                 text-align: center;
             }
             article main img {
-                border-radius: 0.75rem;
                 max-width: 100%;
             }
             article main p {
