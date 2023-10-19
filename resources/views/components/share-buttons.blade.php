@@ -36,6 +36,10 @@
         <x-fluentui-copy-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Copy Link</span>
     </a>
+    <a id="{{ $unique_id }}-share-menu-print" class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4 cursor-pointer" href="{{ $url }}?print">
+        <x-fluentui-print-24-o height="24" width="24" class="inline-block" />
+        <span class="sr-only">Print</span>
+    </a>
     <a id="{{ $unique_id }}-share-menu-embed" class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4 cursor-pointer">
         <x-fluentui-code-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Embed</span>

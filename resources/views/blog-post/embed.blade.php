@@ -41,6 +41,7 @@
     <head>
         <title>{{ $post->post_title }} - {{ config('app.name', 'Laravel') }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex">
         <link rel="preconnect" href="https://fonts.bunny.net/" />
         <link rel="preconnect" href="https://reinhart1010.github.io/" />
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Bebas+Neue&display=swap" type="text/css" />

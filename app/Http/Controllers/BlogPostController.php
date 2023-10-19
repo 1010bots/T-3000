@@ -58,8 +58,9 @@ class BlogPostController extends Controller
      */
     public function displayPost(mixed $post) {
         if (!$post) abort(404);
-        if (RequestFacade::has('embed')) return view('blog-post.embed', ['post' => $post]);
-        if (RequestFacade::query('debug') == "true") return response()->json($post);
+        else if (RequestFacade::has('embed')) return view('blog-post.embed', ['post' => $post]);
+        else if (RequestFacade::has('print')) return view('blog-post.print', ['post' => $post]);
+        else if (RequestFacade::query('debug') == "true") return response()->json($post);
         return view('blog-post.reader', ['post' => $post]);
     }
 

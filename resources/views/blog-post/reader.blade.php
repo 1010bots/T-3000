@@ -63,6 +63,10 @@
             color: #A7005E;
             font-weight: 700;
         }
+        article main figure {
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
         article main figure figcaption {
             font-family: ui-serif, Constantia, "Bitstream Charter", Charter, "STIX Two Text", "Libertinus Serif", "Linux Libertine O", "Linux Libertine G", "Linux Libertine", "DejaVu Serif", "Bitstream Vera Serif", "Roboto Serif", "Noto Serif", "Times New Roman", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Emoji", Symbola;
             font-size: 1rem;
@@ -127,10 +131,6 @@
             border-style: solid;
             border-left-width: 0.5rem;
             border-inline-start-width: 0.5rem;
-        }
-        article main figure {
-            margin-bottom: 1rem;
-            margin-top: 1rem;
         }
         article main img {
             border-radius: 0.75rem;
