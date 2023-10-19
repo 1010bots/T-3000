@@ -120,6 +120,14 @@
             margin-bottom: 1rem;
             margin-top: 1rem;
         }
+        article main blockquote {
+            padding-left: 1rem;
+            padding-inline-start: 1rem;
+            border-color: #D8CBFF;
+            border-style: solid;
+            border-left-width: 0.5rem;
+            border-inline-start-width: 0.5rem;
+        }
         article main figure {
             margin-bottom: 1rem;
             margin-top: 1rem;
