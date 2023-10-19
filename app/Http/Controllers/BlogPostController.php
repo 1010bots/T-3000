@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Request as RequestFacade;
+use Mpdf\HTMLParserMode;
 use Mpdf\Mpdf;
 
 class BlogPostController extends Controller
@@ -61,15 +62,19 @@ class BlogPostController extends Controller
         if (!$post) abort(404);
         else if (RequestFacade::has('embed')) return view('blog-post.embed', ['post' => $post]);
         else if (RequestFacade::has('pdf')) {
-            // Workaround for mpdf
-            $post->content = str_replace("https://reinhart1010.id/wp-content/uploads/", "https://blogarchive.reinhart1010.id/wp-content/uploads/", $post->content);
-            $post->post_content = str_replace("https://reinhart1010.id/wp-content/uploads/", "https://blogarchive.reinhart1010.id/wp-content/uploads/", $post->post_content);
-            $mpdf = new Mpdf([
-                'default_font' => 'DejaVuSans'
-            ]);
-            $mpdf->showImageErrors = true;
-            $mpdf->WriteHTML(view('blog-post.print', ['post' => $post, 'pdf' => true])->render(), \Mpdf\HTMLParserMode::HTML_BODY);
-            return response($mpdf->Output())->header('Content-Type', 'application/pdf');
+            $created_at = new Carbon($post->post_date);
+            $pdf = Cache::remember($post->post_type == 'post' ? ('post-' . $created_at->format('Y-m-d') . '-' . $post->post_name . '-pdf') : ('post-nd-' . $post->post_name . '-pdf'), 15 * 60, function () use ($post) {
+                // Workaround for mpdf
+                $post->content = str_replace("https://reinhart1010.id/wp-content/uploads/", "https://blogarchive.reinhart1010.id/wp-content/uploads/", $post->content);
+                $post->post_content = str_replace("https://reinhart1010.id/wp-content/uploads/", "https://blogarchive.reinhart1010.id/wp-content/uploads/", $post->post_content);
+                $mpdf = new Mpdf([
+                    'default_font' => 'DejaVuSans'
+                ]);
+                $mpdf->showImageErrors = true;
+                $mpdf->WriteHTML(view('blog-post.print', ['post' => $post, 'pdf' => true])->render(), HTMLParserMode::HTML_BODY);
+                return $mpdf->Output();
+            });
+            return response($pdf)->header('Content-Type', 'application/pdf');
         }
         else if (RequestFacade::has('print')) return view('blog-post.print', ['post' => $post]);
         else if (RequestFacade::query('debug') == "true") return response()->json($post);
