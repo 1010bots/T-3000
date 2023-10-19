@@ -61,6 +61,7 @@ class BlogPostController extends Controller
         if (!$post) abort(404);
         else if (RequestFacade::has('embed')) return view('blog-post.embed', ['post' => $post]);
         else if (RequestFacade::has('pdf')) {
+            $post->content = str_replace("https://reinhart1010.id/wp-content/uploads/", "https://blogarchive.reinhart1010.id/wp-content/uploads/", $post->content); // Workaround for mpdf
             $mpdf = new Mpdf([
                 'default_font' => 'DejaVuSans'
             ]);
