@@ -81,7 +81,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="window.print()"></body>
     <article>
         <div class="header">
             <div>
