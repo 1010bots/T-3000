@@ -1,0 +1,7 @@
+/* Tizen hotfix */
+/* Import Ubuntu, STIX Two Text, webfonts as fallback */
+@import url(https://fonts.bunny.net/css?family=stix-two-text:400,400i,500,500i,600,600i,700,700i|ubuntu:300,300i,400,400i,500,500i,700,700i);
+
+body, .font-sans {
+  letter-spacing: -0.025rem;
+}

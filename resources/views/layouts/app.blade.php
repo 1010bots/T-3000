@@ -1,3 +1,9 @@
+<?php
+    use Jenssegers\Agent\Agent;
+
+    $agent = new Agent();
+    $agent->setUserAgent(Request::header('User-Agent'));
+?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" prefix="og: http://ogp.me/ns#">
     <head>
@@ -31,6 +37,11 @@
 
         <!-- Styles -->
         @livewireStyles
+
+        <!-- Hotfix -->
+        @if ($agent->is('Tizen') && $agent->is('SMART-TV'))
+            <link rel="stylesheet" href="/css/hotfix/tizen.css"/>
+        @endif
 
         <!-- Link & Meta Tags -->
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
