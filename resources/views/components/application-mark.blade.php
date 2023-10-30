@@ -1,12 +1,15 @@
 <picture>
-  {{-- <source srcset="/img/icons/shell-blue-male-dark.avif" media="(prefers-color-scheme:dark)" type="image/avif" />
+  {{-- <source srcset="/img/icons/shell-blue-male-dark.jxl" media="(prefers-color-scheme:dark)" type="image/jxl" />
+  <source srcset="/img/icons/shell-blue-male-dark.avif" media="(prefers-color-scheme:dark)" type="image/avif" />
   <source srcset="/img/icons/shell-blue-male-dark.heic" media="(prefers-color-scheme:dark)" type="image/heic" />
   <source srcset="/img/icons/shell-blue-male-dark.webp" media="(prefers-color-scheme:dark)" type="image/webp" />
   <source srcset="/img/icons/shell-blue-male-dark.png" media="(prefers-color-scheme:dark)" type="image/png" />
+  <source srcset="/img/icons/shell-blue-male-light.jxl" media="(prefers-color-scheme:light)" type="image/jxl" />
   <source srcset="/img/icons/shell-blue-male-light.avif" media="(prefers-color-scheme:light)" type="image/avif" />
   <source srcset="/img/icons/shell-blue-male-light.heic" media="(prefers-color-scheme:light)" type="image/heic" />
   <source srcset="/img/icons/shell-blue-male-light.webp" media="(prefers-color-scheme:light)" type="image/webp" />
   <source srcset="/img/icons/shell-blue-male-light.png" media="(prefers-color-scheme:light)" type="image/png" /> --}}
+  <source srcset="/img/icons/shell-blue-male-neutral.jxl" type="image/jxl" />
   <source srcset="/img/icons/shell-blue-male-neutral.avif" type="image/avif" />
   <source srcset="/img/icons/shell-blue-male-neutral.heic" type="image/heic" />
   <source srcset="/img/icons/shell-blue-male-neutral.webp" type="image/webp" />

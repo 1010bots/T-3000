@@ -40,6 +40,5 @@
                     console.log(e);
                 });
         });
-
     </script>
 </x-app-layout>

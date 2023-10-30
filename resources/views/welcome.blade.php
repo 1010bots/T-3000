@@ -29,6 +29,7 @@
         }
     </style>
     <picture>
+        <source srcset="/img/hero/main-desktop-dark.jxl" media="(prefers-color-scheme:dark) and (min-width: 800px)" type="image/jxl" />
         <source srcset="/img/hero/main-desktop-dark.avif" media="(prefers-color-scheme:dark) and (min-width: 800px)" type="image/avif" />
         <source srcset="/img/hero/main-desktop-dark.heic" media="(prefers-color-scheme:dark) and (min-width: 800px)" type="image/heic" />
         <source srcset="/img/hero/main-desktop-dark.webp" media="(prefers-color-scheme:dark) and (min-width: 800px)" type="image/webp" />
@@ -37,10 +38,12 @@
         <source srcset="/img/hero/main-desktop-dark.heic" media="(prefers-color-scheme:dark)" type="image/heic" />
         <source srcset="/img/hero/main-desktop-dark.webp" media="(prefers-color-scheme:dark)" type="image/webp" />
         <source srcset="/img/hero/main-desktop-dark.jpg" media="(prefers-color-scheme:dark)" type="image/jpg" />
+        <source srcset="/img/hero/main-desktop-light.jxl" media="(prefers-color-scheme:light) and (min-width: 800px)" type="image/jxl" />
         <source srcset="/img/hero/main-desktop-light.avif" media="(prefers-color-scheme:light) and (min-width: 800px)" type="image/avif" />
         <source srcset="/img/hero/main-desktop-light.heic" media="(prefers-color-scheme:light) and (min-width: 800px)" type="image/heic" />
         <source srcset="/img/hero/main-desktop-light.webp" media="(prefers-color-scheme:light) and (min-width: 800px)" type="image/webp" />
         <source srcset="/img/hero/main-desktop-light.jpg" media="(prefers-color-scheme:light) and (min-width: 800px)" type="image/jpg" />
+        <source srcset="/img/hero/main-mobile-light.jxl" media="(prefers-color-scheme:light)" type="image/jxl" />
         <source srcset="/img/hero/main-mobile-light.avif" media="(prefers-color-scheme:light)" type="image/avif" />
         <source srcset="/img/hero/main-mobile-light.heic" media="(prefers-color-scheme:light)" type="image/heic" />
         <source srcset="/img/hero/main-mobile-light.webp" media="(prefers-color-scheme:light)" type="image/webp" />
@@ -78,10 +81,12 @@
             </div> --}}
             <p class="my-4">/* Yeah, the binary, <strong class="inline-block font-bold">(&gt;_ )</strong> guy who was born on <span class="text-ocr">10<small class="text-xs">/</small>10<small class="text-xs">/20</small>01</span> */</p>
             <picture>
+                <source srcset="/img/full-body/augmented-dark.jxl 1x, /img/full-body/augmented-dark@2x.jxl 2x" media="(prefers-color-scheme:dark)" type="image/jxl" />
                 <source srcset="/img/full-body/augmented-dark.avif 1x, /img/full-body/augmented-dark@2x.avif 2x" media="(prefers-color-scheme:dark)" type="image/avif" />
                 <source srcset="/img/full-body/augmented-dark.heic 1x, /img/full-body/augmented-dark@2x.heic 2x" media="(prefers-color-scheme:dark)" type="image/heic" />
                 <source srcset="/img/full-body/augmented-dark.webp 1x, /img/full-body/augmented-dark@2x.webp 2x" media="(prefers-color-scheme:dark)" type="image/webp" />
                 <source srcset="/img/full-body/augmented-dark.png 1x, /img/full-body/augmented-dark@2x.png 2x" media="(prefers-color-scheme:dark)" type="image/png" />
+                <source srcset="/img/full-body/augmented-light.jxl 1x, /img/full-body/augmented-light@2x.jxl 2x" media="(prefers-color-scheme:light)" type="image/jxl" />
                 <source srcset="/img/full-body/augmented-light.avif 1x, /img/full-body/augmented-light@2x.avif 2x" media="(prefers-color-scheme:light)" type="image/avif" />
                 <source srcset="/img/full-body/augmented-light.heic 1x, /img/full-body/augmented-light@2x.heic 2x" media="(prefers-color-scheme:light)" type="image/heic" />
                 <source srcset="/img/full-body/augmented-light.webp 1x, /img/full-body/augmented-light@2x.webp 2x" media="(prefers-color-scheme:light)" type="image/webp" />

@@ -53,8 +53,13 @@ Route::middleware(
 
     /* Apps */
     Route::get('/apps', function () {
-        return view('apps');
+        return view('landing-page.apps');
     })->name('apps');
+
+    /* Contact */
+    Route::get('/contact', function () {
+        return view('landing-page.contact');
+    })->name('contact');
 
     /* oEmbed */
     Route::get('/oembed', 'App\Http\Controllers\BlogPostController@oEmbed');

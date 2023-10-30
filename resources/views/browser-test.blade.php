@@ -481,7 +481,7 @@
         </div>
         <div id="modern-image-formats" aria-describedby="modern-image-formats-title">
             <h3 id="modern-emoji-title">B4. Modern Image Formats</h3>
-            <p>Our website still supports good-old JPEG and PNG, but if your web browser supports newer, more efficient image formats like JPEG 2000 (JP2), WEBP, HEIC, and AVIF, your browser could load this website even faster!</p>
+            <p>Our website still supports good-old JPEG and PNG, but if your web browser supports newer, more efficient image formats like JPEG 2000 (JP2), WEBP, HEIC, AVIF, and JPEG XL (JXL), your browser could load this website even faster!</p>
             <table border="1" class="emoji-table">
                 <tr>
                     <th>Format</th>
@@ -490,6 +490,7 @@
                     <th>WEBP</th>
                     <th>HEIC</th>
                     <th>AVIF</th>
+                    <th>JPEG XL</th>
                 </tr>
                 <tr>
                     <th>Image</th>
@@ -498,6 +499,7 @@
                     <td><img src="/img/icons/bot-blue-female-neutral.webp" type="image/webp" alt="Your web browser does not support WEBP image" height="128" width="128"></td>
                     <td><img src="/img/icons/bot-blue-female-neutral.heic" type="image/heic" alt="Your web browser does not support HEIC image" height="128" width="128"></td>
                     <td><img src="/img/icons/bot-blue-female-neutral.avif" type="image/avif" alt="Your web browser does not support AVIF image" height="128" width="128"></td>
+                    <td><img src="/img/icons/bot-blue-female-neutral.jxl" type="image/jxl" alt="Your web browser does not support JPEG XL image" height="128" width="128"></td>
                 </tr>
                 <tr>
                     <th>Speed (Size)</th>
@@ -506,6 +508,7 @@
                     <td><span class="text-48px">6.2x</span><br/>(246 KB)</td>
                     <td><span class="text-48px">6.7x</span><br/>(225 KB)</td>
                     <td><span class="text-48px">11.5x</span><br/>(132 KB)</td>
+                    <td><span class="text-48px">14.0x</span><br/>(108 KB)</td>
                 </tr>
             </table>
             <p>Note that these speeds will only apply when downloading images, and not others (like audio, videos, etc.).</p>
