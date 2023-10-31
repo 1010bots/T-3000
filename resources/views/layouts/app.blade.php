@@ -41,6 +41,8 @@
         <!-- Hotfix -->
         @if ($agent->is('Tizen') && $agent->is('SMART-TV'))
             <link rel="stylesheet" href="/css/hotfix/tizen.css"/>
+        @elseif ($agent->is('webOSTV') || $agent->is('LGE'))
+            <link rel="stylesheet" href="/css/hotfix/webos.css"/>
         @endif
 
         <!-- Link & Meta Tags -->
