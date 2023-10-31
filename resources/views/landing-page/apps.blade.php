@@ -64,7 +64,7 @@
             <h2 class="my-2 text-2xl text-bold font-serif font-semibold break-words">Currently building and maintaining...</h2>
             <div class="py-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
                 @foreach ($featured_apps as $app)
-                    <div class="block @if ($app->_compiled->image_type == 'cover' && $app->_compiled->image_src != null) aspect-h-9 aspect-w-16 @endif sm:aspect-h-9 aspect-w-16 overflow-hidden bg-white dark:bg-gray-800 rounded-xl shadow-lg text-lg">
+                    <div class="block @if ($app->_compiled->image_type == 'cover' && $app->_compiled->image_src != null) aspect-h-9 @endif sm:aspect-h-9 aspect-w-16 overflow-hidden bg-white dark:bg-gray-800 rounded-xl shadow-lg text-lg">
                         @if ($app->_compiled->image_type == 'cover' && $app->_compiled->image_src != null)
                             <picture>
                                 <img alt="Cover image for {{ $app->name }}" src="{{ $app->_compiled->image_src }}" height="1080" width="1920" class="h-full w-full aspect-h-9 aspect-w-16 bg-no-repeat object-cover" />
@@ -92,7 +92,7 @@
             <h2 class="my-2 text-2xl text-bold font-serif font-semibold break-words">Previously worked on...</h2>
             <div class="py-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
                 @foreach ($retired_apps as $app)
-                    <div class="block @if ($app->_compiled->image_type == 'cover' && $app->_compiled->image_src != null) aspect-h-9 aspect-w-16 @endif sm:aspect-h-9 aspect-w-16 overflow-hidden bg-white dark:bg-gray-800 rounded-xl shadow-lg text-lg">
+                    <div class="block @if ($app->_compiled->image_type == 'cover' && $app->_compiled->image_src != null) aspect-h-9 @endif sm:aspect-h-9 aspect-w-16 overflow-hidden bg-white dark:bg-gray-800 rounded-xl shadow-lg text-lg">
                         @if ($app->_compiled->image_type == 'cover' && $app->_compiled->image_src != null)
                             <picture>
                                 <img alt="Cover image for {{ $app->name }}" src="{{ $app->_compiled->image_src }}" height="1080" width="1920" class="h-full w-full aspect-h-9 aspect-w-16 bg-no-repeat object-cover" />

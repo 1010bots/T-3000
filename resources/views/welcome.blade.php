@@ -53,7 +53,7 @@
     <div class="absolute top-0 w-full">
         @livewire('navigation-menu')
         <div class="px-safe-offset-6 pt-8 bg-hero text-center text-white">
-            <x-alerts.new-site class="relative z-index-5 backdrop-blur" />
+            <x-alerts.halloween class="relative z-index-5 backdrop-blur" />
             <p class="mx-auto my-4 font-serif text-2xl font-semibold italic">Multitalent Software, Hardware, Life, and Reality Developer</p>
             {{-- <div class="flex my-4 justify-center">
                 <div class="w-64 font-serif text-center">
