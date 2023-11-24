@@ -77,8 +77,8 @@
         @endisset
 
         <!-- Facebook Meta Tags -->
-        <meta name="fb:app_id" content="{{ env('FACEBOOK_APP_ID') }}" />
-        <meta name="fb:page_id" content="100085894570968" />
+        <meta property="fb:app_id" content="{{ env('FACEBOOK_APP_ID') }}" />
+        <meta property="fb:pages" content="100085894570968" />
 
         <!-- Snapchat Meta Tags -->
         <meta property="snapchat:app_id" content="{{ env('SNAP_APP_ID') }}" />
