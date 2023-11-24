@@ -20,6 +20,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net" />
         <link rel="preconnect" href="https://fonts.cdnfonts.com" />
+        <link href="https://fonts.bunny.net/css?family=ibm-plex-mono:300,300i,400,400i,600,600i|ibm-plex-sans:300,300i,400,400i,600,600i|ibm-plex-serif:300,300i,400,400i,600,600i" rel="stylesheet" />
 
         <!-- Scripts -->
         @vite([
@@ -39,11 +40,11 @@
         @livewireStyles
 
         <!-- Hotfix -->
-        @if ($agent->is('Tizen') && $agent->is('SMART-TV'))
+        {{-- @if ($agent->is('Tizen') && $agent->is('SMART-TV'))
             <link rel="stylesheet" href="/css/hotfix/tizen.css"/>
         @elseif ($agent->is('webOSTV') || $agent->is('LGE'))
             <link rel="stylesheet" href="/css/hotfix/webos.css"/>
-        @endif
+        @endif --}}
 
         <!-- Link & Meta Tags -->
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
@@ -57,7 +58,7 @@
         <!-- oEmbed Meta Tags -->
         @if (isset($attributes['oembed']) && $attributes['oembed'] === true)
             <link rel="alternate" type="application/json+oembed" href="{{ env('APP_URL', 'http://127.0.0.1') }}/oembed?url={{ urlencode($attributes['canonical'] ?? url()->full()) }}&format=json" title="{{ $attributes['title'] ?? 'oEmbed Element' }}" />
-            <link rel="alternate" type="text/xml+oembed" href="{{ env('APP_URL', 'http://127.0.0.1') }}/oembed?url={{ urlencode($attributes['canonical'] ?? url()->full()) }}&format=xml" title="Bacon Lollys oEmbed Profile" />
+            <link rel="alternate" type="text/xml+oembed" href="{{ env('APP_URL', 'http://127.0.0.1') }}/oembed?url={{ urlencode($attributes['canonical'] ?? url()->full()) }}&format=xml" title="{{ $attributes['title'] ?? 'oEmbed Element' }}" />
         @endif
 
         <!-- Open Graph Meta Tags -->
@@ -65,6 +66,7 @@
         <meta property="og:type" content="{{ $attributes['og-type'] ?? 'website' }}" />
         <meta property="og:url" content="{{ $attributes['canonical'] ?? url()->full() }}" />
         <meta property="og:image" content="{{ $attributes['og-image'] ?? '/img/hero/main-desktop-light.jpg' }}" />
+        <meta property="og:description" content="{{ $attributes['description'] ?? 'Multitalent Software, Hardware, Life, and Reality Developer' }}" />
 
         @isset ($attributes['og-article-published-time'])
             <meta property="og:article:published_time" content="{{ $attributes['og-article-published-time'] }}" />
@@ -75,6 +77,7 @@
         @endisset
 
         <!-- Facebook Meta Tags -->
+        <meta name="fb:app_id" content="{{ env('FACEBOOK_APP_ID') }}" />
         <meta name="fb:page_id" content="100085894570968" />
 
         <!-- Snapchat Meta Tags -->
@@ -89,7 +92,7 @@
     <body class="font-sans antialiased">
         <x-banner />
 
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="min-h-screen bg-rh-std-light-0 dark:bg-rh-std-dark-0">
             @if (!isset($attributes['navbar']) || $attributes['navbar'] == true)
                 @livewire('navigation-menu')
             @endif
