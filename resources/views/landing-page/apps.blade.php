@@ -55,7 +55,7 @@
         }
     }
 ?>
-<x-app-layout>
+<x-app-layout theme-color="seafoam">
     <main class="text-black dark:text-white">
         <div class="m-4 text-center">
             <h1 class="text-3xl text-bold font-serif font-semibold break-words">Apps and Services</h1>

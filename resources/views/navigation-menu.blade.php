@@ -4,24 +4,65 @@
     $agent = new Agent();
     $agent->setUserAgent(Request::header('User-Agent'));
     $is_apple = $agent->isiOS() || $agent->isiPadOS() || $agent->is('OS X');
+    $theme_color = $attributes['theme-color'] ?? "blue";
 ?>
 <div>
     <!-- Allow Tailwind to populate background colors when minifying CSS -->
     <div class="hidden">
-        <div class="bg-gr-red-500 dark:bg-dm-red-500"></div>
-        <div class="bg-gr-orange-500 dark:bg-dm-orange-500"></div>
-        <div class="bg-gr-yellow-500 dark:bg-dm-yellow-500"></div>
-        <div class="bg-gr-lime-500 dark:bg-dm-lime-500"></div>
-        <div class="bg-gr-green-500 dark:bg-dm-green-500"></div>
-        <div class="bg-gr-seafoam-500 dark:bg-dm-seafoam-500"></div>
-        <div class="bg-gr-cyan-500 dark:bg-dm-cyan-500"></div>
-        <div class="bg-gr-blue-500 dark:bg-dm-blue-500"></div>
-        <div class="bg-gr-indigo-500 dark:bg-dm-indigo-500"></div>
-        <div class="bg-gr-violet-500 dark:bg-dm-violet-500"></div>
-        <div class="bg-gr-purple-500 dark:bg-dm-purple-500"></div>
-        <div class="bg-gr-fuchsia-500 dark:bg-dm-fuchsia-500"></div>
+        <!-- Navbar containers -->
+        <div class="bg-rc-red-50 dark:bg-rc-red-900"></div>
+        <div class="bg-rc-orange-50 dark:bg-rc-orange-900"></div>
+        <div class="bg-rc-yellow-50 dark:bg-rc-yellow-900"></div>
+        <div class="bg-rc-lime-50 dark:bg-rc-lime-900"></div>
+        <div class="bg-rc-green-50 dark:bg-rc-green-900"></div>
+        <div class="bg-rc-seafoam-50 dark:bg-rc-seafoam-900"></div>
+        <div class="bg-rc-cyan-50 dark:bg-rc-cyan-900"></div>
+        <div class="bg-rc-blue-50 dark:bg-rc-blue-900"></div>
+        <div class="bg-rc-indigo-50 dark:bg-rc-indigo-900"></div>
+        <div class="bg-rc-violet-50 dark:bg-rc-violet-900"></div>
+        <div class="bg-rc-purple-50 dark:bg-rc-purple-900"></div>
+        <div class="bg-rc-fuchsia-50 dark:bg-rc-fuchsia-900"></div>
+        <!-- Navbar active icon -->
+        <div class="bg-gr-red-500 dark:bg-dm-red-400"></div>
+        <div class="bg-gr-orange-500 dark:bg-dm-orange-400"></div>
+        <div class="bg-gr-yellow-500 dark:bg-dm-yellow-400"></div>
+        <div class="bg-gr-lime-500 dark:bg-dm-lime-400"></div>
+        <div class="bg-gr-green-500 dark:bg-dm-green-400"></div>
+        <div class="bg-gr-seafoam-500 dark:bg-dm-seafoam-400"></div>
+        <div class="bg-gr-cyan-500 dark:bg-dm-cyan-400"></div>
+        <div class="bg-gr-blue-500 dark:bg-dm-blue-400"></div>
+        <div class="bg-gr-indigo-500 dark:bg-dm-indigo-400"></div>
+        <div class="bg-gr-violet-500 dark:bg-dm-violet-400"></div>
+        <div class="bg-gr-purple-500 dark:bg-dm-purple-400"></div>
+        <div class="bg-gr-fuchsia-500 dark:bg-dm-fuchsia-400"></div>
+        <!-- Navbar active borders -->
+        <div class="border-gr-red-400 dark:border-dm-red-300"></div>
+        <div class="border-gr-orange-400 dark:border-dm-orange-300"></div>
+        <div class="border-gr-yellow-400 dark:border-dm-yellow-300"></div>
+        <div class="border-gr-lime-400 dark:border-dm-lime-300"></div>
+        <div class="border-gr-green-400 dark:border-dm-green-300"></div>
+        <div class="border-gr-seafoam-400 dark:border-dm-seafoam-300"></div>
+        <div class="border-gr-cyan-400 dark:border-dm-cyan-300"></div>
+        <div class="border-gr-blue-400 dark:border-dm-blue-300"></div>
+        <div class="border-gr-indigo-400 dark:border-dm-indigo-300"></div>
+        <div class="border-gr-violet-400 dark:border-dm-violet-300"></div>
+        <div class="border-gr-purple-400 dark:border-dm-purple-300"></div>
+        <div class="border-gr-fuchsia-400 dark:border-dm-fuchsia-300"></div>
+        <!-- Navbar inactive borders -->
+        <div class="focus:border-rc-red-500 dark:focus:border-rc-red-500"></div>
+        <div class="focus:border-rc-orange-500 dark:focus:border-rc-orange-500"></div>
+        <div class="focus:border-rc-yellow-500 dark:focus:border-rc-yellow-500"></div>
+        <div class="focus:border-rc-lime-500 dark:focus:border-rc-lime-500"></div>
+        <div class="focus:border-rc-green-500 dark:focus:border-rc-green-500"></div>
+        <div class="focus:border-rc-seafoam-500 dark:focus:border-rc-seafoam-500"></div>
+        <div class="focus:border-rc-cyan-500 dark:focus:border-rc-cyan-500"></div>
+        <div class="focus:border-rc-blue-500 dark:focus:border-rc-blue-500"></div>
+        <div class="focus:border-rc-indigo-500 dark:focus:border-rc-indigo-500"></div>
+        <div class="focus:border-rc-violet-500 dark:focus:border-rc-violet-500"></div>
+        <div class="focus:border-rc-purple-500 dark:focus:border-rc-purple-500"></div>
+        <div class="focus:border-rc-fuchsia-500 dark:focus:border-rc-fuchsia-500"></div>
     </div>
-    <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+    <nav x-data="{ open: false }" class="bg-rc-{{ $theme_color }}-50 dark:bg-rc-{{ $theme_color }}-900">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl pt-safe mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -35,16 +76,16 @@
 
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                        <x-nav-link :theme-color="$theme_color" href="{{ route('home') }}" :active="request()->routeIs('home')">
                             {{ __('Home') }}
                         </x-nav-link>
-                        <x-nav-link href="{{ route('apps') }}" :active="request()->routeIs('apps')">
+                        <x-nav-link :theme-color="$theme_color" href="{{ route('apps') }}" :active="request()->routeIs('apps')">
                             {{ __('Apps') }}
                         </x-nav-link>
-                        <x-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
+                        <x-nav-link :theme-color="$theme_color" href="{{ route('contact') }}" :active="request()->routeIs('contact')">
                             {{ __('Contact') }}
                         </x-nav-link>
-                        <x-nav-link data-r-search-button="true">
+                        <x-nav-link :theme-color="$theme_color" data-r-search-button="true">
                             {{ __('Search') }}
                         </x-nav-link>
                         @auth
@@ -179,17 +220,17 @@
         <!-- Responsive Navigation Menu -->
         <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                <x-responsive-nav-link :theme-color="$theme_color" href="{{ route('home') }}" :active="request()->routeIs('home')">
                     {{ __('Home') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link href="{{ route('apps') }}" :active="request()->routeIs('apps')">
+                <x-responsive-nav-link :theme-color="$theme_color" href="{{ route('apps') }}" :active="request()->routeIs('apps')">
                     {{ __('Apps') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link data-r-search-button="true">
+                <x-responsive-nav-link :theme-color="$theme_color" data-r-search-button="true">
                     {{ __('Search') }}
                 </x-responsive-nav-link>
                 @auth
-                    <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-responsive-nav-link :theme-color="$theme_color" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-responsive-nav-link>
                 @endauth

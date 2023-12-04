@@ -46,6 +46,10 @@ Route::middleware(
     'cache.headers:public;max_age=900;etag'
 )->group(function () {
     /* Home */
+    // Route::get('/', function () {
+    //     if (Request::query('p') != null) return (new BlogPostController())->show(Request::query('p'));
+    //     return view('landing-page.home');
+    // })->name('home');
     Route::get('/', function () {
         if (Request::query('p') != null) return (new BlogPostController())->show(Request::query('p'));
         return view('welcome');

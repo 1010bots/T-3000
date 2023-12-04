@@ -1,6 +1,7 @@
 <?php
     use Jenssegers\Agent\Agent;
 
+    $theme_color = $attribute['theme-color'] ?? 'blue';
     $agent = new Agent();
     $agent->setUserAgent(Request::header('User-Agent'));
 ?>
@@ -20,7 +21,6 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net" />
         <link rel="preconnect" href="https://fonts.cdnfonts.com" />
-        <link href="https://fonts.bunny.net/css?family=ibm-plex-mono:300,300i,400,400i,600,600i|ibm-plex-sans:300,300i,400,400i,600,600i|ibm-plex-serif:300,300i,400,400i,600,600i" rel="stylesheet" />
 
         <!-- Scripts -->
         @vite([
@@ -40,11 +40,11 @@
         @livewireStyles
 
         <!-- Hotfix -->
-        {{-- @if ($agent->is('Tizen') && $agent->is('SMART-TV'))
+        @if ($agent->is('Tizen') && $agent->is('SMART-TV'))
             <link rel="stylesheet" href="/css/hotfix/tizen.css"/>
         @elseif ($agent->is('webOSTV') || $agent->is('LGE'))
             <link rel="stylesheet" href="/css/hotfix/webos.css"/>
-        @endif --}}
+        @endif
 
         <!-- Link & Meta Tags -->
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
@@ -92,7 +92,7 @@
     <body class="font-sans antialiased">
         <x-banner />
 
-        <div class="min-h-screen bg-rh-std-light-0 dark:bg-rh-std-dark-0">
+        <div class="min-h-screen bg-white dark:bg-rc-blue-950">
             @if (!isset($attributes['navbar']) || $attributes['navbar'] == true)
                 @livewire('navigation-menu')
             @endif
