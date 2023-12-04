@@ -22,7 +22,7 @@
     $embed_html = '<iframe src="' . $canonical . '?embed" height="512" width="512" style="border:none;"><a href="{{ $canonical }}">' . $canonical . '</a></iframe>';
 ?>
 <div class="flex flex-wrap gap-2 {{ $class ?? '' }}">
-    <a id="{{ $unique_id }}-share-menu-open-share-sheet" class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 py-2 rounded-full leading-4 cursor-pointer" style="width: 88px;">
+    <a id="{{ $unique_id }}-share-menu-open-share-sheet" class="text-center text-black dark:text-white bg-rc-violet-50 dark:bg-rc-violet-900 border-0 py-2 rounded-full leading-4 cursor-pointer" style="width: 88px;">
         @if ($is_apple)
             <x-fluentui-share-ios-24-o height="24" width="24" class="inline-block" />
         @elseif ($agent->is('Windows'))
@@ -32,23 +32,23 @@
         @endif
         <span class="align-middle">Share</span>
     </a>
-    <a id="{{ $unique_id }}-share-menu-copy-link" class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4 cursor-pointer">
+    <a id="{{ $unique_id }}-share-menu-copy-link" class="text-center text-black dark:text-white bg-rc-violet-50 dark:bg-rc-violet-900 border-0 p-2 rounded-full leading-4 cursor-pointer">
         <x-fluentui-copy-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Copy Link</span>
     </a>
-    <a id="{{ $unique_id }}-share-menu-print" class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4 cursor-pointer" href="{{ $url }}?print">
+    <a id="{{ $unique_id }}-share-menu-print" class="text-center text-black dark:text-white bg-rc-violet-50 dark:bg-rc-violet-900 border-0 p-2 rounded-full leading-4 cursor-pointer" href="{{ $url }}?print">
         <x-fluentui-print-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Print</span>
     </a>
-    <a id="{{ $unique_id }}-share-menu-pdf" class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4 cursor-pointer" href="{{ $url }}?pdf">
+    <a id="{{ $unique_id }}-share-menu-pdf" class="text-center text-black dark:text-white bg-rc-violet-50 dark:bg-rc-violet-900 border-0 p-2 rounded-full leading-4 cursor-pointer" href="{{ $url }}?pdf">
         <x-fluentui-document-pdf-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">PDF</span>
     </a>
-    <a id="{{ $unique_id }}-share-menu-embed" class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4 cursor-pointer">
+    <a id="{{ $unique_id }}-share-menu-embed" class="text-center text-black dark:text-white bg-rc-violet-50 dark:bg-rc-violet-900 border-0 p-2 rounded-full leading-4 cursor-pointer">
         <x-fluentui-code-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Embed</span>
     </a>
-    <a class="text-center text-black bg-holo holo-force holo-global holo-interactive border-0 p-2 rounded-full leading-4" href="mailto:?subject={{ $title }}&body={{ $description }}%0A%0A{{ $url }}" target="_blank">
+    <a class="text-center text-black dark:text-white bg-rc-violet-50 dark:bg-rc-violet-900 border-0 p-2 rounded-full leading-4" href="mailto:?subject={{ $title }}&body={{ $description }}%0A%0A{{ $url }}" target="_blank">
         <x-fluentui-mail-add-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Email</span>
     </a>
