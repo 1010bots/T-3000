@@ -4,7 +4,9 @@
     $agent = new Agent();
     $agent->setUserAgent(Request::header('User-Agent'));
     $is_apple = $agent->isiOS() || $agent->isiPadOS() || $agent->is('OS X');
-    $theme_color = $attributes['theme-color'] ?? "blue";
+    if (!$theme_color) {
+        $theme_color = 'blue';
+    }
 ?>
 <div>
     <!-- Allow Tailwind to populate background colors when minifying CSS -->
@@ -75,7 +77,7 @@
                     </div>
 
                     <!-- Navigation Links -->
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex items-center">
                         <x-nav-link :theme-color="$theme_color" href="{{ route('home') }}" :active="request()->routeIs('home')">
                             {{ __('Home') }}
                         </x-nav-link>
@@ -85,9 +87,9 @@
                         <x-nav-link :theme-color="$theme_color" href="{{ route('contact') }}" :active="request()->routeIs('contact')">
                             {{ __('Contact') }}
                         </x-nav-link>
-                        <x-nav-link :theme-color="$theme_color" data-r-search-button="true">
+                        <button data-r-search-button="true" class="h-min px-4 py-2 rounded-full bg-rc-{{ $theme_color }}-50 dark:bg-rc-{{ $theme_color }}-900 border-gr-{{ $theme_color }}-400 dark:border-gr-{{ $theme_color }}-300">
                             {{ __('Search') }}
-                        </x-nav-link>
+                        </button>
                         @auth
                             <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                                 {{ __('Dashboard') }}

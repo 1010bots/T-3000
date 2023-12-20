@@ -66,7 +66,7 @@
         [
             "name" => "Bumi Laras Selatan",
             "description" => "Our new brand typeface",
-            "site" => "https://reinhart1010.id/bumi-laras-selatan",
+            "site" => "/bumi-laras-selatan",
         ],
         [
             "name" => "Jocelyne's Website",

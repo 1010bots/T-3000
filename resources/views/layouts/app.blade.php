@@ -1,7 +1,7 @@
 <?php
     use Jenssegers\Agent\Agent;
 
-    $theme_color = $attribute['theme-color'] ?? 'blue';
+    $theme_color = $attributes['theme-color'] ?? 'blue';
     $theme_colors = [
         'red' => ['#32120F', '#FFE2DD'],
         'orange' => ['#2F1502', '#FFE7CF'],
@@ -104,7 +104,8 @@
 
         <div class="min-h-screen bg-white dark:bg-black">
             @if (!isset($attributes['navbar']) || $attributes['navbar'] == true)
-                @livewire('navigation-menu')
+                @component('navigation-menu', ['theme_color' => $theme_color])
+                @endcomponent
             @endif
 
             <!-- Page Heading -->
