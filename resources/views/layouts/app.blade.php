@@ -3,9 +3,18 @@
 
     $theme_color = $attribute['theme-color'] ?? 'blue';
     $theme_colors = [
+        'red' => ['#32120F', '#FFE2DD'],
+        'orange' => ['#2F1502', '#FFE7CF'],
+        'yellow' => ['#281A00', '#FEEDC9'],
+        'lime' => ['#1C2000', '#ECF3CE'],
+        'green' => ['#0A230D', '#DAF8DB'],
+        'seafoam' => ['#00251C', '#CCFAED'],
+        'cyan' => ['#002329', '#C8F9FF']
         'blue' => ['#002032', '#D0F5FF'],
         'indigo' => ['#111C35', '#DFEFFF'],
         'violet' => ['#1F1732', '#F1E8FF'],
+        'purple' => ['#29132A', '#FFE4FF'],
+        'fuchsia' => ['#2F111E', '#FFE1EF'],
     ];
     $agent = new Agent();
     $agent->setUserAgent(Request::header('User-Agent'));
