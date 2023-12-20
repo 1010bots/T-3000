@@ -100,7 +100,7 @@
         @elseif (isset($post->image))
             <img src="{{ $post->image }}" class="cover" />
         @endif
-        <a class="caption" href="{{ $canonical }}">
+        <a class="caption" href="{{ $canonical }}" target="_blank">
             <h1 class="title">{{ $post->post_title }}</h1>
             <div class="logotype">REINHART1010</div>
         </a>

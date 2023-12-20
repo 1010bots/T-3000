@@ -2,6 +2,11 @@
     use Jenssegers\Agent\Agent;
 
     $theme_color = $attribute['theme-color'] ?? 'blue';
+    $theme_colors = [
+        'blue' => ['#002032', '#D0F5FF'],
+        'indigo' => ['#111C35', '#DFEFFF'],
+        'violet' => ['#1F1732', '#F1E8FF'],
+    ];
     $agent = new Agent();
     $agent->setUserAgent(Request::header('User-Agent'));
 ?>
@@ -38,13 +43,7 @@
 
         <!-- Styles -->
         @livewireStyles
-
-        <!-- Hotfix -->
-        @if ($agent->is('Tizen') && $agent->is('SMART-TV'))
-            <link rel="stylesheet" href="/css/hotfix/tizen.css"/>
-        @elseif ($agent->is('webOSTV') || $agent->is('LGE'))
-            <link rel="stylesheet" href="/css/hotfix/webos.css"/>
-        @endif
+        <link rel="stylesheet" href="/css/bumi-laras-selatan.css"/>
 
         <!-- Link & Meta Tags -->
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
@@ -54,6 +53,8 @@
 
         <meta name="description" content="{{ $attributes['description'] ?? 'Multitalent Software, Hardware, Life, and Reality Developer' }}" />
         <meta name="keywords" content="{{ $attributes['keywords'] ?? 'reinhart1010,@reinhart1010,Reinhart Previano Koentjoro,Reinhart Previano K,Nate,Shift,Shiftine,Skyborne,Caps,controld,pr0xy,alterine,alt1e,(>_ ),(#_ ),($_ )' }}" />
+        <meta name="theme-color" content="{{ $theme_colors[$theme_color][1] }}" media="(prefers-color-scheme: light)">
+        <meta name="theme-color" content="{{ $theme_colors[$theme_color][0] }}" media="(prefers-color-scheme: dark)">
 
         <!-- oEmbed Meta Tags -->
         @if (isset($attributes['oembed']) && $attributes['oembed'] === true)
@@ -92,14 +93,14 @@
     <body class="font-sans antialiased">
         <x-banner />
 
-        <div class="min-h-screen bg-white dark:bg-rc-blue-950">
+        <div class="min-h-screen bg-white dark:bg-black">
             @if (!isset($attributes['navbar']) || $attributes['navbar'] == true)
                 @livewire('navigation-menu')
             @endif
 
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
+                <header>
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
@@ -114,7 +115,7 @@
 
         @stack('modals')
 
-        <div class="p-2 pb-save-offset-2 text-center bg-white dark:bg-gray-800 text-black dark:text-white">
+        <div class="p-2 pb-safe-offset-2 text-center bg-white dark:bg-gray-800 text-black dark:text-white">
             Copyright &copy; Reinhart Previano K. | <a href="https://legal.reinhart1010.id/privacy/general/en" class="font-bold">Privacy Policy</a>
         </div>
 

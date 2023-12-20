@@ -68,7 +68,6 @@
             margin-top: 1rem;
         }
         article main figure figcaption {
-            font-family: ui-serif, Constantia, "Bitstream Charter", Charter, "STIX Two Text", "Libertinus Serif", "Linux Libertine O", "Linux Libertine G", "Linux Libertine", "DejaVu Serif", "Bitstream Vera Serif", "Roboto Serif", "Noto Serif", "Times New Roman", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Emoji", Symbola;
             font-size: 1rem;
             font-style: italic;
             line-height: 1.5;
@@ -77,7 +76,6 @@
             text-align: center;
         }
         article main h1, article main .h1 {
-            font-family: ui-serif, Constantia, "Bitstream Charter", Charter, "STIX Two Text", "Libertinus Serif", "Linux Libertine O", "Linux Libertine G", "Linux Libertine", "DejaVu Serif", "Bitstream Vera Serif", "Roboto Serif", "Noto Serif", "Times New Roman", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Emoji", Symbola;
             font-size: 2.25rem;
             font-weight: 600;
             line-height: 2.5rem;
@@ -85,7 +83,6 @@
             margin-top: 1rem;
         }
         article main h2, article main .h2 {
-            font-family: ui-serif, Constantia, "Bitstream Charter", Charter, "STIX Two Text", "Libertinus Serif", "Linux Libertine O", "Linux Libertine G", "Linux Libertine", "DejaVu Serif", "Bitstream Vera Serif", "Roboto Serif", "Noto Serif", "Times New Roman", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Emoji", Symbola;
             font-size: 1.875rem;
             font-weight: 600;
             line-height: 2.25rem;
@@ -93,7 +90,6 @@
             margin-top: 1rem;
         }
         article main h3, article main .h3 {
-            font-family: ui-serif, Constantia, "Bitstream Charter", Charter, "STIX Two Text", "Libertinus Serif", "Linux Libertine O", "Linux Libertine G", "Linux Libertine", "DejaVu Serif", "Bitstream Vera Serif", "Roboto Serif", "Noto Serif", "Times New Roman", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Emoji", Symbola;
             font-size: 1.5rem;
             font-weight: 600;
             line-height: 2rem;
@@ -101,7 +97,6 @@
             margin-top: 1rem;
         }
         article main h4, article main .h4 {
-            font-family: ui-serif, Constantia, "Bitstream Charter", Charter, "STIX Two Text", "Libertinus Serif", "Linux Libertine O", "Linux Libertine G", "Linux Libertine", "DejaVu Serif", "Bitstream Vera Serif", "Roboto Serif", "Noto Serif", "Times New Roman", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Emoji", Symbola;
             font-size: 1.25rem;
             font-weight: 600;
             line-height: 1.75rem;
@@ -109,7 +104,6 @@
             margin-top: 1rem;
         }
         article main h5, article main .h5 {
-            font-family: ui-serif, Constantia, "Bitstream Charter", Charter, "STIX Two Text", "Libertinus Serif", "Linux Libertine O", "Linux Libertine G", "Linux Libertine", "DejaVu Serif", "Bitstream Vera Serif", "Roboto Serif", "Noto Serif", "Times New Roman", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Emoji", Symbola;
             font-size: 1.125rem;
             font-weight: 600;
             line-height: 1.75rem;
@@ -117,7 +111,6 @@
             margin-top: 1rem;
         }
         article main h6, article main .h6 {
-            font-family: ui-serif, Constantia, "Bitstream Charter", Charter, "STIX Two Text", "Libertinus Serif", "Linux Libertine O", "Linux Libertine G", "Linux Libertine", "DejaVu Serif", "Bitstream Vera Serif", "Roboto Serif", "Noto Serif", "Times New Roman", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Emoji", Symbola;
             font-size: 1rem;
             font-weight: 600;
             line-height: 1.5rem;
@@ -173,7 +166,7 @@
                 &bull; (Updated {{ $updated_at->format('j F Y') }})
             @endif
             </p>
-            <h1 class="text-3xl text-bold font-serif font-semibold break-words">{{ $post->post_title }}</h1>
+            <h1 class="text-3xl text-bold font-semibold break-words">{{ $post->post_title }}</h1>
             <x-share-buttons :title="$post->post_title" :description="$post->post_excerpt" :cover-image-url="$cover_image_og" class="my-2" />
         </div>
         @if (isset($post->thumbnail))

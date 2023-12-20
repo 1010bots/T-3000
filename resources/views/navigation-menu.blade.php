@@ -62,7 +62,7 @@
         <div class="focus:border-rc-purple-500 dark:focus:border-rc-purple-500"></div>
         <div class="focus:border-rc-fuchsia-500 dark:focus:border-rc-fuchsia-500"></div>
     </div>
-    <nav x-data="{ open: false }" class="bg-rc-{{ $theme_color }}-50 dark:bg-rc-{{ $theme_color }}-900">
+    <nav x-data="{ open: false }" class="bg-white dark:bg-black">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl pt-safe mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -321,7 +321,7 @@
                     <span class="sr-only">Close</span>
                 </button>
             @endif
-            <h1 class="grow font-serif text-2xl font-semibold">Search</h1>
+            <h1 class="grow text-2xl font-semibold">Search</h1>
             @if (!$is_apple)
                 <button><x-fluentui-dismiss-24 aria-hidden="true" class="inline w-6 h-6 text-dark dark:text-white active:text-gray-600 dark:active:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400" /><span class="sr-only">Close</span></button>
             @endif
@@ -346,9 +346,7 @@
                     ? Now you can do three of them <span class="inline-block">(&gt;_ )</span>!</p>
                 </div>
             </div>
-            <form class="mb-4">
-                <input type="text" id="search-dialog-query" placeholder="Search..." class="w-full p-4 text-2xl rounded-xl bg-gr-fuchsia-50/50 dark:bg-dm-fuchsia-900/50 focus:bg-gr-fuchsia-50 dark:focus:bg-gr-fuchsia-900 hover:bg-gr-fuchsia-50 dark:hover:bg-gr-fuchsia-900 text-gr-fuchsia-900 dark:text-white placeholder:text-gr-fuchsia-600 dark:placeholder:text-gr-fuchsia-100 border-2 border-gr-fuchsia-500 dark:border-dm-fuchsia-50 focus:border-gr-fuchsia-500 focus:dark:border-dm-fuchsia-50 shadow-lg shadow-dm-fuchsia-500/50 dark:shadow-dm-fuchsia-200/50 focus:shadow-dm-fuchsia-200/75 dark:focus:shadow-dm-fuchsia-200/75 hover:shadow-dm-fuchsia-200/75 dark:hover:shadow-dm-fuchsia-200/75 ease-out duration-200 will-change-auto hover:will-change-scroll" style="border-style: inset;" />
-            </form>
+            <input type="text" id="search-dialog-query" placeholder="Search..." class="w-full p-4 text-2xl rounded-xl bg-gr-fuchsia-50/50 dark:bg-dm-fuchsia-900/50 focus:bg-gr-fuchsia-50 dark:focus:bg-gr-fuchsia-900 hover:bg-gr-fuchsia-50 dark:hover:bg-gr-fuchsia-900 text-gr-fuchsia-900 dark:text-white placeholder:text-gr-fuchsia-600 dark:placeholder:text-gr-fuchsia-100 border-2 border-gr-fuchsia-500 dark:border-dm-fuchsia-50 focus:border-gr-fuchsia-500 focus:dark:border-dm-fuchsia-50 shadow-lg shadow-dm-fuchsia-500/50 dark:shadow-dm-fuchsia-200/50 focus:shadow-dm-fuchsia-200/75 dark:focus:shadow-dm-fuchsia-200/75 hover:shadow-dm-fuchsia-200/75 dark:hover:shadow-dm-fuchsia-200/75 ease-out duration-200 will-change-auto hover:will-change-scroll" style="border-style: inset;" />
             <div id="search-dialog-results" class="my-4">
                 <i>No results so far...</i>
             </div>
@@ -414,7 +412,7 @@
                         for (i = 0; i < resultSources.length; i++) {
                             for (j = 0; j < results[resultSources[i]].length; j++) {
                                 var entry = results[resultSources[i]][j];
-                                resultHTML += "<a href=\"" + entry.url + "\" class=\"block mb-2 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg text-lg\"><h3 class=\"mb-2 font-serif text-xl\">" + entry.title + "</h3><div class=\"flex text-sm\"><span class=\"px-2 bg-gr-" + searchSources[resultSources[i]].color + "-500 dm:bg-dm-" + searchSources[resultSources[i]].color + "-500 text-white rounded\">" + searchSources[resultSources[i]].name + "</span></div></a>";
+                                resultHTML += "<a href=\"" + entry.url + "\" class=\"block mb-2 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg text-lg\"><h3 class=\"mb-2 text-xl font-semibold\">" + entry.title + "</h3><div class=\"flex text-sm\"><span class=\"px-2 bg-gr-" + searchSources[resultSources[i]].color + "-500 dm:bg-dm-" + searchSources[resultSources[i]].color + "-500 text-white rounded\">" + searchSources[resultSources[i]].name + "</span></div></a>";
                             }
                         }
                         document.getElementById("search-dialog-results").innerHTML = resultHTML;
