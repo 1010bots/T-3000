@@ -9,7 +9,7 @@
         'lime' => ['#1C2000', '#ECF3CE'],
         'green' => ['#0A230D', '#DAF8DB'],
         'seafoam' => ['#00251C', '#CCFAED'],
-        'cyan' => ['#002329', '#C8F9FF']
+        'cyan' => ['#002329', '#C8F9FF'],
         'blue' => ['#002032', '#D0F5FF'],
         'indigo' => ['#111C35', '#DFEFFF'],
         'violet' => ['#1F1732', '#F1E8FF'],
