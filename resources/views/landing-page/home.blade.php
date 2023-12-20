@@ -6,6 +6,8 @@
     use Illuminate\Support\Carbon;
     use Illuminate\Support\Facades\Cache;
 
+    $theme_colors = ['blue', 'violet', 'seafoam'];
+
     $posts = Cache::remember('home-latest-posts', 15 * 60, function () {
         return Post::type('post')->status('publish')->where('post_title', '!=', '')->orderBy('post_date_gmt', 'desc')->take(5)->get();
     });
@@ -103,10 +105,10 @@
         ],
     ];
 ?>
-<x-app-layout>
+<x-app-layout :theme-color="$theme_colors[0]" >
     <main class="flex gap-4 text-black dark:text-white">
         <div class="grid grid-cols-3 w-full m-safe-offset-4 gap-4">
-            <div class="flex flex-col col-span-3 md:col-span-2 row-span-2 rounded-2xl overflow-hidden bg-rc-blue-50 dark:bg-rc-blue-900">
+            <x-primitives.card :theme-color="$theme_colors[0]" class="flex flex-col col-span-3 md:col-span-2 row-span-2 rounded-2xl overflow-hidden">
                 <!-- Not definitely us, but Shift and Shiftine, the OG bot and botgirl created by Reinhart. My sister suggested placing an AI-generated picture here instead of real-life photos, so here it is (>_ )! -->
                 <picture>
                     <source srcset="/img/hero/new-card.jxl" type="image/jxl" />
@@ -126,14 +128,14 @@
                     </h1>
                     <p class="text-xl">He currently works as a spirit, man, and robot in a mission to re-establish the relationship and authority of God to humanity, and humanity to their creations.</p>
                 </div>
-            </div>
-            <div class="col-span-3 md:col-span-1 p-4 rounded-2xl bg-rc-seafoam-50 dark:bg-rc-seafoam-900">
+            </x-primitives.card>
+            <x-primitives.card :theme-color="$theme_colors[2]" class="col-span-3 md:col-span-1 p-4 rounded-2xl">
                 <x-fluentui-compass-northwest-24-o class="w-10 h-10" />
                 <h2 class="font-sans text-2xl font-semibold">Looking for these?</h2>
                 <ul class="mt-2">
                     @foreach ($recommended_sites as $i => $site)
                         @if ($i > 0)
-                            <hr class="my-2 border-rc-seafoam-100 dark:border-rc-seafoam-800" />
+                            <hr class="my-2 border-black/10 dark:border-white/10" />
                         @endif
                         <li>
                             <a href="{{ $site["site"] }}">
@@ -143,8 +145,8 @@
                         </li>
                     @endforeach
                 </ul>
-            </div>
-            <div class="col-span-3 md:col-span-1 p-4 rounded-2xl bg-rc-violet-50 dark:bg-rc-violet-900">
+            </x-primitives.card>
+            <x-primitives.card :theme-color="$theme_colors[1]" class="col-span-3 md:col-span-1 p-4 rounded-2xl">
                 <x-fluentui-chat-multiple-24-o class="w-10 h-10" />
                 <h2 class="font-sans text-2xl font-semibold">Latest Blogs</h2>
                 <ul class="mt-2">
@@ -163,15 +165,15 @@
                         </li>
                     @endforeach
                 </ul>
-            </div>
+            </x-primitives.card>
             <a href="/for-recruiters" class="col-span-3 md:col-span-1 p-4 rounded-2xl bg-dm-blue-400 dark:bg-dm-blue-700 text-white">
                 <x-fluentui-people-audience-24-o class="w-10 h-10" />
                 <h2 class="font-sans text-2xl font-semibold">Interested to get me into your team?</h2>
             </a>
-            <div class="col-span-3 md:col-span-2 row-span-2 p-4 rounded-2xl bg-rc-blue-50 dark:bg-rc-blue-900">
+            <x-primitives.card :theme-color="$theme_colors[0]" class="col-span-3 md:col-span-2 row-span-2 p-4 rounded-2xl">
                 <x-fluentui-apps-24-o class="w-10 h-10" />
                 <h2 class="font-sans text-2xl font-semibold">Apps, Products, and Services</h2>
-                <hr class="my-2 border-rc-blue-100 dark:border-rc-blue-800" />
+                <hr class="my-2 border-black/10 dark:border-white/10" />
                 <ul class="mt-2 grid sm:grid-cols-2 gap-4">
                     @foreach ($featured_apps as $i => $app)
                         <li>
@@ -182,14 +184,14 @@
                         </li>
                     @endforeach
                 </ul>
-            </div>
-            <div class="col-span-3 md:col-span-1 p-4 rounded-2xl bg-rc-violet-50 dark:bg-rc-violet-900">
+            </x-primitives.card>
+            <x-primitives.card :theme-color="$theme_colors[1]" class="col-span-3 md:col-span-1 p-4 rounded-2xl">
                 <x-fluentui-library-24-o class="w-10 h-10" />
                 <h2 class="font-sans text-2xl font-semibold">Community Resources</h2>
                 <ul class="mt-2">
                     @foreach ($community_resources as $i => $site)
                         @if ($i > 0)
-                            <hr class="my-2 border-rc-violet-100 dark:border-rc-violet-800" />
+                            <hr class="my-2 border-black/10 dark:border-white/10" />
                         @endif
                         <li>
                             <a href="{{ $site["site"] }}">
@@ -199,7 +201,7 @@
                         </li>
                     @endforeach
                 </ul>
-            </div>
+            </x-primitives.card>
         </div>
     </main>
 </x-app-layout>

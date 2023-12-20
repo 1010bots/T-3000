@@ -10,6 +10,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .border-inset {
+      border-style: inset;
+    }
+    .border-outset {
+      border-style: outset;
+    }
+}
+
 [x-cloak] {
     display: none;
 }

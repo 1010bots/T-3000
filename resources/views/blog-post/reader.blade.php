@@ -32,7 +32,7 @@
         }
     }
 ?>
-<x-app-layout :canonical="$canonical" :description="$post->post_excerpt" :keywords="$post->keywords_str" :oembed="true" :og-article-published-time="$created_at->toIso8601String()" :og-article-modified-time="$updated_at->toIso8601String()" :og-image="$cover_image_og" og-type="article" :title="$post->post_title">
+<x-app-layout :canonical="$canonical" :description="$post->post_excerpt" :keywords="$post->keywords_str" :oembed="true" :og-article-published-time="$created_at->toIso8601String()" :og-article-modified-time="$updated_at->toIso8601String()" :og-image="$cover_image_og" og-type="article" :title="$post->post_title" theme-color="violet">
     <style scoped>
         article main a {
             color: #6932BB;

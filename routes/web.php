@@ -50,10 +50,9 @@ Route::middleware(
         if (Request::query('p') != null) return (new BlogPostController())->show(Request::query('p'));
         return view('landing-page.home');
     })->name('home');
-    // Route::get('/', function () {
-    //     if (Request::query('p') != null) return (new BlogPostController())->show(Request::query('p'));
-    //     return view('welcome');
-    // })->name('home');
+    Route::get('/bumi-laras-selatan', function () {
+        return view('landing-page.bumi-laras-selatan');
+    });
 
     /* Apps */
     Route::get('/apps', function () {

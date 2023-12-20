@@ -9,61 +9,6 @@
     }
 ?>
 <div>
-    <!-- Allow Tailwind to populate background colors when minifying CSS -->
-    <div class="hidden">
-        <!-- Navbar containers -->
-        <div class="bg-rc-red-50 dark:bg-rc-red-900"></div>
-        <div class="bg-rc-orange-50 dark:bg-rc-orange-900"></div>
-        <div class="bg-rc-yellow-50 dark:bg-rc-yellow-900"></div>
-        <div class="bg-rc-lime-50 dark:bg-rc-lime-900"></div>
-        <div class="bg-rc-green-50 dark:bg-rc-green-900"></div>
-        <div class="bg-rc-seafoam-50 dark:bg-rc-seafoam-900"></div>
-        <div class="bg-rc-cyan-50 dark:bg-rc-cyan-900"></div>
-        <div class="bg-rc-blue-50 dark:bg-rc-blue-900"></div>
-        <div class="bg-rc-indigo-50 dark:bg-rc-indigo-900"></div>
-        <div class="bg-rc-violet-50 dark:bg-rc-violet-900"></div>
-        <div class="bg-rc-purple-50 dark:bg-rc-purple-900"></div>
-        <div class="bg-rc-fuchsia-50 dark:bg-rc-fuchsia-900"></div>
-        <!-- Navbar active icon -->
-        <div class="bg-gr-red-500 dark:bg-dm-red-400"></div>
-        <div class="bg-gr-orange-500 dark:bg-dm-orange-400"></div>
-        <div class="bg-gr-yellow-500 dark:bg-dm-yellow-400"></div>
-        <div class="bg-gr-lime-500 dark:bg-dm-lime-400"></div>
-        <div class="bg-gr-green-500 dark:bg-dm-green-400"></div>
-        <div class="bg-gr-seafoam-500 dark:bg-dm-seafoam-400"></div>
-        <div class="bg-gr-cyan-500 dark:bg-dm-cyan-400"></div>
-        <div class="bg-gr-blue-500 dark:bg-dm-blue-400"></div>
-        <div class="bg-gr-indigo-500 dark:bg-dm-indigo-400"></div>
-        <div class="bg-gr-violet-500 dark:bg-dm-violet-400"></div>
-        <div class="bg-gr-purple-500 dark:bg-dm-purple-400"></div>
-        <div class="bg-gr-fuchsia-500 dark:bg-dm-fuchsia-400"></div>
-        <!-- Navbar active borders -->
-        <div class="border-gr-red-400 dark:border-dm-red-300"></div>
-        <div class="border-gr-orange-400 dark:border-dm-orange-300"></div>
-        <div class="border-gr-yellow-400 dark:border-dm-yellow-300"></div>
-        <div class="border-gr-lime-400 dark:border-dm-lime-300"></div>
-        <div class="border-gr-green-400 dark:border-dm-green-300"></div>
-        <div class="border-gr-seafoam-400 dark:border-dm-seafoam-300"></div>
-        <div class="border-gr-cyan-400 dark:border-dm-cyan-300"></div>
-        <div class="border-gr-blue-400 dark:border-dm-blue-300"></div>
-        <div class="border-gr-indigo-400 dark:border-dm-indigo-300"></div>
-        <div class="border-gr-violet-400 dark:border-dm-violet-300"></div>
-        <div class="border-gr-purple-400 dark:border-dm-purple-300"></div>
-        <div class="border-gr-fuchsia-400 dark:border-dm-fuchsia-300"></div>
-        <!-- Navbar inactive borders -->
-        <div class="focus:border-rc-red-500 dark:focus:border-rc-red-500"></div>
-        <div class="focus:border-rc-orange-500 dark:focus:border-rc-orange-500"></div>
-        <div class="focus:border-rc-yellow-500 dark:focus:border-rc-yellow-500"></div>
-        <div class="focus:border-rc-lime-500 dark:focus:border-rc-lime-500"></div>
-        <div class="focus:border-rc-green-500 dark:focus:border-rc-green-500"></div>
-        <div class="focus:border-rc-seafoam-500 dark:focus:border-rc-seafoam-500"></div>
-        <div class="focus:border-rc-cyan-500 dark:focus:border-rc-cyan-500"></div>
-        <div class="focus:border-rc-blue-500 dark:focus:border-rc-blue-500"></div>
-        <div class="focus:border-rc-indigo-500 dark:focus:border-rc-indigo-500"></div>
-        <div class="focus:border-rc-violet-500 dark:focus:border-rc-violet-500"></div>
-        <div class="focus:border-rc-purple-500 dark:focus:border-rc-purple-500"></div>
-        <div class="focus:border-rc-fuchsia-500 dark:focus:border-rc-fuchsia-500"></div>
-    </div>
     <nav x-data="{ open: false }" class="bg-white dark:bg-black">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl pt-safe mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,8 +32,9 @@
                         <x-nav-link :theme-color="$theme_color" href="{{ route('contact') }}" :active="request()->routeIs('contact')">
                             {{ __('Contact') }}
                         </x-nav-link>
-                        <button data-r-search-button="true" class="h-min px-4 py-2 rounded-full bg-rc-{{ $theme_color }}-50 dark:bg-rc-{{ $theme_color }}-900 border-gr-{{ $theme_color }}-400 dark:border-gr-{{ $theme_color }}-300">
-                            {{ __('Search') }}
+                        <button data-r-search-button="true" class="h-min px-4 py-2 rounded-full bg-rc-{{ $theme_color }}-50 dark:bg-rc-{{ $theme_color }}-900 border-2 border-inset border-dm-{{ $theme_color }}-300 text-black dark:text-white">
+                            <x-fluentui-search-24 class="inline w-6 h-6 text-gr-{{ $theme_color }}-400 dark:text-gr-{{ $theme_color }}-200"/>
+                            <span class="align-middle">{{ __('Search') }}</span>
                         </button>
                         @auth
                             <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
@@ -337,7 +283,7 @@
                     <source srcset="/img/icons/bot-blue-female-neutral.png" type="image/png">
                     <img alt="Reinhart Previano K." src="/img/icons/bot-blue-female-neutral.png" height="668" width="691" class="shrink-0" style="height: 6rem; width: 6rem;">
                 </picture>
-                <div class="h-min mb-4 p-2 rounded-lg bg-gr-blue-50/50 dark:bg-dm-blue-900/50 hover:bg-gr-blue-50 dark:hover:bg-gr-blue-900 text-gr-blue-900 dark:text-white border-2 border-gr-blue-500 dark:border-dm-blue-50 shadow-lg shadow-dm-blue-500/50 dark:shadow-dm-blue-200/50 hover:shadow-dm-blue-200/75 dark:hover:shadow-dm-blue-200/75 ease-out duration-200 will-change-auto hover:will-change-scroll" style="border-style: inset;">
+                <x-primitives.card class="h-min mb-4 p-2 rounded-lg">
                     {{-- <strong class="text-gr-blue-600 dark:text-gr-blue-100">Shiftine</strong> --}}
                     <p>Do you love to
                         @if($is_apple)
@@ -346,9 +292,9 @@
                             <kbd class="font-bold text-gr-blue-600 dark:text-gr-blue-100">Ctrl-K</kbd>, <kbd class="font-bold text-gr-blue-600 dark:text-gr-blue-100">Ctrl-/</kbd>, or <kbd class="font-bold text-gr-blue-600 dark:text-gr-blue-100">/</kbd>
                         @endif
                     ? Now you can do three of them <span class="inline-block">(&gt;_ )</span>!</p>
-                </div>
+                </x-primitives.card>
             </div>
-            <input type="text" id="search-dialog-query" placeholder="Search..." class="w-full p-4 text-2xl rounded-xl bg-gr-fuchsia-50/50 dark:bg-dm-fuchsia-900/50 focus:bg-gr-fuchsia-50 dark:focus:bg-gr-fuchsia-900 hover:bg-gr-fuchsia-50 dark:hover:bg-gr-fuchsia-900 text-gr-fuchsia-900 dark:text-white placeholder:text-gr-fuchsia-600 dark:placeholder:text-gr-fuchsia-100 border-2 border-gr-fuchsia-500 dark:border-dm-fuchsia-50 focus:border-gr-fuchsia-500 focus:dark:border-dm-fuchsia-50 shadow-lg shadow-dm-fuchsia-500/50 dark:shadow-dm-fuchsia-200/50 focus:shadow-dm-fuchsia-200/75 dark:focus:shadow-dm-fuchsia-200/75 hover:shadow-dm-fuchsia-200/75 dark:hover:shadow-dm-fuchsia-200/75 ease-out duration-200 will-change-auto hover:will-change-scroll" style="border-style: inset;" />
+            <x-primitives.card element="input" theme-color="violet" type="text" id="search-dialog-query" placeholder="Search..." class="w-full p-4 text-2xl rounded-xl" style="border-style: inset;" />
             <div id="search-dialog-results" class="my-4">
                 <i>No results so far...</i>
             </div>
