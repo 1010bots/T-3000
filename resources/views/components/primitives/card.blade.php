@@ -11,6 +11,6 @@
         )
     );
 ?>
-<{{ $element }} id="{{ $attributes['id'] }}" class="bg-rc-{{ $theme_color }}-50 dark:bg-rc-{{ $theme_color }}-900 hover:bg-white dark:hover:bg-dm-{{ $theme_color }}-800 border-2 border-inset border-dm-{{ $theme_color }}-300 ease-out duration-200 will-change-auto hover:will-change-scroll {{ $attributes['class'] }}" {{ $other_attributes }}>
+<{{ $element }} id="{{ $attributes['id'] }}" class="bg-rc-{{ $theme_color }}-50 dark:bg-rc-{{ $theme_color }}-900 hover:bg-white dark:hover:bg-dm-{{ $theme_color }}-800 border-2 border-inset border-dm-{{ $theme_color }}-300 ease-out duration-200 will-change-auto hover:will-change-scroll text-black dark:text-white {{ $attributes['class'] }}" {{ $other_attributes }}>
     {{ $slot }}
 </{{ $element }}>

@@ -32,10 +32,10 @@
                         <x-nav-link :theme-color="$theme_color" href="{{ route('contact') }}" :active="request()->routeIs('contact')">
                             {{ __('Contact') }}
                         </x-nav-link>
-                        <button data-r-search-button="true" class="h-min px-4 py-2 rounded-full bg-rc-{{ $theme_color }}-50 dark:bg-rc-{{ $theme_color }}-900 border-2 border-inset border-dm-{{ $theme_color }}-300 text-black dark:text-white">
+                        <x-primitives.card :theme-color="$theme_color" data-r-search-button="true" class="h-min px-4 py-2 rounded-full">
                             <x-fluentui-search-24 class="inline w-6 h-6 text-gr-{{ $theme_color }}-400 dark:text-gr-{{ $theme_color }}-200"/>
                             <span class="align-middle">{{ __('Search') }}</span>
-                        </button>
+                        </x-primitives.card>
                         @auth
                             <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                                 {{ __('Dashboard') }}
