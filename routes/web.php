@@ -48,20 +48,20 @@ Route::middleware(
     /* Home */
     Route::get('/', function () {
         if (Request::query('p') != null) return (new BlogPostController())->show(Request::query('p'));
-        return view('landing-page.home');
+        return view('landing-pages.home');
     })->name('home');
     Route::get('/bumi-laras-selatan', function () {
-        return view('landing-page.bumi-laras-selatan');
+        return view('landing-pages.bumi-laras-selatan');
     });
 
     /* Apps */
     Route::get('/apps', function () {
-        return view('landing-page.apps');
+        return view('landing-pages.apps');
     })->name('apps');
 
     /* Contact */
     Route::get('/contact', function () {
-        return view('landing-page.contact');
+        return view('landing-pages.contact');
     })->name('contact');
 
     /* oEmbed */
