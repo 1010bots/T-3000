@@ -107,8 +107,8 @@
 ?>
 <x-app-layout :theme-color="$theme_colors[0]" >
     <main class="flex gap-4 text-black dark:text-white">
-        <div class="grid grid-cols-3 w-full m-safe-offset-4 gap-4">
-            <x-primitives.card :theme-color="$theme_colors[0]" class="flex flex-col col-span-3 lg:col-span-2 row-span-2 rounded-2xl overflow-hidden">
+        <div class="grid grid-cols-6 w-full m-safe-offset-4 gap-4">
+            <x-primitives.card :theme-color="$theme_colors[0]" class="flex flex-col col-span-6 md:col-span-3 lg:col-span-4 row-span-2 rounded-2xl overflow-hidden">
                 <!-- Not definitely us, but Shift and Shiftine, the OG bot and botgirl created by Reinhart. My sister suggested placing an AI-generated picture here instead of real-life photos, so here it is (>_ )! -->
                 <picture>
                     <source srcset="/img/hero/new-card.jxl" type="image/jxl" />
@@ -129,7 +129,7 @@
                     <p class="text-xl">He currently works as a spirit, man, and robot in a mission to re-establish the relationship and authority of God to humanity, and humanity to their creations.</p>
                 </div>
             </x-primitives.card>
-            <x-primitives.card :theme-color="$theme_colors[2]" class="col-span-3 lg:col-span-1 p-4 rounded-2xl">
+            <x-primitives.card :theme-color="$theme_colors[2]" class="col-span-6 md:col-span-3 lg:col-span-2 p-4 rounded-2xl">
                 <x-fluentui-compass-northwest-24-o class="w-10 h-10" />
                 <h2 class="font-sans text-2xl font-semibold">Looking for these?</h2>
                 <ul class="mt-2">
@@ -146,7 +146,7 @@
                     @endforeach
                 </ul>
             </x-primitives.card>
-            <x-primitives.card :theme-color="$theme_colors[1]" class="col-span-3 lg:col-span-1 p-4 rounded-2xl">
+            <x-primitives.card :theme-color="$theme_colors[1]" class="col-span-6 md:col-span-3 lg:col-span-2 p-4 rounded-2xl">
                 <x-fluentui-chat-multiple-24-o class="w-10 h-10" />
                 <h2 class="font-sans text-2xl font-semibold">Latest Blogs</h2>
                 <ul class="mt-2">
@@ -166,11 +166,11 @@
                     @endforeach
                 </ul>
             </x-primitives.card>
-            <a href="/for-recruiters" class="col-span-3 lg:col-span-1 p-4 rounded-2xl bg-dm-blue-400 dark:bg-dm-blue-700 text-white">
+            <a href="/for-recruiters" class="col-span-6 md:col-span-2 p-4 rounded-2xl bg-dm-blue-400 dark:bg-dm-blue-700 text-white">
                 <x-fluentui-people-audience-24-o class="w-10 h-10" />
                 <h2 class="font-sans text-2xl font-semibold">Interested to get me into your team?</h2>
             </a>
-            <x-primitives.card :theme-color="$theme_colors[0]" class="col-span-3 lg:col-span-2 row-span-2 p-4 rounded-2xl">
+            <x-primitives.card :theme-color="$theme_colors[0]" class="col-span-6 md:col-span-4 row-span-2 p-4 rounded-2xl">
                 <x-fluentui-apps-24-o class="w-10 h-10" />
                 <h2 class="font-sans text-2xl font-semibold">Apps, Products, and Services</h2>
                 <hr class="my-2 border-black/10 dark:border-white/10" />
@@ -185,7 +185,7 @@
                     @endforeach
                 </ul>
             </x-primitives.card>
-            <x-primitives.card :theme-color="$theme_colors[1]" class="col-span-3 lg:col-span-1 p-4 rounded-2xl">
+            <x-primitives.card :theme-color="$theme_colors[1]" class="md:col-span-2 p-4 rounded-2xl">
                 <x-fluentui-library-24-o class="w-10 h-10" />
                 <h2 class="font-sans text-2xl font-semibold">Community Resources</h2>
                 <ul class="mt-2">
