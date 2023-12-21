@@ -1,5 +1,5 @@
 <?php
-    $element = $attributes['element'] ?? 'div';
+    $element = $attributes['element'] ?? 'a';
     $theme_color = $attributes['theme-color'] ?? 'blue';
     $filtered_attributes= iterator_to_array($attributes->getIterator());
     foreach (['class', 'element', 'theme-color'] as $forbidden_key) {
@@ -11,6 +11,6 @@
         )
     );
 ?>
-<{{ $element }} class="bg-rc-{{ $theme_color }}-50 dark:bg-rc-{{ $theme_color }}-900 hover:bg-white dark:hover:bg-dm-{{ $theme_color }}-800 border-2 border-inset border-dm-{{ $theme_color }}-300 ease-out duration-200 will-change-auto hover:will-change-scroll text-black dark:text-white accent-gr-{{ $theme_color }}-500 dark:accent-dm-{{ $theme_color }}-400 {{ $attributes['class'] }}" {{ $other_attributes }}>
+<{{ $element }} class="text-gr-{{ $theme_color }}-500 dark:text-gr-{{ $theme_color }}-200 hover:text-gr-{{ $theme_color }}-700 dark:hover:text-gr-{{ $theme_color }}-400 font-bold ease-out duration-200 will-change-auto hover:will-change-scroll {{ $attributes['class'] }}" {{ $other_attributes }}>
     {{ $slot }}
 </{{ $element }}>

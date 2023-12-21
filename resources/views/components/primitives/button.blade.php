@@ -11,6 +11,6 @@
         )
     );
 ?>
-<{{ $element }} class="bg-rc-{{ $theme_color }}-50 dark:bg-rc-{{ $theme_color }}-900 hover:bg-white dark:hover:bg-dm-{{ $theme_color }}-800 border-2 border-inset border-dm-{{ $theme_color }}-300 ease-out duration-200 will-change-auto hover:will-change-scroll text-black dark:text-white accent-gr-{{ $theme_color }}-500 dark:accent-dm-{{ $theme_color }}-400 {{ $attributes['class'] }}" {{ $other_attributes }}>
+<{{ $element }} class="px-4 py-2 rounded-full font-semibold bg-gr-{{ $theme_color }}-500 dark:bg-dm-{{ $theme_color }}-400 hover:bg-white dark:hover:bg-dm-{{ $theme_color }}-800 hover:bg-dm-{{ $theme_color }}-600 dark:hover:bg-gr-{{ $theme_color }}-600 ease-out duration-200 will-change-auto hover:will-change-scroll text-white {{ $attributes['class'] }}" {{ $other_attributes }}>
     {{ $slot }}
 </{{ $element }}>
