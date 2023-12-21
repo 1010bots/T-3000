@@ -185,7 +185,7 @@
                     @endforeach
                 </ul>
             </x-primitives.card>
-            <x-primitives.card :theme-color="$theme_colors[1]" class="md:col-span-2 p-4 rounded-2xl">
+            <x-primitives.card :theme-color="$theme_colors[1]" class="col-span-12 md:col-span-2 p-4 rounded-2xl">
                 <x-fluentui-library-24-o class="w-10 h-10" />
                 <h2 class="font-sans text-2xl font-semibold">Community Resources</h2>
                 <ul class="mt-2">
