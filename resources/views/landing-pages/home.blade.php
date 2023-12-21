@@ -106,8 +106,8 @@
     ];
 ?>
 <x-app-layout :theme-color="$theme_colors[0]" >
-    <main class="flex gap-4 text-black dark:text-white">
-        <div class="grid grid-cols-6 w-full m-safe-offset-4 gap-4">
+    <main class="flex flex-col gap-4 text-black dark:text-white">
+        <div class="grid grid-cols-6 w-full m-safe p-4 gap-4">
             <x-primitives.card :theme-color="$theme_colors[0]" class="flex flex-col col-span-6 md:col-span-3 lg:col-span-4 row-span-2 rounded-2xl overflow-hidden">
                 <!-- Not definitely us, but Shift and Shiftine, the OG bot and botgirl created by Reinhart. My sister suggested placing an AI-generated picture here instead of real-life photos, so here it is (>_ )! -->
                 <picture>
