@@ -31,7 +31,7 @@
                 <h2 class="text-2xl font-semibold">It’s a variable font with variable weights and widths.</h2>
                 <div class="flex flex-col gap-2">
                     <label for="font-weight" class="font-bold">Font Weight</label>
-                    <input type="range" id="font-weight" name="font-weight" min="400" max="700" value="400" step="1" onchange="updateFontPreview()" onmousemove="updateFontPreview()" ontouchmove="updateFontPreview()" />
+                    <input type="range" id="font-weight" name="font-weight" min="400" max="700" value="400" step="0.1" onchange="updateFontPreview()" onmousemove="updateFontPreview()" ontouchmove="updateFontPreview()" />
                     <div class="flex justify-between">
                         <p class="text-sm">400 (Normal)</p>
                         <p class="text-sm">700 (Bold)</p>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="font-width" class="font-bold">Font Width</label>
-                    <input type="range" id="font-width" name="font-width" min="75" max="100" value="100" step="1" onchange="updateFontPreview()" onmousemove="updateFontPreview()" ontouchmove="updateFontPreview()" />
+                    <input type="range" id="font-width" name="font-width" min="75" max="100" value="100" step="0.1" onchange="updateFontPreview()" onmousemove="updateFontPreview()" ontouchmove="updateFontPreview()" />
                     <div class="flex justify-between">
                         <p class="text-sm">75 (Condensed)</p>
                         <p class="text-sm">100 (Regular)</p>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="font-size" class="font-bold">Font Size</label>
-                    <input type="range" id="font-size" name="font-size" min="8" max="96" value="48" step="1" onchange="updateFontPreview()" onmousemove="updateFontPreview()" ontouchmove="updateFontPreview()" />
+                    <input type="range" id="font-size" name="font-size" min="8" max="96" value="48" step="0.1" onchange="updateFontPreview()" onmousemove="updateFontPreview()" ontouchmove="updateFontPreview()" />
                     <div class="flex justify-between">
                         <p class="text-sm">8px</p>
                         <p class="text-sm">96px</p>
