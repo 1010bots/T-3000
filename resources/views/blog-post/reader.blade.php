@@ -159,16 +159,16 @@
             }
         }
     </style>
-    <article class="m-auto px-safe-offset-6 py-6 max-w-2xl">
-        <div class="my-4 text-black dark:text-white">
+    <article class="m-auto py-6 max-w-2xl">
+        <div class="my-4 px-safe-offset-6 text-black dark:text-white">
             <p class="m-0 text-xl">{{ $created_at->format('j F Y') }}
             @if ($created_at != $updated_at)
                 &bull; (Updated {{ $updated_at->format('j F Y') }})
             @endif
             </p>
             <h1 class="text-3xl text-bold font-semibold break-words">{{ $post->post_title }}</h1>
-            <x-share-buttons :title="$post->post_title" :description="$post->post_excerpt" :cover-image-url="$cover_image_og" class="my-2" />
         </div>
+        <x-share-buttons :title="$post->post_title" :description="$post->post_excerpt" :cover-image-url="$cover_image_og" class="my-2 px-safe-offset-6" />
         @if (isset($post->thumbnail))
             <?php
                 $cover_image_srcset_string = '';
@@ -178,20 +178,20 @@
                 }
             ?>
             <picture>
-                <img src="{{ $post->thumbnail['attachment']['url'] }}" srcset="{{ $cover_image_srcset_string }}" alt="{{ $post->thumbnail['attachment']['alt'] || $post->thumbnail['attachment']['description'] || $post->thumbnail['attachment']['title'] }}" class="h-auto w-full rounded-xl" />
+                <img src="{{ $post->thumbnail['attachment']['url'] }}" srcset="{{ $cover_image_srcset_string }}" alt="{{ $post->thumbnail['attachment']['alt'] || $post->thumbnail['attachment']['description'] || $post->thumbnail['attachment']['title'] }}" class="px-safe-offset-6 h-auto w-full rounded-xl" />
             </picture>
         @elseif (isset($post->image))
-            <img src="{{ $post->image }}" class="h-auto w-full rounded-xl" />
+            <img src="{{ $post->image }}" class="px-safe-offset-6 h-auto w-full rounded-xl" />
         @else
-            <hr>
+            <hr class="mx-safe-offset-6">
         @endif
-        <x-alerts.new-site />
-        {{-- <x-alerts.consent-required /> --}}
+        <x-alerts.new-site class="mx-safe-offset-6" />
+        {{-- <x-alerts.consent-required class="mx-safe-offset-6" /> --}}
         @if (isset($post->terms['kind']) && count($post->terms['kind']) > 0)
             @switch (array_keys($post->terms['kind'])[0])
                 @case ('reply')
                     @if (isset($post_meta['mf2_in-reply-to']))
-                        <div class="my-4 p-4 rounded-xl bg-gr-violet-50/50 dark:bg-dm-violet-900/50 hover:bg-gr-violet-50 dark:hover:bg-gr-violet-900 text-gr-violet-900 dark:text-white border-2 border-gr-violet-500 dark:border-dm-violet-50 shadow-lg shadow-dm-violet-400/50 dark:shadow-dm-violet-200/50 hover:shadow-dm-violet-200/75 dark:hover:shadow-dm-violet-200/75 ease-out duration-200 will-change-auto hover:will-change-scroll" style="border-style: inset;">
+                        <div class="mx-safe-offset-6 my-4 p-4 rounded-xl bg-gr-violet-50/50 dark:bg-dm-violet-900/50 hover:bg-gr-violet-50 dark:hover:bg-gr-violet-900 text-gr-violet-900 dark:text-white border-2 border-gr-violet-500 dark:border-dm-violet-50 shadow-lg shadow-dm-violet-400/50 dark:shadow-dm-violet-200/50 hover:shadow-dm-violet-200/75 dark:hover:shadow-dm-violet-200/75 ease-out duration-200 will-change-auto hover:will-change-scroll" style="border-style: inset;">
                             <p>
                                 <x-fluentui-comment-note-24-o class="h-8 w-8" />
                                 This post is a reply to
@@ -220,13 +220,10 @@
                 @default
             @endswitch
         @endif
-        <main class="text-lg text-gray-900 dark:text-gray-100">
+        <main class="mx-safe-offset-6 text-lg text-gray-900 dark:text-gray-100">
             {!! $post->post_content ?? $post->content !!}
         </main>
-        <div class="my-4 text-black dark:text-white">
-            <x-share-buttons :title="$post->post_title" :description="$post->post_excerpt" :cover-image-url="$cover_image_og" class="my-2" />
-            <x-alerts.new-site />
-        </div>
+        <x-share-buttons :title="$post->post_title" :description="$post->post_excerpt" :cover-image-url="$cover_image_og" class="my-2" />
         <script src="/js/smartquotes.js"></script>
         <script>smartquotes();</script>
     </article>

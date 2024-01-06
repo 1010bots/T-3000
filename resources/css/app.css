@@ -17,6 +17,15 @@
     .border-outset {
       border-style: outset;
     }
+    .horizontal-tb {
+      writing-mode: horizontal-tb;
+    }
+    .vertical-lr {
+      writing-mode: vertical-lr;
+    }
+    .vertical-rl {
+      writing-mode: vertical-rl;
+    }
 }
 
 [x-cloak] {

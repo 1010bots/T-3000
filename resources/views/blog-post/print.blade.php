@@ -42,9 +42,11 @@
     <head>
         <title>{{ $post->post_title }}</title>
         <meta name="robots" content="noindex">
+        <link rel="stylesheet" href="/css/bumi-laras-selatan.css">
         <style>
             body {
-                font-family: "Liberation Sans", Arimo, Helvetica, Arial, sans-serif;
+                margin: 1rem;
+                font-family: "Bumi Laras Selatan", "Liberation Sans", Arimo, Helvetica, Arial, sans-serif;
             }
             .header {
                 display: flex;
@@ -95,7 +97,7 @@
         </style>
     </head>
 @endif
-<body onload="window.print()"></body>
+<body></body>
     <article>
         <table style="border-spacing: 0;">
             <td>
@@ -105,6 +107,7 @@
                             <h1 class="post-title">{{ $post->post_title }}
                                 @if (!$pdf)
                                     <button class="print-button" onclick="window.print()">🖨️ Print this page</button>
+                                    <button class="print-button" onclick="window.location = '{{ $canonical }}?pdf'">📥 Download as PDF</button>
                                 @endif
                             </h1>
                             <b class="post-date">reinhart1010.id &ndash; {{ $created_at->format('j F Y') }}

@@ -67,8 +67,25 @@ class BlogPostController extends Controller
                 // Workaround for mpdf
                 $post->content = str_replace("https://reinhart1010.id/wp-content/uploads/", "https://blogarchive.reinhart1010.id/wp-content/uploads/", $post->content);
                 $post->post_content = str_replace("https://reinhart1010.id/wp-content/uploads/", "https://blogarchive.reinhart1010.id/wp-content/uploads/", $post->post_content);
+
+                $defaultConfig = (new \Mpdf\Config\ConfigVariables())->getDefaults();
+                $fontDirs = $defaultConfig['fontDir'];
+                $defaultFontConfig = (new \Mpdf\Config\FontVariables())->getDefaults();
+                $fontData = $defaultFontConfig['fontdata'];
+
                 $mpdf = new Mpdf([
-                    'default_font' => 'DejaVuSans'
+                    'fontDir' => array_merge($fontDirs, [
+                        public_path() . '/fonts/static',
+                    ]),
+                    'fontdata' => $fontData + [ // lowercase letters only in font key
+                        'bumilarasselatan' => [
+                            'R' => 'BLS-Regular.ttf',
+                            'I' => 'BLS-Italic.ttf',
+                            'B' => 'BLS-Bold.ttf',
+                            'BI' => 'BLS-BoldItalic.ttf',
+                        ]
+                    ],
+                    'default_font' => 'bumilarasselatan'
                 ]);
                 $mpdf->showImageErrors = true;
                 $mpdf->WriteHTML(view('blog-post.print', ['post' => $post, 'pdf' => true])->render(), HTMLParserMode::HTML_BODY);

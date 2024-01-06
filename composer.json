@@ -23,7 +23,7 @@
         "mpdf/mpdf": "^8.2",
         "mtownsend/response-xml": "^2.2",
         "sylvainjule/colorextractor": "^1.0",
-        "ublabs/blade-simple-icons": "^0.76.0"
+        "ublabs/blade-simple-icons": "^0.97.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
