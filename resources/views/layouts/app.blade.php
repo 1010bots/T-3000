@@ -59,6 +59,16 @@
         @isset ($attributes['canonical'])
             <link rel="canonical" href="{{ $attributes['canonical'] }}" />
         @endif
+        <style>
+            /* For Safari */
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0px;
+                padding: 0px;
+                overflow-x: hidden;
+            }
+        </style>
 
         <meta name="description" content="{{ $attributes['description'] ?? 'Multitalent Software, Hardware, Life, and Reality Developer' }}" />
         <meta name="keywords" content="{{ $attributes['keywords'] ?? 'reinhart1010,@reinhart1010,Reinhart Previano Koentjoro,Reinhart Previano K,Nate,Shift,Shiftine,Skyborne,Caps,controld,pr0xy,alterine,alt1e,(>_ ),(#_ ),($_ )' }}" />
