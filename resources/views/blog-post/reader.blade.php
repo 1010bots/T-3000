@@ -223,7 +223,7 @@
         <main class="mx-safe-offset-6 text-lg text-gray-900 dark:text-gray-100">
             {!! $post->post_content ?? $post->content !!}
         </main>
-        <x-share-buttons :title="$post->post_title" :description="$post->post_excerpt" :cover-image-url="$cover_image_og" class="my-2" />
+        <x-share-buttons :title="$post->post_title" :description="$post->post_excerpt" :cover-image-url="$cover_image_og" class="my-2 px-safe-offset-6" />
         <script src="/js/smartquotes.js"></script>
         <script>smartquotes();</script>
     </article>
