@@ -40,10 +40,10 @@
         <x-fluentui-print-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Print</span>
     </a>
-    {{-- <a id="{{ $unique_id }}-share-menu-pdf" class="text-center text-black dark:text-white bg-rc-violet-50 dark:bg-dm-violet-700 border-0 p-2 rounded-full leading-4 cursor-pointer" href="{{ $url }}?pdf">
+    <a id="{{ $unique_id }}-share-menu-pdf" class="text-center text-black dark:text-white bg-rc-violet-50 dark:bg-dm-violet-700 border-0 p-2 rounded-full leading-4 cursor-pointer" href="{{ $url }}?pdf">
         <x-fluentui-document-pdf-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">PDF</span>
-    </a> --}}
+    </a>
     <a id="{{ $unique_id }}-share-menu-embed" class="text-center text-black dark:text-white bg-rc-violet-50 dark:bg-dm-violet-700 border-0 p-2 rounded-full leading-4 cursor-pointer">
         <x-fluentui-code-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Embed</span>
@@ -82,10 +82,6 @@
         <x-simpleicon-messenger height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Messenger</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #ef4056; color: #ffffff;" href="https://getpocket.com/save/?url={{ $url }}&title={{ $title }}"  target="_blank">
-        <x-simpleicon-pocket height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to Pocket</span>
-    </a>
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #bd081c; color: #ffffff;" href="https://pinterest.com/pin/create/button/?&url={{ $url }}&media="  target="_blank">
         <x-simpleicon-pinterest height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Pinterest</span>
@@ -93,6 +89,10 @@
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #e12828; color: #ffffff;" href="https://share.flipboard.com/bookmarklet/popout?url={{ $url }}&title={{ $title }}"  target="_blank">
         <x-simpleicon-flipboard height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Flipboard</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #ef4056; color: #ffffff;" href="https://getpocket.com/save/?url={{ $url }}&title={{ $title }}"  target="_blank">
+        <x-simpleicon-pocket height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Pocket</span>
     </a>
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FF4500; color: #ffffff;" href="https://www.reddit.com/submit?url={{ $url }}&title={{ $title }}"  target="_blank">
         <x-simpleicon-reddit height="24" width="24" class="inline-block" />

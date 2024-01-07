@@ -62,12 +62,15 @@
         <style>
             /* For Safari */
             html, body {
-                width: 100%;
-                height: 100%;
-                margin: 0px;
-                padding: 0px;
                 overflow-x: hidden;
+                position: relative;
+                height: 100%;
             }
+            /* * {
+                background: #000 !important;
+                color: #0f0 !important;
+                outline: solid #f00 1px !important;
+            } */
         </style>
 
         <meta name="description" content="{{ $attributes['description'] ?? 'Multitalent Software, Hardware, Life, and Reality Developer' }}" />
