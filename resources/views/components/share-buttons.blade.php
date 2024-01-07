@@ -11,6 +11,9 @@
     $allow_kakao = Request::cookie('optional_features_kakao') == true;
     $user_agent = Request::header('User-Agent');
     $unique_id = $chars[rand(0, 61)] . $chars[rand(0, 61)] . $chars[rand(0, 61)] . $chars[rand(0, 61)] . $chars[rand(0, 61)] . $chars[rand(0, 61)];
+    if (!isset($description)) {
+        $description = "";
+    }
     if (!isset($title_and_description)) {
         $title_and_description = $title;
         if (isset($description)) $title_and_description .= ' ' . $description;
@@ -48,29 +51,23 @@
         <x-fluentui-code-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Embed</span>
     </a>
-    @if ($is_apple)
-    <a class="text-center text-white bg-dm-sky-500 border-0 p-2 rounded-full leading-4 horizontal-tb" style="background: linear-gradient(0deg, rgba(28,112,240,1) 0%, rgba(28,200,251,1) 100%); color: #ffffff;" href="mailto:?subject={{ $title }}&body={{ $description }}%0A%0A{{ $url }}" target="_blank">
-        <x-fluentui-mail-24 height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to Mail</span>
-    </a>
-    @else
+    @if (!$is_apple)
     <a class="text-center text-black dark:text-white bg-rc-violet-50 dark:bg-dm-violet-700 border-0 p-2 rounded-full leading-4 horizontal-tb" href="mailto:?subject={{ $title }}&body={{ $description }}%0A%0A{{ $url }}" target="_blank">
         <x-fluentui-mail-add-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Email</span>
     </a>
     @endif
-    @if ($is_apple)
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background: linear-gradient(0deg, rgba(12,189,42,1) 0%, rgba(91,246,117,1) 100%); color: #ffffff;" href="sms:?body={{ $title_and_description }}%0A%0A{{ $url }}"  target="_blank">
-        <x-icons.imessage height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to Messages</span>
-    </a>
-    @else
-    <a class="text-center text-black dark:text-white bg-rc-violet-50 dark:bg-dm-violet-700 border-0 p-2 rounded-full leading-4 horizontal-tb" href="sms:?body={{ $title_and_description }}%0A%0A{{ $url }}"  target="_blank">
+    @if (!$is_apple)
+    <a class="text-center text-black dark:text-white bg-rc-violet-50 dark:bg-dm-violet-700 border-0 p-2 rounded-full leading-4 horizontal-tb" href="sms:?body={{ $title_and_description }}%0A%0A{{ $url }}" target="_blank">
         <x-fluentui-chat-24-o height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to SMS</span>
     </a>
     @endif
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #563ACB; color: #ffffff;" href="https://mastodonshare.com/?text={{ $title_and_description }}&url={{ $url }}"  target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #6001d2; color: #ffffff;" href="https://compose.mail.yahoo.com/?subject={{ $title }}&body={{ $title_and_description }}%0A%0A{{ $url }}" target="_blank">
+        <x-simpleicon-yahoo height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Yahoo! Mail</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #563ACB; color: #ffffff;" href="https://mastodonshare.com/?text={{ $title_and_description }}&url={{ $url }}" target="_blank">
         <x-simpleicon-mastodon height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Mastodon</span>
     </a>
@@ -78,39 +75,43 @@
         <x-icons.kakaostory height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to KakaoStory</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background: radial-gradient(circle at 0 100%, rgba(0,132,255,1) 10%, rgba(64,93,230,1) 30%, rgba(88,81,219,1) 50%, rgba(131,58,180,1) 70%, rgba(245,96,64,1) 90%, rgba(252,175,69,1) 100%); color: #ffffff;" href="http://www.facebook.com/dialog/send?app_id=1469324230012506&link={{ $url }}&redirect_uri={{ $url }}"  target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background: radial-gradient(circle at 0 100%, rgba(0,132,255,1) 10%, rgba(64,93,230,1) 30%, rgba(88,81,219,1) 50%, rgba(131,58,180,1) 70%, rgba(245,96,64,1) 90%, rgba(252,175,69,1) 100%); color: #ffffff;" href="http://www.facebook.com/dialog/send?app_id=1469324230012506&link={{ $url }}&redirect_uri={{ $url }}" target="_blank">
         <x-simpleicon-messenger height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Messenger</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #bd081c; color: #ffffff;" href="https://pinterest.com/pin/create/button/?&url={{ $url }}&media="  target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #bd081c; color: #ffffff;" href="https://pinterest.com/pin/create/button/?&url={{ $url }}{{ isset($attributes['cover-image-url']) ? ("&media=" . $attributes['cover-image-url']) : "" }}" target="_blank">
         <x-simpleicon-pinterest height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Pinterest</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #e12828; color: #ffffff;" href="https://share.flipboard.com/bookmarklet/popout?url={{ $url }}&title={{ $title }}"  target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #e12828; color: #ffffff;" href="https://share.flipboard.com/bookmarklet/popout?url={{ $url }}&title={{ $title }}" target="_blank">
         <x-simpleicon-flipboard height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Flipboard</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #ef4056; color: #ffffff;" href="https://getpocket.com/save/?url={{ $url }}&title={{ $title }}"  target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #ef4056; color: #ffffff;" href="https://getpocket.com/save/?url={{ $url }}&title={{ $title }}" target="_blank">
         <x-simpleicon-pocket height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Pocket</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FF4500; color: #ffffff;" href="https://www.reddit.com/submit?url={{ $url }}&title={{ $title }}"  target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FF4500; color: #ffffff;" href="https://www.reddit.com/submit?url={{ $url }}&title={{ $title }}" target="_blank">
         <x-simpleicon-reddit height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Reddit</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FF6600; color: #ffffff;" href="https://news.ycombinator.com/submitlink?u={{ $url }}&t={{ $title_and_description }}"  target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FF6600; color: #ffffff;" href="https://news.ycombinator.com/submitlink?u={{ $url }}&t={{ $title_and_description }}" target="_blank">
         <x-simpleicon-ycombinator height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Hacker News</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #F47C01; color: #ffffff;" href="https://www.blogger.com/blog-this.g?u={{ $url }}&n={{ $title }}&t={{ $description }}"  target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FF7701; color: #ffffff;" href="https://connect.ok.ru/offer?title={{ $title }}&url={{ $url }}{{ isset($attributes['cover-image-url']) ? ("&imageUrl=" . $attributes['cover-image-url']) : "" }}" target="_blank">
+        <x-simpleicon-odnoklassniki height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Odnoklassniki</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #F47C01; color: #ffffff;" href="https://www.blogger.com/blog-this.g?u={{ $url }}&n={{ $title }}{{ strlen($description) > 0 ? ("&t=" . $description) : "" }}" target="_blank">
         <x-simpleicon-blogger height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Blogger</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FBA457; color: #ffffff;" href="https://mastodonshare.com/?text={{ $title_and_description }}&url={{ $url }}"  target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FBA457; color: #ffffff;" href="https://mastodonshare.com/?text={{ $title_and_description }}&url={{ $url }}" target="_blank">
         <x-simpleicon-pleroma height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Pleroma</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FEBF19; color: #ffffff;" href="https://mastodonshare.com/?text={{ $title_and_description }}&url={{ $url }}"  target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FEBF19; color: #ffffff;" href="https://mastodonshare.com/?text={{ $title_and_description }}&url={{ $url }}" target="_blank">
         <x-icons.friendica height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Friendica</span>
     </a>
@@ -124,73 +125,109 @@
             <span class="sr-only">Share to Snapchat</span>
         </a>
     @endif
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #9EC23F; color: #ffffff;" href="https://mastodonshare.com/?text={{ $title_and_description }}&url={{ $url }}"  target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #9EC23F; color: #ffffff;" href="https://mastodonshare.com/?text={{ $title_and_description }}&url={{ $url }}" target="_blank">
         <x-icons.misskey height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Misskey</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #06c755; color: #ffffff;" href="https://lineit.line.me/share/ui?url={{ $url }}&text={{ $title_and_description }}"  target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #C7F16D; color: #000000;" href="https://www.xing.com/social/share/spi?url={{ $url }}" target="_blank">
+        <x-simpleicon-xing height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Xing</span>
+    </a>
+    @if ($is_apple)
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background: linear-gradient(0deg, rgba(12,189,42,1) 0%, rgba(91,246,117,1) 100%); color: #ffffff;" href="sms:?body={{ $title_and_description }}%0A%0A{{ $url }}" target="_blank">
+        <x-icons.imessage height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Messages</span>
+    </a>
+    @endif
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #06c755; color: #ffffff;" href="https://lineit.line.me/share/ui?url={{ $url }}&text={{ $title_and_description }}" target="_blank">
         <x-simpleicon-line height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to LINE</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #00A82C; color: #ffffff;" href="https://www.evernote.com/clip.action?url={{ $url }}&title={{ $title }}"  target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #00A82C; color: #ffffff;" href="https://www.evernote.com/clip.action?url={{ $url }}&title={{ $title }}" target="_blank">
         <x-simpleicon-evernote height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Evernote</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #128c7e; color: #ffffff;" href="https://api.whatsapp.com/send?text={{ $title_and_description }}%0A%0A{{ $url }}"  target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #128c7e; color: #ffffff;" href="https://api.whatsapp.com/send?text={{ $title_and_description }}%0A%0A{{ $url }}" target="_blank">
         <x-simpleicon-whatsapp height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to WhatsApp</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #0087be; color: #ffffff;" href="https://wordpress.com/press-this.php?u={{ $url }}&t={{ $title }}&s={{ $description }}" target="_blank">
-        <x-simpleicon-wordpress height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to WordPress.com</span>
-    </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #0088cc; color: #ffffff;" href="https://telegram.me/share/url?url={{ $url }}&text={{ $title_and_description }}"  target="_blank">
-        <x-simpleicon-telegram height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to Telegram</span>
-    </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #00a5de; color: #ffffff;" href="http://b.hatena.ne.jp/entry/{{ $url }}"  target="_blank">
-        <x-simpleicon-hatenabookmark height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to Hatena Bookmark!</span>
-    </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #00aff0; color: #ffffff;" href="https://web.skype.com/share?text={{ $title }}&url={{ $url }}" target="_blank">
-        <x-simpleicon-skype height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to Skype</span>
-    </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #1da1f2; color: #ffffff;" href="https://twitter.com/share?text={{ $title }}&url={{ $url }}" target="_blank">
-        <x-simpleicon-twitter height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to Twitter</span>
-    </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #1877f2; color: #ffffff;" href="https://www.facebook.com/sharer/sharer.php?u={{ $url }}&title={{ $title }}"  target="_blank">
-        <x-simpleicon-facebook height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to Facebook</span>
-    </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #0077ff; color: #ffffff;" href="https://vk.com/share.php?url={{ $url }}&title={{ $title }}"  target="_blank">
-        <x-simpleicon-vk height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to VKontakte</span>
-    </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #0a66c2; color: #ffffff;" href="https://www.linkedin.com/shareArticle?mini=true&url={{ $url }}&title={{ $title }}"  target="_blank">
-        <x-simpleicon-linkedin height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to LinkedIn</span>
-    </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #0F2066; color: #ffffff;" href="https://buffer.com/add?text={{ $title }}&url={{ $url }}" target="_blank">
-        <x-simpleicon-buffer height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to Buffer</span>
-    </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #011935; color: #ffffff;" href="http://tumblr.com/widgets/share/tool?canonicalUrl={{ $url }}&title={{ $title }}"  target="_blank">
-        <x-simpleicon-tumblr height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to Tumblr</span>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #004359; color: #ffffff;" href="https://www.livejournal.com/update.bml?subject={{ $title_and_description }}&event={{ $url }}" target="_blank">
+        <x-simpleicon-livejournal height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Livejournal</span>
     </a>
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #161616; color: #ffffff;" href="https://share.diasporafoundation.org/?title={{ $title }}&url={{ $url }}" target="_blank">
         <x-simpleicon-diaspora height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Diaspora</span>
     </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #161616; color: #ffffff;" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su={{ $title }}&body={{ $title_and_description }}%0A%0A{{ $url }}&ui=2&tf=1&pli=1" target="_blank">
+        <x-icons.gmail height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Gmail</span>
+    </a>
     <a id="{{ $unique_id }}-share-menu-threads" class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #161616; color: #ffffff;" href="barcelona://create?text={{ $title_and_description }}%0A%0A{{ $url }}" target="_blank">
         <x-simpleicon-threads height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Threads</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #161616; color: #ffffff;" href="https://twitter.com/share?text={{ $title }}&url={{ $url }}" target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #161616; color: #ffffff;" href="https://threema.id/compose?text={{ $title_and_description }}%0A%0A{{ $url }}" target="_blank">
+        <x-simpleicon-threema height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Threema</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #161616; color: #ffffff;" href="https://X.com/share?text={{ $title }}&url={{ $url }}" target="_blank">
         <x-icons.x height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to X</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #011935; color: #ffffff;" href="http://tumblr.com/widgets/share/tool?canonicalUrl={{ $url }}&title={{ $title }}" target="_blank">
+        <x-simpleicon-tumblr height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Tumblr</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #0F2066; color: #ffffff;" href="https://buffer.com/add?text={{ $title }}&url={{ $url }}" target="_blank">
+        <x-simpleicon-buffer height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Buffer</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #0a66c2; color: #ffffff;" href="https://www.linkedin.com/shareArticle?mini=true&url={{ $url }}&title={{ $title }}" target="_blank">
+        <x-simpleicon-linkedin height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to LinkedIn</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #015FF9; color: #FF9E03;" href="http://connect.mail.ru/share?url={{ $url }}&title={{ $title }}{{ strlen($description) > 0 ? ("&description=" . $description) : "" }}" target="_blank">
+        <x-simpleicon-maildotru height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to mail.ru</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #0077ff; color: #ffffff;" href="https://vk.com/share.php?url={{ $url }}&title={{ $title }}{{ isset($attributes['cover-image-url']) ? ("&imageUrl=" . $attributes['cover-image-url']) : "" }}" target="_blank">
+        <x-simpleicon-vk height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to VKontakte</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #1877f2; color: #ffffff;" href="https://trello.com/add-card?mode=popup&url={{ $url }}&title={{ $title }}{{ strlen($description) > 0 ? ("&description=" . $description) : "" }}" target="_blank">
+        <x-simpleicon-trello height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Trello</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #1877f2; color: #ffffff;" href="https://www.facebook.com/sharer/sharer.php?u={{ $url }}&title={{ $title }}" target="_blank">
+        <x-simpleicon-facebook height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Facebook</span>
+    </a>
+    @if ($is_apple)
+    <a class="text-center text-white bg-dm-sky-500 border-0 p-2 rounded-full leading-4 horizontal-tb" style="background: linear-gradient(0deg, rgba(28,200,251,1) 0%,rgba(28,112,240,1) 100%); color: #ffffff;" href="mailto:?subject={{ $title }}&body={{ $title_and_description }}%0A%0A{{ $url }}" target="_blank">
+        <x-fluentui-mail-24 height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Mail</span>
+    </a>
+    @endif
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #00aff0; color: #ffffff;" href="https://web.skype.com/share?text={{ $title }}&url={{ $url }}" target="_blank">
+        <x-simpleicon-skype height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Skype</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #00a5de; color: #ffffff;" href="http://b.hatena.ne.jp/entry/{{ $url }}" target="_blank">
+        <x-simpleicon-hatenabookmark height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Hatena Bookmark!</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #1da1f2; color: #ffffff;" href="https://twitter.com/share?text={{ $title }}&url={{ $url }}" target="_blank">
+        <x-simpleicon-twitter height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Twitter</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #0088cc; color: #ffffff;" href="https://telegram.me/share/url?url={{ $url }}&text={{ $title_and_description }}" target="_blank">
+        <x-simpleicon-telegram height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Telegram</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #0087be; color: #ffffff;" href="https://wordpress.com/press-this.php?u={{ $url }}&t={{ $title }}{{ strlen($description) > 0 ? ("&s=" . $description) : "" }}" target="_blank">
+        <x-simpleicon-wordpress height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to WordPress.com</span>
     </a>
     <dialog id="{{ $unique_id }}-share-menu-embed-dialog" class="p-0 rounded-2xl bg-gray-100 dark:bg-gray-900 backdrop:bg-black/75 text-black dark:text-white border-0">
         <form method="dialog" class="flex space-x-3 w-full p-4">

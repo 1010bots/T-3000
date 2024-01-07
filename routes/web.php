@@ -50,8 +50,13 @@ Route::middleware(
         if (Request::query('p') != null) return (new BlogPostController())->show(Request::query('p'));
         return view('landing-pages.home');
     })->name('home');
+
+    /* Custom Landing Pages */
     Route::get('/bumi-laras-selatan', function () {
         return view('landing-pages.bumi-laras-selatan');
+    });
+    Route::get('/share-this-page', function () {
+        return view('landing-pages.share-this-page');
     });
 
     /* Apps */

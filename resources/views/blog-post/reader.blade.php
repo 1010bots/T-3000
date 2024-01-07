@@ -183,7 +183,7 @@
         @elseif (isset($post->image))
             <img src="{{ $post->image }}" class="px-safe-offset-6 h-auto w-full rounded-xl" />
         @else
-            <hr class="mx-safe-offset-6">
+            <hr class="mx-safe-offset-6" aria-hidden="true">
         @endif
         <x-alerts.new-site class="mx-safe-offset-6" />
         {{-- <x-alerts.consent-required class="mx-safe-offset-6" /> --}}

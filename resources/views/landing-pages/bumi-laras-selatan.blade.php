@@ -20,7 +20,7 @@
         });
     </script>
     <main class="flex flex-col gap-4 text-black dark:text-white">
-        <div class="grid grid-cols-3 w-full m-safe p-4 gap-4">
+        <div class="grid grid-cols-3 w-full p-safe-offset-4 gap-4">
             <x-primitives.card theme-color="yellow" class="flex flex-col col-span-3 md:col-span-2 row-span-2 p-4 rounded-2xl overflow-hidden">
                 <p class="font-mono">/* README.TXT (Editable) */</p>
                 <p id="font-tester" class="font-sans" contenteditable>

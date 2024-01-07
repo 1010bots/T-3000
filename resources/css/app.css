@@ -12,19 +12,16 @@
 
 @layer utilities {
     .border-inset {
-      border-style: inset;
+        border-style: inset;
     }
     .border-outset {
-      border-style: outset;
+        border-style: outset;
     }
-    .horizontal-tb {
-      writing-mode: horizontal-tb;
+    .font-semicondensed {
+        font-stretch: 87.5%;
     }
-    .vertical-lr {
-      writing-mode: vertical-lr;
-    }
-    .vertical-rl {
-      writing-mode: vertical-rl;
+    .font-condensed {
+        font-stretch: 75%;
     }
 }
 

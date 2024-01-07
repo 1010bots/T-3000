@@ -107,7 +107,7 @@
 ?>
 <x-app-layout :theme-color="$theme_colors[0]" >
     <main class="flex flex-col gap-4 text-black dark:text-white">
-        <div class="grid grid-cols-6 w-full m-safe p-4 gap-4">
+        <div class="grid grid-cols-6 w-full p-safe-offset-4 gap-4">
             <x-primitives.card :theme-color="$theme_colors[0]" class="flex flex-col col-span-6 md:col-span-3 lg:col-span-4 row-span-2 rounded-2xl overflow-hidden">
                 <!-- Not definitely us, but Shift and Shiftine, the OG bot and botgirl created by Reinhart. My sister suggested placing an AI-generated picture here instead of real-life photos, so here it is (>_ )! -->
                 <picture>
@@ -135,7 +135,9 @@
                 <ul class="mt-2">
                     @foreach ($recommended_sites as $i => $site)
                         @if ($i > 0)
-                            <hr class="my-2 border-black/10 dark:border-white/10" />
+                            <li aria-hidden="true">
+                                <hr class="my-2 border-black/10 dark:border-white/10" />
+                            </li>
                         @endif
                         <li>
                             <a href="{{ $site["site"] }}">
@@ -191,7 +193,9 @@
                 <ul class="mt-2">
                     @foreach ($community_resources as $i => $site)
                         @if ($i > 0)
-                            <hr class="my-2 border-black/10 dark:border-white/10" />
+                            <li aria-hidden="true">
+                                <hr class="my-2 border-black/10 dark:border-white/10" />
+                            </li>
                         @endif
                         <li>
                             <a href="{{ $site["site"] }}">
