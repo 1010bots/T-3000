@@ -178,12 +178,12 @@
                 }
             ?>
             <picture>
-                <img alt="{{ strlen($post->thumbnail['attachment']['caption']) > 0 ? $post->thumbnail['attachment']['caption'] : ('Cover image for ' . $post->post_title) }}" src="{{ $post->thumbnail['attachment']['url'] }}" srcset="{{ $cover_image_srcset_string }}" alt="{{ $post->thumbnail['attachment']['alt'] || $post->thumbnail['attachment']['description'] || $post->thumbnail['attachment']['title'] }}" class="px-safe-offset-6 h-auto w-full rounded-xl" />
+                <img alt="{{ strlen($post->thumbnail['attachment']['caption']) > 0 ? $post->thumbnail['attachment']['caption'] : ('Cover image for ' . $post->post_title) }}" src="{{ $post->thumbnail['attachment']['url'] }}" srcset="{{ $cover_image_srcset_string }}" alt="{{ $post->thumbnail['attachment']['alt'] || $post->thumbnail['attachment']['description'] || $post->thumbnail['attachment']['title'] }}" class="h-auto w-full rounded-xl" />
             </picture>
         @elseif (isset($post->image))
-            <img src="{{ $post->image }}" class="px-safe-offset-6 h-auto w-full rounded-xl" />
+            <img src="{{ $post->image }}" class="h-auto w-full rounded-xl" />
         @else
-            <hr class="mx-safe-offset-6" aria-hidden="true">
+            <hr aria-hidden="true">
         @endif
         <x-alerts.new-site class="mx-safe-offset-6" />
         {{-- <x-alerts.consent-required class="mx-safe-offset-6" /> --}}
