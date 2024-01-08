@@ -178,7 +178,7 @@
                 }
             ?>
             <picture>
-                <img src="{{ $post->thumbnail['attachment']['url'] }}" srcset="{{ $cover_image_srcset_string }}" alt="{{ $post->thumbnail['attachment']['alt'] || $post->thumbnail['attachment']['description'] || $post->thumbnail['attachment']['title'] }}" class="px-safe-offset-6 h-auto w-full rounded-xl" />
+                <img alt="{{ strlen($post->thumbnail['attachment']['caption']) > 0 ? $post->thumbnail['attachment']['caption'] : ('Cover image for ' . $post->post_title) }}" src="{{ $post->thumbnail['attachment']['url'] }}" srcset="{{ $cover_image_srcset_string }}" alt="{{ $post->thumbnail['attachment']['alt'] || $post->thumbnail['attachment']['description'] || $post->thumbnail['attachment']['title'] }}" class="px-safe-offset-6 h-auto w-full rounded-xl" />
             </picture>
         @elseif (isset($post->image))
             <img src="{{ $post->image }}" class="px-safe-offset-6 h-auto w-full rounded-xl" />
