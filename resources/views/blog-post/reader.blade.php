@@ -185,7 +185,6 @@
         @else
             <hr aria-hidden="true">
         @endif
-        <x-alerts.new-site class="mx-safe-offset-6" />
         {{-- <x-alerts.consent-required class="mx-safe-offset-6" /> --}}
         @if (isset($post->terms['kind']) && count($post->terms['kind']) > 0)
             @switch (array_keys($post->terms['kind'])[0])
