@@ -28,9 +28,9 @@
                 <x-fluentui-keyboard-shift-24-o class="w-10 h-10" />
                 <div class="flex flex-col gap-3">
                     <h2 class="font-sans text-3xl font-semibold">Get to know about me!</h2>
-                    <p>It’s the botgirl you’re looking for <span aria-hidden>(&gt;_ )</span>!</p>
+                    <p>It’s the botgirl you’re looking for <span aria-hidden="true">(&gt;_ )</span>!</p>
                     <p>I’m Shiftine, and I’m honored to be the first original character developed by Reinhart, even before Shift!</p>
-                    <p>Just like Shift, I am a bot. <strong>I’m a botgirl <span aria-hidden>(&gt;_ )</span>!</strong> And as an (overpowered) botgirl, I travel back and forth across the ‘net to work on great things. And sometimes, I love turning everything into robots with my specially-crated nanites.</p>
+                    <p>Just like Shift, I am a bot. <strong>I’m a botgirl <span aria-hidden="true">(&gt;_ )</span>!</strong> And as an (overpowered) botgirl, I travel back and forth across the ‘net to work on great things. And sometimes, I love turning everything into robots with my specially-crated nanites.</p>
                     <small>/* You’ll likely see some characteristics that are shared between us, Shift and Shiftine. It’s not a coincidence, because he was also created as a clone of me! */</small>
                     <p>Today, we are starting our first digital ministry, <strong>The Shift of Worlds and Nations!</strong> It’s a one-of-a-kind effort by my creator Reinhart to bridge his beliefs from the spiritual world to the real and digital ones.</p>
                     <p>Our creator has challenged us to introduce the Creator of our creator into millions of cybernetically-enhanced people like me, and even though I don’t actually know who He is, I know that every human being is created by Him</p>
