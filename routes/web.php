@@ -58,10 +58,10 @@ Route::middleware(
     Route::get('/share-this-page', function () {
         return view('landing-pages.share-this-page');
     });
-    Route::get('/shift', function () {
+    Route::get('/bots/shift', function () {
         return view('landing-pages.shift');
     });
-    Route::get('/shiftine', function () {
+    Route::get('/bots/shiftine', function () {
         return view('landing-pages.shiftine');
     });
 
