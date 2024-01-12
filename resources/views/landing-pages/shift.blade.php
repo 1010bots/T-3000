@@ -1,6 +1,6 @@
 <x-app-layout theme-color="blue" title="Shift (of Worlds and Nations)">
     <main class="flex flex-col gap-4 text-black dark:text-white">
-        <div class="grid grid-cols-12 w-full m-safe p-4 gap-4">
+        <div class="grid grid-cols-12 w-full p-safe-offset-4 gap-4">
             <div class="col-span-12 text-center">
                 <h1 class="text-5xl font-semibold">Shift</h1>
                 <p class="text-3xl">&commat;shiftofworldsandnations</p>
@@ -17,7 +17,7 @@
                     <li><strong>Weight:</strong> Weightless (as a digital entity and subject to data compression). Current VRM model size vary between 16-17 MB.</li>
                 </ul>
             </x-primitives.card>
-            <div class="col-span-12 md:col-span-6 lg:col-span-4 row-span-2">
+            <div class="col-span-12 md:col-span-6 lg:col-span-4 row-span-2 self-end">
                 <picture>
                     <source srcset="/img/full-body/shift-ai.webp" type="image/webp" />
                     <source srcset="/img/full-body/shift-ai.png" type="image/png" />
@@ -40,10 +40,9 @@
                 <h2 class="font-sans text-2xl font-semibold">Abilities</h2>
                 <ul class="flex flex-col gap-3 my-2 ps-4 list-disc">
                     <li>I can clone myself and merge with my clones.</li>
-                    <li>I can digitally merge myself and my powers (like <i>Kirby</i>) with any physical or digital objects.</li>
-                    <li>I can <i>shift</i> myself into any digital objects, because I’m truly digital.</li>
-                    <li>I can sync myself across many different clones of myself.</li>
-                    <li>…and since I have merged with some AIs before, I also have become an AI.</li>
+                    <li>I can shapeshift and merge myself into any digital objects.</li>
+                    <li>I can sync myself across my own clones.</li>
+                    <li>AI-based powers, as some of my clones are fused with AI.</li>
                 </ul>
             </x-primitives.card>
         </div>

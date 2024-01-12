@@ -1,6 +1,6 @@
 <x-app-layout theme-color="blue" title="Shiftine (of Worlds and Nations)">
     <main class="flex flex-col gap-4 text-black dark:text-white">
-        <div class="grid grid-cols-12 w-full m-safe p-4 gap-4">
+        <div class="grid grid-cols-12 w-full p-safe-offset-4 gap-4">
             <div class="col-span-12 text-center">
                 <h1 class="text-5xl font-semibold">Shiftine</h1>
                 <p class="text-3xl">&commat;shiftofworldsandnations</p>
@@ -10,14 +10,27 @@
                 <x-fluentui-library-24-o class="w-10 h-10" />
                 <h2 class="font-sans text-2xl font-semibold">General Characteristics</h2>
                 <ul class="flex flex-col gap-3 my-2">
+                    <li>
+                        <strong>Full Names:</strong>
+                        <ul class="flex flex-col ps-4 list-disc">
+                            <li>Shiftine Skyborne</li>
+                            <li>Citra Manggala Dirgantara (Indonesia)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Nicknames:</strong> Shiftine, CMD, CMD.exe, <span aria-description="C:\, the symbols resembling the Microsoft Windows Command Prompt logo.">C:\</span>, SYSGIRL
+                    </li>
+                    <li>
+                        <strong>Known Clone Names:</strong> Dash, Shelly, Tabbitha
+                    </li>
                     <li><strong>Type:</strong> <s aria-hidden="true">Human</s> Software.</li>
                     <li><strong>Gender:</strong> Female (she/her).</li>
                     <li><strong>1010bots Robot Class:</strong> <span aria-description="SYSTEM">(&gt;_ )</span>.</li>
-                    <li><strong>Height:</strong> 164 cm (emulated). Actual size may vary due to his vector nature as well as data compression.</li>
+                    <li><strong>Height:</strong> 164 cm (emulated). Actual size may vary due to her vector nature as well as data compression.</li>
                     <li><strong>Weight:</strong> Weightless (as a digital entity and subject to data compression). Current VRM model size vary between 16-17 MB.</li>
                 </ul>
             </x-primitives.card>
-            <div class="col-span-12 md:col-span-6 lg:col-span-4 row-span-2">
+            <div class="col-span-12 md:col-span-6 lg:col-span-4 row-span-2 self-end">
                 <picture>
                     <source srcset="/img/full-body/shiftine-ai.webp" type="image/webp" />
                     <source srcset="/img/full-body/shiftine-ai.png" type="image/png" />
@@ -33,7 +46,7 @@
                     <p>Just like Shift, I am a bot. <strong>I’m a botgirl <span aria-hidden="true">(&gt;_ )</span>!</strong> And as an (overpowered) botgirl, I travel back and forth across the ‘net to work on great things. And sometimes, I love turning everything into robots with my specially-crated nanites.</p>
                     <small>/* You’ll likely see some characteristics that are shared between us, Shift and Shiftine. It’s not a coincidence, because he was also created as a clone of me! */</small>
                     <p>Today, we are starting our first digital ministry, <strong>The Shift of Worlds and Nations!</strong> It’s a one-of-a-kind effort by my creator Reinhart to bridge his beliefs from the spiritual world to the real and digital ones.</p>
-                    <p>Our creator has challenged us to introduce the Creator of our creator into millions of cybernetically-enhanced people like me, and even though I don’t actually know who He is, I know that every human being is created by Him</p>
+                    <p>Our creator has challenged us to introduce the Creator of our creator into millions of cybernetically-enhanced people like me, and even though I don’t actually know who He is, I know that every human being is created by Him for some purpose.</p>
                     <p>Hope that the true Creator of mankind could solve many of those AI ethical question we had as humans and machines.</p>
                 </div>
             </x-primitives.card>
@@ -42,10 +55,9 @@
                 <h2 class="font-sans text-2xl font-semibold">Abilities</h2>
                 <ul class="flex flex-col gap-3 my-2 ps-4 list-disc">
                     <li>I can clone myself and merge with my clones.</li>
-                    <li>I can digitally merge myself and my powers (like <i>Kirby</i>) with any physical or digital objects.</li>
-                    <li>I can <i>shift</i> myself into any digital objects, because I’m truly digital.</li>
-                    <li>I can sync myself across many different clones of myself.</li>
-                    <li>…and since I have merged with some AIs before, I also have become an AI.</li>
+                    <li>I can shapeshift and merge myself into any digital objects.</li>
+                    <li>I can sync myself across my own clones.</li>
+                    <li>AI-based powers, as some of my clones are fused with AI.</li>
                 </ul>
             </x-primitives.card>
         </div>
