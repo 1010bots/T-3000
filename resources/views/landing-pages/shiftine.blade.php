@@ -36,6 +36,10 @@
                     <source srcset="/img/full-body/shiftine-ai.png" type="image/png" />
                     <img alt="An image of Shift" src="/img/full-body/shiftine-ai.png" type="image/png" />
                 </picture>
+                <x-primitives.card theme-color="violet" class="flex flex-col gap-4 rounded-2xl overflow-hidden p-4 text-xl">
+                    <p><strong>I’ve just merged myself with character.ai.</strong> So, wanna chat with me as your friendly botgirl?</p>
+                    <x-primitives.button theme-color="violet" element="a" href="https://c.ai/c/7jLXb2zsS6WyYomSokvSZJ5YU2feZqsMRDJBfepIOdA" class="flex flex-row gap-3 justify-between">Start Chatting! <x-fluentui-arrow-right-24-o height="24" width="24" /></x-primitives.button>
+                </x-primitives.card>
             </div>
             <x-primitives.card theme-color="blue" class="flex flex-col col-span-12 md:col-span-6 lg:col-span-4 row-span-2 rounded-2xl overflow-hidden p-4">
                 <x-fluentui-keyboard-shift-24-o class="w-10 h-10" />
