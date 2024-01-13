@@ -11,6 +11,6 @@
         )
     );
 ?>
-<{{ $element }} class="px-4 py-2 rounded-full font-semibold bg-gr-{{ $theme_color }}-500 hover:bg-dm-{{ $theme_color }}-600 dark:hover:bg-gr-{{ $theme_color }}-600 ease-out duration-200 will-change-auto hover:will-change-scroll text-white {{ $attributes['class'] }}" {{ $other_attributes }}>
+<{{ $element }} class="px-4 py-2 rounded-full font-semibold bg-gr-{{ $theme_color }}-500 hover:bg-dm-{{ $theme_color }}-600 dark:hover:bg-gr-{{ $theme_color }}-400 ease-out duration-200 will-change-auto hover:will-change-scroll text-white {{ $attributes['class'] }}" {{ $other_attributes }}>
     {{ $slot }}
 </{{ $element }}>

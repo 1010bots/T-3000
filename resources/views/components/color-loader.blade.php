@@ -14,18 +14,18 @@
     <div class="bg-rc-purple-50 dark:bg-rc-purple-900 dark:hover:bg-dm-purple-800"></div>
     <div class="bg-rc-fuchsia-50 dark:bg-rc-fuchsia-900 dark:hover:bg-dm-fuchsia-800"></div>
     <!-- B. Active indicators and accent colors -->
-    <div class="bg-gr-red-500 dark:bg-dm-red-400 accent-gr-red-500 dark:accent-dm-red-400 hover:bg-dm-red-600 dark:hover:bg-gr-red-600"></div>
-    <div class="bg-gr-orange-500 dark:bg-dm-orange-400 accent-gr-orange-500 dark:accent-dm-orange-400 hover:bg-dm-orange-600 dark:hover:bg-gr-orange-600"></div>
-    <div class="bg-gr-yellow-500 dark:bg-dm-yellow-400 accent-gr-yellow-500 dark:accent-dm-yellow-400 hover:bg-dm-yellow-600 dark:hover:bg-gr-yellow-600"></div>
-    <div class="bg-gr-lime-500 dark:bg-dm-lime-400 accent-gr-lime-500 dark:accent-lime-red-400 hover:bg-dm-lime-600 dark:hover:bg-gr-lime-600"></div>
-    <div class="bg-gr-green-500 dark:bg-dm-green-400 accent-gr-green-500 dark:accent-dm-green-400 hover:bg-dm-green-600 dark:hover:bg-gr-green-600"></div>
-    <div class="bg-gr-seafoam-500 dark:bg-dm-seafoam-400 accent-gr-seafoam-500 dark:accent-dm-seafoam-400 hover:bg-dm-seafoam-600 dark:hover:bg-gr-seafoam-600"></div>
-    <div class="bg-gr-cyan-500 dark:bg-dm-cyan-400 accent-gr-cyan-500 dark:accent-dm-cyan-400 hover:bg-dm-cyan-600 dark:hover:bg-gr-cyan-600"></div>
-    <div class="bg-gr-blue-500 dark:bg-dm-blue-400 accent-gr-blue-500 dark:accent-dm-blue-400 hover:bg-dm-blue-600 dark:hover:bg-gr-blue-600"></div>
-    <div class="bg-gr-indigo-500 dark:bg-dm-indigo-400 accent-gr-indigo-500 dark:accent-dm-indigo-400 hover:bg-dm-indigo-600 dark:hover:bg-gr-indigo-600"></div>
-    <div class="bg-gr-violet-500 dark:bg-dm-violet-400 accent-gr-violet-500 dark:accent-dm-violet-400 hover:bg-dm-violet-600 dark:hover:bg-gr-violet-600"></div>
-    <div class="bg-gr-purple-500 dark:bg-dm-purple-400 accent-gr-purple-500 dark:accent-dm-purple-400 hover:bg-dm-purple-600 dark:hover:bg-gr-purple-600"></div>
-    <div class="bg-gr-fuchsia-500 dark:bg-dm-fuchsia-400 accent-gr-fuchsia-500 dark:accent-dm-fuchsia-400 hover:bg-dm-fuchsia-600 dark:hover:bg-gr-fuchsia-600"></div>
+    <div class="bg-gr-red-500 dark:bg-dm-red-400 accent-gr-red-500 dark:accent-dm-red-400 hover:bg-dm-red-600 dark:hover:bg-gr-red-400"></div>
+    <div class="bg-gr-orange-500 dark:bg-dm-orange-400 accent-gr-orange-500 dark:accent-dm-orange-400 hover:bg-dm-orange-600 dark:hover:bg-gr-orange-400"></div>
+    <div class="bg-gr-yellow-500 dark:bg-dm-yellow-400 accent-gr-yellow-500 dark:accent-dm-yellow-400 hover:bg-dm-yellow-600 dark:hover:bg-gr-yellow-400"></div>
+    <div class="bg-gr-lime-500 dark:bg-dm-lime-400 accent-gr-lime-500 dark:accent-lime-red-400 hover:bg-dm-lime-600 dark:hover:bg-gr-lime-400"></div>
+    <div class="bg-gr-green-500 dark:bg-dm-green-400 accent-gr-green-500 dark:accent-dm-green-400 hover:bg-dm-green-600 dark:hover:bg-gr-green-400"></div>
+    <div class="bg-gr-seafoam-500 dark:bg-dm-seafoam-400 accent-gr-seafoam-500 dark:accent-dm-seafoam-400 hover:bg-dm-seafoam-600 dark:hover:bg-gr-seafoam-400"></div>
+    <div class="bg-gr-cyan-500 dark:bg-dm-cyan-400 accent-gr-cyan-500 dark:accent-dm-cyan-400 hover:bg-dm-cyan-600 dark:hover:bg-gr-cyan-400"></div>
+    <div class="bg-gr-blue-500 dark:bg-dm-blue-400 accent-gr-blue-500 dark:accent-dm-blue-400 hover:bg-dm-blue-600 dark:hover:bg-gr-blue-400"></div>
+    <div class="bg-gr-indigo-500 dark:bg-dm-indigo-400 accent-gr-indigo-500 dark:accent-dm-indigo-400 hover:bg-dm-indigo-600 dark:hover:bg-gr-indigo-400"></div>
+    <div class="bg-gr-violet-500 dark:bg-dm-violet-400 accent-gr-violet-500 dark:accent-dm-violet-400 hover:bg-dm-violet-600 dark:hover:bg-gr-violet-400"></div>
+    <div class="bg-gr-purple-500 dark:bg-dm-purple-400 accent-gr-purple-500 dark:accent-dm-purple-400 hover:bg-dm-purple-600 dark:hover:bg-gr-purple-400"></div>
+    <div class="bg-gr-fuchsia-500 dark:bg-dm-fuchsia-400 accent-gr-fuchsia-500 dark:accent-dm-fuchsia-400 hover:bg-dm-fuchsia-600 dark:hover:bg-gr-fuchsia-400"></div>
     <!-- C. Standard card borders -->
     <div class="border-dm-red-300"></div>
     <div class="border-dm-orange-300"></div>
