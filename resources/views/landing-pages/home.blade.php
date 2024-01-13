@@ -136,7 +136,7 @@
                     @foreach ($recommended_sites as $i => $site)
                         @if ($i > 0)
                             <li aria-hidden="true">
-                                <hr class="my-2 border-black/10 dark:border-white/10" />
+                                <hr class="my-2 border-black/10 dark:border-white/10" aria-hidden="true" />
                             </li>
                         @endif
                         <li>
@@ -157,7 +157,7 @@
                             $post_date = new Carbon($post->post_date);
                         ?>
                         @if ($i > 0)
-                            <hr class="my-2 border-rc-violet-100 dark:border-rc-violet-800" />
+                            <hr class="my-2 border-rc-violet-100 dark:border-rc-violet-800" aria-hidden="true" />
                         @endif
                         <li>
                             <a href="/blog/{{ $post_date->format('Y/m/d') }}/{{ $post->post_name }}">
@@ -175,7 +175,7 @@
             <x-primitives.card :theme-color="$theme_colors[0]" class="col-span-6 md:col-span-4 row-span-2 p-4 rounded-2xl">
                 <x-fluentui-apps-24-o class="w-10 h-10" />
                 <h2 class="font-sans text-2xl font-semibold">Apps, Products, and Services</h2>
-                <hr class="my-2 border-black/10 dark:border-white/10" />
+                <hr class="my-2 border-black/10 dark:border-white/10" aria-hidden="true" />
                 <ul class="mt-2 grid sm:grid-cols-2 gap-4">
                     @foreach ($featured_apps as $i => $app)
                         <li>
@@ -194,7 +194,7 @@
                     @foreach ($community_resources as $i => $site)
                         @if ($i > 0)
                             <li aria-hidden="true">
-                                <hr class="my-2 border-black/10 dark:border-white/10" />
+                                <hr class="my-2 border-black/10 dark:border-white/10" aria-hidden="true" />
                             </li>
                         @endif
                         <li>

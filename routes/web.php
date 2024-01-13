@@ -64,6 +64,9 @@ Route::middleware(
     Route::get('/shiftine', function () {
         return view('landing-pages.shiftine');
     });
+    Route::get('/shiftine/page/{page}', function (string $page) {
+        return redirect("/shiftine?page=$page");
+    });
 
     /* Apps */
     Route::get('/apps', function () {
