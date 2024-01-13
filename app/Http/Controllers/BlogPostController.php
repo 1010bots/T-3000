@@ -21,9 +21,17 @@ class BlogPostController extends Controller
         return Cache::remember('post-id-$id', 15 * 60, function () use ($id) {
             $post = Post::status('publish')->find($id);
             if ($post) {
+                $post->content = str_replace('http://blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->content);
+                $post->content = str_replace('https://blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->content);
                 $post->content = str_replace('blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->content);
+                $post->post_content = str_replace('http://blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->post_content);
+                $post->post_content = str_replace('https://blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->post_content);
                 $post->post_content = str_replace('blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->post_content);
+                $post->excerpt = str_replace('http://blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->excerpt);
+                $post->excerpt = str_replace('https://blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->excerpt);
                 $post->excerpt = str_replace('blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->excerpt);
+                $post->post_excerpt = str_replace('http://blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->post_excerpt);
+                $post->post_excerpt = str_replace('https://blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->post_excerpt);
                 $post->post_excerpt = str_replace('blogarchive.reinhart1010.id/blog/', env('APP_URL', 'http://127.0.0.1') . '/blog/', $post->post_excerpt);
             }
             return $post;
