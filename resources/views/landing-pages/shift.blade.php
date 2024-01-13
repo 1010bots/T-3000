@@ -5,9 +5,13 @@
     use Illuminate\Support\Carbon;
     use Illuminate\Support\Facades\Cache;
 
-    $author_id = User::where('user_login', 'caps')->first()->ID;
-    $posts = Post::type('post')->status('publish')->where('post_title', '!=', '')->taxonomy('category', 'shift-of-worlds-and-nations')->orWhere('post_author', $author_id)->orderBy('post_date_gmt', 'desc')->paginate(12);
     $theme_colors = ["blue", "indigo", "violet", "purple", "fuchsia"];
+
+    $current_page = request()->get('page', 1);
+    $posts = Cache::remember("shift-posts-$current_page", 15 * 60, function () {
+        $author_id = User::where('user_login', 'caps')->first()->ID;
+        return Post::type('post')->status('publish')->where('post_title', '!=', '')->taxonomy('category', 'shift-of-worlds-and-nations')->orWhere('post_author', $author_id)->orderBy('post_date_gmt', 'desc')->paginate(12);
+    });
 ?>
 <x-app-layout theme-color="blue" title="Shift (of Worlds and Nations)">
     <main class="flex flex-col gap-4 text-black dark:text-white">
@@ -17,7 +21,7 @@
                 <p class="text-3xl">&commat;shiftofworldsandnations</p>
                 <p>*AI-generated sketch. By the way, we’re open for Connect Group artists!</p>
             </div>
-            @if ($posts->currentPage() == 1)
+            @if ($current_page == 1)
                 <x-primitives.card theme-color="indigo" class="flex flex-col col-span-6 md:col-span-3 lg:col-span-2 rounded-2xl overflow-hidden p-4">
                     <x-fluentui-library-24-o class="w-10 h-10" />
                     <h2 class="font-sans text-2xl font-semibold">General Characteristics</h2>
@@ -37,12 +41,12 @@
                     <img alt="An image of Shift" src="/img/full-body/shift-ai.png" type="image/png" />
                 </picture>
             </div>
-            @if ($posts->currentPage() > 1)
+            @if ($current_page > 1)
                 <div class="col-span-6 md:col-span-3 lg:col-span-4">
                     {{ $posts->links() }}
                 </div>
             @endif
-            @if ($posts->currentPage() == 1)
+            @if ($current_page == 1)
                 <x-primitives.card theme-color="blue" class="flex flex-col col-span-6 md:col-span-3 lg:col-span-2 row-span-2 rounded-2xl overflow-hidden p-4">
                     <x-fluentui-keyboard-shift-24-o class="w-10 h-10" />
                     <div class="flex flex-col gap-3">
