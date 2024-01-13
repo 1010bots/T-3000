@@ -59,13 +59,17 @@
         @isset ($attributes['canonical'])
             <link rel="canonical" href="{{ $attributes['canonical'] }}" />
         @endif
+        @if ($agent->isSafari())
+            <style>
+                /* For Safari */
+                html, body {
+                    overflow-x: hidden;
+                    position: relative;
+                    height: 100%;
+                }
+            </style>
+        @endif
         <style>
-            /* For Safari */
-            html, body {
-                overflow-x: hidden;
-                position: relative;
-                height: 100%;
-            }
             /* * {
                 background: #000 !important;
                 color: #0f0 !important;
