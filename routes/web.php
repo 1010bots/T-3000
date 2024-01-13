@@ -61,10 +61,22 @@ Route::middleware(
     Route::get('/shift', function () {
         return view('landing-pages.shift');
     });
+    // WordPress Compatibility
+    Route::get('/blog/author/caps', function (string $page) {
+        return redirect("/shift");
+    });
+    Route::get('/blog/author/caps/page/{page}', function (string $page) {
+        return redirect("/shift?page=$page");
+    });
+
     Route::get('/shiftine', function () {
         return view('landing-pages.shiftine');
     });
-    Route::get('/shiftine/page/{page}', function (string $page) {
+    // WordPress Compatibility
+    Route::get('/blog/author/shiftine', function (string $page) {
+        return redirect("/shiftine");
+    });
+    Route::get('/blog/author/shiftine/page/{page}', function (string $page) {
         return redirect("/shiftine?page=$page");
     });
 
