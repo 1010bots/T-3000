@@ -17,7 +17,6 @@
             'resources/css/dialog-polyfill.css',
             'resources/js/app.js',
             'resources/js/dialog-polyfill.js',
-            'resources/js/highlight.min.js',
             'resources/js/modernizr.js',
         ])
     </head>
