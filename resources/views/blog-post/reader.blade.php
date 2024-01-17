@@ -5,8 +5,27 @@
     $updated_at = new Carbon($post->post_modified);
     $updated_at_gmt = new Carbon($post->post_modified_gmt);
     $canonical = null;
+    $rich_result_schema = [];
     if ($post->post_type == 'post') {
         $canonical = env('APP_URL', 'http://127.0.0.1') . '/blog/' . $created_at->format('Y/m/d') . '/' . $post->post_name;
+        $rich_result_schema = [
+            "@context" => "https://schema.org",
+            "@type" => "BreadcrumbList",
+            "itemListElement" => [
+                [
+                    "@type" => "ListItem",
+                    "position" => 1,
+                    "name" => "Blogs",
+                    "item" => env('APP_URL', 'http://127.0.0.1') . '/blog/'
+                ],
+                [
+                    "@type" => "ListItem",
+                    "position" => 2,
+                    "name" => $post->post_title,
+                    "item" => $canonical,
+                ],
+            ],
+        ];
     }
 
     // Post Metadata
@@ -32,7 +51,7 @@
         }
     }
 ?>
-<x-app-layout :canonical="$canonical" :description="$post->post_excerpt" :keywords="$post->keywords_str" :oembed="true" :og-article-published-time="$created_at->toIso8601String()" :og-article-modified-time="$updated_at->toIso8601String()" :og-image="$cover_image_og" og-type="article" :title="$post->post_title" theme-color="violet">
+<x-app-layout :canonical="$canonical" :description="$post->post_excerpt" :json-ld="$rich_result_schema" :keywords="$post->keywords_str" :oembed="true" :og-article-published-time="$created_at->toIso8601String()" :og-article-modified-time="$updated_at->toIso8601String()" :og-image="$cover_image_og" og-type="article" :title="$post->post_title" theme-color="violet">
     <style scoped>
         article main a {
             color: #6932BB;

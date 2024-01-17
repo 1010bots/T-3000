@@ -115,6 +115,13 @@
         <!-- (>_ ): Only necessary non-OG tags, see https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started#opengraph -->
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@reinhart1010" />
+
+        <!-- JSON-LD -->
+        @isset ($attributes['json-ld'])
+            <script type="application/ld+json">
+                {!! json_encode($attributes['json-ld']) !!}
+            </script>
+        @endif
     </head>
     <body class="font-sans antialiased">
         <x-banner />
