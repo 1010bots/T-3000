@@ -116,15 +116,21 @@ class BlogPostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($index = 1, $category = null, $tag = null, $start_date = null, $end_date = null)
+    public function index($category = null, $tag = null, $start_date = null, $end_date = null)
     {
-        if ($index < 1) $index = 1;
-        $posts = Cache::remember('posts-' . (strlen($category) > 0 ? $category : '_') . '-' . (strlen($tag) > 0 ? $tag : '_') . '-' . (strlen($start_date) > 0 ? $start_date : '_') . '_' . (strlen($end_date) > 0 ? $end_date : '_') . '-' . $index, 60, function () use ($index) {
-            $take = 12;
-            $skip = $take * ($index - 1);
-            return Post::status('publish')->where('post_type', 'post')->skip($skip)->take($take)->orderBy('post_date_gmt', 'desc')->get();
+        $current_page = request()->get('page', 1);
+        $index_title = 'Blog Posts';
+        if (isset($category) && strlen($category) > 0) {
+            $index_title = "Blog Posts from @$category";
+        }
+        $posts = Cache::remember('posts-' . (strlen($category) > 0 ? $category : '_') . '-' . (strlen($tag) > 0 ? $tag : '_') . '-' . (strlen($start_date) > 0 ? $start_date : '_') . '_' . (strlen($end_date) > 0 ? $end_date : '_') . '-' . $current_page, 60, function () use ($category) {
+            $query = Post::type('post')->status('publish')->where('post_title', '!=', '')->where('post_type', 'post');
+            if (isset($category) && strlen($category) > 0) {
+                $query = $query->taxonomy('category', strtolower($category));
+            }
+            return $query->orderBy('post_date_gmt', 'desc')->paginate(12);
         });
-        return view('blog-index', ['posts' => $posts, 'index_title' => 'Blog Posts']);
+        return view('blog-index', ['posts' => $posts, 'index_title' => $index_title]);
     }
 
     /**

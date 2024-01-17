@@ -10,7 +10,7 @@
     $current_page = request()->get('page', 1);
     $posts = Cache::remember("shift-posts-$current_page", 15 * 60, function () {
         $author_id = User::where('user_login', 'caps')->first()->ID;
-        return Post::type('post')->status('publish')->where('post_title', '!=', '')->taxonomy('category', 'shift-of-worlds-and-nations')->orWhere('post_author', $author_id)->orderBy('post_date_gmt', 'desc')->paginate(12);
+        return Post::type('post')->status('publish')->where('post_title', '!=', '')->where('post_type', 'post')->taxonomy('category', 'shift-of-worlds-and-nations')->orWhere('post_author', $author_id)->orderBy('post_date_gmt', 'desc')->paginate(12);
     });
 ?>
 <x-app-layout theme-color="blue" title="Shift (of Worlds and Nations)">
@@ -114,7 +114,7 @@
                         <h5 class="text-xl font-semibold">{{ $post->post_title }}</h5>
                         @if (!isset($post->thumbnail) && !isset($post->image))
                             <div class="flex items-center justify-center flex-grow">
-                                <p class="font-semicondensed italic text-2xl line-clamp-6">{{ strlen($post->post_excerpt) > 0 ? $post->post_excerpt : strip_tags($post->post_content) }}</p>
+                                <p class="font-semicondensed text-2xl line-clamp-6">{{ strlen($post->post_excerpt) > 0 ? $post->post_excerpt : strip_tags($post->post_content) }}</p>
                             </div>
                         @endif
                     </div>

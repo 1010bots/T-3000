@@ -15,15 +15,9 @@ use Illuminate\Support\Facades\Request;
 |
 */
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
 /* Privacy Consent */
 Route::get('/you/consent', function () {
@@ -58,10 +52,11 @@ Route::middleware(
     Route::get('/share-this-page', function () {
         return view('landing-pages.share-this-page');
     });
+
     Route::get('/shift', function () {
         return view('landing-pages.shift');
     });
-    // WordPress Compatibility
+    // WordPress Index Compatibility
     Route::get('/blog/author/caps', function (string $page) {
         return redirect("/shift");
     });
@@ -72,7 +67,7 @@ Route::middleware(
     Route::get('/shiftine', function () {
         return view('landing-pages.shiftine');
     });
-    // WordPress Compatibility
+    // WordPress Index Compatibility
     Route::get('/blog/author/shiftine', function (string $page) {
         return redirect("/shiftine");
     });
@@ -97,6 +92,15 @@ Route::middleware(
     /* WordPress Post Compatibility */
     Route::get('/blog', function () {
         return (new BlogPostController())->index();
+    });
+    Route::get('/blog/page/{page}', function (string $page) {
+        return redirect("/blog?page=$page");
+    });
+    Route::get('/blog/category/{category}', function (string $category) {
+        return (new BlogPostController())->index($category);
+    });
+    Route::get('/blog/category/{category}/page/{page}', function (string $category, string $page) {
+        return redirect("/blog/category/$category?page=$page");
     });
 
     /* WordPress Post Compatibility */

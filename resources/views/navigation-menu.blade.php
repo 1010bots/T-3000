@@ -26,6 +26,9 @@
                         <x-nav-link :theme-color="$theme_color" href="{{ route('home') }}" :active="request()->routeIs('home')">
                             {{ __('Home') }}
                         </x-nav-link>
+                        <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
                         <x-nav-link :theme-color="$theme_color" href="{{ route('apps') }}" :active="request()->routeIs('apps')">
                             {{ __('Apps') }}
                         </x-nav-link>
@@ -36,11 +39,6 @@
                             <x-fluentui-search-24 class="inline w-6 h-6 text-gr-{{ $theme_color }}-400 dark:text-gr-{{ $theme_color }}-200"/>
                             <span class="align-middle">{{ __('Search') }}</span>
                         </x-primitives.card>
-                        @auth
-                            <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                                {{ __('Dashboard') }}
-                            </x-nav-link>
-                        @endauth
                     </div>
                 </div>
 
@@ -154,13 +152,13 @@
                 @endauth
 
                 <!-- Hamburger -->
-                <div class="-mr-2 flex items-center sm:hidden">
-                    <button aria-label="Site Menu" @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
+                <div class="flex items-center sm:hidden">
+                    <x-primitives.card element="button" aria-label="Site Menu" @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                             <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                             <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
-                    </button>
+                    </x-primitives.card>
                 </div>
             </div>
         </div>
@@ -171,17 +169,15 @@
                 <x-responsive-nav-link :theme-color="$theme_color" href="{{ route('home') }}" :active="request()->routeIs('home')">
                     {{ __('Home') }}
                 </x-responsive-nav-link>
+                <x-responsive-nav-link :theme-color="$theme_color" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Dashboard') }}
+                </x-responsive-nav-link>
                 <x-responsive-nav-link :theme-color="$theme_color" href="{{ route('apps') }}" :active="request()->routeIs('apps')">
                     {{ __('Apps') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :theme-color="$theme_color" data-r-search-button="true">
                     {{ __('Search') }}
                 </x-responsive-nav-link>
-                @auth
-                    <x-responsive-nav-link :theme-color="$theme_color" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-responsive-nav-link>
-                @endauth
             </div>
 
             <!-- Responsive Settings Options -->
