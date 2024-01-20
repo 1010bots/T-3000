@@ -6,7 +6,7 @@
     use Illuminate\Support\Carbon;
     use Illuminate\Support\Facades\Cache;
 
-    $theme_colors = ['blue', 'violet', 'seafoam'];
+    $theme_colors = ['violet', 'fuchsia', 'orange'];
 
     $posts = Cache::remember('home-latest-posts', 15 * 60, function () {
         return Post::type('post')->status('publish')->where('post_title', '!=', '')->orderBy('post_date_gmt', 'desc')->take(5)->get();
@@ -111,22 +111,36 @@
             <x-primitives.card :theme-color="$theme_colors[0]" class="flex flex-col col-span-6 md:col-span-3 lg:col-span-4 row-span-2 rounded-2xl overflow-hidden">
                 <!-- Not definitely us, but Shift and Shiftine, the OG bot and botgirl created by Reinhart. My sister suggested placing an AI-generated picture here instead of real-life photos, so here it is (>_ )! -->
                 <picture>
-                    <source srcset="/img/hero/new-card.jxl" type="image/jxl" />
+                    {{-- <source srcset="/img/hero/new-card.jxl" type="image/jxl" />
                     <source srcset="/img/hero/new-card.avif" type="image/avif" />
                     <source srcset="/img/hero/new-card.heic" type="image/heic" />
                     <source srcset="/img/hero/new-card.webp" type="image/webp" />
                     <source srcset="/img/hero/new-card.jpg" type="image/jpg" />
-                    <img alt="Shift and Shiftine" src="/img/hero/new-card.jpg" width="1920" height="1080" class="w-full h-auto" />
+                    <img alt="Shift and Shiftine" src="/img/hero/new-card.jpg" width="1920" height="1080" class="w-full h-auto" /> --}}
+                    <img alt="Shift and Shiftine" src="https://blogarchive.reinhart1010.id/wp-content/uploads/2024/01/AOG-Conference-2024-reinhart1010.id-header.jpg" width="1920" height="1080" class="w-full h-auto" />
                 </picture>
                 <div class="flex flex-col p-4 flex-1 gap-2 bg-gradient-to-b">
                     <h1 class="font-sans text-4xl font-medium">
                         Reinhart is a person who
-                        <strong class="font-bold text-transparent bg-clip-text bg-gradient-to-tr dark:bg-gradient-to-bl from-dm-blue-500 to-dm-blue-200">loves</strong>
+                        <strong class="font-bold text-transparent bg-clip-text bg-gradient-to-tr dark:bg-gradient-to-bl from-dm-violet-500 to-dm-violet-200">loves</strong>
                         and
-                        <strong class="font-bold text-transparent bg-clip-text bg-gradient-to-tr dark:bg-gradient-to-bl from-dm-blue-500 to-dm-blue-200">works</strong>
+                        <strong class="font-bold text-transparent bg-clip-text bg-gradient-to-tr dark:bg-gradient-to-bl from-dm-violet-500 to-dm-violet-200">works</strong>
                         with God and technology.
                     </h1>
-                    <p class="text-xl">He currently works as a spirit, man, and robot in a mission to re-establish the relationship and authority of God to humanity, and humanity to their creations.</p>
+                    {{-- <p class="text-xl">He currently works as a spirit, man, and robot in a mission to re-establish the relationship and authority of God to humanity, and humanity to their creations.</p> --}}
+                    <p class="text-xl">By the way, he, his friends and bots will join together in <strong class="text-dm-violet-500">Army of God Conference 2024</strong>. How about you?</p>
+                    <div class="flex flex-row gap-3">
+                        <x-primitives.button theme-color="violet" element="a" href="https://gms.church/aogconference?utm_source=reinhart1010&utm_medium=website" target="_blank" class="flex flex-row gap-2 justify-between items-center">
+                            <x-fluentui-ticket-diagonal-24-o class="w-6 h-6" />
+                            Get Tickets
+                            <x-fluentui-arrow-right-24 class="w-6 h-6" />
+                        </x-primitives.button>
+                        <x-primitives.button theme-color="violet" element="a" href="https://www.instagram.com/aogmsyouth" target="_blank" class="flex flex-row gap-2 justify-between items-center">
+                            <x-simpleicon-instagram class="w-6 h-6" />
+                            Follow on Instagram
+                            <x-fluentui-arrow-right-24 class="w-6 h-6" />
+                        </x-primitives.button>
+                    </div>
                 </div>
             </x-primitives.card>
             <x-primitives.card :theme-color="$theme_colors[2]" class="col-span-6 md:col-span-3 lg:col-span-2 p-4 rounded-2xl">
@@ -168,7 +182,7 @@
                     @endforeach
                 </ul>
             </x-primitives.card>
-            <a href="/for-recruiters" class="col-span-6 md:col-span-2 p-4 rounded-2xl bg-dm-blue-400 dark:bg-dm-blue-700 text-white">
+            <a href="/for-recruiters" class="col-span-6 md:col-span-2 p-4 rounded-2xl bg-dm-violet-400 dark:bg-dm-violet-700 text-white">
                 <x-fluentui-people-audience-24-o class="w-10 h-10" />
                 <h2 class="font-sans text-2xl font-semibold">Interested to get me into your team?</h2>
             </a>
