@@ -128,8 +128,8 @@
                         with God and technology.
                     </h1>
                     {{-- <p class="text-xl">He currently works as a spirit, man, and robot in a mission to re-establish the relationship and authority of God to humanity, and humanity to their creations.</p> --}}
-                    <p class="text-xl">By the way, he, his friends and bots will join together in <strong class="text-dm-violet-500">Army of God Conference 2024</strong>. How about you?</p>
-                    <div class="flex flex-row gap-3">
+                    <p class="text-xl">By the way, he, his friends and bots will join together in <strong class="text-dm-violet-500 dark:text-dm-violet-200"">Army of God Conference 2024</strong>. How about you?</p>
+                    <div class="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-3">
                         <x-primitives.button theme-color="violet" element="a" href="https://gms.church/aogconference?utm_source=reinhart1010&utm_medium=website" target="_blank" class="flex flex-row gap-2 justify-between items-center">
                             <x-fluentui-ticket-diagonal-24-o class="w-6 h-6" />
                             Get Tickets
@@ -171,7 +171,7 @@
                             $post_date = new Carbon($post->post_date);
                         ?>
                         @if ($i > 0)
-                            <hr class="my-2 border-rc-violet-100 dark:border-rc-violet-800" aria-hidden="true" />
+                            <hr class="my-2 border-black/10 dark:border-white/10" aria-hidden="true" />
                         @endif
                         <li>
                             <a href="/blog/{{ $post_date->format('Y/m/d') }}/{{ $post->post_name }}">
