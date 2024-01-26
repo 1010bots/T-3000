@@ -79,17 +79,17 @@
         <x-simpleicon-messenger height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Messenger</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #bd081c; color: #ffffff;" href="https://pinterest.com/pin/create/button/?&url={{ $url }}{{ isset($attributes['cover-image-url']) ? ("&media=" . $attributes['cover-image-url']) : "" }}" target="_blank">
-        <x-simpleicon-pinterest height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to Pinterest</span>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #ef4056; color: #ffffff;" href="https://getpocket.com/save/?url={{ $url }}&title={{ $title }}" target="_blank">
+        <x-simpleicon-pocket height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Pocket</span>
     </a>
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #e12828; color: #ffffff;" href="https://share.flipboard.com/bookmarklet/popout?url={{ $url }}&title={{ $title }}" target="_blank">
         <x-simpleicon-flipboard height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Flipboard</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #ef4056; color: #ffffff;" href="https://getpocket.com/save/?url={{ $url }}&title={{ $title }}" target="_blank">
-        <x-simpleicon-pocket height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to Pocket</span>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #bd081c; color: #ffffff;" href="https://pinterest.com/pin/create/button/?&url={{ $url }}{{ isset($attributes['cover-image-url']) ? ("&media=" . $attributes['cover-image-url']) : "" }}" target="_blank">
+        <x-simpleicon-pinterest height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Pinterest</span>
     </a>
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #FF4500; color: #ffffff;" href="https://www.reddit.com/submit?url={{ $url }}&title={{ $title }}" target="_blank">
         <x-simpleicon-reddit height="24" width="24" class="inline-block" />
@@ -125,13 +125,13 @@
             <span class="sr-only">Share to Snapchat</span>
         </a>
     @endif
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #9EC23F; color: #ffffff;" href="https://mastodonshare.com/?text={{ $title_and_description }}&url={{ $url }}" target="_blank">
-        <x-icons.misskey height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to Misskey</span>
-    </a>
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #C7F16D; color: #000000;" href="https://www.xing.com/social/share/spi?url={{ $url }}" target="_blank">
         <x-simpleicon-xing height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Xing</span>
+    </a>
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background-color: #9EC23F; color: #ffffff;" href="https://mastodonshare.com/?text={{ $title_and_description }}&url={{ $url }}" target="_blank">
+        <x-icons.misskey height="24" width="24" class="inline-block" />
+        <span class="sr-only">Share to Misskey</span>
     </a>
     @if ($is_apple)
     <a class="text-center border-0 p-2 rounded-full leading-4 active:brightness-75 hover:brightness-75 active:contrast-200 hover:contrast-200" style="background: linear-gradient(0deg, rgba(12,189,42,1) 0%, rgba(91,246,117,1) 100%); color: #ffffff;" href="sms:?body={{ $title_and_description }}%0A%0A{{ $url }}" target="_blank">
