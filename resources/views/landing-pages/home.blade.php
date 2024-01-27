@@ -180,6 +180,13 @@
                             </a>
                         </li>
                     @endforeach
+                    <li>
+                        <hr class="my-2 border-black/10 dark:border-white/10" aria-hidden="true" />
+                        <a href="/blog" class="flex flex-row gap-1 items-center">
+                            <p class="font-medium text-lg">View All</p>
+                            <x-fluentui-arrow-right-24 class="w-6 h-6" />
+                        </a>
+                    </li>
                 </ul>
             </x-primitives.card>
             <a href="/for-recruiters" class="col-span-6 md:col-span-2 p-4 rounded-2xl bg-dm-violet-400 dark:bg-dm-violet-700 text-white">

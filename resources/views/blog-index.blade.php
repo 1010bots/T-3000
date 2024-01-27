@@ -10,7 +10,7 @@
         <div class="col-span-6 text-black dark:text-white">
             <h1 class="text-3xl text-bold font-semibold break-words">{{ $index_title }}</h1>
             {{ $posts->links() }}
-            <hr class="mt-2 border-black/50 dark:border-white/50" />
+            <hr class="mt-2 border-black/10 dark:border-white/10" />
         </div>
         <?php
             $past_post_theme_color = null;
@@ -74,7 +74,7 @@
             </x-primitives.card>
         @endforeach
         <div class="col-span-6 text-black dark:text-white">
-            <hr class="mb-2 border-black/50 dark:border-white/50" />
+            <hr class="mb-2 border-black/10 dark:border-white/10" />
             {{ $posts->links() }}
         </div>
     </div>
