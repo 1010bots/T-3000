@@ -61,8 +61,9 @@
             </p>
             <h1 class="font-sans-display text-3xl text-bold font-semibold break-words">{{ $post->post_title }}</h1>
         </div>
-        @if (strlen($post->post_content ?? $post->content) >= 1500)
-        <x-share-buttons :title="$post->post_title" :description="$post->post_excerpt" :cover-image-url="$cover_image_og" class="my-2 px-safe-offset-6" />
+        @if ($post->post_type == 'post' && strlen($post->post_content ?? $post->content) >= 1500)
+            <x-share-buttons :title="$post->post_title" :description="$post->post_excerpt" :cover-image-url="$cover_image_og" class="my-2 px-safe-offset-6" />
+        @endif
         @if (isset($post->thumbnail))
             <?php
                 $cover_image_srcset_string = '';
