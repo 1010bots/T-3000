@@ -120,7 +120,7 @@
                     <img alt="Shift and Shiftine" src="https://blogarchive.reinhart1010.id/wp-content/uploads/2024/01/AOG-Conference-2024-reinhart1010.id-header.jpg" width="1920" height="1080" class="w-full h-auto" />
                 </picture>
                 <div class="flex flex-col p-4 flex-1 gap-2 bg-gradient-to-b">
-                    <h1 class="font-sans text-4xl font-medium">
+                    <h1 class="font-sans-display text-4xl font-medium">
                         Reinhart is a person who
                         <strong class="font-bold text-transparent bg-clip-text bg-gradient-to-tr dark:bg-gradient-to-bl from-dm-violet-500 to-dm-violet-200">loves</strong>
                         and
@@ -145,7 +145,7 @@
             </x-primitives.card>
             <x-primitives.card :theme-color="$theme_colors[2]" class="col-span-6 md:col-span-3 lg:col-span-2 p-4 rounded-2xl">
                 <x-fluentui-compass-northwest-24-o class="w-10 h-10" />
-                <h2 class="font-sans text-2xl font-semibold">Looking for these?</h2>
+                <h2 class="font-sans-display text-2xl font-semibold">Looking for these?</h2>
                 <ul class="mt-2">
                     @foreach ($recommended_sites as $i => $site)
                         @if ($i > 0)
@@ -164,7 +164,7 @@
             </x-primitives.card>
             <x-primitives.card :theme-color="$theme_colors[1]" class="col-span-6 md:col-span-3 lg:col-span-2 p-4 rounded-2xl">
                 <x-fluentui-chat-multiple-24-o class="w-10 h-10" />
-                <h2 class="font-sans text-2xl font-semibold">Latest Blogs</h2>
+                <h2 class="font-sans-display text-2xl font-semibold">Latest Blogs</h2>
                 <ul class="mt-2">
                     @foreach ($posts as $i => $post)
                         <?php
@@ -191,11 +191,11 @@
             </x-primitives.card>
             <a href="/for-recruiters" class="col-span-6 md:col-span-2 p-4 rounded-2xl bg-dm-violet-400 dark:bg-dm-violet-700 text-white">
                 <x-fluentui-people-audience-24-o class="w-10 h-10" />
-                <h2 class="font-sans text-2xl font-semibold">Interested to get me into your team?</h2>
+                <h2 class="font-sans-display text-2xl font-semibold">Interested to get me into your team?</h2>
             </a>
             <x-primitives.card :theme-color="$theme_colors[0]" class="col-span-6 md:col-span-4 row-span-2 p-4 rounded-2xl">
                 <x-fluentui-apps-24-o class="w-10 h-10" />
-                <h2 class="font-sans text-2xl font-semibold">Apps, Products, and Services</h2>
+                <h2 class="font-sans-display text-2xl font-semibold">Apps, Products, and Services</h2>
                 <hr class="my-2 border-black/10 dark:border-white/10" aria-hidden="true" />
                 <ul class="mt-2 grid sm:grid-cols-2 gap-4">
                     @foreach ($featured_apps as $i => $app)
@@ -210,7 +210,7 @@
             </x-primitives.card>
             <x-primitives.card :theme-color="$theme_colors[1]" class="col-span-6 md:col-span-2 p-4 rounded-2xl">
                 <x-fluentui-library-24-o class="w-10 h-10" />
-                <h2 class="font-sans text-2xl font-semibold">Community Resources</h2>
+                <h2 class="font-sans-display text-2xl font-semibold">Community Resources</h2>
                 <ul class="mt-2">
                     @foreach ($community_resources as $i => $site)
                         @if ($i > 0)
