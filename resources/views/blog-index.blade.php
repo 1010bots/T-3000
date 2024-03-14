@@ -50,10 +50,10 @@
             <x-primitives.card :theme-color="$post_theme_color" element="a" href="/blog/{{ $post_date->format('Y/m/d') }}/{{ $post->post_name }}" class="flex flex-col col-span-6 md:col-span-3 lg:col-span-2 rounded-2xl overflow-hidden">
                 <div class="flex flex-col flex-grow p-4">
                     <p>{{ $post_date }}</p>
-                    <h5 class="text-xl font-semibold">{{ $post->post_title }}</h5>
+                    <h5 class="font-sans-display text-xl font-semibold">{{ $post->post_title }}</h5>
                     @if (!isset($post->thumbnail) && !isset($post->image))
                         <div class="flex items-center justify-center flex-grow">
-                            <p class="font-semicondensed text-2xl line-clamp-6">{{ strlen($post->post_excerpt) > 0 ? $post->post_excerpt : strip_tags($post->post_content) }}</p>
+                            <p class="text-2xl line-clamp-6">{{ strlen($post->post_excerpt) > 0 ? $post->post_excerpt : strip_tags($post->post_content) }}</p>
                         </div>
                     @endif
                 </div>
