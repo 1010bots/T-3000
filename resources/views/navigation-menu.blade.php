@@ -26,8 +26,8 @@
                         <x-nav-link :theme-color="$theme_color" href="{{ route('home') }}" :active="request()->routeIs('home')">
                             {{ __('Home') }}
                         </x-nav-link>
-                        <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                            {{ __('Dashboard') }}
+                        <x-nav-link href="https://kenangan.com/kenanganku/reinhart1010?utm_source=reinhart1010&utm_campaign=reinhart1010-s2">
+                            #import&lt;wishlist.h&gt;
                         </x-nav-link>
                         <x-nav-link :theme-color="$theme_color" href="{{ route('apps') }}" :active="request()->routeIs('apps')">
                             {{ __('Apps') }}
@@ -169,8 +169,8 @@
                 <x-responsive-nav-link :theme-color="$theme_color" href="{{ route('home') }}" :active="request()->routeIs('home')">
                     {{ __('Home') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :theme-color="$theme_color" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                    {{ __('Dashboard') }}
+                <x-responsive-nav-link :theme-color="$theme_color" href="https://kenangan.com/kenanganku/reinhart1010?utm_source=reinhart1010&utm_campaign=reinhart1010-s2">
+                    #import&lt;wishlist.h&gt;
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :theme-color="$theme_color" href="{{ route('apps') }}" :active="request()->routeIs('apps')">
                     {{ __('Apps') }}
