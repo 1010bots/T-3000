@@ -6,7 +6,7 @@
     use Illuminate\Support\Carbon;
     use Illuminate\Support\Facades\Cache;
 
-    $theme_colors = ['red', 'blue', 'green'];
+    $theme_colors = ['blue', 'red', 'green'];
 
     $posts = Cache::remember('home-latest-posts', 15 * 60, function () {
         return Post::type('post')->status('publish')->where('post_title', '!=', '')->orderBy('post_date_gmt', 'desc')->take(5)->get();
