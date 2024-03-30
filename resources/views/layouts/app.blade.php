@@ -123,7 +123,7 @@
             </script>
         @endif
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased bg-white dark:bg-black">
         <x-banner />
 
         <div class="min-h-screen bg-white dark:bg-black">
@@ -148,9 +148,90 @@
         </div>
 
         @stack('modals')
-
-        <div class="p-2 pb-safe-offset-2 text-center bg-rc-{{ $theme_color }}-50 dark:bg-rc-{{ $theme_color }}-900 text-black dark:text-white">
-            Copyright &copy; Reinhart Previano K. | <a href="https://legal.reinhart1010.id/privacy/general/en" class="font-bold">Privacy Policy</a>
+        <hr class="border-dm-{{ $theme_color }}-300" />
+        <div class="p-4 px-safe-offset-4 grid grid-cols-1 sm:grid-cols-2 gap-3 bg-rc-{{ $theme_color }}-50/25 dark:bg-rc-{{ $theme_color }}-900/25 text-black dark:text-white">
+            <div class="flex flex-col gap-3">
+                <div class="flex items-center gap-3">
+                    <picture>
+                        <source srcset="/img/icons/shell-blue-male-neutral.avif" type="image/avif">
+                        <source srcset="/img/icons/shell-blue-male-neutral.heic" type="image/heic">
+                        <source srcset="/img/icons/shell-blue-male-neutral.webp" type="image/webp">
+                        <source srcset="/img/icons/shell-blue-male-neutral.jp2" type="image/jp2">
+                        <source srcset="/img/icons/shell-blue-male-neutral.png" type="image/png">
+                        <img alt="Reinhart Previano Koentjoro" src="/img/icons/shell-blue-male-neutral.png" height="668" width="691" style="height: 4rem; width: auto;">
+                    </picture>
+                    <h6 class="text-2xl font-semibold">Reinhart Previano Koentjoro</h6>
+                </div>
+                <!-- TODO: Refactor this into a dedicated component -->
+                <x-primitives.card :theme-color="$theme_color" class="flex flex-col p-3 gap-3 rounded-xl">
+                    <p class="text-xl font-medium">Personal</p>
+                    <ul class="flex flex-col gap-1">
+                        <li>
+                            <a href="/reinhart" class="flex items-center gap-1 text-black dark:text-white hover:text-gr-{{ $theme_color }}-700 dark:hover:text-gr-{{ $theme_color }}-400">About<x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5"></x-fluentui-chevron-right-24></a>
+                        </li>
+                        <li>
+                            <a href="https://shift.reinhart1010.id/note/statement-of-faith" class="flex items-center gap-1 text-black dark:text-white hover:text-gr-{{ $theme_color }}-700 dark:hover:text-gr-{{ $theme_color }}-400">Statement of Faith<x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5"></x-fluentui-chevron-right-24></a>
+                        </li>
+                        <li>
+                            <a href="https://shift.reinhart1010.id/note/church-affiliation" class="flex items-center gap-1 text-black dark:text-white hover:text-gr-{{ $theme_color }}-700 dark:hover:text-gr-{{ $theme_color }}-400">Church Affiliation Notice<x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5"></x-fluentui-chevron-right-24></a>
+                        </li>
+                    </ul>
+                </x-primitives.card>
+                <x-primitives.card :theme-color="$theme_color" class="flex flex-col p-3 gap-3 rounded-xl">
+                    <p class="text-xl font-medium">Professional</p>
+                    <ul class="flex flex-col gap-1">
+                        <li>
+                            <a href="/portfolio" class="flex items-center gap-1 text-black dark:text-white hover:text-gr-{{ $theme_color }}-700 dark:hover:text-gr-{{ $theme_color }}-400">Portfolio<x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5"></x-fluentui-chevron-right-24></a>
+                        </li>
+                        <li>
+                            <a href="/for-recruiters" class="flex items-center gap-1 text-black dark:text-white hover:text-gr-{{ $theme_color }}-700 dark:hover:text-gr-{{ $theme_color }}-400">For Recruiters<x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5"></x-fluentui-chevron-right-24></a>
+                        </li>
+                        <li>
+                            <a href="/contact" class="flex items-center gap-1 text-black dark:text-white hover:text-gr-{{ $theme_color }}-700 dark:hover:text-gr-{{ $theme_color }}-400">Contact<x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5"></x-fluentui-chevron-right-24></a>
+                        </li>
+                    </ul>
+                </x-primitives.card>
+            </div>
+            <div class="flex flex-col gap-3">
+                <div class="flex items-center gap-3">
+                    <picture>
+                        <source srcset="/img/icons/shell-blue-female-neutral.avif" type="image/avif">
+                        <source srcset="/img/icons/shell-blue-female-neutral.heic" type="image/heic">
+                        <source srcset="/img/icons/shell-blue-female-neutral.webp" type="image/webp">
+                        <source srcset="/img/icons/shell-blue-female-neutral.jp2" type="image/jp2">
+                        <source srcset="/img/icons/shell-blue-female-neutral.png" type="image/png">
+                        <img alt="Citra Manggala Dirgantara" src="/img/icons/shell-blue-female-neutral.png" height="668" width="873" style="height: 4rem; width: auto;">
+                    </picture>
+                    <div>
+                        <h6 class="text-2xl font-semibold">Citra Manggala Dirgantara</h6>
+                        <p class="text-sm">A Reinhart company</p>
+                    </div>
+                </div>
+                <x-primitives.card :theme-color="$theme_color" class="flex flex-col p-3 gap-3 rounded-xl">
+                    <p class="text-xl font-medium">Products</p>
+                    <ul class="flex flex-col gap-1">
+                        <li>
+                            <a href="/apps" class="flex items-center gap-1 text-black dark:text-white hover:text-gr-{{ $theme_color }}-700 dark:hover:text-gr-{{ $theme_color }}-400">Apps<x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5"></x-fluentui-chevron-right-24></a>
+                        </li>
+                    </ul>
+                </x-primitives.card>
+                <x-primitives.card :theme-color="$theme_color" class="flex flex-col p-3 gap-3 rounded-xl">
+                    <p class="text-xl font-medium">Company</p>
+                    <ul class="flex flex-col gap-1">
+                        <li>
+                            <a href="/contact" class="flex items-center gap-1 text-black dark:text-white hover:text-gr-{{ $theme_color }}-700 dark:hover:text-gr-{{ $theme_color }}-400">Contact<x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5"></x-fluentui-chevron-right-24></a>
+                        </li>
+                    </ul>
+                </x-primitives.card>
+                <x-primitives.card :theme-color="$theme_color" class="flex flex-col p-3 gap-3 rounded-xl">
+                    <p class="text-xl font-medium">Legal</p>
+                    <ul class="flex flex-col gap-1">
+                        <li>
+                            <a href="https://legal.reinhart1010.id/privacy-policy" class="flex items-center gap-1 text-black dark:text-white hover:text-gr-{{ $theme_color }}-700 dark:hover:text-gr-{{ $theme_color }}-400">Privacy Policy<x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5"></x-fluentui-chevron-right-24></a>
+                        </li>
+                    </ul>
+                </x-primitives.card>
+            </div>
         </div>
 
         @livewireScripts

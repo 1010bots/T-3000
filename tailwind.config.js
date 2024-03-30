@@ -493,10 +493,9 @@ export default {
             },
             fontFamily: {
                 bls: ['Bumi Laras Selatan', 'sans-serif'],
-                sans: ['Segoe UI Variable Text', '-apple-system', 'BlinkMacSystemFont', 'Inter', 'Segoe UI', 'Cantarell', 'Open Sans', 'Noto Sans', 'Piboto', 'HarmonyOS Sans', 'One UI Sans APP VF', 'Ubuntu', 'Roboto Flex', 'Roboto', 'Helvetica Neue', 'FreeSans', 'Arial', 'sans-serif'].concat(emojiFontStack),
-                'sans-classic': ['Tahoma', 'DejaVu Sans Condensed', 'Bitstream Vera Sans Condensed', 'Verdana', 'DejaVu Sans', 'Bitstream Vera Sans', 'Noto Sans'],
-                'sans-display': ['Segoe UI Variable Display', '-apple-system', 'BlinkMacSystemFont', 'Inter', 'Segoe UI', 'Cantarell', 'Open Sans', 'Noto Sans', 'Piboto', 'HarmonyOS Sans', 'One UI Sans APP VF', 'Ubuntu', 'Roboto Flex', 'Roboto', 'Helvetica Neue', 'FreeSans', 'Arial', 'sans-serif'].concat(emojiFontStack),
-                'sans-small': ['Segoe UI Variable Small', '-apple-system', 'BlinkMacSystemFont', 'Inter', 'Segoe UI', 'Cantarell', 'Open Sans', 'Noto Sans', 'Piboto', 'HarmonyOS Sans', 'One UI Sans APP VF', 'Ubuntu', 'Roboto Flex', 'Roboto', 'Helvetica Neue', 'FreeSans', 'Arial', 'sans-serif'].concat(emojiFontStack),
+                sans: ['Bumi Laras Selatan', 'Segoe UI Variable Text', '-apple-system', 'BlinkMacSystemFont', 'Inter', 'Segoe UI', 'Cantarell', 'Open Sans', 'Noto Sans', 'Piboto', 'HarmonyOS Sans', 'One UI Sans APP VF', 'Ubuntu', 'Roboto Flex', 'Roboto', 'Helvetica Neue', 'FreeSans', 'Arial', 'sans-serif'].concat(emojiFontStack),
+                'sans-display': ['Bumi Laras Selatan', 'Segoe UI Variable Display', '-apple-system', 'BlinkMacSystemFont', 'Inter', 'Segoe UI', 'Cantarell', 'Open Sans', 'Noto Sans', 'Piboto', 'HarmonyOS Sans', 'One UI Sans APP VF', 'Ubuntu', 'Roboto Flex', 'Roboto', 'Helvetica Neue', 'FreeSans', 'Arial', 'sans-serif'].concat(emojiFontStack),
+                'sans-small': ['Bumi Laras Selatan', 'Segoe UI Variable Small', '-apple-system', 'BlinkMacSystemFont', 'Inter', 'Segoe UI', 'Cantarell', 'Open Sans', 'Noto Sans', 'Piboto', 'HarmonyOS Sans', 'One UI Sans APP VF', 'Ubuntu', 'Roboto Flex', 'Roboto', 'Helvetica Neue', 'FreeSans', 'Arial', 'sans-serif'].concat(emojiFontStack),
                 serif: ['ui-serif', 'Aptos Serif', 'Constantia', 'Publico Text', 'Charter', 'STIX Two Text', 'Libertinus Serif', 'Linux Libertine O', 'Linux Libertine G', 'Linux Libertine', 'DejaVu Serif', 'Bitstream Vera Serif', 'Roboto Serif', 'Noto Serif', 'Times New Roman', 'serif'].concat(emojiFontStack),
             },
         },

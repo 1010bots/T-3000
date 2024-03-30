@@ -23,7 +23,7 @@
         <div class="grid grid-cols-3 w-full p-safe-offset-4 gap-4">
             <x-primitives.card theme-color="yellow" class="flex flex-col col-span-3 md:col-span-2 row-span-2 p-4 rounded-2xl overflow-hidden">
                 <p class="font-mono">/* README.TXT (Editable) */</p>
-                <p id="font-tester" class="font-sans" contenteditable>
+                <p id="font-tester" class="font-bls" contenteditable>
                     Bumi Laras Selatan is a typeface based on Instrument Sans, with a name inspired by Reinhart’s old house address (2003-2010).
                 </p>
             </x-primitives.card>
