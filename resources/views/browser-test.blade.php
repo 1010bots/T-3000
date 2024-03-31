@@ -127,7 +127,7 @@
         <source srcset="/img/icons/shell-blue-female-light.webp" media="(prefers-color-scheme:light)" type="image/webp">
         <source srcset="/img/icons/shell-blue-female-light.jp2" media="(prefers-color-scheme:light)" type="image/jp2">
         <source srcset="/img/icons/shell-blue-female-light.png" media="(prefers-color-scheme:light)" type="image/png">
-        <img alt="Reinhart Previano K." src="/img/icons/shell-blue-female-neutral.png" height="668" width="691" style="height: 6rem; width: auto;">
+        <img alt="Reinhart Previano K." src="/img/icons/shell-blue-female-neutral.png" height="668" width="873" style="height: 6rem; width: auto;">
     </picture>
     <h1>Web Browser Compatibility Test</h1>
     <p>
