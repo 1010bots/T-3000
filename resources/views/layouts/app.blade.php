@@ -125,6 +125,8 @@
 
         <!-- rel="me" links for profile verification -->
         <link rel="me" value="https://botsin.space/@reinhart1010" />
+        <link rel="me" value="https://bsky.app/profile/shift.reinhart1010.id" />
+        <link rel="me" value="https://bsky.app/profile/shiftine.reinhart1010.id" />
         <link rel="me" value="https://codeberg.org/1010bots" />
         <link rel="me" value="https://codeberg.org/reinhart1010" />
         <link rel="me" value="https://github.com/1010bots" />
@@ -137,6 +139,7 @@
         <link rel="me" value="https://instagram.com/shiftofworldsandnations" />
         <link rel="me" value="https://kenangan.com/kenanganku/shiftinecmd" />
         <link rel="me" value="https://kenangan.com/kenanganku/reinhart1010" />
+        <link rel="me" value="https://kotakode.com/users/7" />
         <link rel="me" value="https://logs.reinhart1010.id/@shift" />
         <link rel="me" value="https://logs.reinhart1010.id/@shiftine" />
         <link rel="me" value="https://misskey.id/@1010bots" />
