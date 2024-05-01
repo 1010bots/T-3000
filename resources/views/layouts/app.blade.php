@@ -122,6 +122,31 @@
                 {!! json_encode($attributes['json-ld']) !!}
             </script>
         @endif
+
+        <!-- rel="me" links for profile verification -->
+        <link rel="me" value="https://botsin.space/@reinhart1010" />
+        <link rel="me" value="https://codeberg.org/1010bots" />
+        <link rel="me" value="https://codeberg.org/reinhart1010" />
+        <link rel="me" value="https://github.com/1010bots" />
+        <link rel="me" value="https://github.com/alterine0101" />
+        <link rel="me" value="https://github.com/reinhart1010" />
+        <link rel="me" value="https://github.com/shiftinecmd" />
+        <link rel="me" value="https://gitlab.com/1010bots" />
+        <link rel="me" value="https://gitlab.com/reinhart1010" />
+        <link rel="me" value="https://instagram.com/reinhart1010" />
+        <link rel="me" value="https://instagram.com/shiftofworldsandnations" />
+        <link rel="me" value="https://kenangan.com/kenanganku/shiftinecmd" />
+        <link rel="me" value="https://kenangan.com/kenanganku/reinhart1010" />
+        <link rel="me" value="https://logs.reinhart1010.id/@shift" />
+        <link rel="me" value="https://logs.reinhart1010.id/@shiftine" />
+        <link rel="me" value="https://misskey.id/@1010bots" />
+        <link rel="me" value="https://misskey.id/@reinhart1010" />
+        <link rel="me" value="https://social.vivaldi.net/@reinhart1010" />
+        <link rel="me" value="https://threads.net/@reinhart1010" />
+        <link rel="me" value="https://threads.net/@shiftofworldsandnations" />
+        <link rel="me" value="https://twitter.com/alterine0101" />
+        <link rel="me" value="https://twitter.com/capsinthehouse" />
+        <link rel="me" value="https://twitter.com/reinhart1010" />
     </head>
     <body class="font-sans antialiased bg-white dark:bg-black">
         <x-banner />
