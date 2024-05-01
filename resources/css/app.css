@@ -426,6 +426,9 @@ article.reinhart1010-article main blockquote {
   border-left-width: 0.5rem;
   border-inline-start-width: 0.5rem;
 }
+article.reinhart1010-article main figure.wp-block-table {
+  @apply overflow-x-scroll;
+}
 article.reinhart1010-article main img {
   border-radius: 0.75rem;
   max-width: 100%;
@@ -433,13 +436,13 @@ article.reinhart1010-article main img {
 article.reinhart1010-article main p {
   @apply my-4;
 }
-article.reinhart1010-article table {
+article.reinhart1010-article main table {
   @apply rounded-2xl overflow-hidden border-2 border-inset border-dm-fuchsia-300 border-separate border-spacing-0;
 }
-article.reinhart1010-article table td, article.reinhart1010-article table th {
+article.reinhart1010-article main table td, article.reinhart1010-article main table th {
   @apply p-2
 }
-article.reinhart1010-article table thead {
+article.reinhart1010-article main table thead {
   @apply rounded-full bg-gr-fuchsia-100;
 }
 article.reinhart1010-article main ul {
@@ -476,7 +479,7 @@ article.reinhart1010-article main code.hljs {
 article.reinhart1010-article main :not(a) > code:not(.hljs), article.reinhart1010-article main :not(a) > pre {
     @apply text-dm-indigo-100;
   }
-  article.reinhart1010-article table thead {
+  article.reinhart1010-article main table thead {
     @apply rounded-full bg-dm-fuchsia-800;
   }
 }
