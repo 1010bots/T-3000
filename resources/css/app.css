@@ -11,22 +11,25 @@
 @tailwind utilities;
 
 @layer utilities {
-    .border-inset {
-        border-style: inset;
-    }
-    .border-outset {
-        border-style: outset;
-    }
-    .font-semicondensed {
-        font-stretch: 87.5%;
-    }
-    .font-condensed {
-        font-stretch: 75%;
-    }
+  .border-inset {
+    border-style: inset;
+  }
+  .border-outset {
+    border-style: outset;
+  }
+  .font-no-condensed {
+    font-stretch: 100%;
+  }
+  .font-semicondensed {
+    font-stretch: 87.5%;
+  }
+  .font-condensed {
+    font-stretch: 75%;
+  }
 }
 
 [x-cloak] {
-    display: none;
+  display: none;
 }
 
 /* Hotfix for iOS hologram effect (https://stackoverflow.com/questions/41436892/background-attachment-fixed-doesnt-work-on-ios#45159359) */
@@ -40,6 +43,13 @@ html, body{
   font-size: 1.1rem;
 }
 
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
 
 @keyframes holo-hover-in {
   0% {
