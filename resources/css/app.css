@@ -26,6 +26,9 @@
   .font-condensed {
     font-stretch: 75%;
   }
+  .list-star {
+    list-style-type: "✦  ";
+  }
 }
 
 [x-cloak] {

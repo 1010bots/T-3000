@@ -147,6 +147,7 @@
         <link rel="me" value="https://logs.reinhart1010.id/@shiftine" />
         <link rel="me" value="https://misskey.id/@1010bots" />
         <link rel="me" value="https://misskey.id/@reinhart1010" />
+        <link rel="me" value="https://orcid.org/0000-0001-9076-2428" />
         <link rel="me" value="https://social.vivaldi.net/@reinhart1010" />
         <link rel="me" value="https://threads.net/@reinhart1010" />
         <link rel="me" value="https://threads.net/@shiftofworldsandnations" />
