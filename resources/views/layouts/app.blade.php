@@ -48,7 +48,10 @@
         <script src="/js/hotkeys.min.js"></script>
         <script src="/js/kakao.min.js"></script>
         <script>hljs.highlightAll();</script>
-        <script>Kakao.init('{{ env('KAKAO_JS_KEY', '') }}')</script>
+        <script>
+            console.log("(#_ )! The Kakao.js script is loaded, but from our cached version at https://reinhart1010.id/js/kakao.min.js");
+            Kakao.init("{{ env('KAKAO_JS_KEY', '') }}");
+        </script>
 
         <!-- Styles -->
         @livewireStyles
@@ -77,7 +80,7 @@
             } */
         </style>
 
-        <meta name="description" content="{{ $attributes['description'] ?? 'Multitalent Software, Hardware, Life, and Reality Developer' }}" />
+        <meta name="description" content="{{ $attributes['description'] ?? 'Tech Developer x Hacker x Designer x Manager x Investor x Artist x Preacher.' }}" />
         <meta name="keywords" content="{{ $attributes['keywords'] ?? 'reinhart1010,@reinhart1010,Reinhart Previano Koentjoro,Reinhart Previano K,Nate,Shift,Shiftine,Skyborne,Caps,controld,pr0xy,alterine,alt1e,(>_ ),(#_ ),($_ )' }}" />
         <meta name="theme-color" content="{{ $theme_colors[$theme_color][1] }}" media="(prefers-color-scheme: light)">
         <meta name="theme-color" content="{{ $theme_colors[$theme_color][0] }}" media="(prefers-color-scheme: dark)">
@@ -92,8 +95,8 @@
         <meta property="og:title" content="{{ $attributes['title'] ?? config('app.name', 'Laravel') }}" />
         <meta property="og:type" content="{{ $attributes['og-type'] ?? 'website' }}" />
         <meta property="og:url" content="{{ $attributes['canonical'] ?? url()->full() }}" />
-        <meta property="og:image" content="{{ $attributes['og-image'] ?? '/img/hero/main-desktop-light.jpg' }}" />
-        <meta property="og:description" content="{{ $attributes['description'] ?? 'Multitalent Software, Hardware, Life, and Reality Developer' }}" />
+        <meta property="og:image" content="{{ $attributes['og-image'] ?? 'https://blogarchive.reinhart1010.id/wp-content/uploads/2024/03/A841F65E-5D64-4D24-AD0C-986286C921A0.webp' }}" />
+        <meta property="og:description" content="{{ $attributes['description'] ?? 'Tech Developer x Hacker x Designer x Manager x Investor x Artist x Preacher.' }}" />
 
         @isset ($attributes['og-article-published-time'])
             <meta property="og:article:published_time" content="{{ $attributes['og-article-published-time'] }}" />
