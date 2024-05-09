@@ -23,7 +23,7 @@
                     <p>for product sales, support, and legal compliance</p>
                 </div>
             </div>
-            <x-primitives.card element="a" theme-color="indigo" href="https://signal.me/#eu/-VxCfUK3XHw8iiWffrDdl92hwS5dVZ6s_6Mm3i48TPLbb6A4tqFN0aMqqttI1GMv" class="block mt-8 mb-4 px-8 py-4 flex gap-3 justify-center items-center rounded-full">
+            <x-primitives.card element="a" theme-color="indigo" href="https://signal.me/#eu/-VxCfUK3XHw8iiWffrDdl92hwS5dVZ6s_6Mm3i48TPLbb6A4tqFN0aMqqttI1GMv" class="block w-full mt-8 mb-4 px-8 py-4 flex gap-3 justify-center items-center rounded-full">
                 <x-simpleicon-signal class="inline w-8 h-8"/>
                 <span class="text-3xl">{{ __('Chat now on Signal') }}</span>
             </x-primitives.card>
