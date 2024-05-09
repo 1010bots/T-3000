@@ -175,6 +175,9 @@
                 <x-responsive-nav-link :theme-color="$theme_color" href="{{ route('apps') }}" :active="request()->routeIs('apps')">
                     {{ __('Apps') }}
                 </x-responsive-nav-link>
+                <x-responsive-nav-link :theme-color="$theme_color" href="{{ route('contact') }}" :active="request()->routeIs('contact')">
+                    {{ __('Contact') }}
+                </x-responsive-nav-link>
                 <x-responsive-nav-link :theme-color="$theme_color" data-r-search-button="true">
                     {{ __('Search') }}
                 </x-responsive-nav-link>
