@@ -203,7 +203,7 @@
         <x-simpleicon-facebook height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Facebook</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:ring-2 hover:ring-2 active:ring-offset-2 hover:ring-offset-2 active:ring-dm-violet-200 dark:active:ring-dm-violet-200 hover:ring-dm-violet-200 dark:hover:ring-dm-violet-200 dark:active:ring-offset-black dark:hover:ring-offset-black ease-out duration-200" style="background: linear-gradient(0deg, #59b9ff 0%, #0a7aff 100%); color: #ffffff;" href="https://bsky.app/intent/share?text={{ $title_and_description }}%0A%0A{{ $url }}" target="_blank">
+    <a class="text-center border-0 p-2 rounded-full leading-4 active:ring-2 hover:ring-2 active:ring-offset-2 hover:ring-offset-2 active:ring-dm-violet-200 dark:active:ring-dm-violet-200 hover:ring-dm-violet-200 dark:hover:ring-dm-violet-200 dark:active:ring-offset-black dark:hover:ring-offset-black ease-out duration-200" style="background: linear-gradient(0deg, #59b9ff 0%, #0a7aff 100%); color: #ffffff;" href="https://bsky.app/intent/compose?text={{ $title_and_description }}%0A%0A{{ $url }}" target="_blank">
         <x-simpleicon-bluesky height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Bluesky</span>
     </a>
