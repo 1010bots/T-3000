@@ -5,7 +5,7 @@
             <p>/* You’re excited to connect with us, don’t you? We, too <span class="inline-block font-bold">(&gt;_ )</span>! */</p>
         </div>
         <x-alerts.impostor-accounts class="m-4" />
-        <div class="p-8 text-center">
+        <div class="p-4 md:p-6 lg:p-8 text-center">
             <p class="text-xl">Technically speaking, Reinhart is a <strong>human</strong> who operates an <strong>automation company</strong>, under one of his robots’ name. <strong>Who do you gonna call?</strong></p>
             <div class="mt-8 flex w-full justify-around">
                 <div class="flex flex-col flex-wrap gap-2 items-center justify-center">
@@ -27,9 +27,10 @@
                 <x-simpleicon-signal class="inline w-8 h-8"/>
                 <span class="text-3xl">{{ __('Chat now on Signal') }}</span>
             </x-primitives.card>
-            <div class="flex w-full gap-4 justify-around">
+            <div class="flex flex-col sm:flex-row w-full gap-4 justify-around">
+                <hr class="sm:hidden" />
                 <div class="flex w-full flex-col flex-wrap gap-4 items-center justify-center">
-                    <p class="sr-only">These are the contact links for Reinhart Previano Koentjoro, also known as Shift.</p>
+                    <p class="sm:sr-only text-xl">These are the contact links for <strong>Reinhart Previano Koentjoro</strong>, also known as Shift.</p>
                     <x-primitives.card element="a" theme-color="blue" href="https://bsky.app/profile/shift.reinhart1010.id" class="block w-full px-8 py-4 flex gap-3 justify-center items-center rounded-full">
                         <x-simpleicon-bluesky class="inline w-6 h-6 lg:w-8 lg:h-8" />
                         <span class="text-xl md:text-2xl lg:text-3xl"><span class="hidden sm:inline">Follow on </span>Bluesky</span>
@@ -51,8 +52,9 @@
                         <span class="text-xl md:text-2xl lg:text-3xl"><span class="hidden sm:inline">Follow on </span>Misskey</span>
                     </x-primitives.card>
                 </div>
+                <hr class="sm:hidden" />
                 <div class="flex w-full flex-col flex-wrap gap-4 items-center justify-center">
-                    <p class="sr-only">These are the contact links for Citra Manggala Dirgantara, also known as Shiftine.</p>
+                    <p class="sm:sr-only text-xl">These are the contact links for <strong>Citra Manggala Dirgantara</strong>, also known as Shiftine.</p>
                     <x-primitives.card element="a" theme-color="blue" href="https://bsky.app/profile/shiftine.reinhart1010.id" class="block w-full px-8 py-4 flex gap-3 justify-center items-center rounded-full">
                         <x-simpleicon-bluesky class="inline w-6 h-6 lg:w-8 lg:h-8" />
                         <span class="text-xl md:text-2xl lg:text-3xl"><span class="hidden sm:inline">Follow on </span>Bluesky</span>
@@ -76,7 +78,7 @@
                 </div>
             </div>
         </div>
-        <div class="p-8 text-center">
+        <div class="p-4 md:p-6 lg:p-8 text-center">
             <div class="flex flex-wrap gap-8 w-full justify-around">
                 <div class="w-full lg:w-1/2 flex flex-col flex-wrap gap-2 items-center justify-center">
                     <h3 class="text-2xl font-semibold">Retired Accounts</h3>
