@@ -6,7 +6,7 @@
     use Illuminate\Support\Carbon;
     use Illuminate\Support\Facades\Cache;
 
-    $theme_colors = ['blue', 'red', 'green'];
+    $theme_colors = ['blue', 'red', 'violet'];
 
     $posts = Cache::remember('home-latest-posts', 15 * 60, function () {
         return Post::type('post')->status('publish')->where('post_title', '!=', '')->orderBy('post_date_gmt', 'desc')->take(5)->get();
@@ -167,6 +167,21 @@
                     @endforeach
                 </ul>
             </x-primitives.card>
+            <x-primitives.card :theme-color="$theme_colors[0]" class="col-span-6 md:col-span-4 row-span-2 p-4 rounded-2xl">
+                <x-fluentui-apps-24-o class="w-10 h-10" />
+                <h2 class="font-sans-display text-2xl font-semibold">Apps, Products, and Services</h2>
+                <hr class="my-2 border-black/10 dark:border-white/10" aria-hidden="true" />
+                <ul class="mt-2 grid sm:grid-cols-2 gap-4">
+                    @foreach ($featured_apps as $i => $app)
+                        <li>
+                            <a href="{{ $app["url"] }}">
+                                <p class="font-semibold text-lg">{{ $app["name"] }}</p>
+                                <p class="text-sm">{{ $app["description"] ?? $app["url"] }}</p>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </x-primitives.card>
             <x-primitives.card :theme-color="$theme_colors[1]" class="col-span-6 md:col-span-3 lg:col-span-2 p-4 rounded-2xl">
                 <x-fluentui-chat-multiple-24-o class="w-10 h-10" />
                 <h2 class="font-sans-display text-2xl font-semibold">Latest Blogs</h2>
@@ -198,21 +213,6 @@
                 <x-fluentui-people-audience-24-o class="w-10 h-10" />
                 <h2 class="font-sans-display text-2xl font-semibold">Interested to get me into your team?</h2>
             </a>
-            <x-primitives.card :theme-color="$theme_colors[0]" class="col-span-6 md:col-span-4 row-span-2 p-4 rounded-2xl">
-                <x-fluentui-apps-24-o class="w-10 h-10" />
-                <h2 class="font-sans-display text-2xl font-semibold">Apps, Products, and Services</h2>
-                <hr class="my-2 border-black/10 dark:border-white/10" aria-hidden="true" />
-                <ul class="mt-2 grid sm:grid-cols-2 gap-4">
-                    @foreach ($featured_apps as $i => $app)
-                        <li>
-                            <a href="{{ $app["url"] }}">
-                                <p class="font-semibold text-lg">{{ $app["name"] }}</p>
-                                <p class="text-sm">{{ $app["description"] ?? $app["url"] }}</p>
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </x-primitives.card>
             <x-primitives.card :theme-color="$theme_colors[1]" class="col-span-6 md:col-span-2 p-4 rounded-2xl">
                 <x-fluentui-library-24-o class="w-10 h-10" />
                 <h2 class="font-sans-display text-2xl font-semibold">Community Resources</h2>
