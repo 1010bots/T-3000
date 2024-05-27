@@ -167,21 +167,6 @@
                     @endforeach
                 </ul>
             </x-primitives.card>
-            <x-primitives.card :theme-color="$theme_colors[0]" class="col-span-6 md:col-span-4 row-span-2 p-4 rounded-2xl">
-                <x-fluentui-apps-24-o class="w-10 h-10" />
-                <h2 class="font-sans-display text-2xl font-semibold">Apps, Products, and Services</h2>
-                <hr class="my-2 border-black/10 dark:border-white/10" aria-hidden="true" />
-                <ul class="mt-2 grid sm:grid-cols-2 gap-4">
-                    @foreach ($featured_apps as $i => $app)
-                        <li>
-                            <a href="{{ $app["url"] }}">
-                                <p class="font-semibold text-lg">{{ $app["name"] }}</p>
-                                <p class="text-sm">{{ $app["description"] ?? $app["url"] }}</p>
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </x-primitives.card>
             <x-primitives.card :theme-color="$theme_colors[1]" class="col-span-6 md:col-span-3 lg:col-span-2 p-4 rounded-2xl">
                 <x-fluentui-chat-multiple-24-o class="w-10 h-10" />
                 <h2 class="font-sans-display text-2xl font-semibold">Latest Blogs</h2>
@@ -207,6 +192,21 @@
                             <x-fluentui-arrow-right-24 class="w-6 h-6" />
                         </a>
                     </li>
+                </ul>
+            </x-primitives.card>
+            <x-primitives.card :theme-color="$theme_colors[0]" class="col-span-6 md:col-span-4 row-span-2 p-4 rounded-2xl">
+                <x-fluentui-apps-24-o class="w-10 h-10" />
+                <h2 class="font-sans-display text-2xl font-semibold">Apps, Products, and Services</h2>
+                <hr class="my-2 border-black/10 dark:border-white/10" aria-hidden="true" />
+                <ul class="mt-2 grid sm:grid-cols-2 gap-4">
+                    @foreach ($featured_apps as $i => $app)
+                        <li>
+                            <a href="{{ $app["url"] }}">
+                                <p class="font-semibold text-lg">{{ $app["name"] }}</p>
+                                <p class="text-sm">{{ $app["description"] ?? $app["url"] }}</p>
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
             </x-primitives.card>
             <a href="/for-recruiters" class="col-span-6 md:col-span-2 p-4 rounded-2xl bg-dm-blue-400 dark:bg-dm-blue-700 text-white">
