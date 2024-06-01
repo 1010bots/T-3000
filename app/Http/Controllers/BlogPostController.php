@@ -215,7 +215,7 @@ class BlogPostController extends Controller
             if (isset($taxonomy) && strlen($taxonomy) > 0 && isset($taxonomy_slug) && strlen($taxonomy_slug) > 0) {
                 $query = $query->taxonomy($taxonomy, strtolower($taxonomy_slug));
             }
-            return $query->orderBy('post_date_gmt', 'desc')->paginate(12);
+            return $query->orderBy('post_date_gmt', 'desc')->paginate(9);
         });
         if (count($posts) == 0) abort(404);
         return view('blog-index', ['posts' => $posts, 'index_title' => $index_title]);
