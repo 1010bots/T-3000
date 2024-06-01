@@ -179,43 +179,41 @@ class BlogPostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($category = null, $channel = null, $kind = null, $tag = null, $start_date = null, $end_date = null)
+    public function index($taxonomy = null, $taxonomy_slug = null, $start_date = null, $end_date = null)
     {
         $current_page = request()->get('page', 1);
         $index_title = 'Blog Posts';
 
         // Channels are just special tags
-        if ($channel != null) {
-            $tag = "feed-$channel";
-        } else if (str_starts_with($tag, 'feed-')) {
-            $channel = explode('-', $tag, 1);
+        $is_channel = $taxonomy == 'channel';
+        if ($is_channel) {
+            $taxonomy = 'post_tag';
+            $taxonomy_slug = "feed-$taxonomy_slug";
         }
 
-        if (isset($category) && strlen($category) > 0) {
-            $taxonomy_detail = Taxonomy::where('taxonomy', 'category')->slug($category)->first();
+        if (isset($taxonomy) && strlen($taxonomy) > 0 && isset($taxonomy_slug) && strlen($taxonomy_slug) > 0) {
+            $taxonomy_detail = Taxonomy::where('taxonomy', $taxonomy)->slug($taxonomy_slug)->first();
             if (!$taxonomy_detail) abort(404);
-            $index_title = "Blog posts from $taxonomy_detail->name ($category)";
-        } else if (isset($kind) && strlen($kind) > 0) {
-            $taxonomy_detail = Taxonomy::where('taxonomy', 'kind')->slug($kind)->first();
-            if (!$taxonomy_detail) abort(404);
-            $index_title = "Blog posts categorized as $taxonomy_detail->name";
-        } else if (isset($tag) && strlen($tag) > 0) {
-            $taxonomy_detail = Taxonomy::where('taxonomy', 'post_tag')->slug($tag)->first();
-            if (!$taxonomy_detail) abort(404);
-            if ($channel != null) {
-                $index_title = "Blog posts from the $taxonomy_detail->name channel (@$channel)";
-            } else {
-                $index_title = "Blog posts from $taxonomy_detail->name (#$tag)";
+            switch ($taxonomy) {
+                case 'category':
+                    $index_title = "Blog posts from $taxonomy_detail->name ($taxonomy_slug)";
+                    break;
+                case 'kind':
+                    $index_title = "Blog posts categorized as $taxonomy_detail->name";
+                    break;
+                case 'post_tag':
+                    if ($is_channel) {
+                        $index_title = "Blog posts from the $taxonomy_detail->name channel (@$taxonomy_slug)";
+                    } else {
+                        $index_title = "Blog posts from $taxonomy_detail->name (#$taxonomy_slug)";
+                    }
+                    break;
             }
         }
-        $posts = Cache::remember('posts-' . (strlen($category) > 0 ? $category : '_') . '-' . (strlen($channel) > 0 ? $channel : '_') . '-' . (strlen($kind) > 0 ? $kind : '_') . '-' . (strlen($tag) > 0 ? $tag : '_') . '-' . (strlen($start_date) > 0 ? $start_date : '_') . '_' . (strlen($end_date) > 0 ? $end_date : '_') . '-' . $current_page, 60, function () use ($category, $kind, $tag) {
+        $posts = Cache::remember('posts-' . ((strlen($taxonomy) > 0 && strlen($taxonomy_slug) > 0) ? ("$taxonomy-$taxonomy_slug") : '') . '-' . (strlen($start_date) > 0 ? $start_date : '_') . '_' . (strlen($end_date) > 0 ? $end_date : '_') . '-' . $current_page, 60, function () use ($taxonomy, $taxonomy_slug) {
             $query = Post::type('post')->status('publish')->where('post_title', '!=', '')->where('post_type', 'post');
-            if (isset($category) && strlen($category) > 0) {
-                $query = $query->taxonomy('category', strtolower($category));
-            } else if (isset($kind) && strlen($kind) > 0) {
-                $query = $query->taxonomy('kind', strtolower($kind));
-            } else if (isset($tag) && strlen($tag) > 0) {
-                $query = $query->taxonomy('post_tag', strtolower($tag));
+            if (isset($taxonomy) && strlen($taxonomy) > 0 && isset($taxonomy_slug) && strlen($taxonomy_slug) > 0) {
+                $query = $query->taxonomy($taxonomy, strtolower($taxonomy_slug));
             }
             return $query->orderBy('post_date_gmt', 'desc')->paginate(12);
         });

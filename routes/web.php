@@ -91,31 +91,31 @@ Route::middleware(
 
     /* WordPress Post Compatibility */
     Route::get('/blog', function () {
-        return (new BlogPostController())->index(null, null, null, null);
+        return (new BlogPostController())->index();
     });
     Route::get('/blog/page/{page}', function (string $page) {
         return redirect("/blog?page=$page");
     });
     Route::get('/blog/category/{category}', function (string $category) {
-        return (new BlogPostController())->index($category, null, null, null);
+        return (new BlogPostController())->index('category', $category);
     });
     Route::get('/blog/category/{category}/page/{page}', function (string $category, string $page) {
         return redirect("/blog/category/$category?page=$page");
     });
     Route::get('/blog/channel/{channel}', function (string $channel) {
-        return (new BlogPostController())->index(null, $channel, null, null);
+        return (new BlogPostController())->index('channel', $channel);
     });
     Route::get('/blog/channel/{channel}/page/{page}', function (string $channel, string $page) {
         return redirect("/blog/channel/$channel?page=$page");
     });
     Route::get('/blog/kind/{kind}', function (string $kind) {
-        return (new BlogPostController())->index(null, null, $kind, null);
+        return (new BlogPostController())->index('kind', $kind);
     });
     Route::get('/blog/kind/{kind}/page/{page}', function (string $kind, string $page) {
         return redirect("/blog/kind/$kind?page=$page");
     });
     Route::get('/blog/tag/{tag}', function (string $tag) {
-        return (new BlogPostController())->index(null, null, null, $tag);
+        return (new BlogPostController())->index('post_tag', $tag);
     });
     Route::get('/blog/tag/{tag}/page/{page}', function (string $tag, string $page) {
         return redirect("/blog/tag/$tag?page=$page");
