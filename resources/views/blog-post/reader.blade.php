@@ -60,6 +60,23 @@
             @endif
             </p>
             <h1 class="font-sans-display text-3xl text-bold font-semibold break-words">{{ $post->post_title }}</h1>
+            <div class="flex flex-row my-2 gap-2 items-center">
+                <img src="{{ $author->avatar }}" alt="{{ $author->display_name }}'s profile picture" class="w-16 h-16 rounded-full" />
+                <div class="flex flex-col gap-1">
+                    <p class="m-0 text-xl"><span class="font-semibold">{{ $author->display_name }}</span> (&#64;{{ $author->login }})</p>
+                    @if (isset($taxonomies) && (count($taxonomies->categories) + count($taxonomies->tags) > 0))
+                        <p class="flex flex-row flex-wrap gap-1 items-center text-sm">
+                            <span>Published on</span>
+                            @foreach ($taxonomies->categories as $item)
+                                <a href="/blog/category/{{ $item->term->slug }}" class="px-2 py-1 text-center text-black dark:text-white bg-rc-violet-50 dark:bg-dm-violet-700 border-0 py-2 rounded-full leading-4 cursor-pointer active:ring-2 hover:ring-2 active:ring-offset-2 hover:ring-offset-2 active:ring-dm-violet-200 dark:active:ring-dm-violet-200 hover:ring-dm-violet-200 dark:hover:ring-dm-violet-200 dark:active:ring-offset-black dark:hover:ring-offset-black ease-out duration-200">{{ $item->term->name }}</a>
+                            @endforeach
+                            @foreach ($taxonomies->tags as $item)
+                                <a href="/blog/tag/{{ $item->term->slug }}" class="px-2 py-1 text-center text-black dark:text-white bg-rc-fuchsia-50 dark:bg-dm-fuchsia-700 border-0 py-2 rounded-full leading-4 cursor-pointer active:ring-2 hover:ring-2 active:ring-offset-2 hover:ring-offset-2 active:ring-dm-fuchsia-200 dark:active:ring-dm-fuchsia-200 hover:ring-dm-fuchsia-200 dark:hover:ring-dm-fuchsia-200 dark:active:ring-offset-black dark:hover:ring-offset-black ease-out duration-200">#{{ $item->term->slug }}</a>
+                            @endforeach
+                        </p>
+                    @endif
+                </div>
+            </div>
         </div>
         @if ($post->post_type == 'post' && strlen($post->post_content ?? $post->content) >= 1500)
             <x-share-buttons :title="$post->post_title" :description="$post->post_excerpt" :cover-image-url="$cover_image_og" class="my-2 px-safe-offset-6" />

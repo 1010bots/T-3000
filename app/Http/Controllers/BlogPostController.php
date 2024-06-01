@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Corcel\Model\Post;
+use Corcel\Model\User;
+use Corcel\Model\Taxonomy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
@@ -75,7 +77,11 @@ class BlogPostController extends Controller
      */
     public function displayPost(mixed $post) {
         if (!$post) abort(404);
-        else if (RequestFacade::has('embed')) return view('blog-post.embed', ['post' => $post]);
+        $author = User::find($post->post_author);
+
+        $taxonomies = BlogPostController::parseTaxonomies($post);
+
+        if (RequestFacade::has('embed')) return view('blog-post.embed', ['post' => $post]);
         else if (RequestFacade::has('pdf')) {
             $created_at = new Carbon($post->post_date);
             $pdf = Cache::remember($post->post_type == 'post' ? ('post-' . $created_at->format('Y-m-d') . '-' . $post->post_name . '-pdf') : ('post-nd-' . $post->post_name . '-pdf'), 15 * 60, function () use ($post) {
@@ -109,27 +115,111 @@ class BlogPostController extends Controller
             return response($pdf)->header('Content-Type', 'application/pdf');
         }
         else if (RequestFacade::has('print')) return view('blog-post.print', ['post' => $post]);
-        else if (RequestFacade::query('debug') == "true") return response()->json($post);
-        return view('blog-post.reader', ['post' => $post]);
+        else if (RequestFacade::query('debug') == "true") return response()->json([
+            'post' => $post,
+            'taxonomies' => $taxonomies,
+            // 'author' => $author,
+        ]);
+        return view('blog-post.reader', ['post' => $post, 'author' => $author, 'taxonomies' => $taxonomies]);
+    }
+
+    /**
+     * Utility function to filter out WordPress taxonomies
+     */
+    public static function parseTaxonomies(Post $post) {
+        // Quickly filter out post categories, kinds, and tags
+        $taxonomies = (object) [
+            'categories' => [],
+            'feeds' => [],
+            'kind' => null,
+            'language' => null,
+            'tags' => [],
+        ];
+        
+        if (isset($post->taxonomies)) {
+            foreach ($post->taxonomies as $item) {
+                if (!isset($item->taxonomy)) continue;
+                switch ($item->taxonomy) {
+                    case 'category':
+                        array_push($taxonomies->categories, $item);
+                        break;
+                    case 'kind':
+                        // There can only be one kind
+                        $taxonomies->kind = $item;
+                        break;
+                    case 'post_tag':
+                        if (str_starts_with($item->term->slug, 'feed-')) {
+                            $splits = explode('-', $item->term->slug, 1);
+                            if (count($splits) == 2) {
+                                array_push($taxonomies->feeds, $item);
+                            }
+                        } else switch ($item->term->slug) {
+                            case 'english':
+                                $taxonomies->language = (object) [
+                                    'code' => 'en',
+                                    'name' => 'English',
+                                ];
+                                break;
+                            case 'indonesian':
+                                $taxonomies->language = (object) [
+                                    'code' => 'id',
+                                    'name' => 'Indonesian',
+                                ];
+                                break;
+                            default:
+                                array_push($taxonomies->tags, $item);
+                        }
+                        break;
+                }
+            }
+        }
+        return $taxonomies;
     }
 
     /**
      * Display a listing of the resource.
      */
-    public function index($category = null, $tag = null, $start_date = null, $end_date = null)
+    public function index($category = null, $channel = null, $kind = null, $tag = null, $start_date = null, $end_date = null)
     {
         $current_page = request()->get('page', 1);
         $index_title = 'Blog Posts';
-        if (isset($category) && strlen($category) > 0) {
-            $index_title = "Blog Posts from @$category";
+
+        // Channels are just special tags
+        if ($channel != null) {
+            $tag = "feed-$channel";
+        } else if (str_starts_with($tag, 'feed-')) {
+            $channel = explode('-', $tag, 1);
         }
-        $posts = Cache::remember('posts-' . (strlen($category) > 0 ? $category : '_') . '-' . (strlen($tag) > 0 ? $tag : '_') . '-' . (strlen($start_date) > 0 ? $start_date : '_') . '_' . (strlen($end_date) > 0 ? $end_date : '_') . '-' . $current_page, 60, function () use ($category) {
+
+        if (isset($category) && strlen($category) > 0) {
+            $taxonomy_detail = Taxonomy::where('taxonomy', 'category')->slug($category)->first();
+            if (!$taxonomy_detail) abort(404);
+            $index_title = "Blog posts from $taxonomy_detail->name ($category)";
+        } else if (isset($kind) && strlen($kind) > 0) {
+            $taxonomy_detail = Taxonomy::where('taxonomy', 'kind')->slug($kind)->first();
+            if (!$taxonomy_detail) abort(404);
+            $index_title = "Blog posts categorized as $taxonomy_detail->name";
+        } else if (isset($tag) && strlen($tag) > 0) {
+            $taxonomy_detail = Taxonomy::where('taxonomy', 'post_tag')->slug($tag)->first();
+            if (!$taxonomy_detail) abort(404);
+            if ($channel != null) {
+                $index_title = "Blog posts from the $taxonomy_detail->name channel (@$channel)";
+            } else {
+                $index_title = "Blog posts from $taxonomy_detail->name (#$tag)";
+            }
+        }
+        $posts = Cache::remember('posts-' . (strlen($category) > 0 ? $category : '_') . '-' . (strlen($channel) > 0 ? $channel : '_') . '-' . (strlen($kind) > 0 ? $kind : '_') . '-' . (strlen($tag) > 0 ? $tag : '_') . '-' . (strlen($start_date) > 0 ? $start_date : '_') . '_' . (strlen($end_date) > 0 ? $end_date : '_') . '-' . $current_page, 60, function () use ($category, $kind, $tag) {
             $query = Post::type('post')->status('publish')->where('post_title', '!=', '')->where('post_type', 'post');
             if (isset($category) && strlen($category) > 0) {
                 $query = $query->taxonomy('category', strtolower($category));
+            } else if (isset($kind) && strlen($kind) > 0) {
+                $query = $query->taxonomy('kind', strtolower($kind));
+            } else if (isset($tag) && strlen($tag) > 0) {
+                $query = $query->taxonomy('post_tag', strtolower($tag));
             }
             return $query->orderBy('post_date_gmt', 'desc')->paginate(12);
         });
+        if (count($posts) == 0) abort(404);
         return view('blog-index', ['posts' => $posts, 'index_title' => $index_title]);
     }
 

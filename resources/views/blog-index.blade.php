@@ -15,7 +15,7 @@
         <?php
             $past_post_theme_color = null;
         ?>
-        @foreach($posts as $post)
+        @foreach ($posts as $post)
             <?php
                 $post_date = new Carbon($post->post_date);
 
