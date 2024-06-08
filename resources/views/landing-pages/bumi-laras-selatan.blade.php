@@ -1,5 +1,7 @@
 <x-app-layout theme-color="yellow" title="Bumi Laras Selatan Typeface">
     <script>
+        // For GNU LibreJS
+        // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat License (sometimes called MIT Licensed)
         function updateFontPreview() {
             italic = document.getElementById("font-italic").checked;
             size = document.getElementById("font-size").value;
@@ -18,6 +20,7 @@
             console.log(Math.max(window.innerWidth / 20, 24));
             updateFontPreview();
         });
+        // @license-end
     </script>
     <main class="flex flex-col gap-4 text-black dark:text-white font-bls">
         <div class="grid grid-cols-3 w-full p-safe-offset-4 gap-4">

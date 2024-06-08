@@ -49,8 +49,11 @@
         <script src="/js/kakao.min.js"></script>
         <script>hljs.highlightAll();</script>
         <script>
+            // For GNU LibreJS
+            // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat License (sometimes called MIT Licensed)
             console.log("(#_ )! The Kakao.js script is loaded, but from our cached version at https://reinhart1010.id/js/kakao.min.js");
             Kakao.init("{{ env('KAKAO_JS_KEY', '') }}");
+            // @license-end
         </script>
 
         <!-- Styles -->

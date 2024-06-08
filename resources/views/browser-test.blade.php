@@ -192,6 +192,7 @@
                 <span class="jsonly">Your browser currently supports JavaScript!</span>
             </b>
             <p>JavaScript is mostly required to support <a href="#essential">additional modern web features</a> which are not yet supported on your web browser.</p>
+            <p>If you are using <a href="https://www.gnu.org/software/librejs/index.html">GNU LibreJS</a>, make sure that you have installed version 5.0 or later.</p>
             <p>Please also note that some the following test also require JavaScript to run.</p>
         </div>
         <div id="acid-test" aria-describedby="acid-test-title">
@@ -227,6 +228,8 @@
                     <i>JavaScript is required to test this feature</i>
                 </noscript>
                 <script>
+                    // For GNU LibreJS
+                    // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat License (sometimes called MIT Licensed)
                     try {
                         const protocol = performance.getEntries()[0].nextHopProtocol;
                         switch (protocol) {
@@ -255,6 +258,7 @@
                     } catch (e) {
                         document.write('We are unable to check your web browser’s HTTP version.');
                     }
+                    // @license-end
                 </script>
             </p>
             <p>

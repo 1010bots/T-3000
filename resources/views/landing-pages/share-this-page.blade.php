@@ -1,24 +1,4 @@
 <x-app-layout theme-color="seafoam" title="Share Buttons">
-    <script>
-        function updateFontPreview() {
-            italic = document.getElementById("font-italic").checked;
-            size = document.getElementById("font-size").value;
-            width = document.getElementById("font-width").value;
-            weight = document.getElementById("font-weight").value;
-            preview = document.getElementById("font-tester");
-
-            preview.style.fontSize = size + "px";
-            preview.style.fontStretch = width + "%";
-            preview.style.fontWeight = weight;
-            preview.style.fontStyle = italic ? "italic" : "";
-        }
-
-        window.addEventListener('load', function () {
-            document.getElementById("font-size").value = Math.min(Math.max(window.innerWidth / 20, 24), 64);
-            console.log(Math.max(window.innerWidth / 20, 24));
-            updateFontPreview();
-        });
-    </script>
     <main class="flex flex-col gap-4 px-safe-offset-6 py-6 text-center text-black dark:text-white">
         <h1 class="text-4xl font-semibold">Share Buttons!</h1>
         <p>Here are our full set of share buttons. And we’ve just defeated <a href="https://neal.fun/share-this-page/" class="font-bold text-dm-seafoam-500 dark:text-dm-seafoam-200">Neal</a> in terms of how many buttons we’d like to put here.</p>
