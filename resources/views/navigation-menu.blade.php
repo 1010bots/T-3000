@@ -300,6 +300,8 @@
         </div>
     </dialog>
     <script>
+        // For GNU LibreJS
+        // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat License (sometimes called MIT Licensed)
         var searchSources = {
             "legal": {
                 name: "Legal Information",
@@ -375,5 +377,6 @@
             e.preventDefault;
             waitUntilSearch();
         });
+        // @license-end
     </script>
 </div>

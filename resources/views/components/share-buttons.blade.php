@@ -269,6 +269,8 @@
         </div>
     </dialog>
     <script>
+        // For GNU LibreJS
+        // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat License (sometimes called MIT Licensed)
         function fallbackCopyTextToClipboard(text) {
             const title = "{{ $title }}", description = "{{ $description }}", url = "{{ $url }}";
             var textArea = document.createElement("textarea");
@@ -388,7 +390,7 @@
         document.getElementById("{{ $unique_id }}-share-menu-pleroma")?.addEventListener('click', (e) => {
             shareToFediverse("Pleroma");
         });
-        
+
         document.getElementById("{{ $unique_id }}-share-menu-threads")?.addEventListener('click', (e) => {
             e.preventDefault();
             if (window.confirm("(#_ )! This method will only work if you have the Threads app installed on Android or iOS. Do you want to continue?") === true) {
@@ -428,5 +430,6 @@
                 Kakao.Share.sendDefault(content);
             }
         });
+        // @license-end
     </script>
 </div>
