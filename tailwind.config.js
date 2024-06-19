@@ -503,6 +503,6 @@ export default {
             theme: 'night-owl',
         }
     },
-
+    darkMode: 'selector',
     plugins: [aspectRatio, forms, highlightjs, safeArea, typography],
 };

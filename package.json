@@ -19,6 +19,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "highlight.js": "^10.7.2",
         "tailwind-highlightjs": "^2.0.1",
         "tailwindcss-safe-area": "^0.3.0"
     }

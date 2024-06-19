@@ -2,6 +2,7 @@
     use Jenssegers\Agent\Agent;
 
     $theme_color = $attributes['theme-color'] ?? 'blue';
+    $theme_scheme = $attributes['theme-scheme'] ?? 'auto';
     $theme_colors = [
         'red' => ['#32120F', '#FFE2DD'],
         'orange' => ['#2F1502', '#FFE7CF'],
@@ -158,10 +159,10 @@
         <link rel="me" value="https://twitter.com/capsinthehouse" />
         <link rel="me" value="https://twitter.com/reinhart1010" />
     </head>
-    <body class="font-sans antialiased bg-white dark:bg-black">
+    <body class="font-sans antialiased bg-white dark:bg-black {{ $theme_scheme == "auto" ? "" : $theme_scheme; }}">
         <x-banner />
 
-        <div class="min-h-screen bg-white dark:bg-black">
+        <div class="flex flex-col min-h-screen bg-white dark:bg-black">
             @if (!isset($attributes['navbar']) || $attributes['navbar'] == true)
                 @component('navigation-menu', ['theme_color' => $theme_color])
                 @endcomponent
@@ -177,7 +178,7 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main class="flex-grow">
                 {{ $slot }}
             </main>
         </div>
@@ -271,4 +272,17 @@
 
         @livewireScripts
     </body>
+    @if ($theme_scheme == "auto")
+        <script>
+            if (window.matchMedia) {
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                    if (e.matches) {
+                        document.body.classList.add('dark');
+                    } else {
+                        document.body.classList.remove('dark');
+                    }
+                });
+            }
+        </script>
+    @endif
 </html>
