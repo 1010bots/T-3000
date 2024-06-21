@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-7312142e.css",
+    "file": "assets/app-4b02fbb8.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -10,7 +10,7 @@
     "src": "resources/css/dialog-polyfill.css"
   },
   "resources/js/app.js": {
-    "file": "assets/app-d7b8d015.js",
+    "file": "assets/app-b1637f6b.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },

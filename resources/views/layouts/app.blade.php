@@ -265,6 +265,9 @@
                         <li>
                             <a href="https://legal.reinhart1010.id/privacy-policy" class="flex items-center gap-1 text-black dark:text-white hover:text-gr-{{ $theme_color }}-700 dark:hover:text-gr-{{ $theme_color }}-400">Privacy Policy<x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5"></x-fluentui-chevron-right-24></a>
                         </li>
+                        <li>
+                            <a rel="jslicense" href="/about/jslicense.html" class="flex items-center gap-1 text-black dark:text-white hover:text-gr-{{ $theme_color }}-700 dark:hover:text-gr-{{ $theme_color }}-400">JavaScript License Information<x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5"></x-fluentui-chevron-right-24></a>
+                        </li>
                     </ul>
                 </x-primitives.card>
             </div>
@@ -274,6 +277,8 @@
     </body>
     @if ($theme_scheme == "auto")
         <script>
+            // For GNU LibreJS
+            // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat License (sometimes called MIT Licensed)
             if (window.matchMedia) {
                 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
                     if (e.matches) {
@@ -283,6 +288,7 @@
                     }
                 });
             }
+            // @license-end
         </script>
     @endif
 </html>

@@ -50,6 +50,14 @@
             }
         }
     }
+
+    // Avatar of the poster
+    $author_avatar = $author->avatar;
+    if (isset($author->meta) && isset($author->meta->simple_local_avatar)) {
+        $parsed_json = unserialize($author->meta->simple_local_avatar);
+        $author_avatar = $parsed_json["128"];
+    }
+
 ?>
 <x-app-layout :canonical="$canonical" :description="$post->post_excerpt" :json-ld="$rich_result_schema" :keywords="$post->keywords_str" :oembed="true" :og-article-published-time="$created_at->toIso8601String()" :og-article-modified-time="$updated_at->toIso8601String()" :og-image="$cover_image_og" og-type="article" :title="$post->post_title" theme-color="violet">
     <article class="reinhart1010-article m-auto py-6 max-w-2xl">
@@ -61,7 +69,7 @@
             </p>
             <h1 class="font-sans-display text-3xl text-bold font-semibold break-words">{{ $post->post_title }}</h1>
             <div class="flex flex-row my-2 gap-2 items-center">
-                <img src="{{ $author->avatar }}" alt="{{ $author->display_name }}'s profile picture" class="w-16 h-16 rounded-full" />
+                <img src="{{ $author_avatar }}" alt="{{ $author->display_name }}'s profile picture" class="w-16 h-16 rounded-full" />
                 <div class="flex flex-col gap-1">
                     <p class="m-0 text-xl"><span class="font-semibold">{{ $author->display_name }}</span> (&#64;{{ $author->login }})</p>
                     @if (isset($taxonomies) && (count($taxonomies->categories) + count($taxonomies->tags) > 0))
