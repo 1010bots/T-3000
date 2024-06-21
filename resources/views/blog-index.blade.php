@@ -53,7 +53,7 @@
                     <h5 class="font-sans-display text-xl font-semibold">{{ $post->post_title }}</h5>
                     @if (!isset($post->thumbnail) && !isset($post->image))
                         <div class="flex items-center justify-center flex-grow">
-                            <p class="text-2xl line-clamp-6">{{ strlen($post->post_excerpt) > 0 ? $post->post_excerpt : strip_tags($post->post_content) }}</p>
+                            <p class="font-semicondensed text-2xl line-clamp-6">{{ strlen($post->post_excerpt) > 0 ? $post->post_excerpt : strip_tags($post->post_content) }}</p>
                         </div>
                     @endif
                 </div>
