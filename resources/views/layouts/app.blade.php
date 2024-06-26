@@ -280,7 +280,15 @@
             // For GNU LibreJS
             // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat License (sometimes called MIT Licensed)
             if (window.matchMedia) {
-                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                const match = window.matchMedia('(prefers-color-scheme: dark)');
+                if (match.matches) {
+                    document.body.classList.add('dark');
+                } else {
+                    document.body.classList.remove('dark');
+                }
+
+                // Add triggers when switching themes
+                match.addEventListener('change', e => {
                     if (e.matches) {
                         document.body.classList.add('dark');
                     } else {
