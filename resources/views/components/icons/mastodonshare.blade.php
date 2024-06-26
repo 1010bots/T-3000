@@ -1,6 +1,7 @@
 <svg
-   width="{{ $width }}"
-   height="{{ $height }}"
+   height="{{ $height ?? '' }}"
+   width="{{ $width ?? '' }}"
+   class="{{ $class ?? '' }}"
    viewBox="0 0 39.687499 39.6875"
    version="1.1"
    id="svg1"

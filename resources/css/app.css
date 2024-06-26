@@ -135,61 +135,59 @@ html, body{
     color: transparent;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .text-holo {
-      background-clip: text;
-      -webkit-background-clip: text;
-      background-image: linear-gradient(
-        160deg,
-        #98E3EC 0%,
-        #A5DDFF 8.3%,
-        #BDD4FF 16.7%,
-        #D8CBFF 25%,
-        #EFC4EF 33.3%,
-        #FEC0D6 41.7%,
-        #FFC2BB 50%,
-        #FBC8A5 58.3%,
-        #EAD19C 66.7%,
-        #D1DBA3 75%,
-        #B5E2B7 83.3%,
-        #9FE5D2 91.7%,
-        #98E3EC 100%
-      );
-      background-image: linear-gradient(
-        160deg,
-        oklch(87% 0.075 206) 0%,
-        oklch(87% 0.075 236) 8.3%,
-        oklch(87% 0.075 266) 16.7%,
-        oklch(87% 0.075 296) 25%,
-        oklch(87% 0.075 326) 33.3%,
-        oklch(87% 0.075 356) 41.7%,
-        oklch(87% 0.075 26) 50%,
-        oklch(87% 0.075 56) 58.3%,
-        oklch(87% 0.075 86) 66.7%,
-        oklch(87% 0.075 116) 75%,
-        oklch(87% 0.075 146) 83.3%,
-        oklch(87% 0.075 176) 91.5%,
-        oklch(87% 0.075 206) 100%
-      );
-      background-image: linear-gradient(
-        in oklch,
-        160deg,
-        oklch(87% 0.075 206) 0%,
-        oklch(87% 0.075 236) 8.3%,
-        oklch(87% 0.075 266) 16.7%,
-        oklch(87% 0.075 296) 25%,
-        oklch(87% 0.075 326) 33.3%,
-        oklch(87% 0.075 356) 41.7%,
-        oklch(87% 0.075 26) 50%,
-        oklch(87% 0.075 56) 58.3%,
-        oklch(87% 0.075 86) 66.7%,
-        oklch(87% 0.075 116) 75%,
-        oklch(87% 0.075 146) 83.3%,
-        oklch(87% 0.075 176) 91.5%,
-        oklch(87% 0.075 206) 100%
-      );
-      color: transparent;
-    }
+  .dark .text-holo {
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(
+      160deg,
+      #98E3EC 0%,
+      #A5DDFF 8.3%,
+      #BDD4FF 16.7%,
+      #D8CBFF 25%,
+      #EFC4EF 33.3%,
+      #FEC0D6 41.7%,
+      #FFC2BB 50%,
+      #FBC8A5 58.3%,
+      #EAD19C 66.7%,
+      #D1DBA3 75%,
+      #B5E2B7 83.3%,
+      #9FE5D2 91.7%,
+      #98E3EC 100%
+    );
+    background-image: linear-gradient(
+      160deg,
+      oklch(87% 0.075 206) 0%,
+      oklch(87% 0.075 236) 8.3%,
+      oklch(87% 0.075 266) 16.7%,
+      oklch(87% 0.075 296) 25%,
+      oklch(87% 0.075 326) 33.3%,
+      oklch(87% 0.075 356) 41.7%,
+      oklch(87% 0.075 26) 50%,
+      oklch(87% 0.075 56) 58.3%,
+      oklch(87% 0.075 86) 66.7%,
+      oklch(87% 0.075 116) 75%,
+      oklch(87% 0.075 146) 83.3%,
+      oklch(87% 0.075 176) 91.5%,
+      oklch(87% 0.075 206) 100%
+    );
+    background-image: linear-gradient(
+      in oklch,
+      160deg,
+      oklch(87% 0.075 206) 0%,
+      oklch(87% 0.075 236) 8.3%,
+      oklch(87% 0.075 266) 16.7%,
+      oklch(87% 0.075 296) 25%,
+      oklch(87% 0.075 326) 33.3%,
+      oklch(87% 0.075 356) 41.7%,
+      oklch(87% 0.075 26) 50%,
+      oklch(87% 0.075 56) 58.3%,
+      oklch(87% 0.075 86) 66.7%,
+      oklch(87% 0.075 116) 75%,
+      oklch(87% 0.075 146) 83.3%,
+      oklch(87% 0.075 176) 91.5%,
+      oklch(87% 0.075 206) 100%
+    );
+    color: transparent;
   }
 
   .text-holo.compat {
@@ -250,59 +248,57 @@ html, body{
   transform: translate3d(0);
 }
 
-@media (preferred-color-scheme: dark) {
-  .bg-holo {
-    background-image: linear-gradient(
-      160deg,
-      #98E3EC 0%,
-      #A5DDFF 8.3%,
-      #BDD4FF 16.7%,
-      #D8CBFF 25%,
-      #EFC4EF 33.3%,
-      #FEC0D6 41.7%,
-      #FFC2BB 50%,
-      #FBC8A5 58.3%,
-      #EAD19C 66.7%,
-      #D1DBA3 75%,
-      #B5E2B7 83.3%,
-      #9FE5D2 91.7%,
-      #98E3EC 100%
-    );
-    background-image: linear-gradient(
-      160deg,
-      oklch(87% 0.075 206) 0%,
-      oklch(87% 0.075 236) 8.3%,
-      oklch(87% 0.075 266) 16.7%,
-      oklch(87% 0.075 296) 25%,
-      oklch(87% 0.075 326) 33.3%,
-      oklch(87% 0.075 356) 41.7%,
-      oklch(87% 0.075 26) 50%,
-      oklch(87% 0.075 56) 58.3%,
-      oklch(87% 0.075 86) 66.7%,
-      oklch(87% 0.075 116) 75%,
-      oklch(87% 0.075 146) 83.3%,
-      oklch(87% 0.075 176) 91.5%,
-      oklch(87% 0.075 206) 100%
-    );
-    background-image: linear-gradient(
-      in oklch,
-      160deg,
-      oklch(87% 0.075 206) 0%,
-      oklch(87% 0.075 236) 8.3%,
-      oklch(87% 0.075 266) 16.7%,
-      oklch(87% 0.075 296) 25%,
-      oklch(87% 0.075 326) 33.3%,
-      oklch(87% 0.075 356) 41.7%,
-      oklch(87% 0.075 26) 50%,
-      oklch(87% 0.075 56) 58.3%,
-      oklch(87% 0.075 86) 66.7%,
-      oklch(87% 0.075 116) 75%,
-      oklch(87% 0.075 146) 83.3%,
-      oklch(87% 0.075 176) 91.5%,
-      oklch(87% 0.075 206) 100%
-    );
-    transform: translate3d(0);
-  }
+.dark .bg-holo {
+  background-image: linear-gradient(
+    160deg,
+    #98E3EC 0%,
+    #A5DDFF 8.3%,
+    #BDD4FF 16.7%,
+    #D8CBFF 25%,
+    #EFC4EF 33.3%,
+    #FEC0D6 41.7%,
+    #FFC2BB 50%,
+    #FBC8A5 58.3%,
+    #EAD19C 66.7%,
+    #D1DBA3 75%,
+    #B5E2B7 83.3%,
+    #9FE5D2 91.7%,
+    #98E3EC 100%
+  );
+  background-image: linear-gradient(
+    160deg,
+    oklch(87% 0.075 206) 0%,
+    oklch(87% 0.075 236) 8.3%,
+    oklch(87% 0.075 266) 16.7%,
+    oklch(87% 0.075 296) 25%,
+    oklch(87% 0.075 326) 33.3%,
+    oklch(87% 0.075 356) 41.7%,
+    oklch(87% 0.075 26) 50%,
+    oklch(87% 0.075 56) 58.3%,
+    oklch(87% 0.075 86) 66.7%,
+    oklch(87% 0.075 116) 75%,
+    oklch(87% 0.075 146) 83.3%,
+    oklch(87% 0.075 176) 91.5%,
+    oklch(87% 0.075 206) 100%
+  );
+  background-image: linear-gradient(
+    in oklch,
+    160deg,
+    oklch(87% 0.075 206) 0%,
+    oklch(87% 0.075 236) 8.3%,
+    oklch(87% 0.075 266) 16.7%,
+    oklch(87% 0.075 296) 25%,
+    oklch(87% 0.075 326) 33.3%,
+    oklch(87% 0.075 356) 41.7%,
+    oklch(87% 0.075 26) 50%,
+    oklch(87% 0.075 56) 58.3%,
+    oklch(87% 0.075 86) 66.7%,
+    oklch(87% 0.075 116) 75%,
+    oklch(87% 0.075 146) 83.3%,
+    oklch(87% 0.075 176) 91.5%,
+    oklch(87% 0.075 206) 100%
+  );
+  transform: translate3d(0);
 }
 
 .holo-global {
@@ -470,30 +466,28 @@ article.reinhart1010-article main ol {
 article.reinhart1010-article main code.hljs {
   @apply my-4 rounded-xl;
 }
-@media screen and (prefers-color-scheme: dark) {
-  article.reinhart1010-article main {
-    font-weight: 425;
-    letter-spacing: 0em;
-  }
-  article.reinhart1010-article main a {
-    @apply text-dm-violet-100;
-  }
-  article.reinhart1010-article main a::after {
-    @apply bg-dm-violet-100;
-  }
-  article.reinhart1010-article main a:active, article.reinhart1010-article main a:hover {
-    @apply text-dm-violet-400;
-  }
-  article.reinhart1010-article main a:active::after, article.reinhart1010-article main a:hover::after {
-    @apply bg-dm-violet-400;
-  }
-  article.reinhart1010-article main b, article.reinhart1010-article main strong {
-    @apply text-dm-fuchsia-100;
-  }
-article.reinhart1010-article main :not(a) > code:not(.hljs), article.reinhart1010-article main :not(a) > pre {
-    @apply text-dm-indigo-100;
-  }
-  article.reinhart1010-article main table thead {
-    @apply rounded-full bg-dm-fuchsia-800;
-  }
+.dark article.reinhart1010-article main {
+  font-weight: 425;
+  letter-spacing: 0em;
+}
+.dark article.reinhart1010-article main a {
+  @apply text-dm-violet-100;
+}
+.dark article.reinhart1010-article main a::after {
+  @apply bg-dm-violet-100;
+}
+.dark article.reinhart1010-article main a:active, article.reinhart1010-article main a:hover {
+  @apply text-dm-violet-400;
+}
+.dark article.reinhart1010-article main a:active::after, article.reinhart1010-article main a:hover::after {
+  @apply bg-dm-violet-400;
+}
+.dark article.reinhart1010-article main b, article.reinhart1010-article main strong {
+  @apply text-dm-fuchsia-100;
+}
+.dark article.reinhart1010-article main :not(a) > code:not(.hljs), article.reinhart1010-article main :not(a) > pre {
+  @apply text-dm-indigo-100;
+}
+.dark article.reinhart1010-article main table thead {
+  @apply rounded-full bg-dm-fuchsia-800;
 }

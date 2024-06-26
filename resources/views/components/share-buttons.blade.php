@@ -221,10 +221,6 @@
         <x-simpleicon-hatenabookmark height="24" width="24" class="inline-block" />
         <span class="sr-only">Share to Hatena Bookmark!</span>
     </a>
-    <a class="text-center border-0 p-2 rounded-full leading-4 active:ring-2 hover:ring-2 active:ring-offset-2 hover:ring-offset-2 active:ring-dm-violet-200 dark:active:ring-dm-violet-200 hover:ring-dm-violet-200 dark:hover:ring-dm-violet-200 dark:active:ring-offset-black dark:hover:ring-offset-black ease-out duration-200" style="background-color: #1da1f2; color: #ffffff;" href="https://twitter.com/share?text={{ $title }}&url={{ $url }}" target="_blank">
-        <x-simpleicon-twitter height="24" width="24" class="inline-block" />
-        <span class="sr-only">Share to Twitter</span>
-    </a>
     <a class="text-center border-0 p-2 rounded-full leading-4 active:ring-2 hover:ring-2 active:ring-offset-2 hover:ring-offset-2 active:ring-dm-violet-200 dark:active:ring-dm-violet-200 hover:ring-dm-violet-200 dark:hover:ring-dm-violet-200 dark:active:ring-offset-black dark:hover:ring-offset-black ease-out duration-200" style="background-color: #2b90d9; color: #ffffff;" href="https://mastodonshare.com/?text={{ $title_and_description }}&url={{ $url }}" target="_blank">
         <x-icons.mastodonshare height="24" width="24" class="inline-block" />
         <span class="sr-only">Share via MastodonShare</span>
