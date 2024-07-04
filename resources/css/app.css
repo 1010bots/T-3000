@@ -482,7 +482,7 @@ article.reinhart1010-article main code.hljs {
 .dark article.reinhart1010-article main a:active::after, article.reinhart1010-article main a:hover::after {
   @apply bg-dm-violet-400;
 }
-.dark article.reinhart1010-article main b, article.reinhart1010-article main strong {
+.dark article.reinhart1010-article main b, .dark article.reinhart1010-article main strong {
   @apply text-dm-fuchsia-100;
 }
 .dark article.reinhart1010-article main :not(a) > code:not(.hljs), article.reinhart1010-article main :not(a) > pre {
