@@ -55,7 +55,13 @@
     $author_avatar = $author->avatar;
     if (isset($author->meta) && isset($author->meta->simple_local_avatar)) {
         $parsed_json = unserialize($author->meta->simple_local_avatar);
-        $author_avatar = $parsed_json["128"];
+        if (isset($parsed_json["192"])) {
+            $author_avatar = $parsed_json["192"];
+        } else if (isset($parsed_json["128"])) {
+            $author_avatar = $parsed_json["128"];
+        } else if (isset($parsed_json["96"])) {
+            $author_avatar = $parsed_json["96"];
+        }
     }
 
 ?>
