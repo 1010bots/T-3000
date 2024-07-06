@@ -320,7 +320,7 @@
                 }
                 try {
                     let parsed = new URL(host);
-                    window.open(`${parsed.hostName}/share?text=${title}%0A%0A${description}%0A%0A${url}`);
+                    window.open(`${parsed.host}/share?text=${title}%0A%0A${description}%0A%0A${url}`);
                 } catch (e) {
                     window.alert(`Unable to share: ${host} is not a valid URL or hostname.`);
                 }
