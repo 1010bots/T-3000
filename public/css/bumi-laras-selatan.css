@@ -1,15 +1,17 @@
 @font-face {
     font-family: "Bumi Laras Selatan";
-    font-display: swap;
+    font-display: block;
     font-style: normal;
     font-weight: 400 700;
+    font-variation-settings: 'ital' 0;
     src: local("Bumi Laras Selatan"), url("/fonts/BumiLarasSelatan-Regular.woff2") format('woff2'), url("/fonts/BumiLarasSelatan-Regular.ttf") format('truetype');
 }
 
 @font-face {
     font-family: "Bumi Laras Selatan";
-    font-display: swap;
+    font-display: block;
     font-style: italic;
     font-weight: 400 700;
+    font-variation-settings: 'ital' 1;
     src: local("Bumi Laras Selatan"), url("/fonts/BumiLarasSelatan-Italic.woff2") format('woff2'), url("/fonts/BumiLarasSelatan-Italic.ttf") format('truetype');
 }
