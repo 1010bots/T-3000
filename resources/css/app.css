@@ -404,6 +404,9 @@ article.reinhart1010-article main b, article.reinhart1010-article main strong {
 article.reinhart1010-article main :not(a) > code:not(.hljs), article.reinhart1010-article main :not(a) > pre {
   @apply text-gr-indigo-500 font-bold;
 }
+article.reinhart1010-article main em {
+  @apply italic;
+}
 article.reinhart1010-article main figure {
   @apply my-4;
 }
