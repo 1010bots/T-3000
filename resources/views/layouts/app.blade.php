@@ -3,6 +3,7 @@
 
     $theme_color = $attributes['theme-color'] ?? 'blue';
     $theme_scheme = $attributes['theme-scheme'] ?? 'auto';
+    $was_dark = $_COOKIE['r10-current-auto-theme'] == 'dark';
     $theme_colors = [
         'red' => ['#32120F', '#FFE2DD'],
         'orange' => ['#2F1502', '#FFE7CF'],
@@ -47,6 +48,7 @@
         ])
         <script src="/js/highlight.min.js"></script>
         <script src="/js/hotkeys.min.js"></script>
+        <script src="/js/js.cookie.min.js"></script>
         <script src="/js/kakao.min.js"></script>
         <script>hljs.highlightAll();</script>
         <script>
@@ -159,7 +161,7 @@
         <link rel="me" value="https://twitter.com/capsinthehouse" />
         <link rel="me" value="https://twitter.com/reinhart1010" />
     </head>
-    <body class="font-sans antialiased bg-white dark:bg-black {{ $theme_scheme == "auto" ? "" : $theme_scheme; }}">
+    <body class="font-sans antialiased bg-white dark:bg-black {{ ($theme_scheme == "dark" || $was_dark) ? "dark" : ""; }}">
         <x-banner />
 
         <div class="flex flex-col min-h-screen bg-white dark:bg-black">
@@ -283,16 +285,20 @@
                 const match = window.matchMedia('(prefers-color-scheme: dark)');
                 if (match.matches) {
                     document.body.classList.add('dark');
+                    Cookies.set('r10-current-auto-theme', 'dark', { expires: 0.25 });
                 } else {
                     document.body.classList.remove('dark');
+                    Cookies.set('r10-current-auto-theme', 'light', { expires: 0.25 });
                 }
 
                 // Add triggers when switching themes
                 match.addEventListener('change', e => {
                     if (e.matches) {
                         document.body.classList.add('dark');
+                        Cookies.set('r10-current-auto-theme', 'dark', { expires: 0.25 });
                     } else {
                         document.body.classList.remove('dark');
+                        Cookies.set('r10-current-auto-theme', 'light', { expires: 0.25 });
                     }
                 });
             }
