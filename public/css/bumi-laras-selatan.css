@@ -4,8 +4,7 @@
     font-style: normal;
     font-stretch: 75% 100%;
     font-weight: 400 700;
-    src: local("BumiLarasSelatan-Regular"),
-         url("/fonts/BumiLarasSelatan-Regular.woff2") format('woff2 supports variations'),
+    src: url("/fonts/BumiLarasSelatan-Regular.woff2") format('woff2 supports variations'),
          url("/fonts/BumiLarasSelatan-Regular.woff2") format('woff2-variations'),
          url("/fonts/BumiLarasSelatan-Regular.ttf") format('truetype');
 }
@@ -16,8 +15,7 @@
     font-style: italic;
     font-stretch: 75% 100%;
     font-weight: 400 700;
-    src: local("BumiLarasSelatan-Italic"),
-         url("/fonts/BumiLarasSelatan-Italic.woff2") format('woff2 supports variations'),
+    src: url("/fonts/BumiLarasSelatan-Italic.woff2") format('woff2 supports variations'),
          url("/fonts/BumiLarasSelatan-Italic.woff2") format('woff2-variations'),
          url("/fonts/BumiLarasSelatan-Italic.ttf") format('truetype');
 }
