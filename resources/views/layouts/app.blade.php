@@ -3,7 +3,10 @@
 
     $theme_color = $attributes['theme-color'] ?? 'blue';
     $theme_scheme = $attributes['theme-scheme'] ?? 'auto';
-    $was_dark = $_COOKIE['r10-current-auto-theme'] == 'dark';
+    $was_dark = false;
+    if (isset($_COOKIE['r10-current-auto-theme'])) {
+        $was_dark = $_COOKIE['r10-current-auto-theme'] == 'dark';
+    }
     $theme_colors = [
         'red' => ['#32120F', '#FFE2DD'],
         'orange' => ['#2F1502', '#FFE7CF'],
