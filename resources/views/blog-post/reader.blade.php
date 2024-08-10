@@ -75,17 +75,17 @@
             </p>
             <h1 class="p-name | font-sans-display text-3xl text-bold font-semibold break-words">{{ $post->post_title }}</h1>
             <div class="p-author h-card | flex flex-row my-2 gap-2 items-center">
-                <img src="{{ $author_avatar }}" alt="{{ $author->display_name }}'s profile picture" class="u-photo w-16 h-16 rounded-full" />
+                <img class="u-photo | w-16 h-16 rounded-full" src="{{ $author_avatar }}" alt="{{ $author->display_name }}'s profile picture" />
                 <div class="flex flex-col gap-1">
                     <p class="m-0 text-xl"><span class="p-name | font-semibold">{{ $author->display_name }}</span> (<span class="p-nickname">&#64;{{ $author->login }}</span>)</p>
                     @if (isset($taxonomies) && (count($taxonomies->categories) + count($taxonomies->tags) > 0))
                         <p class="flex flex-row flex-wrap gap-1 items-center text-sm">
                             <span>Published on</span>
                             @foreach ($taxonomies->categories as $item)
-                                <a rel="category" href="/blog/category/{{ $item->term->slug }}" class="p-category | px-2 py-1 text-center text-black dark:text-white bg-rc-violet-50 dark:bg-dm-violet-700 border-0 py-2 rounded-full leading-4 cursor-pointer active:ring-2 hover:ring-2 active:ring-offset-2 hover:ring-offset-2 active:ring-dm-violet-200 dark:active:ring-dm-violet-200 hover:ring-dm-violet-200 dark:hover:ring-dm-violet-200 dark:active:ring-offset-black dark:hover:ring-offset-black ease-out duration-200">{{ $item->term->name }}</a>
+                                <a class="p-category | px-2 py-1 text-center text-black dark:text-white bg-rc-violet-50 dark:bg-dm-violet-700 border-0 py-2 rounded-full leading-4 cursor-pointer active:ring-2 hover:ring-2 active:ring-offset-2 hover:ring-offset-2 active:ring-dm-violet-200 dark:active:ring-dm-violet-200 hover:ring-dm-violet-200 dark:hover:ring-dm-violet-200 dark:active:ring-offset-black dark:hover:ring-offset-black ease-out duration-200" rel="category" href="/blog/category/{{ $item->term->slug }}">{{ $item->term->name }}</a>
                             @endforeach
                             @foreach ($taxonomies->tags as $item)
-                                <a rel="tag" href="/blog/tag/{{ $item->term->slug }}" class="p-category | px-2 py-1 text-center text-black dark:text-white bg-rc-fuchsia-50 dark:bg-dm-fuchsia-700 border-0 py-2 rounded-full leading-4 cursor-pointer active:ring-2 hover:ring-2 active:ring-offset-2 hover:ring-offset-2 active:ring-dm-fuchsia-200 dark:active:ring-dm-fuchsia-200 hover:ring-dm-fuchsia-200 dark:hover:ring-dm-fuchsia-200 dark:active:ring-offset-black dark:hover:ring-offset-black ease-out duration-200">#{{ $item->term->slug }}</a>
+                                <a class="p-category | px-2 py-1 text-center text-black dark:text-white bg-rc-fuchsia-50 dark:bg-dm-fuchsia-700 border-0 py-2 rounded-full leading-4 cursor-pointer active:ring-2 hover:ring-2 active:ring-offset-2 hover:ring-offset-2 active:ring-dm-fuchsia-200 dark:active:ring-dm-fuchsia-200 hover:ring-dm-fuchsia-200 dark:hover:ring-dm-fuchsia-200 dark:active:ring-offset-black dark:hover:ring-offset-black ease-out duration-200" rel="tag" href="/blog/tag/{{ $item->term->slug }}">#{{ $item->term->slug }}</a>
                             @endforeach
                         </p>
                     @endif
@@ -104,10 +104,10 @@
                 }
             ?>
             <picture>
-                <img alt="{{ strlen($post->thumbnail['attachment']['caption']) > 0 ? $post->thumbnail['attachment']['caption'] : ('Cover image for ' . $post->post_title) }}" src="{{ $post->thumbnail['attachment']['url'] }}" srcset="{{ $cover_image_srcset_string }}" alt="{{ $post->thumbnail['attachment']['alt'] || $post->thumbnail['attachment']['description'] || $post->thumbnail['attachment']['title'] }}" class="h-auto w-full rounded-xl" />
+                <img class="u-featured | h-auto w-full rounded-xl"  alt="{{ strlen($post->thumbnail['attachment']['caption']) > 0 ? $post->thumbnail['attachment']['caption'] : ('Cover image for ' . $post->post_title) }}" src="{{ $post->thumbnail['attachment']['url'] }}" srcset="{{ $cover_image_srcset_string }}" alt="{{ $post->thumbnail['attachment']['alt'] || $post->thumbnail['attachment']['description'] || $post->thumbnail['attachment']['title'] }}" />
             </picture>
         @elseif (isset($post->image))
-            <img src="{{ $post->image }}" class="h-auto w-full rounded-xl" />
+            <img class="u-featured | h-auto w-full rounded-xl" src="{{ $post->image }}" />
         @else
             <hr aria-hidden="true">
         @endif

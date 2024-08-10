@@ -47,13 +47,13 @@
                 } while ($past_post_theme_color == $post_theme_color);
                 $past_post_theme_color = $post_theme_color;
             ?>
-            <x-primitives.card :theme-color="$post_theme_color" element="a" href="/blog/{{ $post_date->format('Y/m/d') }}/{{ $post->post_name }}" class="flex flex-col col-span-6 md:col-span-3 lg:col-span-2 rounded-2xl overflow-hidden">
+            <x-primitives.card class="h-card u-url | flex flex-col col-span-6 md:col-span-3 lg:col-span-2 rounded-2xl overflow-hidden" :theme-color="$post_theme_color" element="a" href="/blog/{{ $post_date->format('Y/m/d') }}/{{ $post->post_name }}">
                 <div class="flex flex-col flex-grow p-4">
-                    <p>{{ $post_date }}</p>
-                    <h5 class="font-sans-display text-xl font-semibold">{{ $post->post_title }}</h5>
+                    <time class="dt-published">{{ $post_date }}</time>
+                    <h5 class="p-name | font-sans-display text-xl font-semibold">{{ $post->post_title }}</h5>
                     @if (!isset($post->thumbnail) && !isset($post->image))
                         <div class="flex items-center justify-center flex-grow">
-                            <p class="font-semicondensed text-2xl line-clamp-6">{{ strlen($post->post_excerpt) > 0 ? $post->post_excerpt : strip_tags($post->post_content) }}</p>
+                            <p class="p-summary | font-semicondensed text-2xl line-clamp-6">{{ strlen($post->post_excerpt) > 0 ? $post->post_excerpt : strip_tags($post->post_content) }}</p>
                         </div>
                     @endif
                 </div>
@@ -66,10 +66,10 @@
                         }
                     ?>
                     <picture>
-                        <img alt="{{ strlen($post->thumbnail['attachment']['caption']) > 0 ? $post->thumbnail['attachment']['caption'] : ('Cover image for ' . $post->post_title) }}" src="{{ $post->thumbnail['attachment']['url'] }}" srcset="{{ $cover_image_srcset_string }}" alt="{{ $post->thumbnail['attachment']['alt'] || $post->thumbnail['attachment']['description'] || $post->thumbnail['attachment']['title'] }}" class="w-full object-cover" style="aspect-ratio: 16 / 9;" />
+                        <img class="u-featured | w-full object-cover" alt="{{ strlen($post->thumbnail['attachment']['caption']) > 0 ? $post->thumbnail['attachment']['caption'] : ('Cover image for ' . $post->post_title) }}" src="{{ $post->thumbnail['attachment']['url'] }}" srcset="{{ $cover_image_srcset_string }}" alt="{{ $post->thumbnail['attachment']['alt'] || $post->thumbnail['attachment']['description'] || $post->thumbnail['attachment']['title'] }}" style="aspect-ratio: 16 / 9;" />
                     </picture>
                 @elseif (isset($post->image))
-                    <img src="{{ $post->image }}" class="w-full object-cover" style="aspect-ratio: 16 / 9;" />
+                    <img class="u-featured | w-full object-cover" src="{{ $post->image }}" style="aspect-ratio: 16 / 9;" />
                 @endif
             </x-primitives.card>
         @endforeach
