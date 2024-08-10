@@ -317,17 +317,17 @@
                 <p class="text-xl font-medium"><span class="p-name">Reinhart Previano Koentjoro</span> <small>(Shift)</small></p>
                 <ul class="flex flex-col gap-1">
                     <li>
-                        <a rel="me" href="https://keys.openpgp.org/vks/v1/by-fingerprint/02872C4ACA4303518C39D0A2D85D5839A1560FFB" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>PGP</b> <small><pre class="inline-block">A156 0FFB</pre>, &lt;reinhart@reinhart1010.id&gt;</small><x-fluentui-arrow-download-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://keys.openpgp.org/vks/v1/by-fingerprint/02872C4ACA4303518C39D0A2D85D5839A1560FFB" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>PGP</b> <small><pre class="inline-block">A156 0FFB</pre>, &lt;reinhart@reinhart1010.id&gt;</small><x-fluentui-arrow-download-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <hr class="my-2 border-black/10" />
                     <li>
-                        <a rel="me" href="https://logs.reinhart1010.id/@shift" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Fediverse</b> <small>@shift@logs.reinhart1010.id</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://logs.reinhart1010.id/@shift" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Fediverse</b> <small>@shift@logs.reinhart1010.id</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://play.google.com/store/search?q=pub%3AReinhart%20Previano%20Koentjoro&c=apps" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Google Play</b> <small>Reinhart Previano Koentjoro</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://play.google.com/store/search?q=pub%3AReinhart%20Previano%20Koentjoro&c=apps" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Google Play</b> <small>Reinhart Previano Koentjoro</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://orcid.org/0000-0001-9076-2428" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>ORCID</b> <small>0000-0001-9076-2428</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://orcid.org/0000-0001-9076-2428" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>ORCID</b> <small>0000-0001-9076-2428</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
                         <x-primitives.button element="a" class="block text-center" href="https://signal.me/#eu/-VxCfUK3XHw8iiWffrDdl92hwS5dVZ6s_6Mm3i48TPLbb6A4tqFN0aMqqttI1GMv">Chat on Signal</x-primitives.button>
@@ -335,53 +335,53 @@
                     <hr class="my-2 border-black/10" />
                     <small class="font-bold text-center uppercase">English</small>
                     <li>
-                        <a rel="me" href="https://codeberg.org/reinhart1010" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Codeberg</b> <small>@reinhart1010</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://codeberg.org/reinhart1010" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Codeberg</b> <small>@reinhart1010</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://github.com/reinhart1010" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>GitHub</b> <small>@reinhart1010</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://github.com/reinhart1010" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>GitHub</b> <small>@reinhart1010</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://gitlab.com/reinhart1010" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>GitLab.com</b> <small>@reinhart1010</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://gitlab.com/reinhart1010" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>GitLab.com</b> <small>@reinhart1010</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://instagram.com/shiftofworldsandnations" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Instagram</b> <small>@shiftofworldsandnations</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://instagram.com/shiftofworldsandnations" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Instagram</b> <small>@shiftofworldsandnations</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://linkedin.com/in/reinhart1010" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>LinkedIn</b> <small>Reinhart Previano Koentjoro (/in/reinhart1010)</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://linkedin.com/in/reinhart1010" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>LinkedIn</b> <small>Reinhart Previano Koentjoro (/in/reinhart1010)</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://threads.net/@shiftofworldsandnations" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Threads</b> <small>@shiftofworldsandnations</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://threads.net/@shiftofworldsandnations" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Threads</b> <small>@shiftofworldsandnations</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <hr class="my-2 border-black/10" />
                     <small class="font-bold text-center uppercase">Bahasa Indonesia</small>
                     <li>
-                        <a rel="me" href="https://bsky.app/profile/shift.reinhart1010.id" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Bluesky</b> <small>@shift.reinhart1010.id</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://bsky.app/profile/shift.reinhart1010.id" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Bluesky</b> <small>@shift.reinhart1010.id</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://instagram.com/reinhart1010" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Instagram</b> <small>@reinhart1010</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://instagram.com/reinhart1010" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Instagram</b> <small>@reinhart1010</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://kenangan.com/kenanganku/reinhart1010" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Kenangan</b> <small>@reinhart1010</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://kenangan.com/kenanganku/reinhart1010" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Kenangan</b> <small>@reinhart1010</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://misskey.id/@reinhart1010" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Misskey Indonesia</b> <small>@reinhart1010@misskey.id</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://misskey.id/@reinhart1010" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Misskey Indonesia</b> <small>@reinhart1010@misskey.id</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://threads.net/@reinhart1010" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Threads</b> <small>@reinhart1010</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://threads.net/@reinhart1010" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Threads</b> <small>@reinhart1010</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <hr class="my-2 border-black/10" />
                     <small class="font-bold text-center uppercase">No longer active</small>
                     <li>
-                        <a rel="me" href="https://gitee.com/reinhart1010" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Gitee</b> <small>@reinhart1010</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://gitee.com/reinhart1010" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Gitee</b> <small>@reinhart1010</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://kotakode.com/users/7" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Kotakode</b> <small>Reinhart Previano K. (#7)</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://kotakode.com/users/7" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Kotakode</b> <small>Reinhart Previano K. (#7)</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://social.vivaldi.net/@reinhart1010" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Vivaldi Social</b> <small>@reinhart1010@social.vivaldi.net</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://social.vivaldi.net/@reinhart1010" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>Vivaldi Social</b> <small>@reinhart1010@social.vivaldi.net</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://x.com/@reinhart1010" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>X/Twitter</b> <small>@reinhart1010</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://x.com/@reinhart1010" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-blue-700 dark:hover:text-gr-blue-400"><b>X/Twitter</b> <small>@reinhart1010</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                 </ul>
             </x-primitives.card>
@@ -389,41 +389,41 @@
                 <p class="text-xl font-medium"><span class="p-name">Citra Manggala Dirgantara</span> <small>(Shiftine)</small></p>
                 <ul class="flex flex-col gap-1">
                     <li>
-                        <a rel="me" href="https://keys.openpgp.org/vks/v1/by-fingerprint/2BB33F83894581D82CE360E59E5FD814166AD438" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>PGP</b> <small><pre class="inline-block">166A D438</pre>, &lt;system@reinhart1010.id&gt;</small><x-fluentui-arrow-download-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://keys.openpgp.org/vks/v1/by-fingerprint/2BB33F83894581D82CE360E59E5FD814166AD438" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>PGP</b> <small><pre class="inline-block">166A D438</pre>, &lt;system@reinhart1010.id&gt;</small><x-fluentui-arrow-download-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <hr class="my-2 border-black/10" />
                     <li>
-                        <a rel="me" href="https://bsky.app/profile/shiftine.reinhart1010.id" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>Bluesky</b> <small>@shiftine.reinhart1010.id</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://bsky.app/profile/shiftine.reinhart1010.id" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>Bluesky</b> <small>@shiftine.reinhart1010.id</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://codeberg.org/1010bots" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>Codeberg</b> <small>@1010bots</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://codeberg.org/1010bots" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>Codeberg</b> <small>@1010bots</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://logs.reinhart1010.id/@shiftine" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>Fediverse</b> <small>@shiftine@logs.reinhart1010.id</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://logs.reinhart1010.id/@shiftine" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>Fediverse</b> <small>@shiftine@logs.reinhart1010.id</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://github.com/1010bots" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>GitHub</b> <small>@1010bots</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://github.com/1010bots" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>GitHub</b> <small>@1010bots</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://github.com/shiftinecmd" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>GitHub</b> <small>@shiftinecmd</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://github.com/shiftinecmd" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>GitHub</b> <small>@shiftinecmd</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://github.com/apps/shiftine" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>GitHub</b> <small>@apps/shiftine</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://github.com/apps/shiftine" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>GitHub</b> <small>@apps/shiftine</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://gitlab.com/1010bots" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>GitLab.com</b> <small>@1010bots</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://gitlab.com/1010bots" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>GitLab.com</b> <small>@1010bots</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://instagram.com/shiftinecmd" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>Instagram</b> <small>@shiftinecmd</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://instagram.com/shiftinecmd" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>Instagram</b> <small>@shiftinecmd</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://kenangan.com/kenanganku/shiftinecmd" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>Kenangan</b> <small>@shiftinecmd</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://kenangan.com/kenanganku/shiftinecmd" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>Kenangan</b> <small>@shiftinecmd</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://misskey.id/@1010bots" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>Misskey Indonesia</b> <small>@1010bots@misskey.id</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://misskey.id/@1010bots" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>Misskey Indonesia</b> <small>@1010bots@misskey.id</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <li>
-                        <a rel="me" href="https://threads.net/@shiftinecmd" class="u-url flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>Threads</b> <small>@shiftinecmd</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
+                        <a rel="me" href="https://threads.net/@shiftinecmd" class="u-url | flex items-center gap-1 text-black dark:text-white hover:text-gr-violet-700 dark:hover:text-gr-violet-400"><b>Threads</b> <small>@shiftinecmd</small><x-fluentui-arrow-circle-right-24-o class="inline w-5 h-5" /></a>
                     </li>
                     <!-- <li>
                         <x-primitives.button theme-color="violet" element="a" class="block text-center" href="https://signal.me/#eu/-VxCfUK3XHw8iiWffrDdl92hwS5dVZ6s_6Mm3i48TPLbb6A4tqFN0aMqqttI1GMv">Chat on Signal</x-primitives.button>
