@@ -6,7 +6,7 @@
     use Illuminate\Support\Carbon;
     use Illuminate\Support\Facades\Cache;
 
-    $theme_colors = ['blue', 'red', 'violet'];
+    $theme_colors = ['blue', 'green', 'seafoam'];
 
     $posts = Cache::remember('home-latest-posts', 15 * 60, function () {
         return Post::type('post')->status('publish')->where('post_title', '!=', '')->orderBy('post_date_gmt', 'desc')->take(5)->get();
@@ -126,26 +126,31 @@
                 </picture>
                 <div class="flex flex-col p-4 flex-1 gap-2 bg-gradient-to-b">
                     <h1 class="font-sans-display text-4xl font-medium">
+                        Say hello to
+                        <strong class="font-bold text-transparent bg-clip-text bg-gradient-to-tr dark:bg-gradient-to-bl from-dm-blue-500 to-dm-blue-200">Altia</strong>,
+                        our new Android open-source network scanning app.
+                    </h1>
+                    <!-- <h1 class="font-sans-display text-4xl font-medium">
                         Reinhart is a person who
                         <strong class="font-bold text-transparent bg-clip-text bg-gradient-to-tr dark:bg-gradient-to-bl from-dm-blue-500 to-dm-blue-200">loves</strong>
                         and
                         <strong class="font-bold text-transparent bg-clip-text bg-gradient-to-tr dark:bg-gradient-to-bl from-dm-blue-500 to-dm-blue-200">works</strong>
                         with God and technology.
-                    </h1>
+                    </h1> -->
                     {{-- <p class="text-xl">He currently works as a spirit, man, and robot in a mission to re-establish the relationship and authority of God to humanity, and humanity to their creations.</p> --}}
-                    <p class="text-xl">By the way, new stuff is coming this April to celebrate his <strong class="text-dm-blue-500 dark:text-dm-blue-200">10<sup>th</sup> website anniversary!!!</strong></p>
-                    <!-- <div class="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-3">
-                        <x-primitives.button theme-color="blue" element="a" href="https://gms.church/aogconference?utm_source=reinhart1010&utm_medium=website" target="_blank" class="flex flex-row gap-2 justify-between items-center">
-                            <x-fluentui-ticket-diagonal-24-o class="w-6 h-6" />
-                            Get Tickets
+                    <p class="text-xl">Scan through computer with your Android device. And <a href="https://reinhart1010.id/blog/2024/08/10/introducing-altia-open-source-fing-alternative" class="text-dm-blue-500 dark:text-dm-blue-200 underline font-bold">unlike Fing</a>, we don&rsquo;t force you to pay for more scans.</p>
+                    <div class="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-3">
+                        <x-primitives.button theme-color="blue" element="a" href="https://play.google.com/store/apps/details?id=id.reinhart1010.altia" target="_blank" class="flex flex-row gap-2 justify-between items-center">
+                            <x-fluentui-arrow-download-24 class="w-6 h-6" />
+                            Get in on Google Play
                             <x-fluentui-arrow-right-24 class="w-6 h-6" />
                         </x-primitives.button>
-                        <x-primitives.button theme-color="blue" element="a" href="https://www.instagram.com/aogmsyouth" target="_blank" class="flex flex-row gap-2 justify-between items-center">
-                            <x-simpleicon-instagram class="w-6 h-6" />
-                            Follow on Instagram
+                        <x-primitives.button theme-color="blue" element="a" href="https://github.com/shiftine/altia" target="_blank" class="flex flex-row gap-2 justify-between items-center">
+                            <x-fluentui-info-24-o class="w-6 h-6" />
+                            Source Code (GPLv3)
                             <x-fluentui-arrow-right-24 class="w-6 h-6" />
                         </x-primitives.button>
-                    </div> -->
+                    </div>
                 </div>
             </x-primitives.card>
             <x-primitives.card :theme-color="$theme_colors[2]" class="col-span-6 md:col-span-3 lg:col-span-2 p-4 rounded-2xl">
