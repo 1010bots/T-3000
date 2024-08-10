@@ -136,33 +136,33 @@
         @endif
 
         <!-- rel="me" links for profile verification -->
-        <link rel="me" value="https://botsin.space/@reinhart1010" />
-        <link rel="me" value="https://bsky.app/profile/shift.reinhart1010.id" />
-        <link rel="me" value="https://bsky.app/profile/shiftine.reinhart1010.id" />
-        <link rel="me" value="https://codeberg.org/1010bots" />
-        <link rel="me" value="https://codeberg.org/reinhart1010" />
-        <link rel="me" value="https://github.com/1010bots" />
-        <link rel="me" value="https://github.com/alterine0101" />
-        <link rel="me" value="https://github.com/reinhart1010" />
-        <link rel="me" value="https://github.com/shiftinecmd" />
-        <link rel="me" value="https://gitlab.com/1010bots" />
-        <link rel="me" value="https://gitlab.com/reinhart1010" />
-        <link rel="me" value="https://instagram.com/reinhart1010" />
-        <link rel="me" value="https://instagram.com/shiftofworldsandnations" />
-        <link rel="me" value="https://kenangan.com/kenanganku/shiftinecmd" />
-        <link rel="me" value="https://kenangan.com/kenanganku/reinhart1010" />
-        <link rel="me" value="https://kotakode.com/users/7" />
-        <link rel="me" value="https://logs.reinhart1010.id/@shift" />
-        <link rel="me" value="https://logs.reinhart1010.id/@shiftine" />
-        <link rel="me" value="https://misskey.id/@1010bots" />
-        <link rel="me" value="https://misskey.id/@reinhart1010" />
-        <link rel="me" value="https://orcid.org/0000-0001-9076-2428" />
-        <link rel="me" value="https://social.vivaldi.net/@reinhart1010" />
-        <link rel="me" value="https://threads.net/@reinhart1010" />
-        <link rel="me" value="https://threads.net/@shiftofworldsandnations" />
-        <link rel="me" value="https://twitter.com/alterine0101" />
-        <link rel="me" value="https://twitter.com/capsinthehouse" />
-        <link rel="me" value="https://twitter.com/reinhart1010" />
+        <link rel="me" href="https://botsin.space/@reinhart1010" />
+        <link rel="me" href="https://bsky.app/profile/shift.reinhart1010.id" />
+        <link rel="me" href="https://bsky.app/profile/shiftine.reinhart1010.id" />
+        <link rel="me" href="https://codeberg.org/1010bots" />
+        <link rel="me" href="https://codeberg.org/reinhart1010" />
+        <link rel="me" href="https://github.com/1010bots" />
+        <link rel="me" href="https://github.com/alterine0101" />
+        <link rel="me" href="https://github.com/reinhart1010" />
+        <link rel="me" href="https://github.com/shiftinecmd" />
+        <link rel="me" href="https://gitlab.com/1010bots" />
+        <link rel="me" href="https://gitlab.com/reinhart1010" />
+        <link rel="me" href="https://instagram.com/reinhart1010" />
+        <link rel="me" href="https://instagram.com/shiftofworldsandnations" />
+        <link rel="me" href="https://kenangan.com/kenanganku/shiftinecmd" />
+        <link rel="me" href="https://kenangan.com/kenanganku/reinhart1010" />
+        <link rel="me" href="https://kotakode.com/users/7" />
+        <link rel="me" href="https://logs.reinhart1010.id/@shift" />
+        <link rel="me" href="https://logs.reinhart1010.id/@shiftine" />
+        <link rel="me" href="https://misskey.id/@1010bots" />
+        <link rel="me" href="https://misskey.id/@reinhart1010" />
+        <link rel="me" href="https://orcid.org/0000-0001-9076-2428" />
+        <link rel="me" href="https://social.vivaldi.net/@reinhart1010" />
+        <link rel="me" href="https://threads.net/@reinhart1010" />
+        <link rel="me" href="https://threads.net/@shiftofworldsandnations" />
+        <link rel="me" href="https://twitter.com/alterine0101" />
+        <link rel="me" href="https://twitter.com/capsinthehouse" />
+        <link rel="me" href="https://twitter.com/reinhart1010" />
     </head>
     <body class="font-sans antialiased bg-white dark:bg-black {{ ($theme_scheme == "dark" || $was_dark) ? "dark" : ""; }}">
         <x-banner />
