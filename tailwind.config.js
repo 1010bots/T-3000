@@ -16,9 +16,56 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
-    safelist: [{
-      pattern: /hljs+/,
-    }],
+    safelist: [
+        { pattern: /hljs+/ },
+        // A. Standard containers for cards
+        { pattern: /^bg-rc-\S+-50(\/25){0,1}$/gi },
+        {
+            pattern: /^bg-rc-\S+-900(\/25){0,1}$/gi,
+            variants: ["dark"],
+        },
+        {
+            pattern: /^bg-dm-\S+-800$/gi,
+            variants: ["dark:hover"]
+        },
+        // B. Active indicators and accent colors
+        { pattern: /^((accent)|(bg))-gr-\S+-500$/gi },
+        {
+            pattern: /^((accent)|(bg))-dm-\S+-400$/gi,
+            variants: ["dark"]
+        },
+        {
+            pattern: /^((accent)|(bg))-dm-\S+-600$/gi,
+            variants: ["hover"],
+        },
+        // C. Standard card borders
+        { pattern: /^border-dm-\S+-300$/gi },
+        // D. Navbar inactive borders
+        {
+            pattern: /^border-rc-\S+-500$/gi,
+            variants: ["focus"],
+        },
+        // E. Text selection colors
+        // None
+        // F. Hyperlink colors
+        { pattern: /^text-gr-\S+-500$/gi },
+        {
+            pattern: /^text-gr-\S+-200$/gi,
+            variants: ["dark"]
+        },
+        {
+            pattern: /^text-gr-\S+-700$/gi,
+            variants: ["hover"]
+        },
+        {
+            pattern: /^text-gr-\S+-400$/gi,
+            variants: ["dark:hover"]
+        },
+        // G. Chip colors
+        {
+            pattern: /^bg-gr-\S+-500\/10$/gi,
+        },
+    ],
     theme: {
         extend: {
             colors: {
