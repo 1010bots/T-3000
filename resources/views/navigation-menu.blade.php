@@ -650,7 +650,14 @@
                         for (i = 0; i < resultSources.length; i++) {
                             for (j = 0; j < results[resultSources[i]].length; j++) {
                                 var entry = results[resultSources[i]][j];
-                                resultHTML += `<a href="${entry.url}" class="block mb-2 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg text-lg"><h3 class="mb-2 text-xl font-semibold">${entry.title}</h3><div class="flex text-sm"><span class="px-2 py-1 font-medium bg-gr-${searchSources[resultSources[i]].color}-500/10 text-black dark:text-white rounded">${searchSources[resultSources[i]].name}</span><span class="px-2 py-1 font-medium bg-black/10 dark:bg-white/10 text-black dark:text-white rounded">${entry.created_at?.replace(/\:\d+\.\S+$/g, "").replace("T", " ")}</span></div></a>`;
+                                resultHTML += `
+<a href="${entry.url}" class="block mb-2 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg text-lg">
+    <h3 class="mb-2 text-xl font-semibold">${entry.title}</h3>
+    <div class="flex gap-1 text-sm">
+        <span class="px-2 py-1 font-medium bg-gr-${searchSources[resultSources[i]].color}-500/50 text-black dark:text-white rounded">${searchSources[resultSources[i]].name}</span>
+        <span class="px-2 py-1 font-medium bg-black/10 dark:bg-white/10 text-black dark:text-white rounded">${entry.created_at?.replace(/\:\d+\.\S+$/g, "").replace("T", " ")}</span>
+    </div>
+</a>`;
                             }
                         }
                         document.getElementById("search-dialog-results").innerHTML = resultHTML;
