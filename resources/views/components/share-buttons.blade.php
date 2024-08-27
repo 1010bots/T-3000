@@ -1,11 +1,11 @@
 <?php
     use Illuminate\Support\Facades\Http;
     use Illuminate\Support\Facades\Request;
-    use Jenssegers\Agent\Agent;
 
-    $agent = new Agent();
-    $agent->setUserAgent(Request::header('User-Agent'));
-    $is_apple = $agent->isiOS() || $agent->isiPadOS() || $agent->is('OS X');
+    $user_agent = Request::header("User-Agent");
+    $is_apple = str_contains($user_agent, "Mac OS X") || str_contains($user_agent, "iPhone") || str_contains($user_agent, "iPad") || str_contains($user_agent, "Apple Watch");
+    $is_windows = str_contains($user_agent, "Windows NT") || str_contains($user_agent, "Win32") || str_contains($user_agent, "Win64") || str_contains($user_agent, "WOW64");
+
     if (!isset($canonical)) $canonical = Request::url();
     $chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     $allow_kakao = Request::cookie('optional_features_kakao') == true;
@@ -28,7 +28,7 @@
     <a id="{{ $unique_id }}-share-menu-open-share-sheet" class="text-center text-black dark:text-white bg-rc-violet-50 dark:bg-dm-violet-700 border-0 py-2 rounded-full leading-4 cursor-pointer active:ring-2 hover:ring-2 active:ring-offset-2 hover:ring-offset-2 active:ring-dm-violet-200 dark:active:ring-dm-violet-200 hover:ring-dm-violet-200 dark:hover:ring-dm-violet-200 dark:active:ring-offset-black dark:hover:ring-offset-black ease-out duration-200">
         @if ($is_apple)
             <x-fluentui-share-ios-24-o height="24" width="24" class="inline-block" />
-        @elseif ($agent->is('Windows'))
+        @elseif ($is_windows)
             <x-fluentui-share-24-o height="24" width="24" class="inline-block" />
         @else
             <x-fluentui-share-android-24-o height="24" width="24" class="inline-block" />

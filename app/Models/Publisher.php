@@ -11,14 +11,17 @@ class Publisher extends Model
     use HasFactory;
 
     /**
-     * The attributes that are casted.
+     * Get the attributes that should be cast.
      *
-     * @var array<string, string>
+     * @return array<string, string>
      */
-    protected $casts = [
-        'images' => 'array',
-        'extras' => 'array',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'images' => 'array',
+            'extras' => 'array',
+        ];
+    }
 
     /**
      * The attributes that are mass assignable.

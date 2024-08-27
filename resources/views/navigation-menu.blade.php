@@ -1,9 +1,7 @@
 <?php
-    use Jenssegers\Agent\Agent;
+    $user_agent = Request::header("User-Agent");
+    $is_apple = str_contains($user_agent, "Mac OS X") || str_contains($user_agent, "iPhone") || str_contains($user_agent, "iPad") || str_contains($user_agent, "Apple Watch");
 
-    $agent = new Agent();
-    $agent->setUserAgent(Request::header('User-Agent'));
-    $is_apple = $agent->isiOS() || $agent->isiPadOS() || $agent->is('OS X');
     if (!$theme_color) {
         $theme_color = 'blue';
     }

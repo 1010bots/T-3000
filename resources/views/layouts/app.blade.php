@@ -1,5 +1,6 @@
 <?php
-    use Jenssegers\Agent\Agent;
+    $user_agent = Request::header("User-Agent");
+    $is_safari = str_contains($user_agent, " AppleWebKit/");
 
     $theme_color = $attributes['theme-color'] ?? 'blue';
     $theme_scheme = $attributes['theme-scheme'] ?? 'auto';
@@ -21,8 +22,6 @@
         'purple' => ['#29132A', '#FFE4FF'],
         'fuchsia' => ['#2F111E', '#FFE1EF'],
     ];
-    $agent = new Agent();
-    $agent->setUserAgent(Request::header('User-Agent'));
 ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" prefix="og: http://ogp.me/ns#">
@@ -71,7 +70,7 @@
         @isset ($attributes['canonical'])
             <link rel="canonical" href="{{ $attributes['canonical'] }}" />
         @endif
-        @if ($agent->isSafari())
+        @if ($is_safari)
             <style>
                 /* For Safari */
                 html, body {
