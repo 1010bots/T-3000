@@ -63,7 +63,7 @@ export default {
         },
         // G. Chip colors
         {
-            pattern: /^bg-gr-\S+-500\/10$/gi,
+            pattern: /^bg-gr-\S+-500\/50$/gi,
         },
     ],
     theme: {
