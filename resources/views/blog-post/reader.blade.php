@@ -45,10 +45,15 @@
             if (count($url_parts) == 0) continue;
             foreach ($meta['value']['sizes'] as $type => $size) {
                 if ($type == 'thumbnail') continue;
-                if ($type == 'post-thumbnail') $cover_image_og = $url_parts[1] . '/wp-content/uploads/' . $url_parts[2] . '/' . $url_parts[3] . '/' . $size['file'];
+                if ($cover_image_og == null && $type == 'post-thumbnail') $cover_image_og = $url_parts[1] . '/wp-content/uploads/' . $url_parts[2] . '/' . $url_parts[3] . '/' . $size['file'];
+                if ($cover_image_og == null && $type == 'medium_large') $cover_image_og = $url_parts[1] . '/wp-content/uploads/' . $url_parts[2] . '/' . $url_parts[3] . '/' . $size['file'];
+                if ($cover_image_og == null && $type == 'medium') $cover_image_og = $url_parts[1] . '/wp-content/uploads/' . $url_parts[2] . '/' . $url_parts[3] . '/' . $size['file'];
                 $cover_image_srcset[$size['width']] = $url_parts[1] . '/wp-content/uploads/' . $url_parts[2] . '/' . $url_parts[3] . '/' . $size['file'];
             }
         }
+    }
+    if ($cover_image_og == null && isset($post->image)) {
+        $cover_image_og = $post->image;
     }
 
     // Avatar of the poster
