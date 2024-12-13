@@ -9,7 +9,7 @@
     $theme_colors = ['blue', 'green', 'seafoam'];
 
     $posts = Cache::remember('home-latest-posts', 15 * 60, function () {
-        return Post::type('post')->status('publish')->where('post_title', '!=', '')->orderBy('post_date_gmt', 'desc')->take(5)->get();
+        return Post::select('post_date', 'post_name', 'post_title')->type('post')->status('publish')->where('post_title', '!=', '')->orderBy('post_date_gmt', 'desc')->take(5)->get();
     });
     $publisher = Publisher::where('slug', env('OWNER_SLUG', 'admin'))->first();
     $app_ids = [];
