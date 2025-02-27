@@ -153,6 +153,8 @@
     <body class="font-sans antialiased bg-white dark:bg-black {{ ($theme_scheme == "dark" || $was_dark) ? "dark" : ""; }}">
         <x-banner />
 
+        <x-alerts.o-week class="m-4" />
+
         <div class="flex flex-col min-h-screen bg-white dark:bg-black">
             @if (!isset($attributes['navbar']) || $attributes['navbar'] == true)
                 @component('navigation-menu', ['theme_color' => $theme_color])

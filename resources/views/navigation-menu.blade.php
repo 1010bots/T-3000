@@ -274,10 +274,10 @@
         <div class="p-4">
             <div class="flex items-end">
                 <picture class="shrink-0">
-                    <source srcset="/img/icons/bot-blue-female-neutral.avif" type="image/avif">
-                    <source srcset="/img/icons/bot-blue-female-neutral.heic" type="image/heic">
-                    <source srcset="/img/icons/bot-blue-female-neutral.webp" type="image/webp">
-                    <source srcset="/img/icons/bot-blue-female-neutral.png" type="image/png">
+                    <source src="/img/icons/bot-blue-female-neutral.avif" type="image/avif">
+                    <source src="/img/icons/bot-blue-female-neutral.heic" type="image/heic">
+                    <source src="/img/icons/bot-blue-female-neutral.webp" type="image/webp">
+                    <source src="/img/icons/bot-blue-female-neutral.png" type="image/png">
                     <img alt="Reinhart Previano K." src="/img/icons/bot-blue-female-neutral.png" height="668" width="691" class="shrink-0" style="height: 6rem; width: 6rem;">
                 </picture>
                 <x-primitives.card class="h-min mb-4 p-2 rounded-lg">
