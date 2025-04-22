@@ -5,6 +5,9 @@
     if (!$theme_color) {
         $theme_color = 'blue';
     }
+    
+    $gender_id = env('APP_SERVER_GENDER', '0');
+    $gender = $gender_id == "1" ? "male" : "female";
 ?>
 <div>
     <nav x-data="{ open: false }" class="bg-white dark:bg-black">
@@ -274,11 +277,11 @@
         <div class="p-4">
             <div class="flex items-end">
                 <picture class="shrink-0">
-                    <source src="/img/icons/bot-blue-female-neutral.avif" type="image/avif">
-                    <source src="/img/icons/bot-blue-female-neutral.heic" type="image/heic">
-                    <source src="/img/icons/bot-blue-female-neutral.webp" type="image/webp">
-                    <source src="/img/icons/bot-blue-female-neutral.png" type="image/png">
-                    <img alt="Reinhart Previano K." src="/img/icons/bot-blue-female-neutral.png" height="668" width="691" class="shrink-0" style="height: 6rem; width: 6rem;">
+                    <source src="/img/icons/bot-blue-{{ $gender }}-neutral.avif" type="image/avif">
+                    <source src="/img/icons/bot-blue-{{ $gender }}-neutral.heic" type="image/heic">
+                    <source src="/img/icons/bot-blue-{{ $gender }}-neutral.webp" type="image/webp">
+                    <source src="/img/icons/bot-blue-{{ $gender }}-neutral.png" type="image/png">
+                    <img alt="Reinhart Previano K." src="/img/icons/bot-blue-{{ $gender }}-neutral.png" height="668" width="691" class="shrink-0" style="height: 6rem; width: 6rem;">
                 </picture>
                 <x-primitives.card class="h-min mb-4 p-2 rounded-lg">
                     {{-- <strong class="text-gr-blue-600 dark:text-gr-blue-100">Shiftine</strong> --}}

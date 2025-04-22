@@ -7,6 +7,9 @@
     use Illuminate\Support\Facades\Cache;
 
     $theme_colors = ['blue', 'green', 'seafoam'];
+    
+    $gender_id = env('APP_SERVER_GENDER', '0');
+    $gender = $gender_id == "1" ? "male" : "female";
 
     $posts = Cache::remember('home-latest-posts', 15 * 60, function () {
         return Post::select('post_date', 'post_name', 'post_title')->type('post')->status('publish')->where('post_title', '!=', '')->orderBy('post_date_gmt', 'desc')->take(5)->get();
@@ -122,7 +125,7 @@
                     <source srcset="/img/hero/new-card.webp" type="image/webp" />
                     <source srcset="/img/hero/new-card.jpg" type="image/jpg" />
                     <img alt="Shift and Shiftine" src="/img/hero/new-card.jpg" width="1920" height="1080" class="w-full h-auto" /> --}}
-                    <img alt="Shift and Shiftine" src="https://blogarchive.reinhart1010.id/wp-content/uploads/2024/03/A841F65E-5D64-4D24-AD0C-986286C921A0.webp" width="1920" height="1080" class="w-full h-auto" />
+                    <img alt="Shift and Shiftine" src="{{ $gender == "female" ? "https://blogarchive.reinhart1010.id/wp-content/uploads/2025/04/file_00000000284861f7ab4b99f4b6d1458c_conversation_id67fedc1f-85e4-8005-9eb0-c1db25e5a965message_id0b9d3c30-b6f0-42a6-91e3-f9218e9e6a7e-768x512.png" : "https://blogarchive.reinhart1010.id/wp-content/uploads/2025/04/file_000000008a6061f7a4a0ed8a2a9fc4fe_conversation_id67fedc1f-85e4-8005-9eb0-c1db25e5a965message_id8aa415f9-ed79-46d4-bb31-8213646edf51-1024x683.png"}}" width="1920" height="1080" class="w-full h-auto" />
                 </picture>
                 <div class="flex flex-col p-4 flex-1 gap-2 bg-gradient-to-b">
                     <h1 class="font-sans-display text-4xl font-medium">
